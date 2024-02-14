@@ -17,6 +17,7 @@
 		8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1242432B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift */; };
 		8D12424E2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */; };
 		8D1242502B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */; };
+		8D12425D2B7D285500ED016E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D12425C2B7D285500ED016E /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		8D1242492B7D267D00ED016E /* AI Birthday calendar & remindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AI Birthday calendar & remindUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITests.swift"; sourceTree = "<group>"; };
 		8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+		8D12425C2B7D285500ED016E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				8D1242392B7D267D00ED016E /* AI_Birthday_calendar___remind.entitlements */,
 				8D12423A2B7D267D00ED016E /* Info.plist */,
 				8D1242312B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld */,
+				8D12425C2B7D285500ED016E /* .gitignore */,
 			);
 			path = "AI Birthday calendar & remind";
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D12425D2B7D285500ED016E /* .gitignore in Resources */,
 				8D1242382B7D267D00ED016E /* LaunchScreen.storyboard in Resources */,
 				8D1242352B7D267D00ED016E /* Assets.xcassets in Resources */,
 				8D1242302B7D267B00ED016E /* Main.storyboard in Resources */,
