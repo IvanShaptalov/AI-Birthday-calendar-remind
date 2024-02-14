@@ -1,0 +1,633 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1242282B7D267B00ED016E /* AppDelegate.swift */; };
+		8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12422A2B7D267B00ED016E /* SceneDelegate.swift */; };
+		8D12422D2B7D267B00ED016E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12422C2B7D267B00ED016E /* ViewController.swift */; };
+		8D1242302B7D267B00ED016E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D12422E2B7D267B00ED016E /* Main.storyboard */; };
+		8D1242332B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D1242312B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld */; };
+		8D1242352B7D267D00ED016E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1242342B7D267D00ED016E /* Assets.xcassets */; };
+		8D1242382B7D267D00ED016E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D1242362B7D267D00ED016E /* LaunchScreen.storyboard */; };
+		8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1242432B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift */; };
+		8D12424E2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */; };
+		8D1242502B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8D1242402B7D267D00ED016E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D12421D2B7D267B00ED016E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1242242B7D267B00ED016E;
+			remoteInfo = "AI Birthday calendar & remind";
+		};
+		8D12424A2B7D267D00ED016E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D12421D2B7D267B00ED016E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1242242B7D267B00ED016E;
+			remoteInfo = "AI Birthday calendar & remind";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8D1242252B7D267B00ED016E /* AI Birthday calendar & remind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Birthday calendar & remind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1242282B7D267B00ED016E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8D12422A2B7D267B00ED016E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8D12422C2B7D267B00ED016E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8D12422F2B7D267B00ED016E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8D1242322B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AI_Birthday_calendar___remind.xcdatamodel"; sourceTree = "<group>"; };
+		8D1242342B7D267D00ED016E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D1242372B7D267D00ED016E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8D1242392B7D267D00ED016E /* AI_Birthday_calendar___remind.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AI_Birthday_calendar___remind.entitlements"; sourceTree = "<group>"; };
+		8D12423A2B7D267D00ED016E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D12423F2B7D267D00ED016E /* AI Birthday calendar & remindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AI Birthday calendar & remindTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1242432B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindTests.swift"; sourceTree = "<group>"; };
+		8D1242492B7D267D00ED016E /* AI Birthday calendar & remindUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AI Birthday calendar & remindUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITests.swift"; sourceTree = "<group>"; };
+		8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D1242222B7D267B00ED016E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D12423C2B7D267D00ED016E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D1242462B7D267D00ED016E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8D12421C2B7D267B00ED016E = {
+			isa = PBXGroup;
+			children = (
+				8D1242272B7D267B00ED016E /* AI Birthday calendar & remind */,
+				8D1242422B7D267D00ED016E /* AI Birthday calendar & remindTests */,
+				8D12424C2B7D267D00ED016E /* AI Birthday calendar & remindUITests */,
+				8D1242262B7D267B00ED016E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8D1242262B7D267B00ED016E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1242252B7D267B00ED016E /* AI Birthday calendar & remind.app */,
+				8D12423F2B7D267D00ED016E /* AI Birthday calendar & remindTests.xctest */,
+				8D1242492B7D267D00ED016E /* AI Birthday calendar & remindUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8D1242272B7D267B00ED016E /* AI Birthday calendar & remind */ = {
+			isa = PBXGroup;
+			children = (
+				8D1242282B7D267B00ED016E /* AppDelegate.swift */,
+				8D12422A2B7D267B00ED016E /* SceneDelegate.swift */,
+				8D12422C2B7D267B00ED016E /* ViewController.swift */,
+				8D12422E2B7D267B00ED016E /* Main.storyboard */,
+				8D1242342B7D267D00ED016E /* Assets.xcassets */,
+				8D1242362B7D267D00ED016E /* LaunchScreen.storyboard */,
+				8D1242392B7D267D00ED016E /* AI_Birthday_calendar___remind.entitlements */,
+				8D12423A2B7D267D00ED016E /* Info.plist */,
+				8D1242312B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld */,
+			);
+			path = "AI Birthday calendar & remind";
+			sourceTree = "<group>";
+		};
+		8D1242422B7D267D00ED016E /* AI Birthday calendar & remindTests */ = {
+			isa = PBXGroup;
+			children = (
+				8D1242432B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift */,
+			);
+			path = "AI Birthday calendar & remindTests";
+			sourceTree = "<group>";
+		};
+		8D12424C2B7D267D00ED016E /* AI Birthday calendar & remindUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */,
+				8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */,
+			);
+			path = "AI Birthday calendar & remindUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1242242B7D267B00ED016E /* AI Birthday calendar & remind */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D1242532B7D267D00ED016E /* Build configuration list for PBXNativeTarget "AI Birthday calendar & remind" */;
+			buildPhases = (
+				8D1242212B7D267B00ED016E /* Sources */,
+				8D1242222B7D267B00ED016E /* Frameworks */,
+				8D1242232B7D267B00ED016E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AI Birthday calendar & remind";
+			productName = "AI Birthday calendar & remind";
+			productReference = 8D1242252B7D267B00ED016E /* AI Birthday calendar & remind.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8D12423E2B7D267D00ED016E /* AI Birthday calendar & remindTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D1242562B7D267D00ED016E /* Build configuration list for PBXNativeTarget "AI Birthday calendar & remindTests" */;
+			buildPhases = (
+				8D12423B2B7D267D00ED016E /* Sources */,
+				8D12423C2B7D267D00ED016E /* Frameworks */,
+				8D12423D2B7D267D00ED016E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D1242412B7D267D00ED016E /* PBXTargetDependency */,
+			);
+			name = "AI Birthday calendar & remindTests";
+			productName = "AI Birthday calendar & remindTests";
+			productReference = 8D12423F2B7D267D00ED016E /* AI Birthday calendar & remindTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8D1242482B7D267D00ED016E /* AI Birthday calendar & remindUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D1242592B7D267D00ED016E /* Build configuration list for PBXNativeTarget "AI Birthday calendar & remindUITests" */;
+			buildPhases = (
+				8D1242452B7D267D00ED016E /* Sources */,
+				8D1242462B7D267D00ED016E /* Frameworks */,
+				8D1242472B7D267D00ED016E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D12424B2B7D267D00ED016E /* PBXTargetDependency */,
+			);
+			name = "AI Birthday calendar & remindUITests";
+			productName = "AI Birthday calendar & remindUITests";
+			productReference = 8D1242492B7D267D00ED016E /* AI Birthday calendar & remindUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8D12421D2B7D267B00ED016E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					8D1242242B7D267B00ED016E = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					8D12423E2B7D267D00ED016E = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 8D1242242B7D267B00ED016E;
+					};
+					8D1242482B7D267D00ED016E = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 8D1242242B7D267B00ED016E;
+					};
+				};
+			};
+			buildConfigurationList = 8D1242202B7D267B00ED016E /* Build configuration list for PBXProject "AI Birthday calendar & remind" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8D12421C2B7D267B00ED016E;
+			productRefGroup = 8D1242262B7D267B00ED016E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1242242B7D267B00ED016E /* AI Birthday calendar & remind */,
+				8D12423E2B7D267D00ED016E /* AI Birthday calendar & remindTests */,
+				8D1242482B7D267D00ED016E /* AI Birthday calendar & remindUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1242232B7D267B00ED016E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1242382B7D267D00ED016E /* LaunchScreen.storyboard in Resources */,
+				8D1242352B7D267D00ED016E /* Assets.xcassets in Resources */,
+				8D1242302B7D267B00ED016E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D12423D2B7D267D00ED016E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D1242472B7D267D00ED016E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D1242212B7D267B00ED016E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D12422D2B7D267B00ED016E /* ViewController.swift in Sources */,
+				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
+				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
+				8D1242332B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D12423B2B7D267D00ED016E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D1242452B7D267D00ED016E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1242502B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift in Sources */,
+				8D12424E2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8D1242412B7D267D00ED016E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1242242B7D267B00ED016E /* AI Birthday calendar & remind */;
+			targetProxy = 8D1242402B7D267D00ED016E /* PBXContainerItemProxy */;
+		};
+		8D12424B2B7D267D00ED016E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1242242B7D267B00ED016E /* AI Birthday calendar & remind */;
+			targetProxy = 8D12424A2B7D267D00ED016E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8D12422E2B7D267B00ED016E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D12422F2B7D267B00ED016E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8D1242362B7D267D00ED016E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D1242372B7D267D00ED016E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8D1242512B7D267D00ED016E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8D1242522B7D267D00ED016E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8D1242542B7D267D00ED016E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "AI Birthday calendar & remind/AI_Birthday_calendar___remind.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar---remind";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8D1242552B7D267D00ED016E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "AI Birthday calendar & remind/AI_Birthday_calendar___remind.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar---remind";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8D1242572B7D267D00ED016E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar---remindTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AI Birthday calendar & remind.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AI Birthday calendar & remind";
+			};
+			name = Debug;
+		};
+		8D1242582B7D267D00ED016E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar---remindTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AI Birthday calendar & remind.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AI Birthday calendar & remind";
+			};
+			name = Release;
+		};
+		8D12425A2B7D267D00ED016E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar---remindUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AI Birthday calendar & remind";
+			};
+			name = Debug;
+		};
+		8D12425B2B7D267D00ED016E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar---remindUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AI Birthday calendar & remind";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D1242202B7D267B00ED016E /* Build configuration list for PBXProject "AI Birthday calendar & remind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D1242512B7D267D00ED016E /* Debug */,
+				8D1242522B7D267D00ED016E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D1242532B7D267D00ED016E /* Build configuration list for PBXNativeTarget "AI Birthday calendar & remind" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D1242542B7D267D00ED016E /* Debug */,
+				8D1242552B7D267D00ED016E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D1242562B7D267D00ED016E /* Build configuration list for PBXNativeTarget "AI Birthday calendar & remindTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D1242572B7D267D00ED016E /* Debug */,
+				8D1242582B7D267D00ED016E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D1242592B7D267D00ED016E /* Build configuration list for PBXNativeTarget "AI Birthday calendar & remindUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D12425A2B7D267D00ED016E /* Debug */,
+				8D12425B2B7D267D00ED016E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8D1242312B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8D1242322B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodel */,
+			);
+			currentVersion = 8D1242322B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodel */;
+			path = "AI_Birthday_calendar___remind.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8D12421D2B7D267B00ED016E /* Project object */;
+}
