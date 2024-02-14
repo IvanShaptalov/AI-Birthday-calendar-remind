@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1242282B7D267B00ED016E /* AppDelegate.swift */; };
 		8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12422A2B7D267B00ED016E /* SceneDelegate.swift */; };
-		8D12422D2B7D267B00ED016E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12422C2B7D267B00ED016E /* ViewController.swift */; };
+		8D12422D2B7D267B00ED016E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12422C2B7D267B00ED016E /* HomeViewController.swift */; };
 		8D1242302B7D267B00ED016E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D12422E2B7D267B00ED016E /* Main.storyboard */; };
 		8D1242332B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D1242312B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld */; };
 		8D1242352B7D267D00ED016E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D1242342B7D267D00ED016E /* Assets.xcassets */; };
@@ -41,7 +41,7 @@
 		8D1242252B7D267B00ED016E /* AI Birthday calendar & remind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Birthday calendar & remind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1242282B7D267B00ED016E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D12422A2B7D267B00ED016E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8D12422C2B7D267B00ED016E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8D12422C2B7D267B00ED016E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8D12422F2B7D267B00ED016E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D1242322B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "AI_Birthday_calendar___remind.xcdatamodel"; sourceTree = "<group>"; };
 		8D1242342B7D267D00ED016E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,9 +104,16 @@
 		8D1242272B7D267B00ED016E /* AI Birthday calendar & remind */ = {
 			isa = PBXGroup;
 			children = (
+				8D1242652B7D291700ED016E /* Subscription */,
+				8D1242642B7D28DD00ED016E /* Helpers */,
+				8D1242632B7D28D200ED016E /* Extensions */,
+				8D1242622B7D28C900ED016E /* Controllers */,
+				8D1242612B7D28B600ED016E /* Network */,
+				8D1242602B7D28AF00ED016E /* Database */,
+				8D12425F2B7D28A700ED016E /* Model */,
 				8D1242282B7D267B00ED016E /* AppDelegate.swift */,
 				8D12422A2B7D267B00ED016E /* SceneDelegate.swift */,
-				8D12422C2B7D267B00ED016E /* ViewController.swift */,
+				8D12422C2B7D267B00ED016E /* HomeViewController.swift */,
 				8D12422E2B7D267B00ED016E /* Main.storyboard */,
 				8D1242342B7D267D00ED016E /* Assets.xcassets */,
 				8D1242362B7D267D00ED016E /* LaunchScreen.storyboard */,
@@ -133,6 +140,55 @@
 				8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */,
 			);
 			path = "AI Birthday calendar & remindUITests";
+			sourceTree = "<group>";
+		};
+		8D12425F2B7D28A700ED016E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8D1242602B7D28AF00ED016E /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		8D1242612B7D28B600ED016E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8D1242622B7D28C900ED016E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8D1242632B7D28D200ED016E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8D1242642B7D28DD00ED016E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8D1242652B7D291700ED016E /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Subscription;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,7 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D12422D2B7D267B00ED016E /* ViewController.swift in Sources */,
+				8D12422D2B7D267B00ED016E /* HomeViewController.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D1242332B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld in Sources */,
