@@ -67,40 +67,71 @@ class WishGeneratorClass{
         switch rule {
       
         case .birthday:
-            self.title = "1"
-            self.description = "1"
+            self.title = "Birthdays"
+            self.description = "Spark Joy with Personalized Greetings for Loved Ones and More!"
             self.backgroundImagePath = "1"
         case .holidays:
-            self.title = "1"
-            self.description = "1"
+            self.title = "Holidays"
+            self.description = "Create Memorable Holiday Greetings for Your Friends and Family"
             self.backgroundImagePath = "1"
         case .anniversaries:
-            self.title = "1"
-            self.description = "1"
+            self.title = "Anniversaries"
+            self.description = "Compose heartwarming messages to Celebrate Life`s Special Milestones!"
             self.backgroundImagePath = "1"
         case .wordsOfLove:
-            self.title = "1"
-            self.description = "1"
+            self.title = "Words of Love"
+            self.description = "Let your heart's song be heard through romantic messages"
             self.backgroundImagePath = "1"
         case .toasts:
-            self.title = "1"
-            self.description = "1"
+            self.title = "Toasts"
+            self.description = "Raise your glass with elegant toasts for every special occasion!"
             self.backgroundImagePath = "1"
-        case .inspirations:
-            self.title = "1"
-            self.description = "1"
+        case .motivation:
+            self.title = "Daily Motivation"
+            self.description = "Ignite Each Day with a Spark of Motivation"
             self.backgroundImagePath = "1"
         }
     }
 }
 
 
-enum WishGeneratorEnum {
+enum WishGeneratorEnum: String {
     case
-    birthday,
-    holidays,
-    anniversaries,
-    wordsOfLove,
-    toasts,
-    inspirations
+    birthday = "birthday",
+    holidays = "holidays",
+    anniversaries = "anniversaries",
+    wordsOfLove = "words of love",
+    toasts = "toasts",
+    motivation = "daily motivation"
+}
+
+
+// MARK: - Message style
+enum ReceiverBirthdayEnum: String{
+    case
+    friend = "friend",
+    husband = "husband",
+    wife = "wife",
+    mother = "mother",
+    father = "father",
+    girlfriend = "girlfriend",
+    boyfriend = "boyfriend",
+    brother = "brother",
+    sister = "sister",
+    cousin = "cousin",
+    otherStyle = "other style"
+}
+
+// MARK: - Receiver
+
+// MARK: - MessageStyle
+enum MessageStyle: String{
+    case
+    casual = "casual",
+    formal = "formal",
+    humorous = "humorous",
+    philosophical = "philosophical",
+    poetic = "poetic",
+    romantic = "romantic",
+    inspirational = "inspirational"
 }

@@ -111,21 +111,36 @@
         <scene sceneID="ELz-fW-wzP">
             <objects>
                 <tableViewController id="Z1O-ac-hZG" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="W6O-pX-3ie">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="W6O-pX-3ie">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Subscriptions" id="a8v-8b-cM1">
+                            <tableViewSection id="a8v-8b-cM1">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="hgX-sd-ulL">
-                                        <rect key="frame" x="0.0" y="55.333332061767578" width="393" height="44.333332061767578"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="hgX-sd-ulL">
+                                        <rect key="frame" x="0.0" y="18" width="393" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hgX-sd-ulL" id="Q4J-pD-fEB">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVg-ll-6Cf">
+                                                    <rect key="frame" x="25" y="1" width="343" height="58"/>
+                                                    <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="filled" imagePlacement="trailing" title="Upgrade to Pro" imagePadding="5">
+                                                        <imageReference key="image" image="crown.fill" catalog="system" symbolScale="small"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="QVg-ll-6Cf" secondAttribute="trailing" constant="5" id="A4r-bL-6M7"/>
+                                                <constraint firstAttribute="bottom" secondItem="QVg-ll-6Cf" secondAttribute="bottom" constant="1" id="Vyp-Qc-bua"/>
+                                                <constraint firstItem="QVg-ll-6Cf" firstAttribute="top" secondItem="Q4J-pD-fEB" secondAttribute="top" constant="1" id="Wqm-nN-tO7"/>
+                                                <constraint firstItem="QVg-ll-6Cf" firstAttribute="leading" secondItem="Q4J-pD-fEB" secondAttribute="leadingMargin" constant="5" id="i5i-SF-Bu4"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <listContentConfiguration key="contentConfiguration" text="Upgrade to Pro" secondaryText=""/>
                                         <connections>
                                             <segue destination="Sud-HQ-CKp" kind="show" id="iqh-5X-dIw"/>
                                         </connections>
@@ -135,10 +150,10 @@
                             <tableViewSection headerTitle="Settings" id="PSV-x1-ajF">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="geu-ej-ztm">
-                                        <rect key="frame" x="0.0" y="155.66666221618652" width="393" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="134" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="geu-ej-ztm" id="Tmb-Lh-RiD">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <listContentConfiguration key="contentConfiguration" text="Notifications" secondaryText="" imageToTextPadding="5">
@@ -153,10 +168,10 @@
                             <tableViewSection headerTitle="Import" id="4JS-6A-ibo">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="t2t-pE-UsV">
-                                        <rect key="frame" x="0.0" y="255.9999942779541" width="393" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="234" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t2t-pE-UsV" id="zd5-8g-FnO">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <listContentConfiguration key="contentConfiguration" text="from Contacts" secondaryText="" imageToTextPadding="5">
@@ -164,10 +179,10 @@
                                         </listContentConfiguration>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="hub-7i-jc6">
-                                        <rect key="frame" x="0.0" y="300.33332633972168" width="393" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="278" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hub-7i-jc6" id="Dj5-ej-XMD">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <listContentConfiguration key="contentConfiguration" text="from Calendar" secondaryText="" imageToTextPadding="5">
@@ -175,10 +190,10 @@
                                         </listContentConfiguration>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="JSu-8s-DYt">
-                                        <rect key="frame" x="0.0" y="344.66665840148926" width="393" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="322" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JSu-8s-DYt" id="OXF-mU-v7Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <listContentConfiguration key="contentConfiguration" text="from Text" secondaryText="" imageToTextPadding="5">
@@ -193,10 +208,10 @@
                             <tableViewSection headerTitle="Export" id="5VL-2o-HFu">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Jd1-SM-IUR">
-                                        <rect key="frame" x="0.0" y="444.99999046325684" width="393" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="422" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jd1-SM-IUR" id="OJm-sK-bby">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <listContentConfiguration key="contentConfiguration" text="as Text file" secondaryText="" imageToTextPadding="5">
@@ -207,10 +222,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="YPR-2C-lrx">
-                                        <rect key="frame" x="0.0" y="489.33332252502441" width="393" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="466" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPR-2C-lrx" id="nzi-Gn-vn4">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <listContentConfiguration key="contentConfiguration" text="as Table file" secondaryText="" image="doc.circle" catalog="system" imageToTextPadding="5"/>
@@ -223,10 +238,10 @@
                             <tableViewSection headerTitle="Promotion" id="2q3-gk-nJz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="LA8-yR-eH0">
-                                        <rect key="frame" x="0.0" y="589.66665458679199" width="393" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="566" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LA8-yR-eH0" id="mUI-yH-hss">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <listContentConfiguration key="contentConfiguration" text="Rate app" secondaryText="" imageToTextPadding="5">
@@ -234,19 +249,19 @@
                                         </listContentConfiguration>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="6vp-Ua-req">
-                                        <rect key="frame" x="0.0" y="633.99998664855957" width="393" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="610" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6vp-Ua-req" id="v4C-zs-kfm">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <listContentConfiguration key="contentConfiguration" text="Contact Us" secondaryText="" image="message.circle.fill" catalog="system" imageToTextPadding="5"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Kjl-BQ-9eT">
-                                        <rect key="frame" x="0.0" y="678.33331871032715" width="393" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="654" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kjl-BQ-9eT" id="85P-Yn-Zi0">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <listContentConfiguration key="contentConfiguration" text="Privacy Policy" secondaryText="" image="link.circle.fill" catalog="system" imageToTextPadding="5"/>
@@ -260,7 +275,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUh-bH-fVD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="958"/>
+            <point key="canvasLocation" x="649.61832061068696" y="957.74647887323954"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="QaN-xX-eEs">
@@ -576,7 +591,7 @@
                             <outlet property="delegate" destination="GOh-4u-U4Q" id="Vt4-9S-Kj0"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Wish generator" id="Heq-xq-jEN">
+                    <tabBarItem key="tabBarItem" title="Wish creator" id="Heq-xq-jEN">
                         <imageReference key="image" image="wand.and.stars" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                 </collectionViewController>
@@ -715,6 +730,7 @@
         <image name="birthday.cake" catalog="system" width="128" height="115"/>
         <image name="calendar.circle.fill" catalog="system" width="128" height="123"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
+        <image name="crown.fill" catalog="system" width="128" height="92"/>
         <image name="doc.circle" catalog="system" width="128" height="123"/>
         <image name="doc.circle.fill" catalog="system" width="128" height="123"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
