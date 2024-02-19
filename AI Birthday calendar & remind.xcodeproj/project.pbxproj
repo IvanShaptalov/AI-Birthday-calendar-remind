@@ -17,6 +17,8 @@
 		8D12424E2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */; };
 		8D1242502B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */; };
 		8D12425D2B7D285500ED016E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D12425C2B7D285500ED016E /* .gitignore */; };
+		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
+		8D7823842B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,7 @@
 		8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITests.swift"; sourceTree = "<group>"; };
 		8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		8D12425C2B7D285500ED016E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,7 @@
 		8D12425F2B7D28A700ED016E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8D7823822B8397D600E63423 /* Enumerations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +327,7 @@
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D1242332B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld in Sources */,
+				8D7823832B8397D600E63423 /* Enumerations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */,
+				8D7823842B8397D600E63423 /* Enumerations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
