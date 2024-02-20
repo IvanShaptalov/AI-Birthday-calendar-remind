@@ -107,7 +107,7 @@ enum WishGeneratorEnum: String {
 
 
 // MARK: - Message style
-enum ReceiverBirthdayEnum: String{
+enum ReceiverEnum: String{
     case
     friend = "friend",
     husband = "husband",
