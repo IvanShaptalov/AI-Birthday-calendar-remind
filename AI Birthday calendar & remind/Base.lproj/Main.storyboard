@@ -14,7 +14,7 @@
         <!--Birthdays-->
         <scene sceneID="TPe-gE-8GD">
             <objects>
-                <viewController title="Birthdays" id="PkA-LZ-FwV" sceneMemberID="viewController">
+                <viewController title="Birthdays" id="PkA-LZ-FwV" customClass="BirthdaysScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnU-9O-xI0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,25 +35,32 @@
                                 </items>
                                 <toolbarAppearance key="standardAppearance"/>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aGy-cg-BLh">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aGy-cg-BLh">
+                                <rect key="frame" x="5" y="103" width="383" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PkA-LZ-FwV" id="BaD-Co-NyR"/>
+                                    <outlet property="delegate" destination="PkA-LZ-FwV" id="guY-B6-m4O"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qnH-9K-qrr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aGy-cg-BLh" firstAttribute="leading" secondItem="qnH-9K-qrr" secondAttribute="leading" id="6hY-qq-Wl2"/>
                             <constraint firstItem="qnH-9K-qrr" firstAttribute="bottom" secondItem="aGy-cg-BLh" secondAttribute="bottom" id="SrY-8X-Itw"/>
                             <constraint firstItem="FNv-od-9sf" firstAttribute="leading" secondItem="qnH-9K-qrr" secondAttribute="leading" id="Srf-sI-xAo"/>
                             <constraint firstItem="FNv-od-9sf" firstAttribute="trailing" secondItem="qnH-9K-qrr" secondAttribute="trailing" id="Y9C-HU-Sq8"/>
+                            <constraint firstItem="aGy-cg-BLh" firstAttribute="leading" secondItem="qnH-9K-qrr" secondAttribute="leading" constant="5" id="cGp-Wy-ekp"/>
                             <constraint firstItem="FNv-od-9sf" firstAttribute="top" secondItem="qnH-9K-qrr" secondAttribute="top" id="cKT-iH-bv9"/>
+                            <constraint firstAttribute="trailing" secondItem="aGy-cg-BLh" secondAttribute="trailing" constant="5" id="jWd-zK-CuN"/>
                             <constraint firstItem="aGy-cg-BLh" firstAttribute="top" secondItem="FNv-od-9sf" secondAttribute="bottom" id="pry-Ky-0zS"/>
-                            <constraint firstItem="qnH-9K-qrr" firstAttribute="trailing" secondItem="aGy-cg-BLh" secondAttribute="trailing" id="qNR-9O-rz4"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Events" image="birthday.cake" catalog="system" id="8fG-JE-Pdl"/>
+                    <connections>
+                        <outlet property="tableEvents" destination="aGy-cg-BLh" id="tQZ-ku-C4o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWM-0t-McW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
