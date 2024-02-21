@@ -23,8 +23,6 @@
 		8D7823872B84AC1500E63423 /* MainEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823852B84AC1500E63423 /* MainEvent.swift */; };
 		8D7823892B84AE4D00E63423 /* GeneratedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823882B84AE4D00E63423 /* GeneratedMessage.swift */; };
 		8D78238A2B84AE4D00E63423 /* GeneratedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823882B84AE4D00E63423 /* GeneratedMessage.swift */; };
-		8D78238C2B84B0FD00E63423 /* JsonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78238B2B84B0FD00E63423 /* JsonExtensions.swift */; };
-		8D78238D2B84B0FD00E63423 /* JsonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78238B2B84B0FD00E63423 /* JsonExtensions.swift */; };
 		8D78238F2B84B13A00E63423 /* JsonCoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78238E2B84B13A00E63423 /* JsonCoders.swift */; };
 		8D7823902B84B13A00E63423 /* JsonCoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78238E2B84B13A00E63423 /* JsonCoders.swift */; };
 /* End PBXBuildFile section */
@@ -65,7 +63,6 @@
 		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		8D7823852B84AC1500E63423 /* MainEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvent.swift; sourceTree = "<group>"; };
 		8D7823882B84AE4D00E63423 /* GeneratedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMessage.swift; sourceTree = "<group>"; };
-		8D78238B2B84B0FD00E63423 /* JsonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonExtensions.swift; sourceTree = "<group>"; };
 		8D78238E2B84B13A00E63423 /* JsonCoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonCoders.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,7 +185,6 @@
 		8D1242632B7D28D200ED016E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8D78238B2B84B0FD00E63423 /* JsonExtensions.swift */,
 				8D78238E2B84B13A00E63423 /* JsonCoders.swift */,
 			);
 			path = Extensions;
@@ -340,7 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D78238C2B84B0FD00E63423 /* JsonExtensions.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
@@ -360,7 +355,6 @@
 				8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */,
 				8D7823902B84B13A00E63423 /* JsonCoders.swift in Sources */,
 				8D7823842B8397D600E63423 /* Enumerations.swift in Sources */,
-				8D78238D2B84B0FD00E63423 /* JsonExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Events
-enum EventTypeEnum: String {
+enum EventTypeEnum: String, Codable {
     case
     birthday = "Birthday",
     anniversary = "Anniversary",
@@ -16,13 +16,9 @@ enum EventTypeEnum: String {
 }
 
 
-class NotificateBeforeClass{
+class NotificateBeforeClass: Codable{
     var rule: NotificateBeforeEnum
-    private var dayCount: Int
-    
-    func getDayCount() -> Int {
-        return self.dayCount
-    }
+    var dayCount: Int
     
     init(rule: NotificateBeforeEnum) {
         self.rule = rule
@@ -41,10 +37,21 @@ class NotificateBeforeClass{
             self.dayCount = 7
         }
     }
+    
+    enum ConfigKeys: String, CodingKey {
+        case rule
+        case dayCount
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: ConfigKeys.self)
+        self.rule = try values.decodeIfPresent(NotificateBeforeEnum.self, forKey: .rule)!
+        self.dayCount = try values.decodeIfPresent(Int.self, forKey: .dayCount)!
+    }
 }
 
 // MARK: - Day before notification
-enum NotificateBeforeEnum: String{
+enum NotificateBeforeEnum: String, Codable{
     case
     oneDayBefore = "1 day",
     twoDaysBefore = "2 days",
@@ -95,7 +102,7 @@ class WishGeneratorClass{
 }
 
 
-enum WishGeneratorEnum: String {
+enum WishGeneratorEnum: String, Codable{
     case
     birthday = "birthday",
     holidays = "holidays",
@@ -107,7 +114,7 @@ enum WishGeneratorEnum: String {
 
 
 // MARK: - Message style
-enum ReceiverEnum: String{
+enum ReceiverEnum: String, Codable{
     case
     friend = "friend",
     husband = "husband",
@@ -125,7 +132,7 @@ enum ReceiverEnum: String{
 // MARK: - Receiver
 
 // MARK: - MessageStyle
-enum MessageStyle: String{
+enum MessageStyle: String, Codable{
     case
     casual = "casual",
     formal = "formal",
