@@ -3,7 +3,7 @@
 import XCTest
 @testable import AI_Birthday_calendar___remind
 
-final class ___FILEBASENAMEASIDENTIFIER___: XCTestCase {
+final class AI_Birthday_calendar___remind: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -32,6 +32,21 @@ final class ___FILEBASENAMEASIDENTIFIER___: XCTestCase {
         let jsonString = MainEventJsonCoder.toJson(events)
         
         let events2 = MainEventJsonCoder.fromJson(eventListJson: jsonString)
+        
+        XCTAssertEqual(events, events2)
+    }
+    
+    func testMainEventJsonAndStorage() throws {
+        MainEventStorage.reset()
+        let mainEvent1 = MainEvent(eventDate: .now, eventType: .anniversary, title: "title", rule: .twoDaysBefore, id: UUID().uuidString)
+        let mainEvent2 = MainEvent(eventDate: .now, eventType: .simpleEvent, title: "title", rule: .oneDayBefore, id: UUID().uuidString, congratulation: "aboba")
+        let mainEvent3 = MainEvent(eventDate: .now, eventType: .birthday, title: "title", rule: .fiveDaysBefore, id: UUID().uuidString)
+        
+        let events = [mainEvent1, mainEvent2, mainEvent3]
+                
+        MainEventStorage.save(events)
+        
+        let events2 = MainEventStorage.load()
         
         XCTAssertEqual(events, events2)
     }

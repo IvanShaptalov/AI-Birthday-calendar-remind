@@ -25,6 +25,18 @@
 		8D78238A2B84AE4D00E63423 /* GeneratedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823882B84AE4D00E63423 /* GeneratedMessage.swift */; };
 		8D78238F2B84B13A00E63423 /* JsonCoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78238E2B84B13A00E63423 /* JsonCoders.swift */; };
 		8D7823902B84B13A00E63423 /* JsonCoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78238E2B84B13A00E63423 /* JsonCoders.swift */; };
+		8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823922B8623E300E63423 /* StorageConfiguration.swift */; };
+		8D7823942B8623E300E63423 /* StorageConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823922B8623E300E63423 /* StorageConfiguration.swift */; };
+		8D7823962B8623EB00E63423 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823952B8623EB00E63423 /* AppConfiguration.swift */; };
+		8D7823972B8623EB00E63423 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823952B8623EB00E63423 /* AppConfiguration.swift */; };
+		8D7823992B86255B00E63423 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823982B86255B00E63423 /* Storage.swift */; };
+		8D78239A2B86255B00E63423 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823982B86255B00E63423 /* Storage.swift */; };
+		8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78239B2B86280200E63423 /* CalendarImport.swift */; };
+		8D78239D2B86280200E63423 /* CalendarImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78239B2B86280200E63423 /* CalendarImport.swift */; };
+		8D78239F2B86280E00E63423 /* ContactImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78239E2B86280E00E63423 /* ContactImport.swift */; };
+		8D7823A02B86280E00E63423 /* ContactImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78239E2B86280E00E63423 /* ContactImport.swift */; };
+		8D7823A22B86281F00E63423 /* TextImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823A12B86281F00E63423 /* TextImport.swift */; };
+		8D7823A32B86281F00E63423 /* TextImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823A12B86281F00E63423 /* TextImport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +76,12 @@
 		8D7823852B84AC1500E63423 /* MainEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvent.swift; sourceTree = "<group>"; };
 		8D7823882B84AE4D00E63423 /* GeneratedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMessage.swift; sourceTree = "<group>"; };
 		8D78238E2B84B13A00E63423 /* JsonCoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonCoders.swift; sourceTree = "<group>"; };
+		8D7823922B8623E300E63423 /* StorageConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageConfiguration.swift; sourceTree = "<group>"; };
+		8D7823952B8623EB00E63423 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		8D7823982B86255B00E63423 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		8D78239B2B86280200E63423 /* CalendarImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarImport.swift; sourceTree = "<group>"; };
+		8D78239E2B86280E00E63423 /* ContactImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactImport.swift; sourceTree = "<group>"; };
+		8D7823A12B86281F00E63423 /* TextImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +132,13 @@
 		8D1242272B7D267B00ED016E /* AI Birthday calendar & remind */ = {
 			isa = PBXGroup;
 			children = (
-				8D1242652B7D291700ED016E /* Subscription */,
+				8D7823A62B86285800E63423 /* Logic */,
+				8D7823912B8623C700E63423 /* Configuration */,
 				8D1242642B7D28DD00ED016E /* Helpers */,
-				8D1242632B7D28D200ED016E /* Extensions */,
+				8D1242632B7D28D200ED016E /* Coders */,
 				8D1242622B7D28C900ED016E /* Controllers */,
 				8D1242612B7D28B600ED016E /* Network */,
-				8D1242602B7D28AF00ED016E /* Database */,
+				8D1242602B7D28AF00ED016E /* Storage */,
 				8D12425F2B7D28A700ED016E /* Model */,
 				8D1242282B7D267B00ED016E /* AppDelegate.swift */,
 				8D12422A2B7D267B00ED016E /* SceneDelegate.swift */,
@@ -161,11 +180,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8D1242602B7D28AF00ED016E /* Database */ = {
+		8D1242602B7D28AF00ED016E /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				8D7823982B86255B00E63423 /* Storage.swift */,
 			);
-			path = Database;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		8D1242612B7D28B600ED016E /* Network */ = {
@@ -182,12 +202,12 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		8D1242632B7D28D200ED016E /* Extensions */ = {
+		8D1242632B7D28D200ED016E /* Coders */ = {
 			isa = PBXGroup;
 			children = (
 				8D78238E2B84B13A00E63423 /* JsonCoders.swift */,
 			);
-			path = Extensions;
+			path = Coders;
 			sourceTree = "<group>";
 		};
 		8D1242642B7D28DD00ED016E /* Helpers */ = {
@@ -202,6 +222,74 @@
 			children = (
 			);
 			path = Subscription;
+			sourceTree = "<group>";
+		};
+		8D7823912B8623C700E63423 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				8D7823922B8623E300E63423 /* StorageConfiguration.swift */,
+				8D7823952B8623EB00E63423 /* AppConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		8D7823A42B86282600E63423 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				8D78239B2B86280200E63423 /* CalendarImport.swift */,
+				8D78239E2B86280E00E63423 /* ContactImport.swift */,
+				8D7823A12B86281F00E63423 /* TextImport.swift */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		8D7823A52B86283200E63423 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		8D7823A62B86285800E63423 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				8D7823AA2B8628A600E63423 /* Reminders */,
+				8D7823A92B86289600E63423 /* Notifications */,
+				8D7823A82B86288F00E63423 /* ContactUs */,
+				8D1242652B7D291700ED016E /* Subscription */,
+				8D7823A72B86287F00E63423 /* AppRate */,
+				8D7823A52B86283200E63423 /* Export */,
+				8D7823A42B86282600E63423 /* Import */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		8D7823A72B86287F00E63423 /* AppRate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppRate;
+			sourceTree = "<group>";
+		};
+		8D7823A82B86288F00E63423 /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ContactUs;
+			sourceTree = "<group>";
+		};
+		8D7823A92B86289600E63423 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		8D7823AA2B8628A600E63423 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reminders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,12 +425,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
+				8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */,
 				8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */,
+				8D7823962B8623EB00E63423 /* AppConfiguration.swift in Sources */,
+				8D7823A22B86281F00E63423 /* TextImport.swift in Sources */,
+				8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */,
+				8D78239F2B86280E00E63423 /* ContactImport.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D7823892B84AE4D00E63423 /* GeneratedMessage.swift in Sources */,
 				8D78238F2B84B13A00E63423 /* JsonCoders.swift in Sources */,
 				8D1242332B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld in Sources */,
 				8D7823832B8397D600E63423 /* Enumerations.swift in Sources */,
+				8D7823992B86255B00E63423 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,11 +444,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D78239D2B86280200E63423 /* CalendarImport.swift in Sources */,
 				8D7823872B84AC1500E63423 /* MainEvent.swift in Sources */,
 				8D78238A2B84AE4D00E63423 /* GeneratedMessage.swift in Sources */,
 				8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */,
 				8D7823902B84B13A00E63423 /* JsonCoders.swift in Sources */,
+				8D7823A02B86280E00E63423 /* ContactImport.swift in Sources */,
+				8D7823942B8623E300E63423 /* StorageConfiguration.swift in Sources */,
+				8D78239A2B86255B00E63423 /* Storage.swift in Sources */,
+				8D7823972B8623EB00E63423 /* AppConfiguration.swift in Sources */,
 				8D7823842B8397D600E63423 /* Enumerations.swift in Sources */,
+				8D7823A32B86281F00E63423 /* TextImport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
