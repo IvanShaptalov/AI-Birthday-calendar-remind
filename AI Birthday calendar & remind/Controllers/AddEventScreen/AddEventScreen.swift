@@ -9,14 +9,26 @@ import UIKit
 
 let reuseIdentifierAddEventCell = "AddEventCell"
 
-class AddEventScreen: UIViewController {
+protocol MainEventBulkCreatingProtocol{
+    var bulkDelegate: (([MainEvent]) -> Void)? {get set}
+}
+
+class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
+    var bulkDelegate: (([MainEvent]) -> Void)?
+    
+    @IBAction func bulkAdd(_ sender: UIBarButtonItem) {
+        var evCopy = self.events
+        evCopy.removeAll(where: {$0.title == ""})
+        self.bulkDelegate?(evCopy)
+        self.dismiss(animated: true)
+    }
     
     var events: [MainEvent] = [MainEvent(eventType: .birthday)] {
         didSet {
             if events.last?.title != ""{
                 events.append(MainEvent(eventType: .birthday))
                 let indexPath = [IndexPath(row: events.count - 1, section: 0)]
-            
+                
                 self.tableViewAddEvents.insertRows(at: indexPath, with: .fade)
                 self.tableViewAddEvents.scrollToRow(at: indexPath.first!, at: .bottom, animated: true)
             }
@@ -66,7 +78,7 @@ extension AddEventScreen: UITableViewDataSource, UITableViewDelegate{
         cell.eventDelegate = {eve in
             self.events[indexPath.row] = eve
         }
-
+        
         return cell
     }
 }

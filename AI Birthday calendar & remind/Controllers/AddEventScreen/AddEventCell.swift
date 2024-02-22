@@ -76,7 +76,7 @@ class AddEventCell: UITableViewCell {
             
         case .birthday:
             
-            self.eventImage.image = UIImage(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [ .systemBlue]))
+            self.eventImage.image = UIImage(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [.systemBlue]))
             
             
         case .anniversary:

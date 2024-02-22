@@ -21,15 +21,7 @@ class BirthdaysScreen: UIViewController{
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        // MARK: - DELETE after crud done
-        let mainEvent1 = MainEvent(eventDate: .now, eventType: .anniversary, title: "title", id: UUID().uuidString)
-        let mainEvent2 = MainEvent(eventDate: .now, eventType: .simpleEvent, title: "title",  id: UUID().uuidString, congratulation: "aboba")
-        let mainEvent3 = MainEvent(eventDate: .now, eventType: .birthday, title: "title", id: UUID().uuidString)
-        
-        let events = [mainEvent1, mainEvent2, mainEvent3]
-        
-        mainEvents = events
-        
+               
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
     
@@ -125,5 +117,18 @@ extension BirthdaysScreen {
         
         return [actionDelete]
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "bulkAddEvent" {
+            var destination = segue.destination as! MainEventBulkCreatingProtocol
+            
+            
+            // MARK: - Word saving via delegate
+            destination.bulkDelegate = { [unowned self] eventList in
+                self.mainEvents.append(contentsOf: eventList)
+                self.tableEvents.reloadData()
+            }
+        }
     }
 }

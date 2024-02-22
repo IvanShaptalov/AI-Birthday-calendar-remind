@@ -35,7 +35,7 @@
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <connections>
                                             <action selector="addEventPressed:" destination="PkA-LZ-FwV" id="Qbr-Qt-LRA"/>
-                                            <segue destination="EN7-CC-AyB" kind="presentation" id="TFs-Sf-Sfl"/>
+                                            <segue destination="EN7-CC-AyB" kind="presentation" identifier="bulkAddEvent" id="TFs-Sf-Sfl"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -95,6 +95,9 @@
                                     <barButtonItem id="UIu-s5-Zrb">
                                         <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <connections>
+                                            <action selector="bulkAdd:" destination="EN7-CC-AyB" id="vv4-OQ-o6g"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
