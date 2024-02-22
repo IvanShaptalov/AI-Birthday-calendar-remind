@@ -8,31 +8,116 @@
 import UIKit
 let reuseIdentifier = "EventCell"
 class BirthdaysScreen: UIViewController{
-
-    @IBOutlet weak var tableEvents: UITableView!
     
+    var mainEvents: [MainEvent] = MainEventStorage.load() {
+        didSet {
+            NSLog("mainEvents > save to storage")
+            
+            MainEventStorage.save(mainEvents)
+        }
+    }
+    
+    @IBOutlet weak var tableEvents: UITableView!
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        // MARK: - DELETE after crud done
+        let mainEvent1 = MainEvent(eventDate: .now, eventType: .anniversary, title: "title", rule: .twoDaysBefore, id: UUID().uuidString)
+        let mainEvent2 = MainEvent(eventDate: .now, eventType: .simpleEvent, title: "title", rule: .oneDayBefore, id: UUID().uuidString, congratulation: "aboba")
+        let mainEvent3 = MainEvent(eventDate: .now, eventType: .birthday, title: "title", rule: .fiveDaysBefore, id: UUID().uuidString)
+        
+        let events = [mainEvent1, mainEvent2, mainEvent3]
+        
+        mainEvents = events
+        
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
+    
+    // MARK: - Edit button
+    var isEditingEvents = false
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        isEditingEvents = !isEditingEvents
+        if isEditingEvents {
+            
+            sender.image = .init(systemName: "checkmark.circle")
+            
+        } else {
+            
+            sender.image = .init(systemName: "pencil")
+            
+        }
+        self.tableEvents.setEditing(isEditingEvents, animated: true)
+    }
+    
 }
 
 extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        mainEvents.count
     }
-    
-    
     
     // MARK: - Configure cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! EventCell
+        let i = indexPath.row
+        let mEvent = self.mainEvents[i]
         
-        cell.timeLeft.text = "22 days left"
+        cell.title.text = mEvent.title
+        let df = DateFormatter(date: mEvent.eventDate)
+        
+        cell.dayAndMonth.text = df.monthAndDay()
+        cell.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
+        cell.timeLeft.text = df.timeLeftInDays()
         
         return cell
     }
     
     
+}
+
+// MARK: - event selected
+extension BirthdaysScreen {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return tableView.isEditing
+    }
+    
+    
+    // MARK: - trailing swipe
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let actions = UISwipeActionsConfiguration(actions:getActions(indexPath: indexPath))
+        return actions
+        
+    }
+    
+    // MARK: - leading swipe
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let actions = UISwipeActionsConfiguration(actions:getActions(indexPath: indexPath))
+        return actions
+    }
+    
+    private func getActions(indexPath: IndexPath) -> [UIContextualAction]{
+        let actionDelete = UIContextualAction(style: .destructive, title: "Delete") { _,_,_ in
+            self.mainEvents.remove(at: indexPath.row)
+            self.tableEvents.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        actionDelete.backgroundColor = .systemBackground
+        var img: UIImage = UIImage(systemName: "trash.fill")!.withRenderingMode(.alwaysOriginal)
+        
+        img = img.withTintColor(.red)
+        
+        actionDelete.image = img
+        
+        return [actionDelete]
+        
+    }
 }

@@ -25,6 +25,8 @@ class EventCell: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = .none
         self.pseudoContent.layer.cornerRadius = 15
+        self.oldImage = eventImage
+
         // Initialization code
     }
 
@@ -34,4 +36,8 @@ class EventCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var oldImage: UIImageView!
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+    }
 }

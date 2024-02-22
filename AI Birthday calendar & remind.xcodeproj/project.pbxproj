@@ -17,6 +17,7 @@
 		8D12424E2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */; };
 		8D1242502B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */; };
 		8D12425D2B7D285500ED016E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D12425C2B7D285500ED016E /* .gitignore */; };
+		8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7D82B873EA8006D14FA /* DateFormatter.swift */; };
 		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823842B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823852B84AC1500E63423 /* MainEvent.swift */; };
@@ -37,8 +38,6 @@
 		8D7823A02B86280E00E63423 /* ContactImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D78239E2B86280E00E63423 /* ContactImport.swift */; };
 		8D7823A22B86281F00E63423 /* TextImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823A12B86281F00E63423 /* TextImport.swift */; };
 		8D7823A32B86281F00E63423 /* TextImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823A12B86281F00E63423 /* TextImport.swift */; };
-		8D7823AC2B863BDE00E63423 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823AB2B863BDE00E63423 /* HomeScreen.swift */; };
-		8D7823AD2B863BDE00E63423 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823AB2B863BDE00E63423 /* HomeScreen.swift */; };
 		8D7823B02B863C3800E63423 /* EventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823AF2B863C3800E63423 /* EventScreen.swift */; };
 		8D7823B12B863C3800E63423 /* EventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823AF2B863C3800E63423 /* EventScreen.swift */; };
 		8D7823B42B863C5100E63423 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823B22B863C5100E63423 /* EventCell.swift */; };
@@ -80,6 +79,7 @@
 		8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITests.swift"; sourceTree = "<group>"; };
 		8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		8D12425C2B7D285500ED016E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8D28D7D82B873EA8006D14FA /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		8D7823852B84AC1500E63423 /* MainEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvent.swift; sourceTree = "<group>"; };
 		8D7823882B84AE4D00E63423 /* GeneratedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMessage.swift; sourceTree = "<group>"; };
@@ -90,7 +90,6 @@
 		8D78239B2B86280200E63423 /* CalendarImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarImport.swift; sourceTree = "<group>"; };
 		8D78239E2B86280E00E63423 /* ContactImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactImport.swift; sourceTree = "<group>"; };
 		8D7823A12B86281F00E63423 /* TextImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImport.swift; sourceTree = "<group>"; };
-		8D7823AB2B863BDE00E63423 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		8D7823AF2B863C3800E63423 /* EventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventScreen.swift; sourceTree = "<group>"; };
 		8D7823B22B863C5100E63423 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		8D7823B32B863C5100E63423 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
@@ -211,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				8D7823AE2B863C0800E63423 /* EventScreen */,
-				8D7823AB2B863BDE00E63423 /* HomeScreen.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -227,6 +225,7 @@
 		8D1242642B7D28DD00ED016E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8D28D7D82B873EA8006D14FA /* DateFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -450,9 +449,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */,
-				8D7823AC2B863BDE00E63423 /* HomeScreen.swift in Sources */,
 				8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */,
 				8D7823962B8623EB00E63423 /* AppConfiguration.swift in Sources */,
 				8D7823A22B86281F00E63423 /* TextImport.swift in Sources */,
@@ -483,7 +482,6 @@
 				8D7823A02B86280E00E63423 /* ContactImport.swift in Sources */,
 				8D7823942B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D78239A2B86255B00E63423 /* Storage.swift in Sources */,
-				8D7823AD2B863BDE00E63423 /* HomeScreen.swift in Sources */,
 				8D7823972B8623EB00E63423 /* AppConfiguration.swift in Sources */,
 				8D7823842B8397D600E63423 /* Enumerations.swift in Sources */,
 				8D7823A32B86281F00E63423 /* TextImport.swift in Sources */,

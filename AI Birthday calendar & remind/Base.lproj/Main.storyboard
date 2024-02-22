@@ -19,21 +19,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNv-od-9sf">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="FNv-od-9sf">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <items>
-                                    <barButtonItem id="2sK-Yy-rpk">
-                                        <imageReference key="image" image="tablecells" catalog="system" symbolScale="large"/>
+                                    <barButtonItem image="pencil" catalog="system" id="Rb0-eI-F1N">
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="PkA-LZ-FwV" id="0LR-T0-31I"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5fA-YM-ZdH"/>
                                     <barButtonItem title="add bday" id="lWw-Y4-4HZ">
                                         <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <connections>
                                             <segue destination="EN7-CC-AyB" kind="presentation" id="TFs-Sf-Sfl"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
-                                <toolbarAppearance key="standardAppearance"/>
+                                <toolbarAppearance key="standardAppearance" backgroundEffect="systemUltraThinMaterial"/>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aGy-cg-BLh">
                                 <rect key="frame" x="5" y="103" width="383" height="666"/>
@@ -743,10 +747,10 @@
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="link.circle.fill" catalog="system" width="128" height="123"/>
         <image name="message.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.2.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="tablecells" catalog="system" width="128" height="93"/>
         <image name="wand.and.stars" catalog="system" width="128" height="115"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
