@@ -18,6 +18,9 @@
 		8D1242502B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */; };
 		8D12425D2B7D285500ED016E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D12425C2B7D285500ED016E /* .gitignore */; };
 		8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7D82B873EA8006D14FA /* DateFormatter.swift */; };
+		8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */; };
+		8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */; };
+		8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */; };
 		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823842B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823852B84AC1500E63423 /* MainEvent.swift */; };
@@ -80,6 +83,9 @@
 		8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		8D12425C2B7D285500ED016E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8D28D7D82B873EA8006D14FA /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventCell.swift; sourceTree = "<group>"; };
+		8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventCell.xib; sourceTree = "<group>"; };
+		8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventScreen.swift; sourceTree = "<group>"; };
 		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		8D7823852B84AC1500E63423 /* MainEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvent.swift; sourceTree = "<group>"; };
 		8D7823882B84AE4D00E63423 /* GeneratedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMessage.swift; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 		8D1242622B7D28C900ED016E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D28D7DA2B87687B006D14FA /* AddEventScreen */,
 				8D7823AE2B863C0800E63423 /* EventScreen */,
 			);
 			path = Controllers;
@@ -235,6 +242,16 @@
 			children = (
 			);
 			path = Subscription;
+			sourceTree = "<group>";
+		};
+		8D28D7DA2B87687B006D14FA /* AddEventScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */,
+				8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */,
+				8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */,
+			);
+			path = AddEventScreen;
 			sourceTree = "<group>";
 		};
 		8D7823912B8623C700E63423 /* Configuration */ = {
@@ -421,6 +438,7 @@
 			files = (
 				8D12425D2B7D285500ED016E /* .gitignore in Resources */,
 				8D1242382B7D267D00ED016E /* LaunchScreen.storyboard in Resources */,
+				8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */,
 				8D1242352B7D267D00ED016E /* Assets.xcassets in Resources */,
 				8D7823B62B863C5100E63423 /* EventCell.xib in Resources */,
 				8D1242302B7D267B00ED016E /* Main.storyboard in Resources */,
@@ -449,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */,
 				8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */,
@@ -457,6 +476,7 @@
 				8D7823A22B86281F00E63423 /* TextImport.swift in Sources */,
 				8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D78239F2B86280E00E63423 /* ContactImport.swift in Sources */,
+				8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D7823892B84AE4D00E63423 /* GeneratedMessage.swift in Sources */,
 				8D78238F2B84B13A00E63423 /* JsonCoders.swift in Sources */,

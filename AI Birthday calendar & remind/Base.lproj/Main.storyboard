@@ -22,7 +22,8 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="FNv-od-9sf">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <items>
-                                    <barButtonItem image="pencil" catalog="system" id="Rb0-eI-F1N">
+                                    <barButtonItem id="Rb0-eI-F1N">
+                                        <imageReference key="image" image="pencil" catalog="system" symbolScale="large"/>
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <connections>
                                             <action selector="editButtonPressed:" destination="PkA-LZ-FwV" id="0LR-T0-31I"/>
@@ -33,6 +34,7 @@
                                         <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <connections>
+                                            <action selector="addEventPressed:" destination="PkA-LZ-FwV" id="Qbr-Qt-LRA"/>
                                             <segue destination="EN7-CC-AyB" kind="presentation" id="TFs-Sf-Sfl"/>
                                         </connections>
                                     </barButtonItem>
@@ -73,25 +75,45 @@
         <!--Add birthdays-->
         <scene sceneID="Vxm-ZD-WN3">
             <objects>
-                <viewController title="Add birthdays" id="EN7-CC-AyB" sceneMemberID="viewController">
+                <viewController title="Add birthdays" id="EN7-CC-AyB" customClass="AddEventScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Hh-u2-qf1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from  bdays + givento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjJ-4j-ROM">
-                                <rect key="frame" x="114" y="410.66666666666669" width="165" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="245" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hGc-0V-wH1">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="798"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EN7-CC-AyB" id="Kqg-bf-CYq"/>
+                                    <outlet property="delegate" destination="EN7-CC-AyB" id="d9i-xI-BoR"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNl-0M-G68">
+                                <rect key="frame" x="0.0" y="798" width="393" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="m52-hI-aYJ"/>
+                                    <barButtonItem id="UIu-s5-Zrb">
+                                        <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wTk-3e-fcW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jjJ-4j-ROM" firstAttribute="centerX" secondItem="0Hh-u2-qf1" secondAttribute="centerX" id="DZM-sj-R2I"/>
-                            <constraint firstItem="jjJ-4j-ROM" firstAttribute="centerY" secondItem="0Hh-u2-qf1" secondAttribute="centerY" id="lnX-we-2w2"/>
+                            <constraint firstItem="hGc-0V-wH1" firstAttribute="top" secondItem="wTk-3e-fcW" secondAttribute="top" id="GbG-zR-jDv"/>
+                            <constraint firstItem="uNl-0M-G68" firstAttribute="top" secondItem="hGc-0V-wH1" secondAttribute="bottom" id="NjJ-c4-ucs"/>
+                            <constraint firstItem="wTk-3e-fcW" firstAttribute="trailing" secondItem="hGc-0V-wH1" secondAttribute="trailing" id="h6Q-cx-Zo8"/>
+                            <constraint firstItem="uNl-0M-G68" firstAttribute="leading" secondItem="wTk-3e-fcW" secondAttribute="leading" id="kh2-36-RT4"/>
+                            <constraint firstItem="uNl-0M-G68" firstAttribute="bottom" secondItem="wTk-3e-fcW" secondAttribute="bottom" id="qJE-Te-JMN"/>
+                            <constraint firstItem="uNl-0M-G68" firstAttribute="trailing" secondItem="wTk-3e-fcW" secondAttribute="trailing" id="ruc-Tn-Ux8"/>
+                            <constraint firstItem="hGc-0V-wH1" firstAttribute="leading" secondItem="wTk-3e-fcW" secondAttribute="leading" id="wOT-ri-S9Y"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableViewAddEvents" destination="hGc-0V-wH1" id="alE-oW-zfB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OrM-2A-eLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

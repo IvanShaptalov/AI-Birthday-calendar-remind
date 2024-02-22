@@ -49,6 +49,12 @@ class BirthdaysScreen: UIViewController{
         self.tableEvents.setEditing(isEditingEvents, animated: true)
     }
     
+    // MARK: - Add button
+    
+    @IBAction func addEventPressed(_ sender: Any) {
+        
+    }
+    
 }
 
 extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
