@@ -19,46 +19,52 @@ protocol MainEventProtocol {
     var congratulation: String?{get set}
     
     var imagePath: String? {get set}
-    var notificationBefore: NotificateBeforeClass {get set}
-
     
-    func getImagePath(eventType rule: EventTypeEnum) -> String
+    func getImageSystemName(eventType rule: EventTypeEnum) -> String
 }
 
 
-struct MainEvent: MainEventProtocol{
+class MainEvent: MainEventProtocol, Codable{
     var id: String
     var congratulation: String?
     var eventDate: Date
-    var eventType: EventTypeEnum
+    var eventType: EventTypeEnum {
+        didSet {
+            self.imagePath = getImageSystemName(eventType: eventType)
+        }
+    }
     var title: String
     var imagePath: String?
-    var notificationBefore: NotificateBeforeClass
     
-    func getImagePath(eventType rule: EventTypeEnum) -> String {
+    func getImageSystemName(eventType rule: EventTypeEnum) -> String {
         switch rule {
         case .birthday:
-            return "birthday image"
+            return "birthday.cake.fill"
         case .anniversary:
-            return "anniversary image"
+            return "suit.heart.fill"
         case .simpleEvent:
-            return "simple event"
+            return "sparkles"
         }
     }
 
-    init(eventDate: Date, eventType :EventTypeEnum, title: String, rule: NotificateBeforeEnum, id: String, congratulation: String? = nil) {
+    init(eventDate: Date, eventType :EventTypeEnum, title: String, id: String, congratulation: String? = nil) {
         self.id = id
         self.eventDate = eventDate
         self.eventType = eventType
         self.title = title
-        self.notificationBefore = NotificateBeforeClass(rule: rule)
-        self.imagePath = getImagePath(eventType: eventType)
+        self.imagePath = getImageSystemName(eventType: eventType)
         self.congratulation = congratulation
     }
-}
-
-
-extension MainEvent: Codable {
+    
+    init(eventType: EventTypeEnum) {
+        self.id = UUID().uuidString
+        self.eventDate = .now
+        self.title = ""
+        self.eventType = eventType
+        self.imagePath = getImageSystemName(eventType: eventType)
+        self.congratulation = nil
+    }
+    
     enum ConfigKeys: String, CodingKey {
         case id
         case congratulation
@@ -69,7 +75,7 @@ extension MainEvent: Codable {
         case notificationBefore
     }
     
-    init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: ConfigKeys.self)
         self.id = try values.decodeIfPresent(String.self, forKey: .id)!
         self.congratulation = try values.decodeIfPresent(String.self, forKey: .congratulation)
@@ -77,7 +83,6 @@ extension MainEvent: Codable {
         self.eventType = try values.decodeIfPresent(EventTypeEnum.self, forKey: .eventType)!
         self.title = try values.decodeIfPresent(String.self, forKey: .title)!
         self.imagePath = try values.decodeIfPresent(String.self, forKey: .imagePath)!
-        self.notificationBefore = try values.decodeIfPresent(NotificateBeforeClass.self, forKey: .notificationBefore)!
     }
 }
 

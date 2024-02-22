@@ -22,9 +22,9 @@ class BirthdaysScreen: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: - DELETE after crud done
-        let mainEvent1 = MainEvent(eventDate: .now, eventType: .anniversary, title: "title", rule: .twoDaysBefore, id: UUID().uuidString)
-        let mainEvent2 = MainEvent(eventDate: .now, eventType: .simpleEvent, title: "title", rule: .oneDayBefore, id: UUID().uuidString, congratulation: "aboba")
-        let mainEvent3 = MainEvent(eventDate: .now, eventType: .birthday, title: "title", rule: .fiveDaysBefore, id: UUID().uuidString)
+        let mainEvent1 = MainEvent(eventDate: .now, eventType: .anniversary, title: "title", id: UUID().uuidString)
+        let mainEvent2 = MainEvent(eventDate: .now, eventType: .simpleEvent, title: "title",  id: UUID().uuidString, congratulation: "aboba")
+        let mainEvent3 = MainEvent(eventDate: .now, eventType: .birthday, title: "title", id: UUID().uuidString)
         
         let events = [mainEvent1, mainEvent2, mainEvent3]
         
