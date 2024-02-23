@@ -76,6 +76,19 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
 // MARK: - event selected
 extension BirthdaysScreen {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let editPage = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditEventScreen") as! EditEventScreen
+        // MARK: - EDITING
+        editPage.bulkDelegate = {eventList in
+            guard let ev = eventList.first else {
+                return
+            }
+            self.mainEvents[indexPath.row] = ev
+            self.tableEvents.reloadData()
+        }
+        
+        editPage.events = [self.mainEvents[indexPath.row]]
+        
+        self.present(editPage, animated: true)
         
     }
     

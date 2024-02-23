@@ -42,7 +42,7 @@
                                     <action selector="anniversaryTypeChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="yRg-nH-iix"/>
                                 </connections>
                             </segmentedControl>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dDv-dG-KgR">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDv-dG-KgR">
                                 <rect key="frame" x="20" y="139" width="246" height="34"/>
                                 <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>

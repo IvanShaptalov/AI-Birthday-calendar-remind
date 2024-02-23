@@ -33,6 +33,22 @@ class AddEventCell: UITableViewCell {
     
     var mainEvent = MainEvent(eventType: .birthday)
     
+    func setEventType(eventType: EventTypeEnum){
+        var index = 0
+        switch eventType {
+           
+        case .birthday:
+            index = 0
+        case .anniversary:
+            index = 1
+        case .simpleEvent:
+            index = 2
+        }
+        self.eventType.selectedSegmentIndex = index
+        mainEvent.eventType = eventType
+        updateImage()
+    }
+    
     private func editEvent() {
         var eventType: EventTypeEnum?
         

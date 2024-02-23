@@ -47,6 +47,7 @@
 		8D7823B52B863C5100E63423 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823B22B863C5100E63423 /* EventCell.swift */; };
 		8D7823B62B863C5100E63423 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7823B32B863C5100E63423 /* EventCell.xib */; };
 		8D7823B72B863C5100E63423 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7823B32B863C5100E63423 /* EventCell.xib */; };
+		8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9397D52B88BF2C00040031 /* EditEventScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		8D7823AF2B863C3800E63423 /* EventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventScreen.swift; sourceTree = "<group>"; };
 		8D7823B22B863C5100E63423 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		8D7823B32B863C5100E63423 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
+		8D9397D52B88BF2C00040031 /* EditEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 		8D1242622B7D28C900ED016E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D9397D42B88BEEC00040031 /* EditEventScreen */,
 				8D28D7DA2B87687B006D14FA /* AddEventScreen */,
 				8D7823AE2B863C0800E63423 /* EventScreen */,
 			);
@@ -330,6 +333,14 @@
 				8D7823B32B863C5100E63423 /* EventCell.xib */,
 			);
 			path = EventScreen;
+			sourceTree = "<group>";
+		};
+		8D9397D42B88BEEC00040031 /* EditEventScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8D9397D52B88BF2C00040031 /* EditEventScreen.swift */,
+			);
+			path = EditEventScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */,
+				8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */,
 				8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */,

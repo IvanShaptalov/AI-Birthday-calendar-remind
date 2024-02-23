@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="-1373" y="184"/>
         </scene>
-        <!--Add birthdays-->
+        <!--Add events-->
         <scene sceneID="Vxm-ZD-WN3">
             <objects>
-                <viewController title="Add birthdays" id="EN7-CC-AyB" customClass="AddEventScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add events" id="EN7-CC-AyB" customClass="AddEventScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Hh-u2-qf1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -763,6 +763,65 @@
             </objects>
             <point key="canvasLocation" x="1995" y="1696"/>
         </scene>
+        <!--Edit events-->
+        <scene sceneID="3pj-p4-Xeu">
+            <objects>
+                <viewController storyboardIdentifier="EditEventScreen" title="Edit events" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fbt-j8-CEz" customClass="EditEventScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HxF-eq-NkF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="280" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bGM-0K-gp6">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fbt-j8-CEz" id="GMr-Ff-rrp"/>
+                                    <outlet property="delegate" destination="fbt-j8-CEz" id="A4w-lA-ool"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcH-nD-xjT">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <items>
+                                    <barButtonItem title="cancel" id="01n-cl-csK">
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <connections>
+                                            <action selector="cancel:" destination="fbt-j8-CEz" id="U2K-z5-adN"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="e0u-kM-ImM"/>
+                                    <barButtonItem id="p22-Qd-mpP">
+                                        <imageReference key="image" image="pencil.circle" catalog="system" symbolScale="large"/>
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <connections>
+                                            <action selector="bulkEdit:" destination="fbt-j8-CEz" id="xgJ-sl-a9s"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9gD-qy-SWW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vcH-nD-xjT" firstAttribute="trailing" secondItem="9gD-qy-SWW" secondAttribute="trailing" id="3w8-n1-fbW"/>
+                            <constraint firstItem="vcH-nD-xjT" firstAttribute="leading" secondItem="9gD-qy-SWW" secondAttribute="leading" id="AVH-Pf-vft"/>
+                            <constraint firstItem="bGM-0K-gp6" firstAttribute="leading" secondItem="9gD-qy-SWW" secondAttribute="leading" id="Dfs-co-Kck"/>
+                            <constraint firstItem="bGM-0K-gp6" firstAttribute="top" secondItem="vcH-nD-xjT" secondAttribute="bottom" id="Gts-bq-EhH"/>
+                            <constraint firstItem="bGM-0K-gp6" firstAttribute="top" secondItem="vcH-nD-xjT" secondAttribute="bottom" id="Vrt-KJ-sHR"/>
+                            <constraint firstItem="9gD-qy-SWW" firstAttribute="bottom" secondItem="bGM-0K-gp6" secondAttribute="bottom" id="XwC-yx-e8v"/>
+                            <constraint firstItem="vcH-nD-xjT" firstAttribute="trailing" secondItem="9gD-qy-SWW" secondAttribute="trailing" id="fdw-bz-37J"/>
+                            <constraint firstItem="9gD-qy-SWW" firstAttribute="trailing" secondItem="bGM-0K-gp6" secondAttribute="trailing" id="rjD-5G-KDC"/>
+                            <constraint firstItem="vcH-nD-xjT" firstAttribute="top" secondItem="9gD-qy-SWW" secondAttribute="top" id="w6W-T8-7Cl"/>
+                            <constraint firstItem="vcH-nD-xjT" firstAttribute="leading" secondItem="9gD-qy-SWW" secondAttribute="leading" id="yTg-EE-Lwc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableViewAddEvents" destination="bGM-0K-gp6" id="6E9-SP-9S1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vdh-7C-lqc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-718" y="926"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bell.badge.circle.fill" catalog="system" width="128" height="123"/>
@@ -776,6 +835,7 @@
         <image name="link.circle.fill" catalog="system" width="128" height="123"/>
         <image name="message.circle.fill" catalog="system" width="128" height="123"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="pencil.circle" catalog="system" width="128" height="123"/>
         <image name="person.2.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
