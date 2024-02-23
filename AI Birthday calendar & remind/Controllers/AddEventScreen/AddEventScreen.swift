@@ -71,8 +71,8 @@ extension AddEventScreen: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierAddEventCell, for: indexPath) as! AddEventCell
         // reset reused cell
-        cell.titleTextField.text = events[indexPath.row].title
-        
+        cell.mainEvent = events[indexPath.row]
+        cell.setUpCell()
         NSLog("\(indexPath)")
         // update event via delegate in cell
         cell.eventDelegate = {eve in

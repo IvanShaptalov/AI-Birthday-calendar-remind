@@ -26,12 +26,24 @@ class AddEventCell: UITableViewCell {
         pseudoView.layer.cornerRadius = 15
         self.selectionStyle = .none
         
-        self.updateImage()
-        self.setUpDateFormat()
+        self.setUpCell()
         // Initialization code
     }
     
-    var mainEvent = MainEvent(eventType: .birthday)
+    var mainEvent = MainEvent(eventType: .birthday) {
+        didSet {
+            setUpCell()
+            NSLog("Cell set up")
+        }
+    }
+    
+    func setUpCell(){
+        self.titleTextField.text = self.mainEvent.title
+        self.updateImage()
+        self.setUpDateFormat()
+        setEventType(eventType: self.mainEvent.eventType)
+        self.eventDate.date = self.mainEvent.eventDate
+    }
     
     func setEventType(eventType: EventTypeEnum){
         var index = 0
@@ -74,6 +86,7 @@ class AddEventCell: UITableViewCell {
         NSLog("Editing changed")
         eventDelegate?(self.mainEvent)
     }
+    // MARK: ============================EDITING
     
     private func setUpDateFormat() {
         switch self.mainEvent.eventType {

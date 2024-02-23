@@ -41,15 +41,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NY0-QP-25D">
-                                <rect key="frame" x="458" y="17" width="29.333333333333314" height="17"/>
+                                <rect key="frame" x="453" y="17" width="29.333333333333314" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apr 17" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kL8-pn-K9F">
-                                <rect key="frame" x="458" y="39" width="70" height="24"/>
+                                <rect key="frame" x="453" y="39" width="75" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="vxX-mM-yz8"/>
+                                    <constraint firstAttribute="width" constant="75" id="vxX-mM-yz8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
