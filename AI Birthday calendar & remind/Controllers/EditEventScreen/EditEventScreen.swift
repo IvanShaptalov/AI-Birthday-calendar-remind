@@ -25,9 +25,7 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
         self.dismiss(animated: true)
     }
     
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true)
-    }
+    
     var events: [MainEvent] = []
     
     

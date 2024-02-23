@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E4225049-A69F-4581-9092-9B5F2BF91FD0"
+            uuid = "7D2BDE58-16DD-4AE7-A9D7-00E2AA068414"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AI Birthday calendar &amp; remind/Controllers/EditEventScreen/EditEventScreen.swift"
+            filePath = "AI Birthday calendar &amp; remind/Controllers/EventScreen/EventCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "setUpDates()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,7 +12,7 @@ class BirthdaysScreen: UIViewController{
     var mainEvents: [MainEvent] = MainEventStorage.load() {
         didSet {
             NSLog("mainEvents > save to storage")
-            
+            mainEvents.sort{$0.eventDate < $1.eventDate}
             MainEventStorage.save(mainEvents)
         }
     }
@@ -21,7 +21,7 @@ class BirthdaysScreen: UIViewController{
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-               
+        mainEvents.sort{$0.eventDate < $1.eventDate}
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
     
@@ -60,12 +60,13 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
         let i = indexPath.row
         let mEvent = self.mainEvents[i]
         
-        cell.title.text = mEvent.title
-        let df = DateFormatter(date: mEvent.eventDate)
-        
-        cell.dayAndMonth.text = df.monthAndDay()
-        cell.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
-        cell.timeLeft.text = df.timeLeftInDays()
+        cell.event = mEvent
+//        cell.title.text = mEvent.title
+//        let df = DateFormatterWrapper(date: mEvent.eventDate)
+//        
+//        cell.dayAndMonth.text = df.monthAndDay()
+//        cell.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
+//        cell.timeLeft.text = df.timeLeftInDays()
         
         return cell
     }

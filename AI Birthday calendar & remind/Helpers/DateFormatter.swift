@@ -8,7 +8,7 @@
 import Foundation
 
 
-class DateFormatter {
+class DateFormatterWrapper {
     var date: Date
     
     init(date: Date) {
@@ -16,14 +16,37 @@ class DateFormatter {
     }
     
     func timeLeftInDays() -> String {
-        return "22 day left"
+        let calendar = Calendar.current
+
+        let currentDate = calendar.startOfDay(for: Date())
+        let startOfDay = calendar.startOfDay(for: self.date)
+        let components = calendar.dateComponents([.day], from: currentDate, to: startOfDay)
+        guard let days = components.day else {
+            return "Date has passed"
+        }
+        
+        if days > 0 {
+            if days == 1{
+                return "\(days) day left"
+            }
+            return "\(days) days left"
+            
+        } else if days == 0 {
+            return "Today"
+        } else {
+            return "Date has passed"
+        }
     }
     
     func dayOfWeekCalendarFormat() -> String {
-        return "wed".uppercased()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E"
+        return dateFormatter.string(from: date)
     }
     
     func monthAndDay() -> String {
-        return "Apr 17"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        return dateFormatter.string(from: date)
     }
 }
