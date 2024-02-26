@@ -29,3 +29,41 @@ class MainEventStorage {
         StorageConfiguration.storage!.removeObject(forKey: StorageConfiguration.mainEvent)
     }
 }
+
+
+class SettingsStorage {
+    //MARK: - First launch
+    
+    
+    static func saveIsFirstLaunch(_ isFLaunch: Bool) {
+        StorageConfiguration.storage!.set(isFLaunch, forKey: StorageConfiguration.launchedBefore)
+    }
+    
+    static func loadIsFirstLaunch() -> Bool {
+        let isFirstLaunch = StorageConfiguration.storage!.bool(forKey: StorageConfiguration.launchedBefore)
+        
+        return isFirstLaunch
+    }
+    
+    //MARK: - Rate
+    static func saveRatedBefore(isRatedBefore: Bool) {
+        StorageConfiguration.storage!.set(isRatedBefore, forKey: StorageConfiguration.ratedBefore)
+        
+    }
+    
+    static func loadRatedBefore() -> Bool {
+        let ratedBefore = StorageConfiguration.storage!.bool(forKey: StorageConfiguration.ratedBefore)
+        return ratedBefore
+    }
+    
+    //MARK: - App version
+    
+    static func saveAppVersion(appVersion: String) {
+        StorageConfiguration.storage!.set(appVersion, forKey: StorageConfiguration.appVersion)
+    }
+    
+    static func loadAppVersion() -> String?{
+        let appVersion: String? = StorageConfiguration.storage!.string(forKey: StorageConfiguration.appVersion)
+        return appVersion
+    }
+}

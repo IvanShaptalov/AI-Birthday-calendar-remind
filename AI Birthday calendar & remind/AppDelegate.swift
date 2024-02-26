@@ -11,10 +11,22 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    private func fixFirstLaunch(){
+        NSLog("fix launch...")
+        if !AppConfiguration.launchedEarlier {
+            AppConfiguration.launchedEarlier = true
+            
+            SettingsStorage.saveIsFirstLaunch(true)
+            NSLog("first launch ✅")
+        }
+        else {
+            NSLog("second launch 🔑")
+        }
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // MARK: - First Launch
+        fixFirstLaunch()
         return true
     }
 

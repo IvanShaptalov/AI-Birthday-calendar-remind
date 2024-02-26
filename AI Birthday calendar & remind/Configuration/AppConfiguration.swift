@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+
+class AppConfiguration {
+    // MARK: - LINKS
+    static var appStoreURL: String = ""
+    static var launchedEarlier = SettingsStorage.loadIsFirstLaunch()
+}
