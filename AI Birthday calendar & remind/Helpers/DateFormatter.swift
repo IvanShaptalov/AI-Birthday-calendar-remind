@@ -15,12 +15,50 @@ class DateFormatterWrapper {
         self.date = date
     }
     
+    /// returns true if expired
+    static func isExpired(_ date: Date) -> Bool{
+        let dateComponents = DateFormatterWrapper.dateDistance(from: DateFormatterWrapper.startOfDay(.now), to: DateFormatterWrapper.startOfDay(date), components: [.day])
+        
+        guard let days = dateComponents.day else {
+            return true
+        }
+        
+        return days < 0
+    }
+    
+    static func dateDistance(from: Date, to: Date, components: Set<Calendar.Component>) -> DateComponents{
+        let calendar = Calendar.current
+        let components = calendar.dateComponents(components, from: from, to: to)
+        return components
+    }
+    
+    static func startOfDay(_ date: Date) -> Date {
+        return Calendar.current.startOfDay(for: date)
+    }
+    
+    static func updateYearToFresh(_ date: inout Date, appendYear: Bool = false) {
+        let calendar = Calendar.current
+        // set next year
+        var yearCount = 0
+        if appendYear {
+            yearCount = 1
+        }
+        
+        let updatedDate = calendar.date(byAdding: .year, value: yearCount, to: date)
+        date = updatedDate ?? date
+        
+        if isExpired(date){
+            updateYearToFresh(&date, appendYear: true)
+        }
+    }
+    
     func timeLeftInDays() -> String {
         let calendar = Calendar.current
 
         let currentDate = calendar.startOfDay(for: Date())
         let startOfDay = calendar.startOfDay(for: self.date)
-        let components = calendar.dateComponents([.day], from: currentDate, to: startOfDay)
+        let components = DateFormatterWrapper.dateDistance(from: currentDate, to: startOfDay, components: [.day])
+        
         guard let days = components.day else {
             return "Date has passed"
         }

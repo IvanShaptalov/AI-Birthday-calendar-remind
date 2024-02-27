@@ -22,6 +22,7 @@ class BirthdaysScreen: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         mainEvents.sort{$0.eventDate < $1.eventDate}
+        mainEvents = ExpiredEventUpdater.refreshExpired(mainEvents)
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
     
