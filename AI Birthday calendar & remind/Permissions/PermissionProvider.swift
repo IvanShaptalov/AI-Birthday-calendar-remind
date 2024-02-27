@@ -12,8 +12,6 @@ import UIKit
 
 class PermissionProvider {
     // MARK: - NOTIFICATION
-    static var notificationGranted: Bool = false
-    
     static let notificationCenter = UNUserNotificationCenter.current()
     
     static func registerForRemoteNotification(userDeniedNotification: ((Bool) -> Void)? = nil) {
@@ -21,7 +19,9 @@ class PermissionProvider {
         // MARK: - Check permission status
         notificationCenter.getNotificationSettings(completionHandler: { (settings) in
             // if user denied notification
-            if settings.authorizationStatus == .denied{
+            let authorizationStatus = settings.authorizationStatus
+            NSLog("\(authorizationStatus)")
+            if authorizationStatus == .denied{
                 userDeniedNotification?(true)
             }
             notificationCenter.requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
@@ -32,17 +32,14 @@ class PermissionProvider {
                         
                         if granted{
                             NSLog("notification permission: 🔔 ✅")
-                            notificationGranted = true
                         } else {
-                            notificationGranted = false
                             NSLog("not granted 🔕")
                         }
                     }
                 } else {
-                    DispatchQueue.main.async {
-                        notificationGranted = false
-                        NSLog("error 🔕")
-                    }
+                    
+                    NSLog("error 🔕")
+                    
                 }
             }
         }

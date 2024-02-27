@@ -3,4 +3,102 @@
    uuid = "2298A233-3C7D-4F8F-A724-CEE92C03A458"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "167E0D0B-961D-4DF3-BA08-48FF6F723C9F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AI Birthday calendar &amp; remind/Controllers/SettingsScreen/NotificationSettingsScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "167E0D0B-961D-4DF3-BA08-48FF6F723C9F - d029626be09eb921"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AI_Birthday_calendar___remind.NotificationSettingsScreen.viewDidLoad() -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Controllers/SettingsScreen/NotificationSettingsScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "167E0D0B-961D-4DF3-BA08-48FF6F723C9F - d029626be09eb902"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AI_Birthday_calendar___remind.NotificationSettingsScreen.viewDidLoad() -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Controllers/SettingsScreen/NotificationSettingsScreen.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F1BFD23-50C8-4E89-8959-C2129E3F2A17"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AI Birthday calendar &amp; remind/Permissions/PermissionProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "registerForRemoteNotification(userDeniedNotification:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6F1BFD23-50C8-4E89-8959-C2129E3F2A17 - fb9bb7302945034c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UNNotificationSettings) -&gt; () in static AI_Birthday_calendar___remind.PermissionProvider.registerForRemoteNotification(userDeniedNotification: Swift.Optional&lt;(Swift.Bool) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Permissions/PermissionProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "6F1BFD23-50C8-4E89-8959-C2129E3F2A17 - fb9bb7302945034c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UNNotificationSettings) -&gt; () in static AI_Birthday_calendar___remind.PermissionProvider.registerForRemoteNotification(userDeniedNotification: Swift.Optional&lt;(Swift.Bool) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Permissions/PermissionProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "412">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
