@@ -62,7 +62,6 @@ extension SettingsScreen {
         // Notifications
         if indexPath.section == 1{
             NSLog("\(indexPath.section): Notifications")
-            
             return
         }
         // Import

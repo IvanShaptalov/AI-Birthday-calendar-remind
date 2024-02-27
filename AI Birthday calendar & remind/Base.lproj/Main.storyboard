@@ -321,7 +321,7 @@
         <!--Notifications-->
         <scene sceneID="QaN-xX-eEs">
             <objects>
-                <tableViewController id="e0C-Hf-8Yj" sceneMemberID="viewController">
+                <tableViewController id="e0C-Hf-8Yj" customClass="NotificationSettingsScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="xhw-DU-MKw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -526,10 +526,6 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="e0C-Hf-8Yj" id="Wqg-wM-lH6"/>
-                            <outlet property="delegate" destination="e0C-Hf-8Yj" id="NdX-Jp-Tce"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notifications" id="Evp-S5-oZy"/>
                 </tableViewController>

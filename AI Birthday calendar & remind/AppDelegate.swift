@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // MARK: - First Launch
         fixFirstLaunch()
+        PermissionProvider.registerForRemoteNotification()
         return true
     }
 
