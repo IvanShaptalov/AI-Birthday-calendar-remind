@@ -20,11 +20,14 @@ protocol MainEventProtocol {
     
     var imagePath: String? {get set}
     
+    var notificationIds: [String] {get set}
+    
     func getImageSystemName(eventType rule: EventTypeEnum) -> String
 }
 
 
 class MainEvent: MainEventProtocol, Codable{
+    var notificationIds: [String]
     var id: String
     var congratulation: String?
     var eventDate: Date
@@ -47,11 +50,12 @@ class MainEvent: MainEventProtocol, Codable{
         }
     }
 
-    init(eventDate: Date, eventType :EventTypeEnum, title: String, id: String, congratulation: String? = nil) {
+    init(eventDate: Date, eventType :EventTypeEnum, title: String, id: String, congratulation: String? = nil, notificationIds: [String] = []) {
         self.id = id
         self.eventDate = eventDate
         self.eventType = eventType
         self.title = title
+        self.notificationIds = notificationIds
         self.imagePath = getImageSystemName(eventType: eventType)
         self.congratulation = congratulation
     }
@@ -61,6 +65,7 @@ class MainEvent: MainEventProtocol, Codable{
         self.eventDate = .now
         self.title = ""
         self.eventType = eventType
+        self.notificationIds = []
         self.imagePath = getImageSystemName(eventType: eventType)
         self.congratulation = nil
     }
@@ -73,6 +78,7 @@ class MainEvent: MainEventProtocol, Codable{
         case title
         case imagePath
         case notificationBefore
+        case notificationIds
     }
     
     required init(from decoder: Decoder) throws {
@@ -82,6 +88,7 @@ class MainEvent: MainEventProtocol, Codable{
         self.eventDate = try values.decodeIfPresent(Date.self, forKey: .eventDate)!
         self.eventType = try values.decodeIfPresent(EventTypeEnum.self, forKey: .eventType)!
         self.title = try values.decodeIfPresent(String.self, forKey: .title)!
+        self.notificationIds = try values.decodeIfPresent([String].self, forKey: .notificationIds) ?? []
         self.imagePath = try values.decodeIfPresent(String.self, forKey: .imagePath)!
     }
 }
@@ -94,6 +101,7 @@ extension MainEvent: Equatable, Hashable {
         hasher.combine(self.title)
         hasher.combine(self.imagePath)
         hasher.combine(self.eventType)
+        hasher.combine(self.notificationIds)
     }
     
     static func == (lhs: MainEvent, rhs: MainEvent) -> Bool {

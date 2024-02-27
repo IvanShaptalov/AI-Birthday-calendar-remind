@@ -46,24 +46,48 @@ class PermissionProvider {
         )
     }
     
-    
-    static func scheduleNotification() async{
-        let center = UNUserNotificationCenter.current()
+    // MARK: - Scheduling Notification
+    static func scheduleNotification(event: MainEvent) {
+        
+        // set up content
+        let content = prepareContent(event: event)
+        
+        // set up date
+        let dateComponents = prepareDate(event: event)
+        
+        // set up trigger
+        let trigger = self.prepareTrigger(event: event, dateComponents: dateComponents)
+        
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
         
         
-        // Obtain the notification settings.
-        let settings = await center.notificationSettings()
+        // Schedule the request with the system.
+        let notificationCenter = UNUserNotificationCenter.current()
         
-        
-        // Verify the authorization status.
-        guard (settings.authorizationStatus == .authorized) ||
-                (settings.authorizationStatus == .provisional) else { return }
-        
-        
-        if settings.alertSetting == .enabled {
-            // Schedule an alert-only notification.
-        } else {
-            // Schedule a notification with a badge and sound.
+        notificationCenter.add(request) {error in
+            NSLog("error while notification adding: \(String(describing: error))")
         }
+        
+    }
+    
+    private static func prepareContent(event: MainEvent) -> UNMutableNotificationContent{
+        let content = UNMutableNotificationContent()
+        content.title = "test"
+        return content
+    }
+    
+    private static func prepareDate(event: MainEvent) -> DateComponents{
+        var dateComponents = DateComponents()
+        dateComponents.calendar = Calendar.current
+        
+        dateComponents.weekday = 3  // Tuesday
+        dateComponents.hour = 14    // 14:00 hours
+        return dateComponents
+    }
+    
+    private static func prepareTrigger(event: MainEvent, dateComponents: DateComponents) -> UNCalendarNotificationTrigger{
+        return UNCalendarNotificationTrigger(
+            dateMatching: dateComponents, repeats: true)
     }
 }

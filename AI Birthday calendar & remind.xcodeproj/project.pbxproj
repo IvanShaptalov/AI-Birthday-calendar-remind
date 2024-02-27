@@ -11,6 +11,7 @@
 		8D09EC922B8C720400A10437 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC912B8C720400A10437 /* SettingsScreen.swift */; };
 		8D09EC952B8DF8B800A10437 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */; };
 		8D09EC972B8E09AC00A10437 /* NotificationSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC962B8E09AC00A10437 /* NotificationSettingsScreen.swift */; };
+		8D09EC982B8E305F00A10437 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7D82B873EA8006D14FA /* DateFormatter.swift */; };
 		8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1242282B7D267B00ED016E /* AppDelegate.swift */; };
 		8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12422A2B7D267B00ED016E /* SceneDelegate.swift */; };
 		8D1242302B7D267B00ED016E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D12422E2B7D267B00ED016E /* Main.storyboard */; };
@@ -46,7 +47,6 @@
 		8D7823A22B86281F00E63423 /* TextImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823A12B86281F00E63423 /* TextImport.swift */; };
 		8D7823A32B86281F00E63423 /* TextImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823A12B86281F00E63423 /* TextImport.swift */; };
 		8D7823B02B863C3800E63423 /* EventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823AF2B863C3800E63423 /* EventScreen.swift */; };
-		8D7823B12B863C3800E63423 /* EventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823AF2B863C3800E63423 /* EventScreen.swift */; };
 		8D7823B42B863C5100E63423 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823B22B863C5100E63423 /* EventCell.swift */; };
 		8D7823B52B863C5100E63423 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823B22B863C5100E63423 /* EventCell.swift */; };
 		8D7823B62B863C5100E63423 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7823B32B863C5100E63423 /* EventCell.xib */; };
@@ -533,11 +533,11 @@
 				8D78238A2B84AE4D00E63423 /* GeneratedMessage.swift in Sources */,
 				8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */,
 				8D7823902B84B13A00E63423 /* JsonCoders.swift in Sources */,
-				8D7823B12B863C3800E63423 /* EventScreen.swift in Sources */,
 				8D7823B52B863C5100E63423 /* EventCell.swift in Sources */,
 				8D7823A02B86280E00E63423 /* ContactImport.swift in Sources */,
 				8D7823942B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D78239A2B86255B00E63423 /* Storage.swift in Sources */,
+				8D09EC982B8E305F00A10437 /* DateFormatter.swift in Sources */,
 				8D7823972B8623EB00E63423 /* AppConfiguration.swift in Sources */,
 				8D7823842B8397D600E63423 /* Enumerations.swift in Sources */,
 				8D7823A32B86281F00E63423 /* TextImport.swift in Sources */,
