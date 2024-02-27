@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC8E2B8C604E00A10437 /* RateAppProvider.swift */; };
+		8D09EC922B8C720400A10437 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC912B8C720400A10437 /* SettingsScreen.swift */; };
+		8D09EC952B8DF8B800A10437 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */; };
 		8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1242282B7D267B00ED016E /* AppDelegate.swift */; };
 		8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12422A2B7D267B00ED016E /* SceneDelegate.swift */; };
 		8D1242302B7D267B00ED016E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D12422E2B7D267B00ED016E /* Main.storyboard */; };
@@ -70,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		8D09EC8E2B8C604E00A10437 /* RateAppProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppProvider.swift; sourceTree = "<group>"; };
+		8D09EC912B8C720400A10437 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionProvider.swift; sourceTree = "<group>"; };
 		8D1242252B7D267B00ED016E /* AI Birthday calendar & remind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Birthday calendar & remind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1242282B7D267B00ED016E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D12422A2B7D267B00ED016E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D09EC902B8C71DE00A10437 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8D09EC912B8C720400A10437 /* SettingsScreen.swift */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		8D09EC932B8DF8AA00A10437 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */,
+			);
+			path = Permissions;
+			sourceTree = "<group>";
+		};
 		8D12421C2B7D267B00ED016E = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +173,8 @@
 		8D1242272B7D267B00ED016E /* AI Birthday calendar & remind */ = {
 			isa = PBXGroup;
 			children = (
-				8D7823A62B86285800E63423 /* Logic */,
+				8D09EC932B8DF8AA00A10437 /* Permissions */,
+				8D7823A62B86285800E63423 /* Core */,
 				8D7823912B8623C700E63423 /* Configuration */,
 				8D1242642B7D28DD00ED016E /* Helpers */,
 				8D1242632B7D28D200ED016E /* Coders */,
@@ -219,6 +240,7 @@
 		8D1242622B7D28C900ED016E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D09EC902B8C71DE00A10437 /* SettingsScreen */,
 				8D9397D42B88BEEC00040031 /* EditEventScreen */,
 				8D28D7DA2B87687B006D14FA /* AddEventScreen */,
 				8D7823AE2B863C0800E63423 /* EventScreen */,
@@ -285,18 +307,17 @@
 			path = Export;
 			sourceTree = "<group>";
 		};
-		8D7823A62B86285800E63423 /* Logic */ = {
+		8D7823A62B86285800E63423 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				8D7823AA2B8628A600E63423 /* Reminders */,
 				8D7823A92B86289600E63423 /* Notifications */,
-				8D7823A82B86288F00E63423 /* ContactUs */,
 				8D1242652B7D291700ED016E /* Subscription */,
 				8D7823A72B86287F00E63423 /* AppRate */,
 				8D7823A52B86283200E63423 /* Export */,
 				8D7823A42B86282600E63423 /* Import */,
 			);
-			path = Logic;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		8D7823A72B86287F00E63423 /* AppRate */ = {
@@ -305,13 +326,6 @@
 				8D09EC8E2B8C604E00A10437 /* RateAppProvider.swift */,
 			);
 			path = AppRate;
-			sourceTree = "<group>";
-		};
-		8D7823A82B86288F00E63423 /* ContactUs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ContactUs;
 			sourceTree = "<group>";
 		};
 		8D7823A92B86289600E63423 /* Notifications */ = {
@@ -482,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */,
+				8D09EC922B8C720400A10437 /* SettingsScreen.swift in Sources */,
 				8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */,
 				8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
@@ -495,6 +510,7 @@
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,
 				8D7823892B84AE4D00E63423 /* GeneratedMessage.swift in Sources */,
+				8D09EC952B8DF8B800A10437 /* PermissionProvider.swift in Sources */,
 				8D78238F2B84B13A00E63423 /* JsonCoders.swift in Sources */,
 				8D1242332B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld in Sources */,
 				8D7823B42B863C5100E63423 /* EventCell.swift in Sources */,

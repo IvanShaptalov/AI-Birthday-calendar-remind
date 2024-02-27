@@ -25,6 +25,8 @@ class BirthdaysScreen: UIViewController{
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
     
+    
+    
     // MARK: - Edit button
     var isEditingEvents = false
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
