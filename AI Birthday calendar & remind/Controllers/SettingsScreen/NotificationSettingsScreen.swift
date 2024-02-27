@@ -9,6 +9,18 @@ import UIKit
 
 class NotificationSettingsScreen: UITableViewController {
     
+    @IBOutlet weak var notificationTime: UIDatePicker!
+    
+    // MARK: - Time for birthday and anniversary
+    @IBAction func notificationTimeSelected(_ sender: UIDatePicker) {
+    }
+    
+    // MARK: - Birthday
+    @IBOutlet weak var notificationOnBirthday: UISwitch!
+    
+    // MARK: - Anniversary
+    @IBOutlet weak var notificationOnAnniversary: UISwitch!
+    
     private func requestNotificationPermissionIfNeeded(){
         PermissionProvider.registerForRemoteNotification(userDeniedNotification: {userDeniedNotifications in
             if userDeniedNotifications {
@@ -22,7 +34,7 @@ class NotificationSettingsScreen: UITableViewController {
         })
         
     }
-    
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         requestNotificationPermissionIfNeeded()

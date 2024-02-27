@@ -12,7 +12,7 @@ enum EventTypeEnum: String, Codable {
     case
     birthday = "Birthday",
     anniversary = "Anniversary",
-    simpleEvent = "event"
+    simpleEvent = "Event"
 }
 
 

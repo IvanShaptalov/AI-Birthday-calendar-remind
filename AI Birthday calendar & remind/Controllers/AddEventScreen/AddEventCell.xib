@@ -29,14 +29,14 @@
                                 </constraints>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eGp-7F-7W5">
-                                <rect key="frame" x="28" y="93" width="230" height="32"/>
+                                <rect key="frame" x="34" y="93" width="218" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="OTJ-5x-SLR"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Birthday"/>
                                     <segment title="Anniversary"/>
-                                    <segment title="Holiday"/>
+                                    <segment title="Event"/>
                                 </segments>
                                 <connections>
                                     <action selector="anniversaryTypeChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="yRg-nH-iix"/>

@@ -344,6 +344,9 @@
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="kE3-Sw-dEh">
                                                     <rect key="frame" x="165" y="4" width="218" height="36"/>
+                                                    <connections>
+                                                        <action selector="notificationTimeSelected:" destination="e0C-Hf-8Yj" eventType="valueChanged" id="xLJ-WY-pnd"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -422,8 +425,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a3-Uq-gv9">
-                                                    <rect key="frame" x="29.999999999999993" y="11.333333333333336" width="89.333333333333314" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On Anniversary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a3-Uq-gv9">
+                                                    <rect key="frame" x="29.999999999999993" y="11.333333333333336" width="116.33333333333331" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -469,65 +472,14 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Events" id="09d-PZ-rR1">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="M0u-UY-XXC">
-                                        <rect key="frame" x="0.0" y="502.33333969116211" width="393" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M0u-UY-XXC" id="PO3-lM-gpV">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yr2-uU-eNx">
-                                                    <rect key="frame" x="29.999999999999993" y="11.333333333333336" width="89.333333333333314" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K5O-bR-1U9">
-                                                    <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
-                                                </switch>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="K5O-bR-1U9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Yr2-uU-eNx" secondAttribute="trailing" constant="8" symbolic="YES" id="D1z-km-Wcl"/>
-                                                <constraint firstItem="Yr2-uU-eNx" firstAttribute="leading" secondItem="PO3-lM-gpV" secondAttribute="leadingMargin" constant="10" id="Ep4-Q8-GcE"/>
-                                                <constraint firstItem="K5O-bR-1U9" firstAttribute="centerY" secondItem="PO3-lM-gpV" secondAttribute="centerY" id="GGE-Hc-aaL"/>
-                                                <constraint firstAttribute="trailing" secondItem="K5O-bR-1U9" secondAttribute="trailing" constant="20" id="PSo-Bd-dHC"/>
-                                                <constraint firstItem="Yr2-uU-eNx" firstAttribute="centerY" secondItem="PO3-lM-gpV" secondAttribute="centerY" id="xhh-BX-yt1"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BRo-MD-w8e">
-                                        <rect key="frame" x="0.0" y="546.00000762939453" width="393" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BRo-MD-w8e" id="68Z-v4-cIG">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Some days&gt; before" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyt-4q-jw6">
-                                                    <rect key="frame" x="30" y="11.333333333333336" width="158" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrP-Pm-HZE">
-                                                    <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
-                                                </switch>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="hyt-4q-jw6" firstAttribute="leading" secondItem="68Z-v4-cIG" secondAttribute="leadingMargin" constant="10" id="BeQ-GU-wWD"/>
-                                                <constraint firstItem="hyt-4q-jw6" firstAttribute="centerY" secondItem="68Z-v4-cIG" secondAttribute="centerY" id="GRh-Cy-tXA"/>
-                                                <constraint firstItem="qrP-Pm-HZE" firstAttribute="centerY" secondItem="68Z-v4-cIG" secondAttribute="centerY" id="eDv-zr-QLX"/>
-                                                <constraint firstItem="qrP-Pm-HZE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hyt-4q-jw6" secondAttribute="trailing" constant="8" symbolic="YES" id="mqb-hD-r9z"/>
-                                                <constraint firstAttribute="trailing" secondItem="qrP-Pm-HZE" secondAttribute="trailing" constant="20" id="utq-NJ-7aP"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notifications" id="Evp-S5-oZy"/>
+                    <connections>
+                        <outlet property="notificationOnAnniversary" destination="EEE-x9-U2y" id="XWR-iv-uLY"/>
+                        <outlet property="notificationOnBirthday" destination="fQE-CW-Yp3" id="fS6-Cn-h1z"/>
+                        <outlet property="notificationTime" destination="kE3-Sw-dEh" id="3uF-UO-pxX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpa-3K-n1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

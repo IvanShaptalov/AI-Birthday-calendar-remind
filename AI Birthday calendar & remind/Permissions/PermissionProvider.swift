@@ -47,7 +47,7 @@ class PermissionProvider {
     }
     
     // MARK: - Scheduling Notification
-    static func scheduleNotification(event: MainEvent) {
+    static func scheduleNotification(event: MainEvent) -> MainEvent{
         
         // set up content
         let content = prepareContent(event: event)
@@ -64,11 +64,13 @@ class PermissionProvider {
         
         // Schedule the request with the system.
         let notificationCenter = UNUserNotificationCenter.current()
-        
+        // Save notification id
+        event.notificationIds.append(uuidString)
         notificationCenter.add(request) {error in
             NSLog("error while notification adding: \(String(describing: error))")
         }
         
+        return event
     }
     
     private static func prepareContent(event: MainEvent) -> UNMutableNotificationContent{
@@ -89,5 +91,12 @@ class PermissionProvider {
     private static func prepareTrigger(event: MainEvent, dateComponents: DateComponents) -> UNCalendarNotificationTrigger{
         return UNCalendarNotificationTrigger(
             dateMatching: dateComponents, repeats: true)
+    }
+    
+    // MARK: - DELETING NOTIFICATION
+    private static func cancelNotifications(event: MainEvent){
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.removeDeliveredNotifications(withIdentifiers: event.notificationIds)
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: event.notificationIds)
     }
 }
