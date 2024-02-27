@@ -59,6 +59,8 @@ enum NotificateBeforeEnum: String, Codable{
     fourDaysBefore = "4 days",
     fiveDaysBefore = "5 days",
     sevenDaysBefore = "1 week"
+    
+    static let allValues = [oneDayBefore, twoDaysBefore, threeDaysBefore, fourDaysBefore, fiveDaysBefore, sevenDaysBefore]
 }
 
 
@@ -72,7 +74,7 @@ class WishGeneratorClass{
     init(rule: WishGeneratorEnum) {
         self.rule = rule
         switch rule {
-      
+            
         case .birthday:
             self.title = "Birthdays"
             self.description = "Spark Joy with Personalized Greetings for Loved Ones and More!"

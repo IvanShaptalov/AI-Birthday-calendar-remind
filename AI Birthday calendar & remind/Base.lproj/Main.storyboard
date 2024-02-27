@@ -7,6 +7,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -395,22 +396,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Some days&gt; before" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BED-EV-gu5">
-                                                    <rect key="frame" x="30" y="11.333333333333336" width="158" height="21"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvu-xx-3Gg">
+                                                    <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                </switch>
+                                                <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zx0-DG-JPX">
+                                                    <rect key="frame" x="30.000000000000007" y="4.6666666666666679" width="85.666666666666686" height="34.333333333333329"/>
+                                                    <menu key="menu" id="DY6-Jb-Ild">
+                                                        <children>
+                                                            <command title="Item 1" id="KdC-9J-tRx"/>
+                                                            <command title="Item 2" id="HmI-lz-MKL"/>
+                                                        </children>
+                                                    </menu>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="gray" title="Button" titleAlignment="leading">
+                                                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="before" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BED-EV-gu5">
+                                                    <rect key="frame" x="120.66666666666667" y="11.333333333333336" width="49.333333333333329" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvu-xx-3Gg">
-                                                    <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
-                                                </switch>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Zx0-DG-JPX" firstAttribute="centerY" secondItem="BWh-Gp-6UT" secondAttribute="centerY" id="8yl-6m-60u"/>
                                                 <constraint firstItem="zvu-xx-3Gg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BED-EV-gu5" secondAttribute="trailing" constant="8" symbolic="YES" id="I31-Ei-2JX"/>
                                                 <constraint firstItem="BED-EV-gu5" firstAttribute="centerY" secondItem="BWh-Gp-6UT" secondAttribute="centerY" id="ITm-vt-blC"/>
-                                                <constraint firstItem="BED-EV-gu5" firstAttribute="leading" secondItem="BWh-Gp-6UT" secondAttribute="leadingMargin" constant="10" id="KbF-fN-N44"/>
+                                                <constraint firstItem="BED-EV-gu5" firstAttribute="leading" secondItem="Zx0-DG-JPX" secondAttribute="trailing" constant="5" id="NFI-FJ-PfT"/>
                                                 <constraint firstAttribute="trailing" secondItem="zvu-xx-3Gg" secondAttribute="trailing" constant="20" id="ReD-WW-J22"/>
                                                 <constraint firstItem="zvu-xx-3Gg" firstAttribute="centerY" secondItem="BWh-Gp-6UT" secondAttribute="centerY" id="VxP-4O-hbU"/>
+                                                <constraint firstItem="Zx0-DG-JPX" firstAttribute="leading" secondItem="BWh-Gp-6UT" secondAttribute="leadingMargin" constant="10" id="aRI-db-vy6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -451,22 +467,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;Some days&gt; before" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X34-Xa-sfS">
-                                                    <rect key="frame" x="30" y="11.333333333333336" width="158" height="21"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwA-jq-LaO">
+                                                    <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="before" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6C-98-QVh">
+                                                    <rect key="frame" x="120.66666666666667" y="11.666666666666666" width="49.333333333333329" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwA-jq-LaO">
-                                                    <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
-                                                </switch>
+                                                <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OCe-IL-7hM">
+                                                    <rect key="frame" x="30.000000000000007" y="4.6666666666666679" width="85.666666666666686" height="34.333333333333329"/>
+                                                    <menu key="menu" id="FtD-CX-emQ">
+                                                        <children>
+                                                            <command title="Item 1" id="mZ2-C7-dd7"/>
+                                                            <command title="Item 2" id="AcX-aD-mof"/>
+                                                        </children>
+                                                    </menu>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="gray" title="Button" titleAlignment="leading">
+                                                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                    </buttonConfiguration>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="lwA-jq-LaO" secondAttribute="trailing" constant="20" id="2Qt-lr-Spa"/>
-                                                <constraint firstItem="X34-Xa-sfS" firstAttribute="centerY" secondItem="TcC-5Y-Rl3" secondAttribute="centerY" id="95G-rk-jwy"/>
-                                                <constraint firstItem="lwA-jq-LaO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X34-Xa-sfS" secondAttribute="trailing" constant="8" symbolic="YES" id="Gab-TP-oGz"/>
+                                                <constraint firstItem="OCe-IL-7hM" firstAttribute="leading" secondItem="TcC-5Y-Rl3" secondAttribute="leadingMargin" constant="10" id="3fR-9X-w6J"/>
+                                                <constraint firstItem="OCe-IL-7hM" firstAttribute="centerY" secondItem="TcC-5Y-Rl3" secondAttribute="centerY" id="985-vl-x1U"/>
                                                 <constraint firstItem="lwA-jq-LaO" firstAttribute="centerY" secondItem="TcC-5Y-Rl3" secondAttribute="centerY" id="Ja1-F9-3Mg"/>
-                                                <constraint firstItem="X34-Xa-sfS" firstAttribute="leading" secondItem="TcC-5Y-Rl3" secondAttribute="leadingMargin" constant="10" id="Kob-8f-4gh"/>
+                                                <constraint firstItem="l6C-98-QVh" firstAttribute="centerY" secondItem="TcC-5Y-Rl3" secondAttribute="centerY" id="YFn-J3-23S"/>
+                                                <constraint firstItem="l6C-98-QVh" firstAttribute="leading" secondItem="OCe-IL-7hM" secondAttribute="trailing" constant="5" id="kpA-ZJ-EAe"/>
+                                                <constraint firstItem="lwA-jq-LaO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l6C-98-QVh" secondAttribute="trailing" constant="8" symbolic="YES" id="yWL-rz-9WO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -476,6 +507,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Notifications" id="Evp-S5-oZy"/>
                     <connections>
+                        <outlet property="daysBeforeAnniversary" destination="OCe-IL-7hM" id="Rh2-Xu-7rR"/>
+                        <outlet property="daysBeforeBirthday" destination="Zx0-DG-JPX" id="WaC-NR-D98"/>
                         <outlet property="notificationOnAnniversary" destination="EEE-x9-U2y" id="XWR-iv-uLY"/>
                         <outlet property="notificationOnBirthday" destination="fQE-CW-Yp3" id="fS6-Cn-h1z"/>
                         <outlet property="notificationTime" destination="kE3-Sw-dEh" id="3uF-UO-pxX"/>
@@ -511,6 +544,15 @@
                     <view key="view" contentMode="scaleToFill" id="Bsn-YY-WJJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Working on it 👨‍💻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dK6-mp-Khu">
+                                <rect key="frame" x="32" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iTn-vP-vH5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -527,6 +569,15 @@
                     <view key="view" contentMode="scaleToFill" id="fsA-w6-mVO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Working on it 👨‍💻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sKP-1I-UFf">
+                                <rect key="frame" x="36" y="-10" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ruv-14-NEX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -543,6 +594,15 @@
                     <view key="view" contentMode="scaleToFill" id="67p-lg-fLz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Working on it 👨‍💻" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iM1-fm-uRe">
+                                <rect key="frame" x="16" y="-10" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="1H9-1w-DMd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -791,6 +851,9 @@
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
         <image name="wand.and.stars" catalog="system" width="128" height="115"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -60,7 +60,7 @@ class PermissionProvider {
         
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        
+        //!!!!CHECK PERMISSION and handle error it's very IMPORTANT
         
         // Schedule the request with the system.
         let notificationCenter = UNUserNotificationCenter.current()

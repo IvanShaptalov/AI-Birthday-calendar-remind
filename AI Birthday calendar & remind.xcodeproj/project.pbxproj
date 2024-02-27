@@ -12,6 +12,7 @@
 		8D09EC952B8DF8B800A10437 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */; };
 		8D09EC972B8E09AC00A10437 /* NotificationSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC962B8E09AC00A10437 /* NotificationSettingsScreen.swift */; };
 		8D09EC982B8E305F00A10437 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7D82B873EA8006D14FA /* DateFormatter.swift */; };
+		8D09EC9A2B8E505400A10437 /* DaysBeforePulldownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC992B8E505400A10437 /* DaysBeforePulldownButton.swift */; };
 		8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1242282B7D267B00ED016E /* AppDelegate.swift */; };
 		8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12422A2B7D267B00ED016E /* SceneDelegate.swift */; };
 		8D1242302B7D267B00ED016E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D12422E2B7D267B00ED016E /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		8D09EC912B8C720400A10437 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionProvider.swift; sourceTree = "<group>"; };
 		8D09EC962B8E09AC00A10437 /* NotificationSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsScreen.swift; sourceTree = "<group>"; };
+		8D09EC992B8E505400A10437 /* DaysBeforePulldownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysBeforePulldownButton.swift; sourceTree = "<group>"; };
 		8D1242252B7D267B00ED016E /* AI Birthday calendar & remind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Birthday calendar & remind.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D1242282B7D267B00ED016E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D12422A2B7D267B00ED016E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				8D09EC912B8C720400A10437 /* SettingsScreen.swift */,
 				8D09EC962B8E09AC00A10437 /* NotificationSettingsScreen.swift */,
+				8D09EC992B8E505400A10437 /* DaysBeforePulldownButton.swift */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				8D7823832B8397D600E63423 /* Enumerations.swift in Sources */,
 				8D7823B02B863C3800E63423 /* EventScreen.swift in Sources */,
 				8D09EC972B8E09AC00A10437 /* NotificationSettingsScreen.swift in Sources */,
+				8D09EC9A2B8E505400A10437 /* DaysBeforePulldownButton.swift in Sources */,
 				8D7823992B86255B00E63423 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

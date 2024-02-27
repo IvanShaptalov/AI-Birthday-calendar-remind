@@ -18,8 +18,30 @@ class NotificationSettingsScreen: UITableViewController {
     // MARK: - Birthday
     @IBOutlet weak var notificationOnBirthday: UISwitch!
     
+    @IBOutlet weak var daysBeforeBirthday: UIButton!
+
+    
     // MARK: - Anniversary
     @IBOutlet weak var notificationOnAnniversary: UISwitch!
+    
+    @IBOutlet weak var daysBeforeAnniversary: UIButton!
+    
+    // MARK: - ViewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        requestNotificationPermissionIfNeeded()
+        self.setUpPulldownNotificateBefore()
+        
+    }
+    
+    private func setUpPulldownNotificateBefore(){
+        DaysBeforePulldownButton.setUpDaysBefore(button: &daysBeforeBirthday, menuClosure: {action in
+                NSLog("birthday: selected \(action)")
+        })
+        DaysBeforePulldownButton.setUpDaysBefore(button: &daysBeforeAnniversary, menuClosure: {action in
+                NSLog("anniversary: selected \(action)")
+        })
+    }
     
     private func requestNotificationPermissionIfNeeded(){
         PermissionProvider.registerForRemoteNotification(userDeniedNotification: {userDeniedNotifications in
@@ -34,11 +56,7 @@ class NotificationSettingsScreen: UITableViewController {
         })
         
     }
-    // MARK: - ViewDidLoad
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        requestNotificationPermissionIfNeeded()
-    }
+   
     
     // MARK: - Table view data source
     
