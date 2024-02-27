@@ -54,10 +54,11 @@ extension EditEventScreen: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierAddEventCell, for: indexPath) as! AddEventCell
         // reset reused cell
         let mEvent = events[indexPath.row]
-        
+        cell.mainEvent = mEvent
         cell.titleTextField.text = mEvent.title
         cell.eventDate.date = mEvent.eventDate
         cell.setEventType(eventType: mEvent.eventType)
+        cell.setUpDateFormat()
         NSLog("\(indexPath)")
         // update event via delegate in cell
         cell.eventDelegate = {eve in

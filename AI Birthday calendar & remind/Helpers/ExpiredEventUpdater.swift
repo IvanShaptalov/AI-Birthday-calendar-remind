@@ -38,5 +38,15 @@ class ExpiredEventUpdater {
         return newEventList
     }
     
+    static func modifyIfAnniversary(event: inout MainEvent){
+        guard let year =  Calendar.current.dateComponents([.year], from: event.eventDate).year else {
+            return
+        }
+        NSLog("year of event: \(year)")
+        if year % 5 == 0 {
+            event.eventType = .anniversary
+        }
+    }
+    
     
 }

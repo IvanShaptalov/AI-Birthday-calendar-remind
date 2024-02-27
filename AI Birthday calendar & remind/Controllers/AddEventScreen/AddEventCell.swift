@@ -88,7 +88,7 @@ class AddEventCell: UITableViewCell {
     }
     // MARK: ============================EDITING
     
-    private func setUpDateFormat() {
+    func setUpDateFormat() {
         switch self.mainEvent.eventType {
             
         case .birthday:

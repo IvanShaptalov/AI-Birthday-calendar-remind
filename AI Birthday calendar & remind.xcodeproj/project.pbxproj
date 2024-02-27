@@ -24,6 +24,7 @@
 		8D12424E2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */; };
 		8D1242502B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */; };
 		8D12425D2B7D285500ED016E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D12425C2B7D285500ED016E /* .gitignore */; };
+		8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */; };
 		8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7D82B873EA8006D14FA /* DateFormatter.swift */; };
 		8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */; };
 		8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */; };
@@ -95,6 +96,7 @@
 		8D12424D2B7D267D00ED016E /* AI_Birthday_calendar___remindUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITests.swift"; sourceTree = "<group>"; };
 		8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		8D12425C2B7D285500ED016E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceProvider.swift; sourceTree = "<group>"; };
 		8D28D7D82B873EA8006D14FA /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventCell.swift; sourceTree = "<group>"; };
 		8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventCell.xib; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 		8D7823A92B86289600E63423 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				8D7823A22B86281F00E63423 /* TextImport.swift in Sources */,
 				8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D78239F2B86280E00E63423 /* ContactImport.swift in Sources */,
+				8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */,
 				8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,
