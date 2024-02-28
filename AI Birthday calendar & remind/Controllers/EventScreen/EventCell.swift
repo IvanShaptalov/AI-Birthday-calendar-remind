@@ -48,9 +48,16 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
             return
         }
         let df = DateFormatterWrapper(date: event!.eventDate)
-        self.timeLeft.text = df.timeLeftInDays()
-        self.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
-        self.dayAndMonth.text = df.monthAndDay()
+        if event?.eventType == .simpleEvent {
+            self.timeLeft.text = df.hourAndMinute()
+            self.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
+            self.dayAndMonth.text = df.monthAndDay()
+        } else {
+            self.timeLeft.text = df.timeLeftInDays()
+            self.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
+            self.dayAndMonth.text = df.monthAndDay()
+        }
+       
     }
     
     // MARK: - setUP Cell

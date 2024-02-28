@@ -52,6 +52,12 @@ class DateFormatterWrapper {
         }
     }
     
+    func hourAndMinute() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "H:mm"
+        return dateFormatter.string(from: date)
+    }
+    
     func timeLeftInDays() -> String {
         let calendar = Calendar.current
 
