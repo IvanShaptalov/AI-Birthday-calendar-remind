@@ -12,7 +12,7 @@ class BirthdaysScreen: UIViewController{
     var mainEvents: [MainEvent] = MainEventStorage.load() {
         didSet {
             NSLog("mainEvents > save to storage")
-            mainEvents.sort{DateFormatterWrapper.yearToCurrent($0.eventDate)  < DateFormatterWrapper.yearToCurrent($1.eventDate)}
+            mainEvents.sort{DateFormatterWrapper.yearToCurrentInEvent($0)  < DateFormatterWrapper.yearToCurrentInEvent($1)}
 //            mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0)})
             MainEventStorage.save(mainEvents)
         }
@@ -22,7 +22,7 @@ class BirthdaysScreen: UIViewController{
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainEvents.sort{DateFormatterWrapper.yearToCurrent($0.eventDate)  < DateFormatterWrapper.yearToCurrent($1.eventDate)}
+        mainEvents.sort{DateFormatterWrapper.yearToCurrentInEvent($0)  < DateFormatterWrapper.yearToCurrentInEvent($1)}
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
     

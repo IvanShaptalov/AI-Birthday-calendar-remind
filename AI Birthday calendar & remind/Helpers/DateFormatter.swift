@@ -36,13 +36,19 @@ class DateFormatterWrapper {
         return Calendar.current.startOfDay(for: date)
     }
     
-    static func yearToCurrent(_ date: Date) -> Date {
+    static func yearToCurrentInEvent(_ event: MainEvent) -> Date {
+        if event.eventType == .simpleEvent {
+            return event.eventDate
+        }
+        return updateYearToCurrent(event.eventDate)
+    }
+    
+    static private func updateYearToCurrent(_ date: Date) -> Date {
         let calendar = Calendar.current
         let year = calendar.component(.year, from: .now)
         var comps = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
         comps.setValue(year, for: .year)
         let updatedDate = calendar.date(from: comps)
-        NSLog("updatedDate: \(updatedDate)")
         return updatedDate ?? date
     }
     
@@ -52,7 +58,7 @@ class DateFormatterWrapper {
         return dateFormatter.string(from: date)
     }
     
-    func timeLeftInDays() -> String {
+    func timeLeftInDaysForEvent() -> String {
         let calendar = Calendar.current
 
         let currentDate = calendar.startOfDay(for: Date())
@@ -73,6 +79,31 @@ class DateFormatterWrapper {
             return "Today"
         } else {
             return "Date has passed"
+        }
+    }
+    
+    func yearsTurnsInDays() -> String {
+        let calendar = Calendar.current
+        let yearTurns = Calendar.current.component(.year, from: .now)-Calendar.current.component(.year, from: self.date)
+        let currentDate = calendar.startOfDay(for: Date())
+        let thisYearBirthdayDate = calendar.startOfDay(for: DateFormatterWrapper.updateYearToCurrent(self.date))
+        let components = DateFormatterWrapper.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
+        
+        guard let days = components.day else {
+            return "Date has passed"
+        }
+        
+        
+        if days > 0 {
+            if days == 1{
+                return "turns \(yearTurns) in \(days) day"
+            }
+            return "turns \(yearTurns) in \(days) days"
+            
+        } else if days == 0 {
+            return "turns \(yearTurns) today"
+        } else {
+            return "turned \(yearTurns) \(days * -1) days ago"
         }
     }
     

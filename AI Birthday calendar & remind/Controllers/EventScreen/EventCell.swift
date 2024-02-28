@@ -53,7 +53,7 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
             self.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
             self.dayAndMonth.text = df.monthAndDay()
         } else {
-            self.timeLeft.text = df.timeLeftInDays()
+            self.timeLeft.text = df.yearsTurnsInDays()
             self.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
             self.dayAndMonth.text = df.monthAndDay()
         }
