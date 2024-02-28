@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lpV-Qq-8zT">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -153,11 +153,11 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="W6O-pX-3ie">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="a8v-8b-cM1">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="hgX-sd-ulL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="hgX-sd-ulL">
                                         <rect key="frame" x="0.0" y="18" width="393" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hgX-sd-ulL" id="Q4J-pD-fEB">
@@ -183,18 +183,20 @@
                                                 <constraint firstItem="QVg-ll-6Cf" firstAttribute="leading" secondItem="Q4J-pD-fEB" secondAttribute="leadingMargin" constant="5" id="i5i-SF-Bu4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Settings" id="PSV-x1-ajF">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="geu-ej-ztm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="geu-ej-ztm">
                                         <rect key="frame" x="0.0" y="134" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="geu-ej-ztm" id="Tmb-Lh-RiD">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                         <listContentConfiguration key="contentConfiguration" text="Notifications" secondaryText="" imageToTextPadding="5">
                                             <imageReference key="image" image="bell.badge.circle.fill" catalog="system" symbolScale="large"/>
                                         </listContentConfiguration>
@@ -206,35 +208,38 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Import" id="4JS-6A-ibo">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="t2t-pE-UsV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="t2t-pE-UsV">
                                         <rect key="frame" x="0.0" y="234" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t2t-pE-UsV" id="zd5-8g-FnO">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                         <listContentConfiguration key="contentConfiguration" text="from Contacts" secondaryText="" imageToTextPadding="5">
                                             <imageReference key="image" image="person.2.circle.fill" catalog="system" symbolScale="large" renderingMode="template"/>
                                         </listContentConfiguration>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="hub-7i-jc6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="hub-7i-jc6">
                                         <rect key="frame" x="0.0" y="278" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hub-7i-jc6" id="Dj5-ej-XMD">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                         <listContentConfiguration key="contentConfiguration" text="from Calendar" secondaryText="" imageToTextPadding="5">
                                             <imageReference key="image" image="calendar.circle.fill" catalog="system" symbolScale="large"/>
                                         </listContentConfiguration>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="JSu-8s-DYt">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="JSu-8s-DYt">
                                         <rect key="frame" x="0.0" y="322" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JSu-8s-DYt" id="OXF-mU-v7Y">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                         <listContentConfiguration key="contentConfiguration" text="from Text" secondaryText="" imageToTextPadding="5">
                                             <imageReference key="image" image="doc.circle.fill" catalog="system" symbolScale="large"/>
                                         </listContentConfiguration>
@@ -246,13 +251,14 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Export" id="5VL-2o-HFu">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Jd1-SM-IUR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="Jd1-SM-IUR">
                                         <rect key="frame" x="0.0" y="422" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jd1-SM-IUR" id="OJm-sK-bby">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                         <listContentConfiguration key="contentConfiguration" text="as Text file" secondaryText="" imageToTextPadding="5">
                                             <imageReference key="image" image="doc.circle.fill" catalog="system" symbolScale="large"/>
                                         </listContentConfiguration>
@@ -260,13 +266,14 @@
                                             <segue destination="Nij-Ob-EmD" kind="presentation" id="ftw-dH-rQZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="YPR-2C-lrx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="YPR-2C-lrx">
                                         <rect key="frame" x="0.0" y="466" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YPR-2C-lrx" id="nzi-Gn-vn4">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                         <listContentConfiguration key="contentConfiguration" text="as Table file" secondaryText="" image="doc.circle" catalog="system" imageToTextPadding="5"/>
                                         <connections>
                                             <segue destination="1Ry-jn-CZM" kind="presentation" id="PLR-d1-W0I"/>
@@ -276,33 +283,36 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Promotion" id="2q3-gk-nJz">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="LA8-yR-eH0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="LA8-yR-eH0">
                                         <rect key="frame" x="0.0" y="566" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LA8-yR-eH0" id="mUI-yH-hss">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                         <listContentConfiguration key="contentConfiguration" text="Rate app" secondaryText="" imageToTextPadding="5">
                                             <imageReference key="image" image="star.circle.fill" catalog="system" symbolScale="large"/>
                                         </listContentConfiguration>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="6vp-Ua-req">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="6vp-Ua-req">
                                         <rect key="frame" x="0.0" y="610" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6vp-Ua-req" id="v4C-zs-kfm">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                         <listContentConfiguration key="contentConfiguration" text="Contact Us" secondaryText="" image="message.circle.fill" catalog="system" imageToTextPadding="5"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Kjl-BQ-9eT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="Kjl-BQ-9eT">
                                         <rect key="frame" x="0.0" y="654" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kjl-BQ-9eT" id="85P-Yn-Zi0">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
                                         <listContentConfiguration key="contentConfiguration" text="Privacy Policy" secondaryText="" image="link.circle.fill" catalog="system" imageToTextPadding="5"/>
                                     </tableViewCell>
                                 </cells>
@@ -330,7 +340,7 @@
                         <sections>
                             <tableViewSection headerTitle="Time" id="bXs-qS-iTA">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5rd-Pu-OIc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="5rd-Pu-OIc">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5rd-Pu-OIc" id="d4M-Gx-VuL">
@@ -364,7 +374,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Birthday &amp; Anniversaries" id="ghB-3U-IYw">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jx5-Ss-U71">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="jx5-Ss-U71">
                                         <rect key="frame" x="0.0" y="171.66666793823242" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jx5-Ss-U71" id="hxc-nd-i2g">
@@ -393,7 +403,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gGL-nO-oKD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="gGL-nO-oKD">
                                         <rect key="frame" x="0.0" y="215.33333587646484" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGL-nO-oKD" id="BWh-Gp-6UT">
@@ -790,19 +800,22 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tableBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
