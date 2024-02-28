@@ -36,20 +36,14 @@ class DateFormatterWrapper {
         return Calendar.current.startOfDay(for: date)
     }
     
-    static func updateYearToFresh(_ date: inout Date, appendYear: Bool = false) {
+    static func yearToCurrent(_ date: Date) -> Date {
         let calendar = Calendar.current
-        // set next year
-        var yearCount = 0
-        if appendYear {
-            yearCount = 1
-        }
-        
-        let updatedDate = calendar.date(byAdding: .year, value: yearCount, to: date)
-        date = updatedDate ?? date
-        
-        if isExpired(date){
-            updateYearToFresh(&date, appendYear: true)
-        }
+        let year = calendar.component(.year, from: .now)
+        var comps = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        comps.setValue(year, for: .year)
+        let updatedDate = calendar.date(from: comps)
+        NSLog("updatedDate: \(updatedDate)")
+        return updatedDate ?? date
     }
     
     func hourAndMinute() -> String {

@@ -184,7 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				8D09EC932B8DF8AA00A10437 /* Permissions */,
-				8D7823A62B86285800E63423 /* Core */,
+				8D7823A62B86285800E63423 /* BLogic */,
 				8D7823912B8623C700E63423 /* Configuration */,
 				8D1242642B7D28DD00ED016E /* Helpers */,
 				8D1242632B7D28D200ED016E /* Coders */,
@@ -318,7 +318,7 @@
 			path = Export;
 			sourceTree = "<group>";
 		};
-		8D7823A62B86285800E63423 /* Core */ = {
+		8D7823A62B86285800E63423 /* BLogic */ = {
 			isa = PBXGroup;
 			children = (
 				8D7823AA2B8628A600E63423 /* Reminders */,
@@ -328,7 +328,7 @@
 				8D7823A52B86283200E63423 /* Export */,
 				8D7823A42B86282600E63423 /* Import */,
 			);
-			path = Core;
+			path = BLogic;
 			sourceTree = "<group>";
 		};
 		8D7823A72B86287F00E63423 /* AppRate */ = {

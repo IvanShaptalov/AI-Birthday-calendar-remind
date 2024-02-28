@@ -8,6 +8,7 @@
 import Foundation
 import UserNotifications
 
+// MARK: - THEN TEST ALL FUNCTIONS, maybe edit main event creating
 
 class NotificationServiceProvider {
     
