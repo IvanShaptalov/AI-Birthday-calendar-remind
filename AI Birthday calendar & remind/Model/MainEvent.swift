@@ -41,6 +41,29 @@ class MainEvent: MainEventProtocol, Codable{
         return ntf as! [String]
     }
     
+    // MARK: - Set up Notifications
+    func setUpNotificationIds(){
+        if self.eventType == .simpleEvent {
+            NSLog("⚙️ set up notify rules as event 📅")
+            self.notificationEventId = NotifyCategory.Event.rawValue + UUID().uuidString
+            self.notificationSameDayId = nil
+            self.notificationDaysBeforeId = nil
+        } else {
+            NSLog("⚙️ set up notify rules: sameday: \(AppConfiguration.isNotificateSameDay)| day before: \(AppConfiguration.isNotificateDaysBefore)")
+            if AppConfiguration.isNotificateDaysBefore {
+                self.notificationDaysBeforeId = NotifyCategory.DaysBefore.rawValue + UUID().uuidString
+            } else {
+                self.notificationDaysBeforeId = nil
+            }
+            
+            if AppConfiguration.isNotificateSameDay {
+                self.notificationSameDayId = NotifyCategory.SameDay.rawValue + UUID().uuidString
+            } else {
+                self.notificationSameDayId = nil
+            }
+        }
+    }
+    
     var id: String
     var congratulation: String?
     var eventDate: Date
@@ -55,6 +78,7 @@ class MainEvent: MainEventProtocol, Codable{
     var title: String
     var imagePath: String?
     
+    // MARK: - Set up image
     func getImageSystemName(eventType rule: EventTypeEnum) -> String {
         switch rule {
         case .birthday:
@@ -66,15 +90,14 @@ class MainEvent: MainEventProtocol, Codable{
         }
     }
 
-    init(eventDate: Date, eventType :EventTypeEnum, title: String, id: String, congratulation: String? = nil, notificationEventId: String?, notificationSameDayId: String?, notificationDaysBeforeId: String?){
+    init(eventDate: Date, eventType :EventTypeEnum, title: String, id: String, congratulation: String? = nil){
         self.id = id
         self.eventDate = eventDate
         self.eventType = eventType
         self.title = title
-        self.notificationSameDayId = notificationSameDayId
-        self.notificationEventId = notificationEventId
-        self.notificationDaysBeforeId = notificationDaysBeforeId
         self.congratulation = congratulation
+        self.setUpNotificationIds()
+        self.imagePath = getImageSystemName(eventType: eventType)
     }
     
     init(eventType: EventTypeEnum) {
@@ -82,15 +105,12 @@ class MainEvent: MainEventProtocol, Codable{
         self.eventDate = .now
         self.title = ""
         self.eventType = eventType
-        if self.eventType == .simpleEvent {
-            self.notificationEventId = UUID().uuidString
-        }
-        self.notificationSameDayId = nil
-        self.notificationDaysBeforeId = nil
         self.imagePath = getImageSystemName(eventType: eventType)
         self.congratulation = nil
+        self.setUpNotificationIds()
     }
     
+    // MARK: - JSON
     enum ConfigKeys: String, CodingKey {
         case id
         case congratulation
@@ -98,7 +118,6 @@ class MainEvent: MainEventProtocol, Codable{
         case eventType
         case title
         case imagePath
-        case notificationBefore
         case notificationSameDayId
         case notificationEventId
         case notificationDaysBeforeId
@@ -114,11 +133,11 @@ class MainEvent: MainEventProtocol, Codable{
         self.notificationSameDayId = try values.decodeIfPresent(String.self, forKey: .notificationSameDayId)
         self.notificationEventId = try values.decodeIfPresent(String.self, forKey: .notificationEventId)
         self.notificationDaysBeforeId = try values.decodeIfPresent(String.self, forKey: .notificationDaysBeforeId)
-        self.imagePath = try values.decodeIfPresent(String.self, forKey: .imagePath)!
+        self.imagePath = try values.decodeIfPresent(String.self, forKey: .imagePath)
     }
 }
 
-
+// MARK: - HASH
 extension MainEvent: Equatable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.congratulation)
@@ -132,4 +151,11 @@ extension MainEvent: Equatable, Hashable {
     static func == (lhs: MainEvent, rhs: MainEvent) -> Bool {
         lhs.hashValue == rhs.hashValue
     }
+}
+
+
+enum NotifyCategory: String {
+    case Event = "eventNotify"
+    case DaysBefore = "dayBeforeNotify"
+    case SameDay = "sameDayNotify"
 }

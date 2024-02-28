@@ -23,9 +23,9 @@ final class AI_Birthday_calendar___remind: XCTestCase {
     
     // MARK: - Origin word
     func testMainEventJson() throws {
-        let mainEvent1 = MainEvent(eventDate: .now, eventType: .anniversary, title: "title", id: UUID().uuidString, notificationIds: ["djlgks"])
+        let mainEvent1 = MainEvent(eventDate: .now, eventType: .anniversary, title: "title", id: UUID().uuidString)
         let mainEvent2 = MainEvent(eventDate: .now, eventType: .simpleEvent, title: "title",  id: UUID().uuidString, congratulation: "aboba")
-        let mainEvent3 = MainEvent(eventDate: .now, eventType: .birthday, title: "title",  id: UUID().uuidString, notificationIds: ["1","2"])
+        let mainEvent3 = MainEvent(eventDate: .now, eventType: .birthday, title: "title",  id: UUID().uuidString)
         
         let events = [mainEvent1, mainEvent2, mainEvent3]
         

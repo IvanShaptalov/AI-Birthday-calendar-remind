@@ -20,6 +20,8 @@ class AppConfiguration {
         didSet {
             NSLog("🔔 new notification time : \(notificationTime)")
             SettingsNotificationStorage.saveNotificationTime(date: notificationTime)
+            MainEventRuleUpdater.updateRules()
+
         }
     }
      
@@ -30,6 +32,8 @@ class AppConfiguration {
             if notificateBeforeInDays != nil {
                 SettingsNotificationStorage.saveNotificationDaysBefore(notificateBeforeInDays!)
             }
+            MainEventRuleUpdater.updateRules()
+
         }
     }
     
@@ -40,6 +44,9 @@ class AppConfiguration {
             NSLog("🔔 is notificate days before : \(isNotificateDaysBefore)")
 
             SettingsNotificationStorage.saveIsNotificateDaysBefore(isNotificateDaysBefore)
+            
+            MainEventRuleUpdater.updateRules()
+
         }
     }
     
@@ -49,6 +56,8 @@ class AppConfiguration {
         didSet {
             NSLog("🔔 is notificate same day: \(isNotificateSameDay)")
             SettingsNotificationStorage.saveIsNotificateSameDay(isNotificateSameDay)
+            MainEventRuleUpdater.updateRules()
+
         }
     }
 }

@@ -18,21 +18,35 @@ class NotificationServiceProvider {
             
         case .birthday:
             
-            // MARK: - TODO in birhday and anniversary check scheduling
-            let sdRequest = sameDayRequest(event: event)
-            let dBeforeRequest = dayBeforeRequest(event: event)
-            self.schedule(request: sdRequest)
-            self.schedule(request: dBeforeRequest)
+            if event.notificationSameDayId != nil {
+                NSLog("⏰ notify same day")
+//                let sdRequest = sameDayRequest(event: event)
+//                self.schedule(request: sdRequest)
+            }
+            
+            if event.notificationDaysBeforeId != nil {
+                NSLog("🗿 notify day before")
+//                let dBeforeRequest = dayBeforeRequest(event: event)
+//                self.schedule(request: dBeforeRequest)
+            }
             
         case .anniversary:
-            let sdRequest = sameDayRequest(event: event)
-            let dBeforeRequest = dayBeforeRequest(event: event)
-            self.schedule(request: sdRequest)
-            self.schedule(request: dBeforeRequest)
+            if event.notificationSameDayId != nil {
+                NSLog("⏰ notify same day")
+//                let sdRequest = sameDayRequest(event: event)
+//                self.schedule(request: sdRequest)
+            }
+            
+            if event.notificationDaysBeforeId != nil {
+                NSLog("🗿 notify day before")
+//                let dBeforeRequest = dayBeforeRequest(event: event)
+//                self.schedule(request: dBeforeRequest)
+            }
             
         case .simpleEvent:
-            let request = eventRequest(event: event)
-            self.schedule(request: request)
+            NSLog("📅 notify event")
+//            let request = eventRequest(event: event)
+//            self.schedule(request: request)
         }
     }
     
@@ -141,10 +155,12 @@ class NotificationServiceProvider {
     // MARK: - DELETING NOTIFICATION
     static func cancelAllNotifications(){
         let notificationCenter = UNUserNotificationCenter.current()
+        NSLog("🧼 clear all pending notifications")
         notificationCenter.removeAllPendingNotificationRequests()
     }
     
     static func cancelNotifications(ids: [String]){
+        NSLog("🧨 cancel notifications for ids: \(ids)")
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeDeliveredNotifications(withIdentifiers: ids)
         notificationCenter.removePendingNotificationRequests(withIdentifiers: ids)

@@ -13,7 +13,11 @@ class BirthdaysScreen: UIViewController{
         didSet {
             NSLog("mainEvents > save to storage")
             mainEvents.sort{DateFormatterWrapper.yearToCurrentInEvent($0)  < DateFormatterWrapper.yearToCurrentInEvent($1)}
-//            mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0)})
+            // reschedule notifications
+            mainEvents.forEach({$0.setUpNotificationIds()})
+
+            NotificationServiceProvider.cancelAllNotifications()
+            mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0)})
             MainEventStorage.save(mainEvents)
         }
     }
@@ -119,6 +123,7 @@ extension BirthdaysScreen {
         return actions
     }
     
+    // MARK: - DELETE EVENT
     private func getActions(indexPath: IndexPath) -> [UIContextualAction]{
         let actionDelete = UIContextualAction(style: .destructive, title: "Delete") { _,_,_ in
             // remove notifications firstly
