@@ -20,20 +20,30 @@ protocol MainEventProtocol {
     
     var imagePath: String? {get set}
     
-    var notificationIds: [String] {get set}
+    var notificationSameDayId: String? {get set}
+    var notificationDaysBeforeId: String? {get set}
+    var notificationEventId: String? {get set}
     
     func getImageSystemName(eventType rule: EventTypeEnum) -> String
 }
 
 
 class MainEvent: MainEventProtocol, Codable{
-    var notificationIds: [String]
+    var notificationSameDayId: String?
+    
+    var notificationDaysBeforeId: String?
+    
+    var notificationEventId: String?
+    
     var id: String
     var congratulation: String?
     var eventDate: Date
     var eventType: EventTypeEnum {
         didSet {
             self.imagePath = getImageSystemName(eventType: eventType)
+            if eventType == .simpleEvent {
+                self.notificationEventId = UUID().uuidString
+            }
         }
     }
     var title: String
@@ -50,13 +60,14 @@ class MainEvent: MainEventProtocol, Codable{
         }
     }
 
-    init(eventDate: Date, eventType :EventTypeEnum, title: String, id: String, congratulation: String? = nil, notificationIds: [String] = []) {
+    init(eventDate: Date, eventType :EventTypeEnum, title: String, id: String, congratulation: String? = nil, notificationEventId: String?, notificationSameDayId: String?, notificationDaysBeforeId: String?){
         self.id = id
         self.eventDate = eventDate
         self.eventType = eventType
         self.title = title
-        self.notificationIds = notificationIds
-        self.imagePath = getImageSystemName(eventType: eventType)
+        self.notificationSameDayId = notificationSameDayId
+        self.notificationEventId = notificationEventId
+        self.notificationDaysBeforeId = notificationDaysBeforeId
         self.congratulation = congratulation
     }
     
@@ -65,7 +76,11 @@ class MainEvent: MainEventProtocol, Codable{
         self.eventDate = .now
         self.title = ""
         self.eventType = eventType
-        self.notificationIds = []
+        if self.eventType == .simpleEvent {
+            self.notificationEventId = UUID().uuidString
+        }
+        self.notificationSameDayId = nil
+        self.notificationDaysBeforeId = nil
         self.imagePath = getImageSystemName(eventType: eventType)
         self.congratulation = nil
     }
@@ -78,7 +93,9 @@ class MainEvent: MainEventProtocol, Codable{
         case title
         case imagePath
         case notificationBefore
-        case notificationIds
+        case notificationSameDayId
+        case notificationEventId
+        case notificationDaysBeforeId
     }
     
     required init(from decoder: Decoder) throws {
@@ -88,7 +105,9 @@ class MainEvent: MainEventProtocol, Codable{
         self.eventDate = try values.decodeIfPresent(Date.self, forKey: .eventDate)!
         self.eventType = try values.decodeIfPresent(EventTypeEnum.self, forKey: .eventType)!
         self.title = try values.decodeIfPresent(String.self, forKey: .title)!
-        self.notificationIds = try values.decodeIfPresent([String].self, forKey: .notificationIds) ?? []
+        self.notificationSameDayId = try values.decodeIfPresent(String.self, forKey: .notificationSameDayId)
+        self.notificationEventId = try values.decodeIfPresent(String.self, forKey: .notificationEventId)
+        self.notificationDaysBeforeId = try values.decodeIfPresent(String.self, forKey: .notificationDaysBeforeId)
         self.imagePath = try values.decodeIfPresent(String.self, forKey: .imagePath)!
     }
 }
@@ -101,7 +120,7 @@ extension MainEvent: Equatable, Hashable {
         hasher.combine(self.title)
         hasher.combine(self.imagePath)
         hasher.combine(self.eventType)
-        hasher.combine(self.notificationIds)
+        hasher.combine(self.notificationSameDayId)
     }
     
     static func == (lhs: MainEvent, rhs: MainEvent) -> Bool {

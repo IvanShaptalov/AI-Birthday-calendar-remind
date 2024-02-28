@@ -12,31 +12,33 @@ import UserNotifications
 class NotificationServiceProvider {
     
     // MARK: - Scheduling Notification
-    static func scheduleNotification(event: MainEvent) -> [String]{
-        if !event.notificationIds.isEmpty{
-            NSLog("event notification ids clearing: \(event.notificationIds)")
-            cancelNotifications(event: event)
+    static func scheduleEvent(event: MainEvent){
+        switch event.eventType{
+            
+        case .birthday:
+            
+            // MARK: - TODO in birhday and anniversary check scheduling
+            let sdRequest = sameDayRequest(event: event)
+            let dBeforeRequest = dayBeforeRequest(event: event)
+            self.schedule(request: sdRequest)
+            self.schedule(request: dBeforeRequest)
+            
+        case .anniversary:
+            let sdRequest = sameDayRequest(event: event)
+            let dBeforeRequest = dayBeforeRequest(event: event)
+            self.schedule(request: sdRequest)
+            self.schedule(request: dBeforeRequest)
+            
+        case .simpleEvent:
+            let request = eventRequest(event: event)
+            self.schedule(request: request)
         }
-        
-        NSLog("event notification now: \(event.notificationIds.count)")
-        // set up content
-        let content = prepareContent(event: event)
-        
-        // set up date
-        let dateComponents = prepareDate(event: event)
-        
-        // set up trigger
-        let trigger = self.prepareTrigger(event: event, dateComponents: dateComponents)
-        
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-        
-        self.rawScheduleNotification(request: request)
-        
-        return [uuidString]
     }
     
-    private static func rawScheduleNotification(request: UNNotificationRequest){
+    // MARK: - RAW REQUEST
+   
+    
+    private static func schedule(request: UNNotificationRequest){
         
         PermissionProvider.notificationCenter.getNotificationSettings(completionHandler: {settings in
             NSLog("scheduling notification 🔔")
@@ -50,27 +52,75 @@ class NotificationServiceProvider {
         )
     }
     
-    private static func prepareContent(event: MainEvent) -> UNMutableNotificationContent{
-        let content = UNMutableNotificationContent()
-        content.title = event.title
-        return content
-    }
+    // MARK: - SAME DAY EVENT
     
-    private static func prepareDate(event: MainEvent) -> DateComponents{
-        if event.eventType == .simpleEvent {
-
-            let comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: event.eventDate)
-            NSLog("next notification of \(event.title) on : \(comps)")
-            return comps
-        }
+    private static func prepareDaySameDate(event: MainEvent) -> DateComponents {
+        return DateComponents()
+    }
         
-        var dateComponents = DateComponents()
-        dateComponents.calendar = Calendar.current
-        dateComponents.weekday = 3  // Tuesday
-        dateComponents.hour = 14    // 14:00 hours
-        return dateComponents
+    static func sameDayRequest(event: MainEvent) -> UNNotificationRequest{
+        assert(event.notificationSameDayId != nil)
+        // set up content
+        let content = prepareContent(event: event)
+        
+        // set up date
+        let dateComponents = prepareEventTime(event: event)
+        
+        // set up trigger
+        let trigger = self.prepareTrigger(event: event, dateComponents: dateComponents)
+        
+        let request = UNNotificationRequest(identifier: event.notificationSameDayId!, content: content, trigger: trigger)
+        
+        return request
     }
     
+    // MARK: - DAYS BEFORE EVENT
+    
+    private static func prepareDaysBeforeDate(event: MainEvent) -> DateComponents {
+        return DateComponents()
+    }
+    
+    static func dayBeforeRequest(event: MainEvent) -> UNNotificationRequest{
+        assert(event.notificationDaysBeforeId != nil)
+        // set up content
+        let content = prepareContent(event: event)
+        
+        // set up date
+        let dateComponents = prepareEventTime(event: event)
+        
+        // set up trigger
+        let trigger = self.prepareTrigger(event: event, dateComponents: dateComponents)
+        
+        let request = UNNotificationRequest(identifier: event.notificationDaysBeforeId!, content: content, trigger: trigger)
+        
+        return request
+    }
+    
+    // MARK: - EVENT TIME
+    
+    private static func prepareEventTime(event: MainEvent) -> DateComponents{
+        let comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: event.eventDate)
+        NSLog("next event notification of \(event.title) on : \(comps)")
+        return comps
+    }
+    
+    static func eventRequest(event: MainEvent) -> UNNotificationRequest{
+        assert(event.notificationEventId != nil)
+        // set up content
+        let content = prepareContent(event: event)
+        
+        // set up date
+        let dateComponents = prepareEventTime(event: event)
+        
+        // set up trigger
+        let trigger = self.prepareTrigger(event: event, dateComponents: dateComponents)
+        
+        let request = UNNotificationRequest(identifier: event.notificationEventId!, content: content, trigger: trigger)
+        
+        return request
+    }
+    
+    // MARK: - GENERAL
     private static func prepareTrigger(event: MainEvent, dateComponents: DateComponents) -> UNCalendarNotificationTrigger{
         // don't repeat simple event
         if event.eventType == .simpleEvent {
@@ -81,10 +131,15 @@ class NotificationServiceProvider {
             dateMatching: dateComponents, repeats: true)
     }
     
+    private static func prepareContent(event: MainEvent) -> UNMutableNotificationContent{
+        let content = UNMutableNotificationContent()
+        content.title = event.title
+        return content
+    }
+    
     // MARK: - DELETING NOTIFICATION
-    static func cancelNotifications(event: MainEvent){
+    static func cancelAllNotifications(){
         let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.removeDeliveredNotifications(withIdentifiers: event.notificationIds)
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: event.notificationIds)
+        notificationCenter.removeAllPendingNotificationRequests()
     }
 }

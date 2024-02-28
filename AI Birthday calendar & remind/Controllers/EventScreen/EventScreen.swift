@@ -13,6 +13,9 @@ class BirthdaysScreen: UIViewController{
         didSet {
             NSLog("mainEvents > save to storage")
             mainEvents.sort{$0.eventDate < $1.eventDate}
+            
+            
+            mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0)})
             MainEventStorage.save(mainEvents)
         }
     }
@@ -86,9 +89,6 @@ extension BirthdaysScreen {
             guard let ev = eventList.first else {
                 return
             }
-            
-            ev.notificationIds = NotificationServiceProvider.scheduleNotification(event: ev)
-            
             self.mainEvents[indexPath.row] = ev
             self.tableEvents.reloadData()
         }
@@ -149,11 +149,6 @@ extension BirthdaysScreen {
             // MARK: - Word saving via delegate
             destination.bulkDelegate = { [unowned self] eventList in
                 self.mainEvents.append(contentsOf: eventList)
-                NSLog("start scheduling")
-                for ev in self.mainEvents {
-                    ev.notificationIds = NotificationServiceProvider.scheduleNotification(event: ev)
-                }
-                
                 self.tableEvents.reloadData()
                 RateProvider.rateAppImplicit(view: self.view)
             }

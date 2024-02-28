@@ -14,4 +14,6 @@ class AppConfiguration {
     static var privacyPolicyURL: String = "https://t.me/aibcrprivacyPolicy"
     static var contactUsURL: String = "https://www.instagram.com/wellbeingvantage/"
     static var launchedEarlier = SettingsStorage.loadIsFirstLaunch()
+    
+    static var a
 }
