@@ -347,6 +347,7 @@
                                                     <rect key="frame" x="165" y="4" width="218" height="36"/>
                                                     <connections>
                                                         <action selector="notificationTimeSelected:" destination="e0C-Hf-8Yj" eventType="valueChanged" id="xLJ-WY-pnd"/>
+                                                        <action selector="notificationTimeValueChanged:" destination="e0C-Hf-8Yj" eventType="valueChanged" id="OVD-2p-uoz"/>
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
@@ -361,7 +362,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Birthday" id="ghB-3U-IYw">
+                            <tableViewSection headerTitle="Birthday &amp; Anniversaries" id="ghB-3U-IYw">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jx5-Ss-U71">
                                         <rect key="frame" x="0.0" y="171.66666793823242" width="393" height="43.666667938232422"/>
@@ -370,14 +371,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyZ-Az-Kyk">
-                                                    <rect key="frame" x="29.999999999999993" y="11.333333333333336" width="89.333333333333314" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notify on birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyZ-Az-Kyk">
+                                                    <rect key="frame" x="30" y="11.333333333333336" width="136.66666666666666" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fQE-CW-Yp3">
                                                     <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <connections>
+                                                        <action selector="notificateOnSameDayChanged:" destination="e0C-Hf-8Yj" eventType="valueChanged" id="TnL-7l-TtK"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -398,6 +402,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvu-xx-3Gg">
                                                     <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <connections>
+                                                        <action selector="notificateDaysBeforeChanged:" destination="e0C-Hf-8Yj" eventType="valueChanged" id="57E-80-aqF"/>
+                                                    </connections>
                                                 </switch>
                                                 <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zx0-DG-JPX">
                                                     <rect key="frame" x="30.000000000000007" y="4.6666666666666679" width="85.666666666666686" height="34.333333333333329"/>
@@ -432,85 +439,13 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Anniversary" id="5H0-Cf-9Tp">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fZi-rt-z0v">
-                                        <rect key="frame" x="0.0" y="337.00000381469727" width="393" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fZi-rt-z0v" id="Jus-TM-Yx9">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On Anniversary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6a3-Uq-gv9">
-                                                    <rect key="frame" x="29.999999999999993" y="11.333333333333336" width="116.33333333333331" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EEE-x9-U2y">
-                                                    <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
-                                                </switch>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="EEE-x9-U2y" firstAttribute="centerY" secondItem="Jus-TM-Yx9" secondAttribute="centerY" id="5II-kk-5xE"/>
-                                                <constraint firstItem="6a3-Uq-gv9" firstAttribute="leading" secondItem="Jus-TM-Yx9" secondAttribute="leadingMargin" constant="10" id="83P-K4-oGW"/>
-                                                <constraint firstItem="EEE-x9-U2y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6a3-Uq-gv9" secondAttribute="trailing" constant="8" symbolic="YES" id="CSV-0M-5ba"/>
-                                                <constraint firstItem="6a3-Uq-gv9" firstAttribute="centerY" secondItem="Jus-TM-Yx9" secondAttribute="centerY" id="KFa-B3-Ou6"/>
-                                                <constraint firstAttribute="trailing" secondItem="EEE-x9-U2y" secondAttribute="trailing" constant="20" id="vPY-mt-6DT"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6gi-Px-v96">
-                                        <rect key="frame" x="0.0" y="380.66667175292969" width="393" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6gi-Px-v96" id="TcC-5Y-Rl3">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwA-jq-LaO">
-                                                    <rect key="frame" x="324" y="6.3333333333333321" width="51" height="30.999999999999996"/>
-                                                </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="before" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6C-98-QVh">
-                                                    <rect key="frame" x="120.66666666666667" y="11.666666666666666" width="49.333333333333329" height="20.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OCe-IL-7hM">
-                                                    <rect key="frame" x="30.000000000000007" y="4.6666666666666679" width="85.666666666666686" height="34.333333333333329"/>
-                                                    <menu key="menu" id="FtD-CX-emQ">
-                                                        <children>
-                                                            <command title="Item 1" id="mZ2-C7-dd7"/>
-                                                            <command title="Item 2" id="AcX-aD-mof"/>
-                                                        </children>
-                                                    </menu>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="gray" title="Button" titleAlignment="leading">
-                                                        <color key="baseForegroundColor" systemColor="labelColor"/>
-                                                    </buttonConfiguration>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="lwA-jq-LaO" secondAttribute="trailing" constant="20" id="2Qt-lr-Spa"/>
-                                                <constraint firstItem="OCe-IL-7hM" firstAttribute="leading" secondItem="TcC-5Y-Rl3" secondAttribute="leadingMargin" constant="10" id="3fR-9X-w6J"/>
-                                                <constraint firstItem="OCe-IL-7hM" firstAttribute="centerY" secondItem="TcC-5Y-Rl3" secondAttribute="centerY" id="985-vl-x1U"/>
-                                                <constraint firstItem="lwA-jq-LaO" firstAttribute="centerY" secondItem="TcC-5Y-Rl3" secondAttribute="centerY" id="Ja1-F9-3Mg"/>
-                                                <constraint firstItem="l6C-98-QVh" firstAttribute="centerY" secondItem="TcC-5Y-Rl3" secondAttribute="centerY" id="YFn-J3-23S"/>
-                                                <constraint firstItem="l6C-98-QVh" firstAttribute="leading" secondItem="OCe-IL-7hM" secondAttribute="trailing" constant="5" id="kpA-ZJ-EAe"/>
-                                                <constraint firstItem="lwA-jq-LaO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l6C-98-QVh" secondAttribute="trailing" constant="8" symbolic="YES" id="yWL-rz-9WO"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notifications" id="Evp-S5-oZy"/>
                     <connections>
-                        <outlet property="daysBeforeAnniversary" destination="OCe-IL-7hM" id="Rh2-Xu-7rR"/>
-                        <outlet property="daysBeforeBirthday" destination="Zx0-DG-JPX" id="WaC-NR-D98"/>
-                        <outlet property="notificationOnAnniversary" destination="EEE-x9-U2y" id="XWR-iv-uLY"/>
-                        <outlet property="notificationOnBirthday" destination="fQE-CW-Yp3" id="fS6-Cn-h1z"/>
+                        <outlet property="daysBeforeBirthdayAndAnniversary" destination="Zx0-DG-JPX" id="WaC-NR-D98"/>
+                        <outlet property="notificateDaysBefore" destination="zvu-xx-3Gg" id="FVY-MK-2hm"/>
+                        <outlet property="notificationOnBirthdayAndAnniversary" destination="fQE-CW-Yp3" id="fS6-Cn-h1z"/>
                         <outlet property="notificationTime" destination="kE3-Sw-dEh" id="3uF-UO-pxX"/>
                     </connections>
                 </tableViewController>
@@ -855,19 +790,19 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

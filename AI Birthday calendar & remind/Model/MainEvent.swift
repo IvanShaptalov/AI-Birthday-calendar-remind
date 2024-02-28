@@ -35,6 +35,12 @@ class MainEvent: MainEventProtocol, Codable{
     
     var notificationEventId: String?
     
+    func getNotificationIds() -> [String] {
+        var ntf: [String?] = [notificationEventId, notificationSameDayId, notificationDaysBeforeId]
+        ntf.removeAll(where: {$0 == nil})
+        return ntf as! [String]
+    }
+    
     var id: String
     var congratulation: String?
     var eventDate: Date

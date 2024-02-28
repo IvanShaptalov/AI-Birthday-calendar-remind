@@ -142,4 +142,10 @@ class NotificationServiceProvider {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllPendingNotificationRequests()
     }
+    
+    static func cancelNotifications(ids: [String]){
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.removeDeliveredNotifications(withIdentifiers: ids)
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: ids)
+    }
 }

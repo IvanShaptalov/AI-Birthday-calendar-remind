@@ -12,4 +12,10 @@ public class StorageConfiguration {
     
     // MARK: - Check launching
     static let launchedBefore = "aiBirhday.launchedBefore"
+    
+    // MARK: - Notifications
+    static let isNotificateSameDayKey = "aiBirthday.isNotificateSameDayKey"
+    static let isNotificateDaysBeforeKey = "aiBirthday.isNotificateDaysBeforeKey"
+    static let notificateDaysBeforeEnumKey = "aiBirthday.notificateDaysBeforeEnumKey"
+    static let notificationTimeKey = "aiBirthday.notificationTimeKey"
 }

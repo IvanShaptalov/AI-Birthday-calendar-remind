@@ -67,3 +67,65 @@ class SettingsStorage {
         return appVersion
     }
 }
+
+// MARK: - Notifications
+class SettingsNotificationStorage {
+    static func saveNotificationDaysBefore(_ ndb: NotificateBeforeEnum){
+        StorageConfiguration.storage!.set(ndb.rawValue, forKey: StorageConfiguration.notificateDaysBeforeEnumKey)
+    }
+    
+    static func loadNotificationDaysBefore() -> NotificateBeforeEnum? {
+        guard let raw = StorageConfiguration.storage!.string(forKey: StorageConfiguration.notificateDaysBeforeEnumKey) else {
+            return nil
+        }
+        
+        guard let ndb = NotificateBeforeEnum(rawValue: raw) else {
+            return nil
+        }
+        
+        return ndb
+    }
+    
+    // MARK: - Days before
+    static func saveIsNotificateDaysBefore(_ nb: Bool) {
+        StorageConfiguration.storage!.set(nb, forKey: StorageConfiguration.isNotificateDaysBeforeKey)
+    }
+    
+    static func loadIsNotificateDaysBefore() -> Bool{
+        guard let ndb = StorageConfiguration.storage!.object(forKey: StorageConfiguration.isNotificateDaysBeforeKey) as? Bool else {
+            return true
+        }
+    
+        return ndb
+    }
+    
+    // MARK: - Same day
+    static func saveIsNotificateSameDay(_ nb: Bool) {
+        StorageConfiguration.storage!.set(nb, forKey: StorageConfiguration.isNotificateSameDayKey)
+    }
+    
+    static func loadIsNotificateSameDay() -> Bool{
+        guard let ndb = StorageConfiguration.storage!.object(forKey: StorageConfiguration.isNotificateSameDayKey) as? Bool else {
+            return true
+        }
+    
+        return ndb
+    }
+    
+    // MARK: - Notification time
+    static func saveNotificationTime(date: Date){
+        StorageConfiguration.storage!.set(date, forKey: StorageConfiguration.notificationTimeKey)
+    }
+    
+    static func loadNotificationTime() -> Date{
+        guard let optionDate = StorageConfiguration.storage!.object(forKey: StorageConfiguration.notificationTimeKey) as? Date else {
+            let date = Calendar.current.date(bySettingHour: 8, minute: 00, second: 0, of: Date())!
+            
+            return date
+        }
+        
+        return optionDate
+        
+    }
+    
+}

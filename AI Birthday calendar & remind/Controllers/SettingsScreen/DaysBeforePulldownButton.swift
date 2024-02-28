@@ -15,9 +15,16 @@ class DaysBeforePulldownButton {
         var children: [UIAction] = []
         
         for notificateBefore in NotificateBeforeEnum.allValues {
-            children.append(UIAction(title: "\(notificateBefore.rawValue)".capitalized, handler: menuClosure))
+            if notificateBefore == AppConfiguration.notificateBeforeInDays {
+                
+                children.append(UIAction(title: "\(notificateBefore.rawValue)".capitalized, state: .on, handler: menuClosure))
+                
+            } else {
+                
+                children.append(UIAction(title: "\(notificateBefore.rawValue)".capitalized, handler: menuClosure))
+                
+            }
         }
-        
         button.menu = UIMenu(children: children)
         button.showsMenuAsPrimaryAction = true
         button.changesSelectionAsPrimaryAction = true

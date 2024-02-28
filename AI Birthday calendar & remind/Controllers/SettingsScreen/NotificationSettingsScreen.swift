@@ -15,31 +15,33 @@ class NotificationSettingsScreen: UITableViewController {
     @IBAction func notificationTimeSelected(_ sender: UIDatePicker) {
     }
     
-    // MARK: - Birthday
-    @IBOutlet weak var notificationOnBirthday: UISwitch!
+    // MARK: - Birthday & Anniversary
+    @IBOutlet weak var notificationOnBirthdayAndAnniversary: UISwitch!
     
-    @IBOutlet weak var daysBeforeBirthday: UIButton!
-
+    @IBOutlet weak var notificateDaysBefore: UISwitch!
     
-    // MARK: - Anniversary
-    @IBOutlet weak var notificationOnAnniversary: UISwitch!
-    
-    @IBOutlet weak var daysBeforeAnniversary: UIButton!
+    @IBOutlet weak var daysBeforeBirthdayAndAnniversary: UIButton!
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestNotificationPermissionIfNeeded()
+        self.requestNotificationPermissionIfNeeded()
         self.setUpPulldownNotificateBefore()
+        self.setUpNotificationSwithAndDate()
         
     }
     
+    private func setUpNotificationSwithAndDate(){
+        self.notificationTime.setDate(AppConfiguration.notificationTime, animated: false)
+        self.notificationOnBirthdayAndAnniversary.setOn(AppConfiguration.isNotificateSameDay, animated: false)
+        self.notificateDaysBefore.setOn(AppConfiguration.isNotificateDaysBefore, animated: false)
+    }
+    
     private func setUpPulldownNotificateBefore(){
-        DaysBeforePulldownButton.setUpDaysBefore(button: &daysBeforeBirthday, menuClosure: {action in
-                NSLog("birthday: selected \(action)")
-        })
-        DaysBeforePulldownButton.setUpDaysBefore(button: &daysBeforeAnniversary, menuClosure: {action in
-                NSLog("anniversary: selected \(action)")
+        DaysBeforePulldownButton.setUpDaysBefore(button: &daysBeforeBirthdayAndAnniversary, menuClosure: {action in
+            NSLog("birthday: selected \(action.title)")
+            AppConfiguration.notificateBeforeInDays = NotificateBeforeEnum(rawValue: action.title.lowercased()) ?? .none
+            
         })
     }
     
@@ -56,7 +58,20 @@ class NotificationSettingsScreen: UITableViewController {
         })
         
     }
-   
+    
+    @IBAction func notificationTimeValueChanged(_ sender: UIDatePicker) {
+        AppConfiguration.notificationTime = sender.date
+    }
+    
+    @IBAction func notificateDaysBeforeChanged(_ sender: UISwitch) {
+        AppConfiguration.isNotificateDaysBefore = sender.isOn
+    }
+    
+    
+    @IBAction func notificateOnSameDayChanged(_ sender: UISwitch) {
+        AppConfiguration.isNotificateSameDay = sender.isOn
+    }
+    
     
     // MARK: - Table view data source
     
