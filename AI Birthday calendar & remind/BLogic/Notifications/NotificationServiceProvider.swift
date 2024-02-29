@@ -13,52 +13,58 @@ import UserNotifications
 class NotificationServiceProvider {
     
     // MARK: - Scheduling Notification
-    static func scheduleEvent(event: MainEvent){
+    static func scheduleEvent(event: MainEvent, notifDisabled ndc: (()-> Void)?){
         switch event.eventType{
             
         case .birthday:
             
             if event.notificationSameDayId != nil {
                 NSLog("⏰ notify same day")
-//                let sdRequest = sameDayRequest(event: event)
-//                self.schedule(request: sdRequest)
+                let sdRequest = sameDayRequest(event: event)
+                self.schedule(request: sdRequest, ndc)
             }
             
             if event.notificationDaysBeforeId != nil {
                 NSLog("🗿 notify day before")
-//                let dBeforeRequest = dayBeforeRequest(event: event)
-//                self.schedule(request: dBeforeRequest)
+                let dBeforeRequest = dayBeforeRequest(event: event)
+                if dBeforeRequest != nil {
+                    self.schedule(request: dBeforeRequest!,ndc)
+                }
             }
             
         case .anniversary:
             if event.notificationSameDayId != nil {
                 NSLog("⏰ notify same day")
-//                let sdRequest = sameDayRequest(event: event)
-//                self.schedule(request: sdRequest)
+                let sdRequest = sameDayRequest(event: event)
+                self.schedule(request: sdRequest,ndc)
             }
             
             if event.notificationDaysBeforeId != nil {
                 NSLog("🗿 notify day before")
-//                let dBeforeRequest = dayBeforeRequest(event: event)
-//                self.schedule(request: dBeforeRequest)
+                let dBeforeRequest = dayBeforeRequest(event: event)
+                if dBeforeRequest != nil {
+                    self.schedule(request: dBeforeRequest!,ndc)
+                }
             }
             
         case .simpleEvent:
             NSLog("📅 notify event")
             let request = eventRequest(event: event)
-            self.schedule(request: request)
+            self.schedule(request: request,ndc)
         }
     }
     
     // MARK: - RAW REQUEST
    
     
-    private static func schedule(request: UNNotificationRequest){
+    private static func schedule(request: UNNotificationRequest,_ notificationDisabledCallback: (()-> Void)?){
         
         PermissionProvider.notificationCenter.getNotificationSettings(completionHandler: {settings in
             NSLog("scheduling notification 🔔")
             guard (settings.authorizationStatus == .authorized) ||
-                    (settings.authorizationStatus == .provisional) else { return }
+                    (settings.authorizationStatus == .provisional) else { 
+                notificationDisabledCallback?()
+                return }
             
             PermissionProvider.notificationCenter.add(request) {error in
                 NSLog("error while notification adding: \(String(describing: error))")
@@ -70,7 +76,26 @@ class NotificationServiceProvider {
     // MARK: - SAME DAY EVENT
     
     private static func prepareDaySameDate(event: MainEvent) -> DateComponents {
-        return DateComponents()
+        NSLog("🌞 same day")
+        var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: event.eventDate)
+        let now = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: .now)
+        var addYears = 0
+        NSLog("event date is old, add 1 year 🎊")
+        if comps.isValidDate && now.isValidDate {
+            if comps.month! >= now.month! && comps.day! >= now.day! {
+                addYears += 1
+            }
+        }
+        comps.year = Calendar.current.component(.year, from: .now) + addYears
+
+        let timeComps = Calendar.current.dateComponents([.hour, .minute, .second], from: AppConfiguration.notificationTime)
+        
+        comps.hour = timeComps.hour
+        comps.minute = timeComps.minute
+        comps.second = timeComps.second
+        
+        NSLog("next notification of \(event.title) on : \(comps)")
+        return comps
     }
         
     static func sameDayRequest(event: MainEvent) -> UNNotificationRequest{
@@ -79,7 +104,7 @@ class NotificationServiceProvider {
         let content = prepareContent(event: event)
         
         // set up date
-        let dateComponents = prepareEventTime(event: event)
+        let dateComponents = prepareDaySameDate(event: event)
         
         // set up trigger
         let trigger = self.prepareTrigger(event: event, dateComponents: dateComponents)
@@ -91,17 +116,33 @@ class NotificationServiceProvider {
     
     // MARK: - DAYS BEFORE EVENT
     
-    private static func prepareDaysBeforeDate(event: MainEvent) -> DateComponents {
-        return DateComponents()
+    private static func prepareDaysBeforeDate(event: MainEvent) -> DateComponents? {
+        NSLog("🌞 days before: \(AppConfiguration.notificateBeforeInDays?.rawValue ?? "none")")
+        let currentComps = prepareDaySameDate(event: event)
+        guard let currentDateFromComps = Calendar.current.date(from: currentComps) else {
+            NSLog("🤖 error while subtract day - retun current nil")
+            return nil
+        }
+        let dayComp = DateComponents(day: AppConfiguration.notificateBeforeInDays?.getDays())
+        
+        let date = Calendar.current.date(byAdding: dayComp, to: currentDateFromComps)
+        
+        let subtracktedComps = Calendar.current.dateComponents([.year, .month, .day,.hour,.minute,.second], from: date!)
+        
+        NSLog("next days before notification of \(event.title) on : \(subtracktedComps)")
+
+        return subtracktedComps
     }
     
-    static func dayBeforeRequest(event: MainEvent) -> UNNotificationRequest{
+    static func dayBeforeRequest(event: MainEvent) -> UNNotificationRequest?{
         assert(event.notificationDaysBeforeId != nil)
         // set up content
-        let content = prepareContent(event: event)
+        let content = prepareContentDaysBefore(event: event)
         
         // set up date
-        let dateComponents = prepareEventTime(event: event)
+        guard let dateComponents = prepareDaysBeforeDate(event: event) else {
+            return nil
+        }
         
         // set up trigger
         let trigger = self.prepareTrigger(event: event, dateComponents: dateComponents)
@@ -147,16 +188,46 @@ class NotificationServiceProvider {
     }
     
     private static func prepareContent(event: MainEvent) -> UNMutableNotificationContent{
+        let df = DateFormatterWrapper(date: event.eventDate)
+
         switch event.eventType {
-            
         case .birthday:
             let content = UNMutableNotificationContent()
             content.title = "🎂" + event.title
+            content.body = df.yearsTurnsInDays()
             return content
             
         case .anniversary:
             let content = UNMutableNotificationContent()
             content.title = "💗" + event.title
+            content.body = df.yearsTurnsInDays()
+            return content
+            
+        case .simpleEvent:
+            let content = UNMutableNotificationContent()
+            content.title = "✨" + event.title
+            return content
+            
+        }
+        
+    }
+    
+    private static func prepareContentDaysBefore(event: MainEvent) -> UNMutableNotificationContent{
+        let df = DateFormatterWrapper(date: event.eventDate)
+        let inTime = df.yearsTurnsInDays()
+        NSLog("⌚️ notify in time: \(inTime)")
+        
+        switch event.eventType {
+        case .birthday:
+            let content = UNMutableNotificationContent()
+            content.title = "🎂" + event.title
+            content.body = inTime
+            return content
+            
+        case .anniversary:
+            let content = UNMutableNotificationContent()
+            content.title = "💗" + event.title
+            content.body = inTime
             return content
             
         case .simpleEvent:

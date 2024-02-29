@@ -7,6 +7,7 @@
 
 import UIKit
 let reuseIdentifier = "EventCell"
+var dontShowNotificationDisabled = false
 class BirthdaysScreen: UIViewController{
     
     var mainEvents: [MainEvent] = MainEventStorage.load() {
@@ -15,9 +16,24 @@ class BirthdaysScreen: UIViewController{
             mainEvents.sort{DateFormatterWrapper.yearToCurrentInEvent($0)  < DateFormatterWrapper.yearToCurrentInEvent($1)}
             // reschedule notifications
             mainEvents.forEach({$0.setUpNotificationIds()})
-
+            NSLog("😎 check notification possibility")
+            NotificationServiceProvider.scheduleEvent(event: mainEvents.first ?? .init(eventType: .anniversary), notifDisabled: {
+                if dontShowNotificationDisabled {
+                    return 
+                }
+                NSLog("🔕, send info that notification disabled")
+                let alertController = UIAlertController(title: "Enable notifications", message: "Go to settings & privacy to re-enable AI Birthday notifications", preferredStyle: .alert)
+                
+                alertController.addAction(.init(title: "OK", style: .default))
+                alertController.addAction(.init(title: "Don't show again for this time", style: .default, handler: {action in
+                        dontShowNotificationDisabled = true
+                }))
+                
+                self.present(alertController, animated: true)
+                
+            })
             NotificationServiceProvider.cancelAllNotifications()
-            mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0)})
+            mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0, notifDisabled: nil)})
             MainEventStorage.save(mainEvents)
         }
     }

@@ -19,7 +19,7 @@ class MainEventRuleUpdater {
         mainEvents.forEach({$0.setUpNotificationIds()})
 
         NotificationServiceProvider.cancelAllNotifications()
-        mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0)})
+        mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0, notifDisabled: nil)})
         MainEventStorage.save(mainEvents)
         
         let end = DispatchTime.now()   // <<<<<<<<<<   end time

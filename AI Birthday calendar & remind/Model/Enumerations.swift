@@ -61,6 +61,29 @@ enum NotificateBeforeEnum: String, Codable{
     sevenDaysBefore = "1 week"
     
     static let allValues = [oneDayBefore, twoDaysBefore, threeDaysBefore, fourDaysBefore, fiveDaysBefore, sevenDaysBefore]
+    
+    func getDays() -> Int{
+        switch self {
+            
+        case .oneDayBefore:
+            return -1
+        case .twoDaysBefore:
+            return -2
+
+        case .threeDaysBefore:
+            return -3
+
+        case .fourDaysBefore:
+            return -4
+
+        case .fiveDaysBefore:
+            return -5
+
+        case .sevenDaysBefore:
+            return -7
+
+        }
+    }
 }
 
 
