@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event custom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OA-s8-GmH">
-                                <rect key="frame" x="94" y="17" width="108.33333333333331" height="21"/>
+                                <rect key="frame" x="94" y="17" width="329" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,6 +63,7 @@
                             <constraint firstItem="kL8-pn-K9F" firstAttribute="top" secondItem="NY0-QP-25D" secondAttribute="bottom" constant="5" id="Wf7-7m-m5T"/>
                             <constraint firstItem="d3E-SN-50k" firstAttribute="centerY" secondItem="rah-Rn-u1q" secondAttribute="centerY" id="Wyn-YK-mwf"/>
                             <constraint firstItem="5OA-s8-GmH" firstAttribute="top" secondItem="NY0-QP-25D" secondAttribute="top" id="ZjY-oW-j5S"/>
+                            <constraint firstItem="NY0-QP-25D" firstAttribute="leading" secondItem="5OA-s8-GmH" secondAttribute="trailing" constant="30" id="b7s-q8-Uy3"/>
                             <constraint firstItem="5OA-s8-GmH" firstAttribute="top" secondItem="rah-Rn-u1q" secondAttribute="top" constant="17" id="bbx-uQ-dHw"/>
                             <constraint firstItem="5OA-s8-GmH" firstAttribute="leading" secondItem="d3E-SN-50k" secondAttribute="trailing" constant="29" id="bxN-zW-UEo"/>
                             <constraint firstAttribute="trailing" secondItem="kL8-pn-K9F" secondAttribute="trailing" constant="20" id="c5V-Jw-qEO"/>

@@ -45,8 +45,8 @@ class NotificationServiceProvider {
             
         case .simpleEvent:
             NSLog("📅 notify event")
-//            let request = eventRequest(event: event)
-//            self.schedule(request: request)
+            let request = eventRequest(event: event)
+            self.schedule(request: request)
         }
     }
     
@@ -147,9 +147,25 @@ class NotificationServiceProvider {
     }
     
     private static func prepareContent(event: MainEvent) -> UNMutableNotificationContent{
-        let content = UNMutableNotificationContent()
-        content.title = event.title
-        return content
+        switch event.eventType {
+            
+        case .birthday:
+            let content = UNMutableNotificationContent()
+            content.title = "🎂" + event.title
+            return content
+            
+        case .anniversary:
+            let content = UNMutableNotificationContent()
+            content.title = "💗" + event.title
+            return content
+            
+        case .simpleEvent:
+            let content = UNMutableNotificationContent()
+            content.title = "✨" + event.title
+            return content
+            
+        }
+        
     }
     
     // MARK: - DELETING NOTIFICATION
