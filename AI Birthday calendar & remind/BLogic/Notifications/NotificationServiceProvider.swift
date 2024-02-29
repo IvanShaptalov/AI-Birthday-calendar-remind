@@ -21,7 +21,7 @@ class NotificationServiceProvider {
             if event.notificationSameDayId != nil {
                 NSLog("⏰ notify same day")
                 let sdRequest = sameDayRequest(event: event)
-                self.schedule(request: sdRequest, ndc)
+                self.schedule(request: sdRequest,ndc)
             }
             
             if event.notificationDaysBeforeId != nil {
@@ -80,19 +80,23 @@ class NotificationServiceProvider {
         var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: event.eventDate)
         let now = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: .now)
         var addYears = 0
-        NSLog("event date is old, add 1 year 🎊")
-        if comps.isValidDate && now.isValidDate {
-            if comps.month! >= now.month! && comps.day! >= now.day! {
-                addYears += 1
-            }
-        }
-        comps.year = Calendar.current.component(.year, from: .now) + addYears
+       
 
         let timeComps = Calendar.current.dateComponents([.hour, .minute, .second], from: AppConfiguration.notificationTime)
         
         comps.hour = timeComps.hour
         comps.minute = timeComps.minute
         comps.second = timeComps.second
+        
+        if ![comps.month, comps.day,comps.hour, comps.minute, comps.second, now.day, now.month, now.hour, now.minute].contains(nil) {
+            if comps.month! < now.month! && comps.day! < now.day!
+                && comps.hour! < now.hour! && comps.minute! < now.minute!{
+                NSLog("event date is old, add 1 year 🎊")
+                addYears += 1
+            }
+        }
+        comps.year = Calendar.current.component(.year, from: .now) + addYears
+        comps.second = 0
         
         NSLog("next notification of \(event.title) on : \(comps)")
         return comps

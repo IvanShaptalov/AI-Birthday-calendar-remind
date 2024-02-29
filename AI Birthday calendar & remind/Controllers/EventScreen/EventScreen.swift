@@ -17,21 +17,23 @@ class BirthdaysScreen: UIViewController{
             // reschedule notifications
             mainEvents.forEach({$0.setUpNotificationIds()})
             NSLog("😎 check notification possibility")
-            NotificationServiceProvider.scheduleEvent(event: mainEvents.first ?? .init(eventType: .anniversary), notifDisabled: {
-                if dontShowNotificationDisabled {
-                    return 
-                }
-                NSLog("🔕, send info that notification disabled")
-                let alertController = UIAlertController(title: "Enable notifications", message: "Go to settings & privacy to re-enable AI Birthday notifications", preferredStyle: .alert)
-                
-                alertController.addAction(.init(title: "OK", style: .default))
-                alertController.addAction(.init(title: "Don't show again for this time", style: .default, handler: {action in
+            if !mainEvents.isEmpty{
+                NotificationServiceProvider.scheduleEvent(event: mainEvents.first!, notifDisabled: {
+                    if dontShowNotificationDisabled {
+                        return
+                    }
+                    NSLog("🔕, send info that notification disabled")
+                    let alertController = UIAlertController(title: "Enable notifications", message: "Go to settings & privacy to re-enable AI Birthday notifications", preferredStyle: .alert)
+                    
+                    alertController.addAction(.init(title: "OK", style: .default))
+                    alertController.addAction(.init(title: "Don't show again for this time", style: .default, handler: {action in
                         dontShowNotificationDisabled = true
-                }))
-                
-                self.present(alertController, animated: true)
-                
-            })
+                    }))
+                    
+                    self.present(alertController, animated: true)
+                    
+                })
+            }
             NotificationServiceProvider.cancelAllNotifications()
             mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0, notifDisabled: nil)})
             MainEventStorage.save(mainEvents)
