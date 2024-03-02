@@ -82,7 +82,7 @@ class MainEvent: MainEventProtocol, Codable{
     func getImageSystemName(eventType rule: EventTypeEnum) -> String {
         switch rule {
         case .birthday:
-            return "birthday.cake.fill"
+            return "gift.fill"
         case .anniversary:
             return "suit.heart.fill"
         case .simpleEvent:

@@ -65,20 +65,34 @@ extension SettingsScreen {
             return
         }
         // Import
+//        if indexPath.section == 2 {
+//            if indexPath.row == 0{
+//                NSLog("Import From Contacts")
+//                self.importFromCalendar()
+//                return
+//            }
+//            if indexPath.row == 1{
+//                NSLog("Import From Calendar")
+//                self.importFromCalendar()
+//                return
+//            }
+//            if indexPath.row == 2 {
+//                NSLog("Import from Text")
+//                self.importFromText()
+//                return
+//            }
+//        }
+        
         if indexPath.section == 2 {
+           
             if indexPath.row == 0{
-                NSLog("Import From Contacts")
-                self.importFromCalendar()
+                NSLog("Contact Us")
+                self.contactUs()
                 return
             }
             if indexPath.row == 1{
-                NSLog("Import From Calendar")
-                self.importFromCalendar()
-                return
-            }
-            if indexPath.row == 2 {
-                NSLog("Import from Text")
-                self.importFromText()
+                NSLog("Privacy Policy")
+                self.privacyPolicy()
                 return
             }
         }
