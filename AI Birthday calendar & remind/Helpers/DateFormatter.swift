@@ -14,49 +14,54 @@ class DateFormatterWrapper {
     init(date: Date) {
         self.date = date
     }
-    
-    /// returns true if expired
-    static func isExpired(_ date: Date) -> Bool{
-        let dateComponents = DateFormatterWrapper.dateDistance(from: DateFormatterWrapper.startOfDay(.now), to: DateFormatterWrapper.startOfDay(date), components: [.day])
         
-        guard let days = dateComponents.day else {
-            return true
-        }
-        
-        return days < 0
-    }
-    
     static func dateDistance(from: Date, to: Date, components: Set<Calendar.Component>) -> DateComponents{
         let calendar = Calendar.current
         let components = calendar.dateComponents(components, from: from, to: to)
         return components
     }
-    
-    static func startOfDay(_ date: Date) -> Date {
-        return Calendar.current.startOfDay(for: date)
-    }
+   
     
     static func yearToCurrentInEvent(_ event: MainEvent) -> Date {
         if event.eventType == .simpleEvent {
             return event.eventDate
         }
-        return updateYearToCurrent(event.eventDate)
+        return updateYear(event.eventDate)
     }
     
-    static private func updateYearToCurrent(_ date: Date) -> Date {
+    static private func updateYear(_ date: Date) -> Date {
         let calendar = Calendar.current
-        let year = calendar.component(.year, from: .now)
+        var year = calendar.component(.year, from: .now)
         var comps = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
         comps.setValue(year, for: .year)
-        let updatedDate = calendar.date(from: comps)
-        return updatedDate ?? date
+        
+        guard var updatedDate = calendar.date(from: comps) else {
+            return date
+        }
+        // check that date is not expired else add year
+        let components = DateFormatterWrapper.dateDistance(from: .now, to: updatedDate, components: [.day])
+        
+        guard let days = components.day else {
+            return date
+        }
+        
+        // add years to updated date
+        if days < 0 {
+            var addYears = ((days * -1)+365) / 365
+            
+            year += addYears
+            NSLog("days old: \(days) new year: \(year)")
+            
+            comps.setValue(year, for: .year)
+            updatedDate = calendar.date(from: comps) ?? updatedDate
+
+
+        }
+        
+        return updatedDate
     }
     
-    func hourAndMinute() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "H:mm"
-        return dateFormatter.string(from: date)
-    }
+    // MARK: - TEXT DATES
     
     func timeLeftInDaysForEvent() -> String {
         let calendar = Calendar.current
@@ -84,13 +89,19 @@ class DateFormatterWrapper {
     
     func yearsTurnsInDays() -> String {
         let calendar = Calendar.current
-        let yearTurns = Calendar.current.component(.year, from: .now)-Calendar.current.component(.year, from: self.date)
         let currentDate = calendar.startOfDay(for: Date())
-        let thisYearBirthdayDate = calendar.startOfDay(for: DateFormatterWrapper.updateYearToCurrent(self.date))
+        let thisYearBirthdayDate = calendar.startOfDay(for: DateFormatterWrapper.updateYear(self.date))
         let components = DateFormatterWrapper.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
+        
+        let yearTurns = Calendar.current.component(.year, from: thisYearBirthdayDate)-Calendar.current.component(.year, from: self.date)
+
         
         guard let days = components.day else {
             return "Date has passed"
+        }
+        
+        if days < 0 {
+            
         }
         
         
@@ -100,11 +111,9 @@ class DateFormatterWrapper {
             }
             return "turns \(yearTurns) in \(days) days"
             
-        } else if days == 0 {
-            return "turns \(yearTurns) today"
-        } else {
-            return "turned \(yearTurns) \(days * -1) days ago"
         }
+        
+        return "turns \(yearTurns) today"
     }
     
     func dayOfWeekCalendarFormat() -> String {
@@ -118,4 +127,11 @@ class DateFormatterWrapper {
         dateFormatter.dateFormat = "MMM d"
         return dateFormatter.string(from: date)
     }
+    
+    func hourAndMinute() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "H:mm"
+        return dateFormatter.string(from: date)
+    }
+    
 }
