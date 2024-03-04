@@ -77,26 +77,13 @@ class NotificationServiceProvider {
     
     private static func prepareDaySameDate(event: MainEvent) -> DateComponents {
         NSLog("🌞 same day")
-        var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: event.eventDate)
-        let now = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: .now)
-        var addYears = 0
-       
+        var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: DatePrinter.updateYear(event.eventDate))
 
         let timeComps = Calendar.current.dateComponents([.hour, .minute, .second], from: AppConfiguration.notificationTime)
         
         comps.hour = timeComps.hour
         comps.minute = timeComps.minute
         comps.second = timeComps.second
-        
-        if ![comps.month, comps.day,comps.hour, comps.minute, comps.second, now.day, now.month, now.hour, now.minute].contains(nil) {
-            if comps.month! < now.month! && comps.day! < now.day!
-                && comps.hour! < now.hour! && comps.minute! < now.minute!{
-                NSLog("event date is old, add 1 year 🎊")
-                addYears += 1
-            }
-        }
-        comps.year = Calendar.current.component(.year, from: .now) + addYears
-        comps.second = 0
         
         NSLog("next notification of \(event.title) on : \(comps)")
         return comps
@@ -247,7 +234,16 @@ class NotificationServiceProvider {
     static func cancelAllNotifications(){
         let notificationCenter = UNUserNotificationCenter.current()
         NSLog("🧼 clear all pending notifications")
-        notificationCenter.removeAllPendingNotificationRequests()
+        
+        if #available(iOS 17.0, *) {
+            notificationCenter.removeAllPendingNotificationRequests()
+        } else {
+            notificationCenter.getPendingNotificationRequests(completionHandler: {notifications in
+                let ids = notifications.map({$0.identifier})
+                NSLog("notifications: \(ids)")
+                notificationCenter.removePendingNotificationRequests(withIdentifiers: ids)
+            })
+        }
     }
     
     static func cancelNotifications(ids: [String]){

@@ -29,8 +29,10 @@ class DatePrinter {
         return updateYear(event.eventDate)
     }
     
-    static private func updateYear(_ date: Date) -> Date {
+    static func updateYear(_ dateParam: Date) -> Date {
+        
         let calendar = Calendar.current
+        let date = calendar.startOfDay(for: dateParam)
         var year = calendar.component(.year, from: .now)
         var comps = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
         comps.setValue(year, for: .year)
@@ -99,11 +101,6 @@ class DatePrinter {
         guard let days = components.day else {
             return "Date has passed"
         }
-        
-        if days < 0 {
-            
-        }
-        
         
         if days > 0 {
             if days == 1{
