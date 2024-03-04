@@ -13,7 +13,7 @@ class BirthdaysScreen: UIViewController{
     var mainEvents: [MainEvent] = MainEventStorage.load() {
         didSet {
             NSLog("mainEvents > save to storage")
-            mainEvents.sort{DateFormatterWrapper.yearToCurrentInEvent($0)  < DateFormatterWrapper.yearToCurrentInEvent($1)}
+            mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
             // reschedule notifications
             mainEvents.forEach({$0.setUpNotificationIds()})
             NSLog("😎 check notification possibility")
@@ -44,7 +44,7 @@ class BirthdaysScreen: UIViewController{
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainEvents.sort{DateFormatterWrapper.yearToCurrentInEvent($0)  < DateFormatterWrapper.yearToCurrentInEvent($1)}
+        mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
     }
     
@@ -87,7 +87,7 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
         
         cell.event = mEvent
 //        cell.title.text = mEvent.title
-//        let df = DateFormatterWrapper(date: mEvent.eventDate)
+//        let df = DatePrinter(date: mEvent.eventDate)
 //        
 //        cell.dayAndMonth.text = df.monthAndDay()
 //        cell.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()

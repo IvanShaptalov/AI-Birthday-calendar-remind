@@ -47,7 +47,7 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
         guard event != nil else {
             return
         }
-        let df = DateFormatterWrapper(date: event!.eventDate)
+        let df = DatePrinter(date: event!.eventDate)
         if event?.eventType == .simpleEvent {
             self.timeLeft.text = df.hourAndMinute()
             self.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()

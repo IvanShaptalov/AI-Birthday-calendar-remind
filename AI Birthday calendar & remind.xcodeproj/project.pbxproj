@@ -28,6 +28,9 @@
 		8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */; };
 		8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */; };
 		8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */; };
+		8D4EC3B02B9632F6001DE189 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
+		8D4EC3B12B963300001DE189 /* NotificationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */; };
+		8D4EC3B22B96330D001DE189 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */; };
 		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823842B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823852B84AC1500E63423 /* MainEvent.swift */; };
@@ -543,10 +546,13 @@
 				8D78239D2B86280200E63423 /* CalendarImport.swift in Sources */,
 				8D7823872B84AC1500E63423 /* MainEvent.swift in Sources */,
 				8D78238A2B84AE4D00E63423 /* GeneratedMessage.swift in Sources */,
+				8D4EC3B02B9632F6001DE189 /* MainEventRuleUpdater.swift in Sources */,
 				8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */,
 				8D7823902B84B13A00E63423 /* JsonCoders.swift in Sources */,
 				8D7823B52B863C5100E63423 /* EventCell.swift in Sources */,
+				8D4EC3B22B96330D001DE189 /* PermissionProvider.swift in Sources */,
 				8D7823A02B86280E00E63423 /* ContactImport.swift in Sources */,
+				8D4EC3B12B963300001DE189 /* NotificationServiceProvider.swift in Sources */,
 				8D7823942B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D78239A2B86255B00E63423 /* Storage.swift in Sources */,
 				8D09EC982B8E305F00A10437 /* DateFormatter.swift in Sources */,

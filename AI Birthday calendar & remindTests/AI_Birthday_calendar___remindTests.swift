@@ -58,4 +58,27 @@ final class AI_Birthday_calendar___remind: XCTestCase {
         }
     }
     
+    func testEventDateDistance() throws {
+        let mainEvent1 = MainEvent(eventDate: .now.addingTimeInterval(-(24*60*60)), eventType: .anniversary, title: "title", id: UUID().uuidString)
+        
+        XCTAssertEqual(DatePrinter.dateDistance(from: mainEvent1.eventDate, to: .now, components: [.day]).day, 1)
+    }
+    
+    func testDayOfWeek() throws {
+        let mainEvent1 = MainEvent(eventDate: Date(timeIntervalSince1970: 0), eventType: .anniversary, title: "title", id: UUID().uuidString)
+        
+        XCTAssertEqual(DatePrinter(date: mainEvent1.eventDate).dayOfWeekCalendarFormat(), "Thu")
+    }
+    
+    func testYearsTurnsNewDate() throws {
+        let mainEvent1 = MainEvent(eventDate: .now.addingTimeInterval(+(24*60*60)), eventType: .anniversary, title: "title", id: UUID().uuidString)
+        
+        XCTAssertEqual(DatePrinter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 0 in 1 day")
+    }
+    
+    func testYearsTurnsOldDate() throws {
+        let mainEvent1 = MainEvent(eventDate: .now.addingTimeInterval(-(24*60*60)), eventType: .anniversary, title: "title", id: UUID().uuidString)
+        
+        XCTAssertEqual(DatePrinter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 1 in 364 days")
+    }
 }

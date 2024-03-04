@@ -8,7 +8,7 @@
 import Foundation
 
 
-class DateFormatterWrapper {
+class DatePrinter {
     var date: Date
     
     init(date: Date) {
@@ -39,7 +39,7 @@ class DateFormatterWrapper {
             return date
         }
         // check that date is not expired else add year
-        let components = DateFormatterWrapper.dateDistance(from: .now, to: updatedDate, components: [.day])
+        let components = DatePrinter.dateDistance(from: .now, to: updatedDate, components: [.day])
         
         guard let days = components.day else {
             return date
@@ -47,7 +47,7 @@ class DateFormatterWrapper {
         
         // add years to updated date
         if days < 0 {
-            var addYears = ((days * -1)+365) / 365
+            let addYears = ((days * -1)+365) / 365
             
             year += addYears
             NSLog("days old: \(days) new year: \(year)")
@@ -68,7 +68,7 @@ class DateFormatterWrapper {
 
         let currentDate = calendar.startOfDay(for: Date())
         let startOfDay = calendar.startOfDay(for: self.date)
-        let components = DateFormatterWrapper.dateDistance(from: currentDate, to: startOfDay, components: [.day])
+        let components = DatePrinter.dateDistance(from: currentDate, to: startOfDay, components: [.day])
         
         guard let days = components.day else {
             return "Date has passed"
@@ -90,8 +90,8 @@ class DateFormatterWrapper {
     func yearsTurnsInDays() -> String {
         let calendar = Calendar.current
         let currentDate = calendar.startOfDay(for: Date())
-        let thisYearBirthdayDate = calendar.startOfDay(for: DateFormatterWrapper.updateYear(self.date))
-        let components = DateFormatterWrapper.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
+        let thisYearBirthdayDate = calendar.startOfDay(for: DatePrinter.updateYear(self.date))
+        let components = DatePrinter.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
         
         let yearTurns = Calendar.current.component(.year, from: thisYearBirthdayDate)-Calendar.current.component(.year, from: self.date)
 

@@ -192,7 +192,7 @@ class NotificationServiceProvider {
     }
     
     private static func prepareContent(event: MainEvent) -> UNMutableNotificationContent{
-        let df = DateFormatterWrapper(date: event.eventDate)
+        let df = DatePrinter(date: event.eventDate)
 
         switch event.eventType {
         case .birthday:
@@ -217,7 +217,7 @@ class NotificationServiceProvider {
     }
     
     private static func prepareContentDaysBefore(event: MainEvent) -> UNMutableNotificationContent{
-        let df = DateFormatterWrapper(date: event.eventDate)
+        let df = DatePrinter(date: event.eventDate)
         let inTime = df.yearsTurnsInDays()
         NSLog("⌚️ notify in time: \(inTime)")
         

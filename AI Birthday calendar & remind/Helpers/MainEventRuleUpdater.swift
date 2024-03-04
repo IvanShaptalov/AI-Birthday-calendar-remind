@@ -14,7 +14,7 @@ class MainEventRuleUpdater {
         let start = DispatchTime.now() // <<<<<<<<<< Start time
 
         var mainEvents = MainEventStorage.load()
-        mainEvents.sort{DateFormatterWrapper.yearToCurrentInEvent($0)  < DateFormatterWrapper.yearToCurrentInEvent($1)}
+        mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
         // reschedule notifications
         mainEvents.forEach({$0.setUpNotificationIds()})
 
