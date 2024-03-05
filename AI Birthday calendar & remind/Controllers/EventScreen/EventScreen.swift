@@ -147,9 +147,6 @@ extension BirthdaysScreen {
             // remove notifications firstly
             NotificationServiceProvider.cancelNotifications(ids: self.mainEvents[indexPath.row].getNotificationIds())
             
-            self.mainEvents.remove(at: indexPath.row)
-            self.tableEvents.deleteRows(at: [indexPath], with: .automatic)
-            
             switch self.mainEvents[indexPath.row].eventType {
                 
             case .birthday:
@@ -160,6 +157,8 @@ extension BirthdaysScreen {
                 AnalyticsManager.shared.logEvent(eventType: .eventDeleted)
             }
             
+            self.mainEvents.remove(at: indexPath.row)
+            self.tableEvents.deleteRows(at: [indexPath], with: .automatic)
         }
         
         actionDelete.backgroundColor = .systemBackground
