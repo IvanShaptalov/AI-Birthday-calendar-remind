@@ -31,6 +31,12 @@
 		8D4EC3B02B9632F6001DE189 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
 		8D4EC3B12B963300001DE189 /* NotificationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */; };
 		8D4EC3B22B96330D001DE189 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */; };
+		8D4EC3B52B963C22001DE189 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3B42B963C22001DE189 /* FirebaseAnalyticsSwift */; };
+		8D4EC3B72B963C22001DE189 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3B62B963C22001DE189 /* FirebaseDatabaseSwift */; };
+		8D4EC3B92B963C22001DE189 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3B82B963C22001DE189 /* FirebaseRemoteConfigSwift */; };
+		8D4EC3BC2B963C32001DE189 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4EC3BB2B963C32001DE189 /* StoreKit.framework */; };
+		8D4EC3BF2B964019001DE189 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3BE2B964019001DE189 /* RevenueCat */; };
+		8D4EC3C12B964019001DE189 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3C02B964019001DE189 /* RevenueCatUI */; };
 		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823842B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823852B84AC1500E63423 /* MainEvent.swift */; };
@@ -103,6 +109,7 @@
 		8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventCell.swift; sourceTree = "<group>"; };
 		8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventCell.xib; sourceTree = "<group>"; };
 		8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventScreen.swift; sourceTree = "<group>"; };
+		8D4EC3BB2B963C32001DE189 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		8D7823852B84AC1500E63423 /* MainEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvent.swift; sourceTree = "<group>"; };
 		8D7823882B84AE4D00E63423 /* GeneratedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMessage.swift; sourceTree = "<group>"; };
@@ -125,6 +132,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D4EC3B92B963C22001DE189 /* FirebaseRemoteConfigSwift in Frameworks */,
+				8D4EC3B72B963C22001DE189 /* FirebaseDatabaseSwift in Frameworks */,
+				8D4EC3C12B964019001DE189 /* RevenueCatUI in Frameworks */,
+				8D4EC3BF2B964019001DE189 /* RevenueCat in Frameworks */,
+				8D4EC3B52B963C22001DE189 /* FirebaseAnalyticsSwift in Frameworks */,
+				8D4EC3BC2B963C32001DE189 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +183,7 @@
 				8D1242422B7D267D00ED016E /* AI Birthday calendar & remindTests */,
 				8D12424C2B7D267D00ED016E /* AI Birthday calendar & remindUITests */,
 				8D1242262B7D267B00ED016E /* Products */,
+				8D4EC3BA2B963C32001DE189 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -295,6 +309,14 @@
 			path = AddEventScreen;
 			sourceTree = "<group>";
 		};
+		8D4EC3BA2B963C32001DE189 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D4EC3BB2B963C32001DE189 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8D7823912B8623C700E63423 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +413,13 @@
 			dependencies = (
 			);
 			name = "AI Birthday calendar & remind";
+			packageProductDependencies = (
+				8D4EC3B42B963C22001DE189 /* FirebaseAnalyticsSwift */,
+				8D4EC3B62B963C22001DE189 /* FirebaseDatabaseSwift */,
+				8D4EC3B82B963C22001DE189 /* FirebaseRemoteConfigSwift */,
+				8D4EC3BE2B964019001DE189 /* RevenueCat */,
+				8D4EC3C02B964019001DE189 /* RevenueCatUI */,
+			);
 			productName = "AI Birthday calendar & remind";
 			productReference = 8D1242252B7D267B00ED016E /* AI Birthday calendar & remind.app */;
 			productType = "com.apple.product-type.application";
@@ -463,6 +492,10 @@
 				Base,
 			);
 			mainGroup = 8D12421C2B7D267B00ED016E;
+			packageReferences = (
+				8D4EC3B32B963C22001DE189 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8D4EC3BD2B964019001DE189 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+			);
 			productRefGroup = 8D1242262B7D267B00ED016E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -905,6 +938,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8D4EC3B32B963C22001DE189 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.21.0;
+			};
+		};
+		8D4EC3BD2B964019001DE189 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.37.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8D4EC3B42B963C22001DE189 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D4EC3B32B963C22001DE189 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		8D4EC3B62B963C22001DE189 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D4EC3B32B963C22001DE189 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		8D4EC3B82B963C22001DE189 /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D4EC3B32B963C22001DE189 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfigSwift;
+		};
+		8D4EC3BE2B964019001DE189 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D4EC3BD2B964019001DE189 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		8D4EC3C02B964019001DE189 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D4EC3BD2B964019001DE189 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8D1242312B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld */ = {
