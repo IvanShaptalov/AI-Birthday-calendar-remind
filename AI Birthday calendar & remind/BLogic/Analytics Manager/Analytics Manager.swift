@@ -1,0 +1,36 @@
+//
+//  AnalyticsManager.swift
+//  Learn Up
+//
+//  Created by PowerMac on 14.01.2024.
+//
+
+import Foundation
+import FirebaseAnalytics
+
+
+final class AnalyticsManager {
+    private init() {}
+    static let shared = AnalyticsManager()
+    
+    public func logEvent(eventType: EventType, parameters:  [String: Any]? = nil) {
+        Analytics.logEvent(eventType.rawValue, parameters: parameters)
+    }
+}
+
+
+enum EventType: String {
+    case
+    eventCreated = "event_created",
+    anniversaryCreated = "anniversary_created",
+    birthdayCreated = "birthday_created",
+    eventDeleted = "event_deleted",
+    anniversaryDeleted = "anniversary_deleted",
+    birthdayDeleted = "birthday_deleted",
+    congratsGenerated = "congrats_generated",
+    openProPage = "open_pro_page",
+    rateAppImplicitA = "rate_app_implicit",
+    rateAppDirect = "rate_app_direct",
+    contactUsOpened = "contact_us",
+    setUpTimeNotifications = "set_up_time_notifications"
+}

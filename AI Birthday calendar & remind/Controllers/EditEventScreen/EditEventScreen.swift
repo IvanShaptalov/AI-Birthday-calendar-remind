@@ -22,7 +22,23 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
         var evCopy = self.events
         evCopy.removeAll(where: {$0.title == ""})
         self.bulkDelegate?(evCopy)
+        
+        evCopy.forEach({ev in
+            switch ev.eventType {
+                
+            case .birthday:
+                AnalyticsManager.shared.logEvent(eventType: .birthdayCreated)
+            case .anniversary:
+                AnalyticsManager.shared.logEvent(eventType: .anniversaryCreated)
+            case .simpleEvent:
+                AnalyticsManager.shared.logEvent(eventType: .eventCreated)
+            }
+        }
+        )
+        
         self.dismiss(animated: true)
+        
+        
     }
     
     

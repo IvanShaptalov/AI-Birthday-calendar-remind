@@ -50,6 +50,7 @@ extension SettingsScreen {
     }
     
     private func contactUs(){
+        AnalyticsManager.shared.logEvent(eventType: .contactUsOpened)
         UIApplication.shared.open(URL(string: AppConfiguration.contactUsURL)!, options: [:], completionHandler: nil)
     }
     

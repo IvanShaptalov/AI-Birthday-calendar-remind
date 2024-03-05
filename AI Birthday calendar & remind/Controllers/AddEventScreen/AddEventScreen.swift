@@ -16,10 +16,24 @@ protocol MainEventBulkCreatingProtocol{
 class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     var bulkDelegate: (([MainEvent]) -> Void)?
     
+    
+    
     @IBAction func bulkAdd(_ sender: UIBarButtonItem) {
         var evCopy = self.events
         evCopy.removeAll(where: {$0.title == ""})
         self.bulkDelegate?(evCopy)
+        evCopy.forEach({ev in
+            switch ev.eventType {
+                
+            case .birthday:
+                AnalyticsManager.shared.logEvent(eventType: .birthdayCreated)
+            case .anniversary:
+                AnalyticsManager.shared.logEvent(eventType: .anniversaryCreated)
+            case .simpleEvent:
+                AnalyticsManager.shared.logEvent(eventType: .eventCreated)
+            }
+        }
+        )
         self.dismiss(animated: true)
     }
     

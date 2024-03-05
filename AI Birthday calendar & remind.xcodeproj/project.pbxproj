@@ -37,6 +37,7 @@
 		8D4EC3BC2B963C32001DE189 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4EC3BB2B963C32001DE189 /* StoreKit.framework */; };
 		8D4EC3BF2B964019001DE189 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3BE2B964019001DE189 /* RevenueCat */; };
 		8D4EC3C12B964019001DE189 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3C02B964019001DE189 /* RevenueCatUI */; };
+		8D57AF632B9764A8006790A6 /* Analytics Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57AF622B9764A7006790A6 /* Analytics Manager.swift */; };
 		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823842B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823852B84AC1500E63423 /* MainEvent.swift */; };
@@ -110,6 +111,7 @@
 		8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventCell.xib; sourceTree = "<group>"; };
 		8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventScreen.swift; sourceTree = "<group>"; };
 		8D4EC3BB2B963C32001DE189 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8D57AF622B9764A7006790A6 /* Analytics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics Manager.swift"; sourceTree = "<group>"; };
 		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		8D7823852B84AC1500E63423 /* MainEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvent.swift; sourceTree = "<group>"; };
 		8D7823882B84AE4D00E63423 /* GeneratedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedMessage.swift; sourceTree = "<group>"; };
@@ -317,6 +319,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8D57AF612B976491006790A6 /* Analytics Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8D57AF622B9764A7006790A6 /* Analytics Manager.swift */,
+			);
+			path = "Analytics Manager";
+			sourceTree = "<group>";
+		};
 		8D7823912B8623C700E63423 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +356,7 @@
 		8D7823A62B86285800E63423 /* BLogic */ = {
 			isa = PBXGroup;
 			children = (
+				8D57AF612B976491006790A6 /* Analytics Manager */,
 				8D7823AA2B8628A600E63423 /* Reminders */,
 				8D7823A92B86289600E63423 /* Notifications */,
 				8D1242652B7D291700ED016E /* Subscription */,
@@ -564,6 +575,7 @@
 				8D78238F2B84B13A00E63423 /* JsonCoders.swift in Sources */,
 				8D1242332B7D267B00ED016E /* AI_Birthday_calendar___remind.xcdatamodeld in Sources */,
 				8D7823B42B863C5100E63423 /* EventCell.swift in Sources */,
+				8D57AF632B9764A8006790A6 /* Analytics Manager.swift in Sources */,
 				8D7823832B8397D600E63423 /* Enumerations.swift in Sources */,
 				8D7823B02B863C3800E63423 /* EventScreen.swift in Sources */,
 				8D09EC972B8E09AC00A10437 /* NotificationSettingsScreen.swift in Sources */,

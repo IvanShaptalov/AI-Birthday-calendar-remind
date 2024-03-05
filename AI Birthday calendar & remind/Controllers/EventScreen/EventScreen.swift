@@ -146,8 +146,20 @@ extension BirthdaysScreen {
         let actionDelete = UIContextualAction(style: .destructive, title: "Delete") { _,_,_ in
             // remove notifications firstly
             NotificationServiceProvider.cancelNotifications(ids: self.mainEvents[indexPath.row].getNotificationIds())
+            
             self.mainEvents.remove(at: indexPath.row)
             self.tableEvents.deleteRows(at: [indexPath], with: .automatic)
+            
+            switch self.mainEvents[indexPath.row].eventType {
+                
+            case .birthday:
+                AnalyticsManager.shared.logEvent(eventType: .birthdayDeleted)
+            case .anniversary:
+                AnalyticsManager.shared.logEvent(eventType: .anniversaryDeleted)
+            case .simpleEvent:
+                AnalyticsManager.shared.logEvent(eventType: .eventDeleted)
+            }
+            
         }
         
         actionDelete.backgroundColor = .systemBackground

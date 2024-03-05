@@ -10,7 +10,7 @@ import Foundation
 
 class AppConfiguration {
     // MARK: - LINKS
-    static var appStoreURL: String = "https://www.instagram.com/wellbeingvantage/"
+    static var appStoreURL: String = "https://apps.apple.com/ua/app/ai-birthday-reminder-calendar/id6477883190"
     static var privacyPolicyURL: String = "https://t.me/aibcrprivacyPolicy"
     static var contactUsURL: String = "https://www.instagram.com/wellbeingvantage/"
     static var launchedEarlier = SettingsStorage.loadIsFirstLaunch()

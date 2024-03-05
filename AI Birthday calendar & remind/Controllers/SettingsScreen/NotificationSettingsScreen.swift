@@ -28,6 +28,7 @@ class NotificationSettingsScreen: UITableViewController {
         self.requestNotificationPermissionIfNeeded()
         self.setUpPulldownNotificateBefore()
         self.setUpNotificationSwithAndDate()
+        AnalyticsManager.shared.logEvent(eventType: .setUpTimeNotifications)
         
     }
     

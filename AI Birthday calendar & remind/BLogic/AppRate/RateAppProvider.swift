@@ -50,6 +50,7 @@ class RateProvider {
     }
     
     static func rateApp() {
+        AnalyticsManager.shared.logEvent(eventType: .rateAppDirect)
         UIApplication.shared.open(URL(string: AppConfiguration.appStoreURL)!, options: [:], completionHandler: nil)
 //        AnalyticsManager.shared.logEvent(eventType:.rateDirect)
 
@@ -59,6 +60,7 @@ class RateProvider {
     static func rateAppImplicit(view: UIView) {
         NSLog("try rate 🤞")
         if isNeedToRate() {
+            AnalyticsManager.shared.logEvent(eventType: .rateAppImplicitA)
             NSLog("rate ⭐️")
             if let windowScene = view.window?.windowScene {
                 SKStoreReviewController.requestReview(in: windowScene)

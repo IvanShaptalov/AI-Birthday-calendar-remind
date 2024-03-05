@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: - First Launch
         fixFirstLaunch()
         PermissionProvider.registerForRemoteNotification()
+        FirebaseApp.configure()
         return true
     }
 
