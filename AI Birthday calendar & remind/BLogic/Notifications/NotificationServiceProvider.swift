@@ -43,6 +43,7 @@ class NotificationServiceProvider {
                 NSLog("🗿 notify day before")
                 let dBeforeRequest = dayBeforeRequest(event: event)
                 if dBeforeRequest != nil {
+                    
                     self.schedule(request: dBeforeRequest!,ndc)
                 }
             }
@@ -55,20 +56,22 @@ class NotificationServiceProvider {
     }
     
     // MARK: - RAW REQUEST
-   
+    
     
     private static func schedule(request: UNNotificationRequest,_ notificationDisabledCallback: (()-> Void)?){
         
         PermissionProvider.notificationCenter.getNotificationSettings(completionHandler: {settings in
-            NSLog("scheduling notification 🔔")
-            guard (settings.authorizationStatus == .authorized) ||
-                    (settings.authorizationStatus == .provisional) else { 
-                notificationDisabledCallback?()
-                return }
-            
-            PermissionProvider.notificationCenter.add(request) {error in
-                NSLog("error while notification adding: \(String(describing: error))")
-            }
+            DispatchQueue.main.async {
+                
+                NSLog("scheduling notification 🔔")
+                guard (settings.authorizationStatus == .authorized) ||
+                        (settings.authorizationStatus == .provisional) else {
+                    notificationDisabledCallback?()
+                    return }
+                
+                PermissionProvider.notificationCenter.add(request) {error in
+                    NSLog("error while notification adding: \(String(describing: error))")
+                }}
         }
         )
     }
@@ -78,7 +81,7 @@ class NotificationServiceProvider {
     private static func prepareDaySameDate(event: MainEvent) -> DateComponents {
         NSLog("🌞 same day")
         var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: DatePrinter.updateYear(event.eventDate))
-
+        
         let timeComps = Calendar.current.dateComponents([.hour, .minute, .second], from: AppConfiguration.notificationTime)
         
         comps.hour = timeComps.hour
@@ -88,7 +91,7 @@ class NotificationServiceProvider {
         NSLog("next notification of \(event.title) on : \(comps)")
         return comps
     }
-        
+    
     static func sameDayRequest(event: MainEvent) -> UNNotificationRequest{
         assert(event.notificationSameDayId != nil)
         // set up content
@@ -121,7 +124,7 @@ class NotificationServiceProvider {
         let subtracktedComps = Calendar.current.dateComponents([.year, .month, .day,.hour,.minute,.second], from: date!)
         
         NSLog("next days before notification of \(event.title) on : \(subtracktedComps)")
-
+        
         return subtracktedComps
     }
     
@@ -180,7 +183,7 @@ class NotificationServiceProvider {
     
     private static func prepareContent(event: MainEvent) -> UNMutableNotificationContent{
         let df = DatePrinter(date: event.eventDate)
-
+        
         switch event.eventType {
         case .birthday:
             let content = UNMutableNotificationContent()
