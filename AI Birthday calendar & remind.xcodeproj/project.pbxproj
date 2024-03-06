@@ -26,6 +26,16 @@
 		8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */; };
 		8D1C29B62B98634200B34B6D /* RemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */; };
 		8D1C29B82B9863E100B34B6D /* MonetizationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */; };
+		8D1C29BE2B9868B800B34B6D /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29BD2B9868B800B34B6D /* Converter.swift */; };
+		8D1C29BF2B9868B800B34B6D /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29BD2B9868B800B34B6D /* Converter.swift */; };
+		8D1C29C12B9868B900B34B6D /* OpenAIApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */; };
+		8D1C29C22B9868B900B34B6D /* OpenAIApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */; };
+		8D1C29C42B9868C000B34B6D /* RawApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C32B9868C000B34B6D /* RawApi.swift */; };
+		8D1C29C52B9868C000B34B6D /* RawApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C32B9868C000B34B6D /* RawApi.swift */; };
+		8D1C29C72B9868C400B34B6D /* WordFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C62B9868C400B34B6D /* WordFiller.swift */; };
+		8D1C29C82B9868C400B34B6D /* WordFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C62B9868C400B34B6D /* WordFiller.swift */; };
+		8D1C29C92B986B9400B34B6D /* RemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */; };
+		8D1C29CA2B986BB200B34B6D /* MonetizationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */; };
 		8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7D82B873EA8006D14FA /* DateFormatter.swift */; };
 		8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */; };
 		8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */; };
@@ -111,6 +121,10 @@
 		8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceProvider.swift; sourceTree = "<group>"; };
 		8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfiguration.swift; sourceTree = "<group>"; };
 		8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationConfiguration.swift; sourceTree = "<group>"; };
+		8D1C29BD2B9868B800B34B6D /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIApi.swift; sourceTree = "<group>"; };
+		8D1C29C32B9868C000B34B6D /* RawApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawApi.swift; sourceTree = "<group>"; };
+		8D1C29C62B9868C400B34B6D /* WordFiller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordFiller.swift; sourceTree = "<group>"; };
 		8D28D7D82B873EA8006D14FA /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventCell.swift; sourceTree = "<group>"; };
 		8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventCell.xib; sourceTree = "<group>"; };
@@ -208,6 +222,7 @@
 		8D1242272B7D267B00ED016E /* AI Birthday calendar & remind */ = {
 			isa = PBXGroup;
 			children = (
+				8D1C29BC2B98689F00B34B6D /* MessageGenerator */,
 				8D1242652B7D291700ED016E /* Subscription */,
 				8D7823A72B86287F00E63423 /* AppRate */,
 				8D57AF612B976491006790A6 /* Analytics Manager */,
@@ -310,6 +325,17 @@
 				8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */,
 			);
 			path = Subscription;
+			sourceTree = "<group>";
+		};
+		8D1C29BC2B98689F00B34B6D /* MessageGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				8D1C29BD2B9868B800B34B6D /* Converter.swift */,
+				8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */,
+				8D1C29C32B9868C000B34B6D /* RawApi.swift */,
+				8D1C29C62B9868C400B34B6D /* WordFiller.swift */,
+			);
+			path = MessageGenerator;
 			sourceTree = "<group>";
 		};
 		8D28D7DA2B87687B006D14FA /* AddEventScreen */ = {
@@ -567,16 +593,20 @@
 				8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */,
 				8D09EC922B8C720400A10437 /* SettingsScreen.swift in Sources */,
 				8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */,
+				8D1C29C12B9868B900B34B6D /* OpenAIApi.swift in Sources */,
 				8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */,
+				8D1C29BE2B9868B800B34B6D /* Converter.swift in Sources */,
 				8D1C29B82B9863E100B34B6D /* MonetizationConfiguration.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */,
 				8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */,
 				8D7823962B8623EB00E63423 /* AppConfiguration.swift in Sources */,
+				8D1C29C42B9868C000B34B6D /* RawApi.swift in Sources */,
 				8D7823A22B86281F00E63423 /* TextImport.swift in Sources */,
 				8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D78239F2B86280E00E63423 /* ContactImport.swift in Sources */,
 				8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */,
+				8D1C29C72B9868C400B34B6D /* WordFiller.swift in Sources */,
 				8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,
@@ -601,16 +631,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D78239D2B86280200E63423 /* CalendarImport.swift in Sources */,
+				8D1C29C82B9868C400B34B6D /* WordFiller.swift in Sources */,
 				8D7823872B84AC1500E63423 /* MainEvent.swift in Sources */,
+				8D1C29CA2B986BB200B34B6D /* MonetizationConfiguration.swift in Sources */,
 				8D78238A2B84AE4D00E63423 /* GeneratedMessage.swift in Sources */,
 				8D4EC3B02B9632F6001DE189 /* MainEventRuleUpdater.swift in Sources */,
 				8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */,
+				8D1C29BF2B9868B800B34B6D /* Converter.swift in Sources */,
 				8D7823902B84B13A00E63423 /* JsonCoders.swift in Sources */,
 				8D7823B52B863C5100E63423 /* EventCell.swift in Sources */,
 				8D4EC3B22B96330D001DE189 /* PermissionProvider.swift in Sources */,
+				8D1C29C92B986B9400B34B6D /* RemoteConfiguration.swift in Sources */,
+				8D1C29C52B9868C000B34B6D /* RawApi.swift in Sources */,
 				8D7823A02B86280E00E63423 /* ContactImport.swift in Sources */,
 				8D4EC3B12B963300001DE189 /* NotificationServiceProvider.swift in Sources */,
 				8D7823942B8623E300E63423 /* StorageConfiguration.swift in Sources */,
+				8D1C29C22B9868B900B34B6D /* OpenAIApi.swift in Sources */,
 				8D78239A2B86255B00E63423 /* Storage.swift in Sources */,
 				8D09EC982B8E305F00A10437 /* DateFormatter.swift in Sources */,
 				8D7823972B8623EB00E63423 /* AppConfiguration.swift in Sources */,

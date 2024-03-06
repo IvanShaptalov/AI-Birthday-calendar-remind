@@ -72,6 +72,19 @@ class AppConfiguration {
                                          "gpt-3.5-turbo-0301",
                                          "gpt-3.5-turbo-16k-0613",
                                          "gpt-3.5-turbo-0613"]
+    
+    static func switchGptModel(){
+        NSLog("now: \(gptModel)")
+        if gptModelList.contains(gptModel){
+            let currentIndex = gptModelList.firstIndex(of: gptModel)
+            if currentIndex! + 1 < gptModelList.count {
+                gptModel = gptModelList[currentIndex! + 1]
+            } else {
+                gptModel = gptModelList.first!
+            }
+            NSLog("selected: \(gptModel)")
+        }
+    }
 }
 
 

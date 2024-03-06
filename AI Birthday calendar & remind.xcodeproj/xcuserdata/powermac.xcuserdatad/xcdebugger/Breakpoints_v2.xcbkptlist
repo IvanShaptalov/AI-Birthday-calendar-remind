@@ -14,10 +14,57 @@
             filePath = "AI Birthday calendar &amp; remind/Configuration/AppConfiguration.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "fetch()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D1F6DFAF-0DAA-4D93-A0B1-99936B8407AB - 114ae24ef699fecb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (__C.FIRRemoteConfigFetchStatus, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AI_Birthday_calendar___remind.ConfigurationFetcher.fetch() -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Configuration/AppConfiguration.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "2868">
+               </Location>
+               <Location
+                  uuid = "D1F6DFAF-0DAA-4D93-A0B1-99936B8407AB - 114ae24ef699fd70"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (__C.FIRRemoteConfigFetchStatus, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AI_Birthday_calendar___remind.ConfigurationFetcher.fetch() -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Configuration/AppConfiguration.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "2868">
+               </Location>
+               <Location
+                  uuid = "D1F6DFAF-0DAA-4D93-A0B1-99936B8407AB - 3e13da6ceb0784b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (__C.FIRRemoteConfigFetchStatus, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AI_Birthday_calendar___remindTests.ConfigurationFetcher.fetch() -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remindTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Configuration/AppConfiguration.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "2868">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,10 +77,57 @@
             filePath = "AI Birthday calendar &amp; remind/Configuration/AppConfiguration.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "fetch()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F8345F1D-22F7-44F4-A37D-546FD1E1267E - 114ae24ef699fe2a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (__C.FIRRemoteConfigFetchStatus, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AI_Birthday_calendar___remind.ConfigurationFetcher.fetch() -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Configuration/AppConfiguration.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "2968">
+               </Location>
+               <Location
+                  uuid = "F8345F1D-22F7-44F4-A37D-546FD1E1267E - 114ae24ef699fd5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (__C.FIRRemoteConfigFetchStatus, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AI_Birthday_calendar___remind.ConfigurationFetcher.fetch() -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Configuration/AppConfiguration.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "2968">
+               </Location>
+               <Location
+                  uuid = "F8345F1D-22F7-44F4-A37D-546FD1E1267E - 3e13da6ceb07849d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (__C.FIRRemoteConfigFetchStatus, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AI_Birthday_calendar___remindTests.ConfigurationFetcher.fetch() -&gt; ()"
+                  moduleName = "AI Birthday calendar &amp; remindTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/Configuration/AppConfiguration.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "2968">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
