@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         fixFirstLaunch()
         PermissionProvider.registerForRemoteNotification()
         FirebaseApp.configure()
+        ConfigurationFetcher.fetch()
+
         return true
     }
 

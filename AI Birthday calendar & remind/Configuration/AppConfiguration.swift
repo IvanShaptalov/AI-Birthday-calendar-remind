@@ -60,4 +60,65 @@ class AppConfiguration {
 
         }
     }
+    
+    
+    // MARK: - Gpt keys
+    
+    static var gptToken = "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"
+    static var gptOrganization = "wellbeing.vantage"
+    static var gptModel = "gpt-3.5-turbo-1106"
+    
+    static var gptModelList: [String] = ["gpt-3.5-turbo-1106",
+                                         "gpt-3.5-turbo-0301",
+                                         "gpt-3.5-turbo-16k-0613",
+                                         "gpt-3.5-turbo-0613"]
+}
+
+
+// MARK: - Fetching
+
+class ConfigurationFetcher{
+    static func fetch(){
+        RemoteConfigWrapper.shared.remoteConfig.fetch { (status, error) -> Void in
+            if status == .success {
+                NSLog("Config fetched!")
+                RemoteConfigWrapper.shared.remoteConfig.activate { changed, error in
+                    //                        // MARK: - GPT fetching
+                    NSLog("⚙️ Remote Config changed: \(changed)")
+                    
+                    
+                    
+                    AppConfiguration.contactUsURL = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "contactUsURL").stringValue ?? AppConfiguration.contactUsURL
+                    
+                    // MARK: - GPT Fetching
+                    
+                    AppConfiguration.gptToken = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "gptToken").stringValue ?? AppConfiguration.gptToken
+                    
+                  
+                    AppConfiguration.gptOrganization = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "gptOrganization").stringValue ?? AppConfiguration.gptOrganization
+                    
+                    AppConfiguration.gptModel = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "gptModel").stringValue ?? AppConfiguration.gptModel
+                    
+                    MonetizationConfiguration.fetchFirebase()
+                    
+                    let gptModelListRaw = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "gptModelList").stringValue
+                    
+                    
+                    
+                    if gptModelListRaw != nil {
+                        let splitted = gptModelListRaw?.components(separatedBy: ",")
+                        if splitted != nil && !splitted!.isEmpty {
+                            AppConfiguration.gptModelList = splitted!
+                        }
+                    }
+                    
+                    MonetizationConfiguration.fetchFirebase()
+                }
+                
+            } else {
+                NSLog("Config not fetched")
+                NSLog("Error: \(error?.localizedDescription ?? "No error available.")")
+            }
+        }
+    }
 }

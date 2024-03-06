@@ -24,6 +24,8 @@
 		8D1242502B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */; };
 		8D12425D2B7D285500ED016E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D12425C2B7D285500ED016E /* .gitignore */; };
 		8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */; };
+		8D1C29B62B98634200B34B6D /* RemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */; };
+		8D1C29B82B9863E100B34B6D /* MonetizationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */; };
 		8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7D82B873EA8006D14FA /* DateFormatter.swift */; };
 		8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */; };
 		8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */; };
@@ -107,6 +109,8 @@
 		8D12424F2B7D267D00ED016E /* AI_Birthday_calendar___remindUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AI_Birthday_calendar___remindUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		8D12425C2B7D285500ED016E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceProvider.swift; sourceTree = "<group>"; };
+		8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfiguration.swift; sourceTree = "<group>"; };
+		8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationConfiguration.swift; sourceTree = "<group>"; };
 		8D28D7D82B873EA8006D14FA /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventCell.swift; sourceTree = "<group>"; };
 		8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventCell.xib; sourceTree = "<group>"; };
@@ -204,6 +208,9 @@
 		8D1242272B7D267B00ED016E /* AI Birthday calendar & remind */ = {
 			isa = PBXGroup;
 			children = (
+				8D1242652B7D291700ED016E /* Subscription */,
+				8D7823A72B86287F00E63423 /* AppRate */,
+				8D57AF612B976491006790A6 /* Analytics Manager */,
 				8D09EC932B8DF8AA00A10437 /* Permissions */,
 				8D7823A62B86285800E63423 /* BLogic */,
 				8D7823912B8623C700E63423 /* Configuration */,
@@ -300,6 +307,7 @@
 		8D1242652B7D291700ED016E /* Subscription */ = {
 			isa = PBXGroup;
 			children = (
+				8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */,
 			);
 			path = Subscription;
 			sourceTree = "<group>";
@@ -335,6 +343,7 @@
 			children = (
 				8D7823922B8623E300E63423 /* StorageConfiguration.swift */,
 				8D7823952B8623EB00E63423 /* AppConfiguration.swift */,
+				8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -359,11 +368,8 @@
 		8D7823A62B86285800E63423 /* BLogic */ = {
 			isa = PBXGroup;
 			children = (
-				8D57AF612B976491006790A6 /* Analytics Manager */,
 				8D7823AA2B8628A600E63423 /* Reminders */,
 				8D7823A92B86289600E63423 /* Notifications */,
-				8D1242652B7D291700ED016E /* Subscription */,
-				8D7823A72B86287F00E63423 /* AppRate */,
 				8D7823A52B86283200E63423 /* Export */,
 				8D7823A42B86282600E63423 /* Import */,
 			);
@@ -562,6 +568,7 @@
 				8D09EC922B8C720400A10437 /* SettingsScreen.swift in Sources */,
 				8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */,
 				8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */,
+				8D1C29B82B9863E100B34B6D /* MonetizationConfiguration.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */,
 				8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */,
@@ -582,6 +589,7 @@
 				8D57AF632B9764A8006790A6 /* Analytics Manager.swift in Sources */,
 				8D7823832B8397D600E63423 /* Enumerations.swift in Sources */,
 				8D7823B02B863C3800E63423 /* EventScreen.swift in Sources */,
+				8D1C29B62B98634200B34B6D /* RemoteConfiguration.swift in Sources */,
 				8D09EC972B8E09AC00A10437 /* NotificationSettingsScreen.swift in Sources */,
 				8D09EC9A2B8E505400A10437 /* DaysBeforePulldownButton.swift in Sources */,
 				8D7823992B86255B00E63423 /* Storage.swift in Sources */,
