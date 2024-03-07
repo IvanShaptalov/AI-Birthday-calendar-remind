@@ -217,44 +217,63 @@ enum WhoWish: String {
     grandson = "Grandson",
     granddaughter = "Granddaughter"
     
-    static func allValuesCloseFamily() -> [WhoWish]  {
-        // Placeholder for close family members
-        return [.mother, .father, .sibling, .partner, .son, .daughter, .grandson, .granddaughter]
+    // MARK: - WhoWish
+enum WhoWish: String {
+    case
+    friend = "Friend",
+    mother = "Mother",
+    father = "Father",
+    sibling = "Sibling",
+    partner = "Partner",
+    grandparent = "Grandparent",
+    cousin = "Cousin",
+    aunt = "Aunt",
+    uncle = "Uncle",
+    niece = "Niece",
+    nephew = "Nephew",
+    inlaw = "In-law",
+    mentor = "Mentor",
+    colleague = "Colleague",
+    neighbor = "Neighbor",
+    teacher = "Teacher",
+    student = "Student",
+    coach = "Coach",
+    boss = "Boss",
+    employee = "Employee",
+    doctor = "Doctor",
+    nurse = "Nurse",
+    therapist = "Therapist",
+    landlord = "Landlord",
+    girlfriend = "Girlfriend",
+    boyfriend = "Boyfriend",
+    wife = "Wife",
+    husband = "Husband",
+    son = "Son",
+    daughter = "Daughter",
+    grandson = "Grandson",
+    granddaughter = "Granddaughter"
+    
+    static func allValuesCorrespondingTo(wish type: WishType) -> [WhoWish] {
+    switch type {
+    case .bday:
+        return [.friend, .mother, .father, .sibling, .partner, .grandparent, .cousin, .aunt, .uncle, .niece, .nephew, .inlaw, .mentor, .colleague, .neighbor, .teacher, .student, .coach, .boss, .employee, .doctor, .nurse, .therapist, .landlord, .girlfriend, .boyfriend, .wife, .husband, .son, .daughter, .grandson, .granddaughter]
+    case .anniversary:
+        return [.partner, .wife, .husband]
+    case .holiday:
+        return [.friend, .mother, .father, .sibling, .partner, .grandparent, .cousin, .aunt, .uncle, .niece, .nephew, .inlaw, .mentor, .colleague, .neighbor, .teacher, .student, .coach, .boss, .employee, .doctor, .nurse, .therapist, .landlord]
+    case .newYear:
+        return [.friend, .partner]
+    case .valentinesDay:
+        return [.partner]
+    case .christmas:
+        return [.friend, .mother, .father, .sibling, .partner, .grandparent, .cousin, .aunt, .uncle, .niece, .nephew, .inlaw]
+    case .graduation:
+        return [.mentor, .teacher]
+    case .independenceDay:
+        return [.friend]
+    case .toasts:
+        return [.friend]
     }
-    
-    static func allValuesCloseFamilyRaw() -> [String]  {
-        // Placeholder for close family members
-        return allValuesCloseFamily().map { $0.rawValue }
-    }
-    
-    
-    
-    static func allValuesAnniversary() -> [WhoWish]  {
-        // Placeholder for anniversary-related relationships
-        return [.wife, .husband, .girlfriend, .boyfriend]
-    }
-    
-    static func allValuesAnniversaryRaw() -> [String]  {
-        // Placeholder for close family members
-        return allValuesAnniversary().map { $0.rawValue }
-    }
-    
-    static func allValuesFamily() -> [WhoWish]  {
-        return [.mother, .father, .sibling, .partner, .grandparent, .cousin, .aunt, .uncle, .niece, .nephew, .inlaw]
-    }
-    
-    static func allValuesFamilyRaw() -> [String]  {
-        // Placeholder for close family members
-        return allValuesFamily().map { $0.rawValue }
-    }
-    
-    static func allValuesWork() -> [WhoWish] {
-        return [.mentor, .colleague, .neighbor, .teacher, .student, .coach, .boss, .employee, .doctor, .nurse, .therapist, .landlord]
-    }
-    
-    static func allValuesWorkRaw() -> [String]  {
-        // Placeholder for close family members
-        return allValuesWork().map { $0.rawValue }
-    }
+}
 }
 
