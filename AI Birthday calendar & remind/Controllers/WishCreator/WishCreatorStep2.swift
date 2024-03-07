@@ -34,37 +34,7 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     }
     
     private func setUpWhoCelebrating(){
-        var items: [WhoWish] = []
-        
-        switch wish!{
-            
-        case .bday:
-            items = WhoWish.allValuesWork()
-        case .anniversary:
-            items = WhoWish.allValuesCloseFamily()
-        case .holiday:
-            items = WhoWish.allValuesFamily()
-        case .graduation:
-            items = WhoWish.allValuesWork()
-
-        case .newYear:
-            items = WhoWish.allValuesWork()
-
-        case .valentinesDay:
-            items = WhoWish.allValuesWork()
-
-        case .christmas:
-            items = WhoWish.allValuesWork()
-
-        case .independenceDay:
-            items = WhoWish.allValuesWork()
-
-        case .toasts:
-            items = WhoWish.allValuesWork()
-
-        }
-        
-        WhoWishPulldownButton.setWhoWish(button: &whoWish, values: items)
+        WhoWishPulldownButton.setWhoWish(button: &whoWish, values: WhoWish.allValuesCorrespondingTo(wish: self.wish!))
     }
     
     @IBAction func generateWish(_ sender: UIButton) {

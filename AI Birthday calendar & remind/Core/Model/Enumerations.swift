@@ -183,15 +183,13 @@ enum MessageStyle: String {
     }
 }
 
+
 // MARK: - WhoWish
 enum WhoWish: String {
     case
     friend = "Friend",
     mother = "Mother",
     father = "Father",
-    sibling = "Sibling",
-    partner = "Partner",
-    grandparent = "Grandparent",
     cousin = "Cousin",
     aunt = "Aunt",
     uncle = "Uncle",
@@ -205,7 +203,6 @@ enum WhoWish: String {
     student = "Student",
     coach = "Coach",
     boss = "Boss",
-    employee = "Employee",
     doctor = "Doctor",
     nurse = "Nurse",
     therapist = "Therapist",
@@ -215,13 +212,29 @@ enum WhoWish: String {
     wife = "Wife",
     husband = "Husband",
     son = "Son",
-    daughter = "Daughter",
-    grandson = "Grandson",
-    granddaughter = "Granddaughter"
+    daughter = "Daughter"
     
-    static func allValuesAnniversary() -> [WhoWish]  {
-        // Placeholder for anniversary-related relationships
-        return [.wife, .husband, .girlfriend, .boyfriend]
+    static func allValuesCorrespondingTo(wish type: WishType) -> [WhoWish] {
+        switch type {
+        case .bday:
+            return [.friend, .mother, .father, .cousin, .aunt, .uncle, .niece, .nephew, .girlfriend, .boyfriend, .wife, .husband]
+        case .anniversary:
+            return [ .wife, .husband, .girlfriend, .boyfriend]
+        case .holiday:
+            return [cousin, .aunt, .uncle, .niece, .nephew, .inlaw, .mentor, .colleague, .neighbor, .landlord]
+        case .newYear:
+            return [.friend, .mother, .father, .cousin, .aunt, .uncle, .niece, .nephew, .inlaw, .mentor, .colleague, .neighbor, .teacher, .student, .coach, .boss, .doctor, .therapist, .landlord, .girlfriend, .boyfriend, .wife, .husband, .son, .daughter]
+        case .valentinesDay:
+            return [.husband, .wife, .boyfriend, .girlfriend]
+        case .christmas:
+            return [.friend, .mother, .father, .cousin, .aunt, .uncle, .niece, .nephew, .inlaw]
+        case .graduation:
+            return [.mentor, .teacher, .son, .daughter, .niece, .friend, .boyfriend, .girlfriend,.student]
+        case .independenceDay:
+            return [.friend, .teacher, .boss, .colleague, .doctor, .inlaw, .landlord]
+        case .toasts:
+            return [.friend, .father, .mother, .girlfriend, .boyfriend, .husband, .wife,.boss,.coach]
+        }
     }
 }
 
