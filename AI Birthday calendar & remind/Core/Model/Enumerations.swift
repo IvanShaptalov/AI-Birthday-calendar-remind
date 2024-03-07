@@ -187,9 +187,6 @@ enum WhoWish: String {
     friend = "Friend",
     mother = "Mother",
     father = "Father",
-    sibling = "Sibling",
-    partner = "Partner",
-    grandparent = "Grandparent",
     cousin = "Cousin",
     aunt = "Aunt",
     uncle = "Uncle",
@@ -203,7 +200,6 @@ enum WhoWish: String {
     student = "Student",
     coach = "Coach",
     boss = "Boss",
-    employee = "Employee",
     doctor = "Doctor",
     nurse = "Nurse",
     therapist = "Therapist",
@@ -214,8 +210,6 @@ enum WhoWish: String {
     husband = "Husband",
     son = "Son",
     daughter = "Daughter",
-    grandson = "Grandson",
-    granddaughter = "Granddaughter"
     
     // MARK: - WhoWish
 enum WhoWish: String {
