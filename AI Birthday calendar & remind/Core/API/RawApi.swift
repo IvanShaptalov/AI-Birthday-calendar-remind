@@ -8,11 +8,20 @@
 import Foundation
 import UIKit
 
-
+enum GptError:String{
+    case
+    limitReached = "You limit reached today",
+    invalidApi = "Invalid api of gpt",
+    
+    noConnection = "No internet connection ",
+    
+    timeout = "Timeout, gpt not responding"
+}
 
 // MARK: - Api abstraction
 protocol RawApi {
-    static func request(_ request: RawRequestProtocol, rawCompletion: @escaping(RawResponseProcotol)->())
+    static func request(_ request: RawRequestProtocol, rawCompletion: @escaping(RawResponseProcotol)->(),
+    error: @escaping(GptError)->())
 }
 
 protocol RawRequestProtocol {
