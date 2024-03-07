@@ -56,21 +56,6 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
         case .christmas:
             items = WhoWish.allValuesWork()
 
-        case .easter:
-            items = WhoWish.allValuesWork()
-
-        case .mothersDay:
-            items = WhoWish.allValuesWork()
-
-        case .fathersDay:
-            items = WhoWish.allValuesWork()
-
-        case .thanksgiving:
-            items = WhoWish.allValuesWork()
-
-        case .halloween:
-            items = WhoWish.allValuesWork()
-
         case .independenceDay:
             items = WhoWish.allValuesWork()
 

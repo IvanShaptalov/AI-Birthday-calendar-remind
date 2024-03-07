@@ -43,7 +43,11 @@ class WishCreatorTableViewController: UITableViewController {
         
         conf.text = WishType.allValuesRaw()[indexPath.row]
         
+        
+        
         cell.contentConfiguration = conf
+        
+        
 
         return cell
     }

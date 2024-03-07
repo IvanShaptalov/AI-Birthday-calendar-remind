@@ -94,19 +94,11 @@ enum WishType: String {
     anniversary = "Anniversary",
     holiday = "Holiday",
     
-    graduation = "Graduation",
     newYear = "New Year",
     valentinesDay = "Valentine's Day",
     christmas = "Christmas",
-    easter = "Easter",
-    
-    mothersDay = "Mother's Day",
-    fathersDay = "Father's Day",
-    
-    thanksgiving = "Thanksgiving",
-    
-    halloween = "Halloween",
-    
+    graduation = "Graduation",
+
     independenceDay = "Independence Day",
     
     toasts = "Toasts"
@@ -120,11 +112,6 @@ enum WishType: String {
             .newYear,
             .valentinesDay,
             .christmas,
-            .easter,
-            .mothersDay,
-            .fathersDay,
-            .thanksgiving,
-            .halloween,
             .independenceDay,
             .toasts
         ]
@@ -150,16 +137,6 @@ enum WishType: String {
             return "heart.circle.fill"
         case .christmas:
             return "snowflake"
-        case .easter:
-            return "hare.fill"
-        case .mothersDay:
-            return "person.fill"
-        case .fathersDay:
-            return "person.2.fill"
-        case .thanksgiving:
-            return "leaf.fill"
-        case .halloween:
-            return "moon.fill"
         case .independenceDay:
             return "flag.fill"
         case .toasts:
@@ -181,7 +158,6 @@ enum MessageStyle: String {
     poetic = "poetic",
     
     humorous = "humorous",
-    sarcastic = "sarcastic",
     
     philosophical = "philosophical",
     inspirational = "inspirational",
@@ -194,7 +170,6 @@ enum MessageStyle: String {
             .romantic,
             .poetic,
             .humorous,
-            .sarcastic,
             .philosophical,
             .inspirational,
             .professional
@@ -210,39 +185,37 @@ enum MessageStyle: String {
 enum WhoWish: String {
     case
     friend = "Friend",
-    mother = "mother",
-    father = "father",
-    sibling = "sibling",
-    partner = "partner",
-    grandparent = "grandparent",
-    cousin = "cousin",
-    aunt = "aunt",
-    uncle = "uncle",
-    niece = "niece",
-    nephew = "nephew",
-    godparent = "godparent",
-    godchild = "godchild",
-    inlaw = "in-law",
-    mentor = "mentor",
-    colleague = "colleague",
-    neighbor = "neighbor",
-    teacher = "teacher",
-    student = "student",
-    coach = "coach",
-    boss = "boss",
-    employee = "employee",
-    doctor = "doctor",
-    nurse = "nurse",
-    therapist = "therapist",
-    landlord = "landlord",
-    girlfriend = "girlfriend",
-    boyfriend = "boyfriend",
-    wife = "wife",
-    husband = "husband",
-    son = "son",
-    daughter = "daughter",
-    grandson = "grandson",
-    granddaughter = "granddaughter"
+    mother = "Mother",
+    father = "Father",
+    sibling = "Sibling",
+    partner = "Partner",
+    grandparent = "Grandparent",
+    cousin = "Cousin",
+    aunt = "Aunt",
+    uncle = "Uncle",
+    niece = "Niece",
+    nephew = "Nephew",
+    inlaw = "In-law",
+    mentor = "Mentor",
+    colleague = "Colleague",
+    neighbor = "Neighbor",
+    teacher = "Teacher",
+    student = "Student",
+    coach = "Coach",
+    boss = "Boss",
+    employee = "Employee",
+    doctor = "Doctor",
+    nurse = "Nurse",
+    therapist = "Therapist",
+    landlord = "Landlord",
+    girlfriend = "Girlfriend",
+    boyfriend = "Boyfriend",
+    wife = "Wife",
+    husband = "Husband",
+    son = "Son",
+    daughter = "Daughter",
+    grandson = "Grandson",
+    granddaughter = "Granddaughter"
     
     static func allValuesCloseFamily() -> [WhoWish]  {
         // Placeholder for close family members
@@ -267,7 +240,7 @@ enum WhoWish: String {
     }
     
     static func allValuesFamily() -> [WhoWish]  {
-        return [.mother, .father, .sibling, .partner, .grandparent, .cousin, .aunt, .uncle, .niece, .nephew, .godparent, .godchild, .inlaw]
+        return [.mother, .father, .sibling, .partner, .grandparent, .cousin, .aunt, .uncle, .niece, .nephew, .inlaw]
     }
     
     static func allValuesFamilyRaw() -> [String]  {
