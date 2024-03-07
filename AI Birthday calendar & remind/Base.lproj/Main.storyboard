@@ -137,8 +137,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="PkA-LZ-FwV" kind="relationship" relationship="viewControllers" id="6cp-jB-J8E"/>
-                        <segue destination="ro2-ue-S2D" kind="relationship" relationship="viewControllers" id="e7L-hf-vV5"/>
-                        <segue destination="JMu-qS-rar" kind="relationship" relationship="viewControllers" id="ial-xB-eYb"/>
+                        <segue destination="pnK-Fs-OiK" kind="relationship" relationship="viewControllers" id="Ihg-gP-u9f"/>
+                        <segue destination="JMu-qS-rar" kind="relationship" relationship="viewControllers" id="so6-cE-foL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7J-Hp-XY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -156,7 +156,7 @@
                         <sections>
                             <tableViewSection id="a8v-8b-cM1">
                                 <cells>
-                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="hgX-sd-ulL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="hgX-sd-ulL">
                                         <rect key="frame" x="0.0" y="18" width="393" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hgX-sd-ulL" id="Q4J-pD-fEB">
@@ -460,9 +460,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpa-3K-n1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-692" y="1696"/>
+            <point key="canvasLocation" x="3918" y="1696"/>
         </scene>
-        <!--Wish creator-->
+        <!--Wish Creator Table View Controller-->
         <scene sceneID="8zo-Em-mdB">
             <objects>
                 <tableViewController id="ro2-ue-S2D" customClass="WishCreatorTableViewController" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
@@ -501,7 +501,7 @@
                             <outlet property="delegate" destination="ro2-ue-S2D" id="6Ls-XG-n8g"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Wish creator" image="wand.and.stars" catalog="system" id="eGf-70-iYT"/>
+                    <navigationItem key="navigationItem" id="sUv-U4-UpF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjB-Uz-Jsu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -523,6 +523,107 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHi-Cn-3Yh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="650" y="184"/>
+        </scene>
+        <!--Wish Creator-->
+        <scene sceneID="fJ5-Ki-4id">
+            <objects>
+                <navigationController id="pnK-Fs-OiK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Wish Creator" image="wand.and.rays" catalog="system" id="Xgb-uh-oYd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Qp-QM-Ns0">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ro2-ue-S2D" kind="relationship" relationship="rootViewController" id="6MK-Xu-gxZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Kv-kj-ZcT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="575" y="-552"/>
+        </scene>
+        <!--Wish Create Finish View Controller-->
+        <scene sceneID="6Vi-dV-zb5">
+            <objects>
+                <viewController id="WzK-nU-r0X" customClass="WishCreateFinishViewController" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0R3-dd-j5x">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RIB-tT-kzT">
+                                <rect key="frame" x="10" y="10" width="373" height="677"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzd-nr-trx">
+                                <rect key="frame" x="250.66666666666666" y="747" width="51.333333333333343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="3ey-ti-eAK"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="doc.on.doc" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed1-so-jc7">
+                                <rect key="frame" x="180.66666666666666" y="747" width="50" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="jwP-Dt-nf5"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="pencil" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDE-6M-Z8q">
+                                <rect key="frame" x="110.66666666666669" y="747" width="50" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="qYX-tG-IvU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large"/>
+                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-ZY-sXf">
+                                <rect key="frame" x="40" y="747" width="50.666666666666657" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="3sw-hc-6gX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.3.trianglepath" catalog="system" imagePlacement="trailing" imagePadding="5">
+                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EBt-J5-KkY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RIB-tT-kzT" firstAttribute="leading" secondItem="EBt-J5-KkY" secondAttribute="leading" constant="10" id="3Fu-MU-RL0"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="g2G-ZY-sXf" secondAttribute="bottom" constant="60" id="6jk-gX-GhP"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="ed1-so-jc7" secondAttribute="bottom" constant="60" id="A1T-M9-Oor"/>
+                            <constraint firstItem="g2G-ZY-sXf" firstAttribute="leading" secondItem="EBt-J5-KkY" secondAttribute="leading" constant="40" id="E3z-nh-kc8"/>
+                            <constraint firstItem="ed1-so-jc7" firstAttribute="leading" secondItem="jDE-6M-Z8q" secondAttribute="trailing" constant="20" id="F3u-sv-IVj"/>
+                            <constraint firstItem="jDE-6M-Z8q" firstAttribute="leading" secondItem="g2G-ZY-sXf" secondAttribute="trailing" constant="20" id="OUo-v4-byi"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fzd-nr-trx" secondAttribute="trailing" symbolic="YES" id="Ppo-bJ-7tZ"/>
+                            <constraint firstItem="Fzd-nr-trx" firstAttribute="leading" secondItem="ed1-so-jc7" secondAttribute="trailing" constant="20" id="U2Y-3c-nQS"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="trailing" secondItem="RIB-tT-kzT" secondAttribute="trailing" constant="10" id="X8z-x8-i8D"/>
+                            <constraint firstItem="Fzd-nr-trx" firstAttribute="top" secondItem="RIB-tT-kzT" secondAttribute="bottom" constant="60" id="cFz-bv-jl6"/>
+                            <constraint firstItem="RIB-tT-kzT" firstAttribute="top" secondItem="EBt-J5-KkY" secondAttribute="top" constant="10" id="i8H-qN-d49"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="jDE-6M-Z8q" secondAttribute="bottom" constant="60" id="ppC-od-swJ"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="Fzd-nr-trx" secondAttribute="bottom" constant="60" id="t6n-9c-eOh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="V57-MD-n1N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNg-OL-fRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-44" y="1696"/>
         </scene>
         <!--Import-->
         <scene sceneID="4Qi-qJ-e4N">
@@ -547,7 +648,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijc-Nr-8Wc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-21" y="1696"/>
+            <point key="canvasLocation" x="949" y="1696"/>
         </scene>
         <!--Export as Text-->
         <scene sceneID="D7d-uR-HNP">
@@ -572,7 +673,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMw-iR-C5y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="1696"/>
+            <point key="canvasLocation" x="1663" y="1696"/>
         </scene>
         <!--Export As Excel-->
         <scene sceneID="HjU-gX-dee">
@@ -596,7 +697,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akc-oL-LuB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="1696"/>
+            <point key="canvasLocation" x="2436" y="1696"/>
         </scene>
         <!--Unlimited Access-->
         <scene sceneID="6g4-Hj-SE0">
@@ -721,7 +822,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6c-DL-bov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1995" y="1696"/>
+            <point key="canvasLocation" x="3219" y="1696"/>
         </scene>
         <!--Edit events-->
         <scene sceneID="3pj-p4-Xeu">
@@ -808,14 +909,18 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aj-5V-mb5">
                                 <rect key="frame" x="40" y="728" width="313" height="50"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cMH-Gc-vKD"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="systemIndigoColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="sparkles" catalog="system" title="Generate Wish"/>
+                                <buttonConfiguration key="configuration" style="filled" image="sparkles" catalog="system" title="Generate Wish">
+                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="generateWish:" destination="i0s-QZ-367" eventType="touchUpInside" id="1Ga-1i-ibt"/>
+                                    <segue destination="WzK-nU-r0X" kind="show" identifier="generateWishSegue" id="AtC-yO-xAF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wish to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulz-rA-biV">
@@ -866,6 +971,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingWishToEnd:" destination="i0s-QZ-367" eventType="editingDidEnd" id="kJi-pS-x86"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other message style" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rk6-yq-wxu">
                                 <rect key="frame" x="20" y="334.66666666666669" width="161" height="34"/>
@@ -874,6 +982,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingMessageStyleEnd:" destination="i0s-QZ-367" eventType="editingDidEnd" id="VC6-Zb-Gvs"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCp-Yq-wyB">
                                 <rect key="frame" x="20" y="388.66666666666669" width="149" height="21"/>
@@ -920,6 +1031,7 @@
                             <constraint firstItem="2WW-eG-LeS" firstAttribute="top" secondItem="XMS-nE-rSi" secondAttribute="bottom" constant="5" id="zph-GX-Qdm"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dDt-dj-vBi"/>
                     <connections>
                         <outlet property="messageStyle" destination="2TQ-wV-sm9" id="nG3-2r-GFq"/>
                         <outlet property="titleLabel" destination="Yav-ju-wXD" id="rRb-jb-2Jx"/>
@@ -932,12 +1044,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.3.trianglepath" catalog="system" width="128" height="123"/>
         <image name="bell.badge.circle.fill" catalog="system" width="128" height="123"/>
         <image name="calendar.circle.fill" catalog="system" width="128" height="123"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="crown.fill" catalog="system" width="128" height="92"/>
         <image name="doc.circle" catalog="system" width="128" height="123"/>
         <image name="doc.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="doc.on.doc" catalog="system" width="116" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="gift" catalog="system" width="128" height="125"/>
         <image name="link.circle.fill" catalog="system" width="128" height="123"/>
@@ -947,8 +1061,9 @@
         <image name="person.2.circle.fill" catalog="system" width="128" height="123"/>
         <image name="plus.circle" catalog="system" width="128" height="123"/>
         <image name="sparkles" catalog="system" width="115" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="wand.and.stars" catalog="system" width="128" height="115"/>
+        <image name="wand.and.rays" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

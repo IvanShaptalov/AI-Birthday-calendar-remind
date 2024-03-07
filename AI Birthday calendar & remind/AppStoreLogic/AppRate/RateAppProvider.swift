@@ -14,7 +14,7 @@ class RateProvider {
     
     static private func saveRating(version: String?, isRatedBefore: Bool){
         NSLog("app version: \(version ?? "nil")")
-        if appVersion != nil {
+        if version != nil {
             SettingsStorage.saveAppVersion(appVersion: version!)
         }
         
@@ -31,7 +31,7 @@ class RateProvider {
             return true
         }
         
-        if (appVersion != appVersion) {
+        if (self.appVersion != appVersion) {
             NSLog("new version, -> true")
             return true
         }
@@ -64,7 +64,7 @@ class RateProvider {
             NSLog("rate ⭐️")
             if let windowScene = view.window?.windowScene {
                 SKStoreReviewController.requestReview(in: windowScene)
-                saveRating(version: appVersion, isRatedBefore: true)
+                saveRating(version: self.appVersion, isRatedBefore: true)
 //                AnalyticsManager.shared.logEvent(eventType:.rateAppImplicitAction)
             }
         } else {
@@ -73,6 +73,10 @@ class RateProvider {
     }
     
     static private var appVersion: String? {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        guard let info = Bundle.main.infoDictionary,
+              let currentVersion = info["CFBundleShortVersionString"] as? String else {
+            return nil
+        }
+        return currentVersion
     }
 }

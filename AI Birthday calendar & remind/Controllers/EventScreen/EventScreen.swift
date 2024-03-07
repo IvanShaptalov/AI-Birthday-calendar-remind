@@ -48,7 +48,7 @@ class BirthdaysScreen: UIViewController{
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         DispatchQueue.global().async {
             do {
-                let update = try UpdateChecker().isUpdateAvailable(completion: {needUpdate,error  in
+                _ = try UpdateChecker().isUpdateAvailable(completion: {needUpdate,error  in
                     
                     NSLog("is need update: \(needUpdate ?? false)")
                     if error != nil {
@@ -56,10 +56,11 @@ class BirthdaysScreen: UIViewController{
                     } else if needUpdate != nil && needUpdate! {
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "Time for an update", message: "You are using a version that is no longer supported.Please update to the newest version to keep using the app.", preferredStyle: .alert)
+                            alertController.addAction(.init(title: "OK", style: .default))
+
                                                     
                             self.present(alertController, animated: true)
                         }
-                        
                     }
                 })
                 DispatchQueue.main.async {

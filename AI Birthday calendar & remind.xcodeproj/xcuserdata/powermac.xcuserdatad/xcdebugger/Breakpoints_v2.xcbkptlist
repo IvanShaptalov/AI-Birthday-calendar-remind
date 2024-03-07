@@ -3,4 +3,54 @@
    uuid = "2298A233-3C7D-4F8F-A724-CEE92C03A458"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD29DD93-1B45-41A0-BF75-CC1BC5F9B87A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AI Birthday calendar &amp; remind/AppStoreLogic/AppRate/RateAppProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "isNeedToRate()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CD29DD93-1B45-41A0-BF75-CC1BC5F9B87A - 912588d2a3f7d0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static AI_Birthday_calendar___remind.RateProvider.isNeedToRate() -&gt; Swift.Bool"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/AppStoreLogic/AppRate/RateAppProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "360">
+               </Location>
+               <Location
+                  uuid = "CD29DD93-1B45-41A0-BF75-CC1BC5F9B87A - 912588d2a3f7d0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static AI_Birthday_calendar___remind.RateProvider.isNeedToRate() -&gt; Swift.Bool"
+                  moduleName = "AI Birthday calendar &amp; remind"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powermac/Documents/Programming/AI%20Birthday%20calendar%20&amp;%20remind/AI%20Birthday%20calendar%20&amp;%20remind/AppStoreLogic/AppRate/RateAppProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "356">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

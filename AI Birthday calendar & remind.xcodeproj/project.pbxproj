@@ -41,6 +41,7 @@
 		8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */; };
 		8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */; };
 		8D3065E92B9A355200852391 /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3065E82B9A355200852391 /* UpdateChecker.swift */; };
+		8D3065EB2B9A3FC100852391 /* WishCreateFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3065EA2B9A3FC100852391 /* WishCreateFinishViewController.swift */; };
 		8D4EC3B02B9632F6001DE189 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
 		8D4EC3B12B963300001DE189 /* NotificationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */; };
 		8D4EC3B22B96330D001DE189 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */; };
@@ -130,6 +131,7 @@
 		8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventCell.xib; sourceTree = "<group>"; };
 		8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventScreen.swift; sourceTree = "<group>"; };
 		8D3065E82B9A355200852391 /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChecker.swift; sourceTree = "<group>"; };
+		8D3065EA2B9A3FC100852391 /* WishCreateFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCreateFinishViewController.swift; sourceTree = "<group>"; };
 		8D4EC3BB2B963C32001DE189 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8D57AF622B9764A7006790A6 /* Analytics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics Manager.swift"; sourceTree = "<group>"; };
 		8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "AI Birthday calendar & remind/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -441,6 +443,7 @@
 			children = (
 				8D79D36E2B99BD7E0074F238 /* WishCreatorTableViewController.swift */,
 				8D2394DA2B99C50500D26C50 /* WishCreatorStep2.swift */,
+				8D3065EA2B9A3FC100852391 /* WishCreateFinishViewController.swift */,
 			);
 			path = WishCreator;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 			files = (
 				8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */,
 				8D09EC922B8C720400A10437 /* SettingsScreen.swift in Sources */,
+				8D3065EB2B9A3FC100852391 /* WishCreateFinishViewController.swift in Sources */,
 				8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */,
 				8D1C29C12B9868B900B34B6D /* OpenAIApi.swift in Sources */,
 				8D3065E92B9A355200852391 /* UpdateChecker.swift in Sources */,
@@ -835,10 +839,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AI Birthday calendar & remind/AI_Birthday_calendar___remind.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -849,7 +854,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -867,10 +872,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AI Birthday calendar & remind/AI_Birthday_calendar___remind.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -881,7 +887,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
