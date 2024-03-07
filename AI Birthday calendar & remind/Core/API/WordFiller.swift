@@ -1,67 +1,44 @@
-//
-//  WordFiller.swift
-//  Learn Up
-//
-//  Created by PowerMac on 08.01.2024.
-//
-
-import Foundation
-
-/// use Converter as layer
-/// WordFiller fillWord -> Converter
-/// Converter -> RawAPI
-/// RawAPI -> Converter
-/// Converter -> WordFiller fillWord Response
-protocol WordFillerProtocol {
-    static func fillWord(_ request: MessageGeneratorRequestProtocol, fillerCompletion: @escaping(MessageGeneratorResponseProtocol)->())
+protocol WishMakerProtocol{
+    var wishType: String { get set}
+    var toWho: String {get set}
+    var messageStyle: String {get set}
+    var ageOpt: String? {get set}
+    var addInfoOps: String? {get set}
+    
+    func sendRequest(callback: @escaping (String) -> Void, error: @escaping (String) -> Void)
 }
 
-protocol MessageGeneratorRequestProtocol {
-    var message: String {get set}
-}
-
-protocol MessageGeneratorResponseProtocol {
-    var message: String {get set}
-}
-
-
-class WordFiller: WordFillerProtocol{
-    static func fillWord(_ request: MessageGeneratorRequestProtocol, fillerCompletion: @escaping (MessageGeneratorResponseProtocol) -> ()) {
-        NSLog("enter fillWord")
-        GPTConverter.delegateToRawApi(wfRequest: request, converterCompletion: {response in
-            
-            NSLog("enter converter Completion \(response.message)")
-
-            return fillerCompletion(response)
-        })
+class WishMaker: WishMakerProtocol {
+    var wishType: String
+    var toWho: String
+    var messageStyle: String
+    var ageOpt: String?
+    var addInfoOps: String?
+    
+    init(wishType: String, toWho: String, messageStyle: String, ageOpt: String?, addInfoOps: String?) {
+        self.wishType = wishType
+        self.toWho = toWho
+        self.messageStyle = messageStyle
+        self.ageOpt = ageOpt
+        self.addInfoOps = addInfoOps
+    }
+    
+    func sendRequest(callback: @escaping (String) -> Void, error: @escaping (String) -> Void) {
+        // Implement sending the wish request here
+        // You can use the properties like wishType, toWho, messageStyle, ageOpt, addInfoOps to compose the wish message
+        
+        // Simulating sending request for demonstration purposes
+        let wishMessage = "Sending \(wishType) wish to \(toWho)"
+        callback(wishMessage)
     }
 }
 
-class MessageGeneratorRequest: MessageGeneratorRequestProtocol, Equatable{
-    static func == (lhs: MessageGeneratorRequest, rhs: MessageGeneratorRequest) -> Bool {
-        return lhs.message == rhs.message
-    }
-    
-    var message: String
-    
-    init(message: String) {
-        self.message = message
-    }
-    
-    
-}
+// Creating an instance of WishMaker
+let wishMaker = WishMaker(wishType: "Birthday", toWho: "Alice", messageStyle: "Formal", ageOpt: "25", addInfoOps: "Gift: Watch")
 
-class MessageGeneratorResponse: MessageGeneratorResponseProtocol {
-    
-    var message: String
-    
-    init(message: String) {
-       
-        self.message = message
-    }
-    
-    init(){
-     // MARK: - TODO create default congrats
-        self.message = "default"
-    }
-}
+// Sending a wish request
+wishMaker.sendRequest(callback: { wishMessage in
+    print("Wish request sent successfully: \(wishMessage)")
+}, error: { errorMessage in
+    print("Error sending wish request: \(errorMessage)")
+})
