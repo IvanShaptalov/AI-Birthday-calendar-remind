@@ -46,6 +46,29 @@ class BirthdaysScreen: UIViewController{
         super.viewDidLoad()
         mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
+        DispatchQueue.global().async {
+            do {
+                let update = try UpdateChecker().isUpdateAvailable(completion: {needUpdate,error  in
+                    
+                    NSLog("is need update: \(needUpdate ?? false)")
+                    if error != nil {
+                        NSLog("🤖 error while check update: \(error!)")
+                    } else if needUpdate != nil && needUpdate! {
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Time for an update", message: "You are using a version that is no longer supported.Please update to the newest version to keep using the app.", preferredStyle: .alert)
+                                                    
+                            self.present(alertController, animated: true)
+                        }
+                        
+                    }
+                })
+                DispatchQueue.main.async {
+                    // show alert
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
     
     
