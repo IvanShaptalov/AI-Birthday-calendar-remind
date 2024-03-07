@@ -4,7 +4,7 @@ import Foundation
 
 class OpenAIApi: RawApi {
     
-    static func request(_ request: RawRequestProtocol, rawCompletion: @escaping (RawResponseProcotol)->()) {
+    static func request(_ request: String, rawCompletion: @escaping (String)->()) {
         NSLog("enter RAW")
 
         let jsonData = [
@@ -50,7 +50,7 @@ You are helpful assistant that generate congratulations on birthdays and anniver
                     let messageValue = message["message"] as? NSDictionary,
                     let str = messageValue["content"] as? String {
                     print(str)
-                    return rawCompletion(RawResponse(response: str, code: 200))
+                    return str
                 } else {
                     AppConfiguration.switchGptModel()
                     return rawCompletion(RawResponse(response: "limit reached", code: 400))
