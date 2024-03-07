@@ -135,7 +135,7 @@ final class AI_Birthday_calendar___remind: XCTestCase {
 //    func testFillWord() throws {
 //        var myResponse = WordFillerResponse()
 //
-//        WordFiller.fillWord(WordFillerRequest(word: "hello", toLang: .Ukrainian, fromLang: .English), fillerCompletion: {response in
+//        WordFillerWord(WordFillerRequest(word: "hello", toLang: .Ukrainian, fromLang: .English), fillerCompletion: {response in
 //            NSLog("enter fillWord completion")
 //            NSLog(response.translation)
 //            

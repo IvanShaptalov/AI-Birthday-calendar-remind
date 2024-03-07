@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rah-Rn-u1q">
                         <rect key="frame" x="5" y="5" width="548" height="75"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="d3E-SN-50k">
-                                <rect key="frame" x="5" y="8.6666666666666643" width="60" height="58.666666666666664"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle" translatesAutoresizingMaskIntoConstraints="NO" id="d3E-SN-50k">
+                                <rect key="frame" x="5" y="7.6666666666666643" width="60" height="59.999999999999993"/>
                                 <color key="tintColor" systemColor="systemMintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="9kV-wz-bDl"/>
@@ -92,7 +92,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="person.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="person.circle" width="128" height="128"/>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

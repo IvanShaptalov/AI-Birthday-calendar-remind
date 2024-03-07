@@ -39,7 +39,7 @@ class WishCreatorTableViewController: UITableViewController {
         
         var conf = cell.defaultContentConfiguration()
         
-        conf.image = UIImage(systemName: WishType.allValues()[indexPath.row].getImageSystemName())
+        conf.image = UIImage(systemName: WishType.allValues()[indexPath.row].getImageSystemName())?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
         
         conf.text = WishType.allValuesRaw()[indexPath.row]
         

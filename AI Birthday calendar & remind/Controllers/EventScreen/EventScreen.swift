@@ -162,7 +162,7 @@ extension BirthdaysScreen {
         }
         
         actionDelete.backgroundColor = .systemBackground
-        var img: UIImage = UIImage(systemName: "trash.fill")!.withRenderingMode(.alwaysOriginal)
+        var img: UIImage = UIImage(systemName: "trash")!.withRenderingMode(.alwaysOriginal)
         
         img = img.withTintColor(.red)
         

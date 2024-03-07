@@ -98,7 +98,7 @@ enum WishType: String {
     valentinesDay = "Valentine's Day",
     christmas = "Christmas",
     graduation = "Graduation",
-
+    
     independenceDay = "Independence Day",
     
     toasts = "Toasts"
@@ -108,12 +108,14 @@ enum WishType: String {
             .bday,
             .anniversary,
             .holiday,
-            .graduation,
-            .newYear,
-            .valentinesDay,
-            .christmas,
+            .toasts,
             .independenceDay,
-            .toasts
+            .newYear,
+            .christmas,
+            
+                .valentinesDay,
+            .graduation
+            
         ]
     }
     
@@ -140,7 +142,7 @@ enum WishType: String {
         case .independenceDay:
             return "flag.fill"
         case .toasts:
-            return "sparkles"
+            return "wineglass.fill"
         }
     }
 }
@@ -217,44 +219,9 @@ enum WhoWish: String {
     grandson = "Grandson",
     granddaughter = "Granddaughter"
     
-    static func allValuesCloseFamily() -> [WhoWish]  {
-        // Placeholder for close family members
-        return [.mother, .father, .sibling, .partner, .son, .daughter, .grandson, .granddaughter]
-    }
-    
-    static func allValuesCloseFamilyRaw() -> [String]  {
-        // Placeholder for close family members
-        return allValuesCloseFamily().map { $0.rawValue }
-    }
-    
-    
-    
     static func allValuesAnniversary() -> [WhoWish]  {
         // Placeholder for anniversary-related relationships
         return [.wife, .husband, .girlfriend, .boyfriend]
-    }
-    
-    static func allValuesAnniversaryRaw() -> [String]  {
-        // Placeholder for close family members
-        return allValuesAnniversary().map { $0.rawValue }
-    }
-    
-    static func allValuesFamily() -> [WhoWish]  {
-        return [.mother, .father, .sibling, .partner, .grandparent, .cousin, .aunt, .uncle, .niece, .nephew, .inlaw]
-    }
-    
-    static func allValuesFamilyRaw() -> [String]  {
-        // Placeholder for close family members
-        return allValuesFamily().map { $0.rawValue }
-    }
-    
-    static func allValuesWork() -> [WhoWish] {
-        return [.mentor, .colleague, .neighbor, .teacher, .student, .coach, .boss, .employee, .doctor, .nurse, .therapist, .landlord]
-    }
-    
-    static func allValuesWorkRaw() -> [String]  {
-        // Placeholder for close family members
-        return allValuesWork().map { $0.rawValue }
     }
 }
 
