@@ -41,13 +41,16 @@ class WishCreateFinishViewController: UIViewController {
         let text = gptTextViewField.text
         
         UIPasteboard.general.string = text
+        
+        RateProvider.rateAppImplicit(view: self.view)
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
+    
+    
     
 
     /*

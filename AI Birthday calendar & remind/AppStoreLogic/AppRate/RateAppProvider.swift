@@ -52,20 +52,18 @@ class RateProvider {
     static func rateApp() {
         AnalyticsManager.shared.logEvent(eventType: .rateAppDirect)
         UIApplication.shared.open(URL(string: AppConfiguration.appStoreURL)!, options: [:], completionHandler: nil)
-//        AnalyticsManager.shared.logEvent(eventType:.rateDirect)
-
+        
     }
     
     /// rate app if version not same, or app not rated earlier
     static func rateAppImplicit(view: UIView) {
         NSLog("try rate 🤞")
         if isNeedToRate() {
-            AnalyticsManager.shared.logEvent(eventType: .rateAppImplicitA)
             NSLog("rate ⭐️")
             if let windowScene = view.window?.windowScene {
                 SKStoreReviewController.requestReview(in: windowScene)
                 saveRating(version: self.appVersion, isRatedBefore: true)
-//                AnalyticsManager.shared.logEvent(eventType:.rateAppImplicitAction)
+                AnalyticsManager.shared.logEvent(eventType: .rateAppImplicitA)
             }
         } else {
             NSLog("no need rate 🚫")

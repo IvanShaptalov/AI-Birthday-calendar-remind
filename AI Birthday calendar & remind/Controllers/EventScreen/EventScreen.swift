@@ -205,7 +205,6 @@ extension BirthdaysScreen {
             destination.bulkDelegate = { [unowned self] eventList in
                 self.mainEvents.append(contentsOf: eventList)
                 self.tableEvents.reloadData()
-                RateProvider.rateAppImplicit(view: self.view)
             }
         }
     }
