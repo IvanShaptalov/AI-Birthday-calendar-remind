@@ -137,8 +137,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="PkA-LZ-FwV" kind="relationship" relationship="viewControllers" id="6cp-jB-J8E"/>
-                        <segue destination="pnK-Fs-OiK" kind="relationship" relationship="viewControllers" id="Ihg-gP-u9f"/>
-                        <segue destination="JMu-qS-rar" kind="relationship" relationship="viewControllers" id="so6-cE-foL"/>
+                        <segue destination="ro2-ue-S2D" kind="relationship" relationship="viewControllers" id="KiR-Nl-hpe"/>
+                        <segue destination="JMu-qS-rar" kind="relationship" relationship="viewControllers" id="MM5-4m-tEf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7J-Hp-XY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -462,7 +462,7 @@
             </objects>
             <point key="canvasLocation" x="3918" y="1696"/>
         </scene>
-        <!--Wish Creator Table View Controller-->
+        <!--Wish Creator-->
         <scene sceneID="8zo-Em-mdB">
             <objects>
                 <tableViewController id="ro2-ue-S2D" customClass="WishCreatorTableViewController" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
@@ -501,6 +501,7 @@
                             <outlet property="delegate" destination="ro2-ue-S2D" id="6Ls-XG-n8g"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Wish Creator" image="wand.and.rays.inverse" catalog="system" id="mx1-GT-300"/>
                     <navigationItem key="navigationItem" id="sUv-U4-UpF"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjB-Uz-Jsu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -524,23 +525,6 @@
             </objects>
             <point key="canvasLocation" x="650" y="184"/>
         </scene>
-        <!--Wish Creator-->
-        <scene sceneID="fJ5-Ki-4id">
-            <objects>
-                <navigationController id="pnK-Fs-OiK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Wish Creator" image="wand.and.rays" catalog="system" id="Xgb-uh-oYd"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Qp-QM-Ns0">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="ro2-ue-S2D" kind="relationship" relationship="rootViewController" id="6MK-Xu-gxZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Kv-kj-ZcT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="575" y="-552"/>
-        </scene>
         <!--Wish Create Finish View Controller-->
         <scene sceneID="6Vi-dV-zb5">
             <objects>
@@ -550,7 +534,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RIB-tT-kzT">
-                                <rect key="frame" x="10" y="10" width="373" height="677"/>
+                                <rect key="frame" x="10" y="10" width="373" height="717"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -558,9 +542,9 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzd-nr-trx">
-                                <rect key="frame" x="250.66666666666666" y="747" width="51.333333333333343" height="35"/>
+                                <rect key="frame" x="266.66666666666669" y="787" width="50" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="3ey-ti-eAK"/>
+                                    <constraint firstAttribute="width" constant="50" id="3ey-ti-eAK"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -568,21 +552,10 @@
                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed1-so-jc7">
-                                <rect key="frame" x="180.66666666666666" y="747" width="50" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="jwP-Dt-nf5"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <imageReference key="image" image="pencil" catalog="system" symbolScale="large"/>
-                                    <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
-                                </buttonConfiguration>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDE-6M-Z8q">
-                                <rect key="frame" x="110.66666666666669" y="747" width="50" height="35"/>
+                                <rect key="frame" x="171.66666666666666" y="787.66666666666663" width="50" height="34.333333333333371"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="qYX-tG-IvU"/>
+                                    <constraint firstAttribute="width" constant="50" id="qYX-tG-IvU"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -590,13 +563,14 @@
                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2G-ZY-sXf">
-                                <rect key="frame" x="40" y="747" width="50.666666666666657" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed1-so-jc7">
+                                <rect key="frame" x="76.666666666666671" y="787" width="50" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="3sw-hc-6gX"/>
+                                    <constraint firstAttribute="width" constant="50" id="jwP-Dt-nf5"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.3.trianglepath" catalog="system" imagePlacement="trailing" imagePadding="5">
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="pencil" catalog="system" symbolScale="large"/>
                                     <color key="baseForegroundColor" systemColor="systemIndigoColor"/>
                                 </buttonConfiguration>
                             </button>
@@ -605,18 +579,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RIB-tT-kzT" firstAttribute="leading" secondItem="EBt-J5-KkY" secondAttribute="leading" constant="10" id="3Fu-MU-RL0"/>
-                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="g2G-ZY-sXf" secondAttribute="bottom" constant="60" id="6jk-gX-GhP"/>
-                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="ed1-so-jc7" secondAttribute="bottom" constant="60" id="A1T-M9-Oor"/>
-                            <constraint firstItem="g2G-ZY-sXf" firstAttribute="leading" secondItem="EBt-J5-KkY" secondAttribute="leading" constant="40" id="E3z-nh-kc8"/>
-                            <constraint firstItem="ed1-so-jc7" firstAttribute="leading" secondItem="jDE-6M-Z8q" secondAttribute="trailing" constant="20" id="F3u-sv-IVj"/>
-                            <constraint firstItem="jDE-6M-Z8q" firstAttribute="leading" secondItem="g2G-ZY-sXf" secondAttribute="trailing" constant="20" id="OUo-v4-byi"/>
-                            <constraint firstItem="EBt-J5-KkY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fzd-nr-trx" secondAttribute="trailing" symbolic="YES" id="Ppo-bJ-7tZ"/>
-                            <constraint firstItem="Fzd-nr-trx" firstAttribute="leading" secondItem="ed1-so-jc7" secondAttribute="trailing" constant="20" id="U2Y-3c-nQS"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="ed1-so-jc7" secondAttribute="bottom" constant="20" id="A1T-M9-Oor"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fzd-nr-trx" secondAttribute="trailing" symbolic="YES" id="RY4-EQ-ALQ"/>
                             <constraint firstItem="EBt-J5-KkY" firstAttribute="trailing" secondItem="RIB-tT-kzT" secondAttribute="trailing" constant="10" id="X8z-x8-i8D"/>
                             <constraint firstItem="Fzd-nr-trx" firstAttribute="top" secondItem="RIB-tT-kzT" secondAttribute="bottom" constant="60" id="cFz-bv-jl6"/>
                             <constraint firstItem="RIB-tT-kzT" firstAttribute="top" secondItem="EBt-J5-KkY" secondAttribute="top" constant="10" id="i8H-qN-d49"/>
-                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="jDE-6M-Z8q" secondAttribute="bottom" constant="60" id="ppC-od-swJ"/>
-                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="Fzd-nr-trx" secondAttribute="bottom" constant="60" id="t6n-9c-eOh"/>
+                            <constraint firstItem="jDE-6M-Z8q" firstAttribute="centerX" secondItem="0R3-dd-j5x" secondAttribute="centerX" id="k1C-uj-O1C"/>
+                            <constraint firstItem="Fzd-nr-trx" firstAttribute="leading" secondItem="jDE-6M-Z8q" secondAttribute="trailing" constant="45" id="oZr-oB-ctt"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="jDE-6M-Z8q" secondAttribute="bottom" constant="20" id="ppC-od-swJ"/>
+                            <constraint firstItem="ed1-so-jc7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EBt-J5-KkY" secondAttribute="leading" id="rnz-7b-mvp"/>
+                            <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="Fzd-nr-trx" secondAttribute="bottom" constant="20" id="t6n-9c-eOh"/>
+                            <constraint firstItem="jDE-6M-Z8q" firstAttribute="leading" secondItem="ed1-so-jc7" secondAttribute="trailing" constant="44.999999999999986" id="z7K-sw-Ojy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="V57-MD-n1N"/>
@@ -1044,7 +1017,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.3.trianglepath" catalog="system" width="128" height="123"/>
         <image name="bell.badge.circle.fill" catalog="system" width="128" height="123"/>
         <image name="calendar.circle.fill" catalog="system" width="128" height="123"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
@@ -1063,7 +1035,7 @@
         <image name="sparkles" catalog="system" width="115" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="wand.and.rays" catalog="system" width="128" height="123"/>
+        <image name="wand.and.rays.inverse" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -57,6 +57,7 @@ class WishCreatorTableViewController: UITableViewController {
         var step2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "WishCreatorStep2") as! WishTransferProtocol
         
         step2.wish = WishType.allValues()[indexPath.row]
-        self.navigationController?.pushViewController(step2 as! UIViewController, animated: true)
+        self.present(step2 as! UIViewController, animated: true)
+        
     }
 }
