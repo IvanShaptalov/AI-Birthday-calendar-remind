@@ -528,13 +528,13 @@
         <!--Wish Create Finish View Controller-->
         <scene sceneID="6Vi-dV-zb5">
             <objects>
-                <viewController id="WzK-nU-r0X" customClass="WishCreateFinishViewController" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WishCreateFinish" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WzK-nU-r0X" customClass="WishCreateFinishViewController" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0R3-dd-j5x">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RIB-tT-kzT">
-                                <rect key="frame" x="10" y="40" width="373" height="687"/>
+                                <rect key="frame" x="10" y="99" width="373" height="604"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -542,7 +542,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzd-nr-trx">
-                                <rect key="frame" x="266.66666666666669" y="787" width="50" height="35"/>
+                                <rect key="frame" x="266.66666666666669" y="763" width="50" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3ey-ti-eAK"/>
                                 </constraints>
@@ -556,7 +556,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDE-6M-Z8q">
-                                <rect key="frame" x="171.66666666666666" y="787.66666666666663" width="50" height="34.333333333333371"/>
+                                <rect key="frame" x="171.66666666666666" y="763.66666666666663" width="50" height="34.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="qYX-tG-IvU"/>
                                 </constraints>
@@ -570,7 +570,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed1-so-jc7">
-                                <rect key="frame" x="76.666666666666671" y="787" width="50" height="35"/>
+                                <rect key="frame" x="76.666666666666671" y="763" width="50" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="jwP-Dt-nf5"/>
                                 </constraints>
@@ -889,8 +889,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mentions (e.g. write book,child birth)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bMP-QZ-GEe">
-                                <rect key="frame" x="20" y="468.66666666666669" width="265.66666666666669" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bMP-QZ-GEe">
+                                <rect key="frame" x="20" y="468.66666666666669" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="hQC-qQ-Wi5"/>
                                 </constraints>
@@ -910,7 +910,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="generateWish:" destination="i0s-QZ-367" eventType="touchUpInside" id="1Ga-1i-ibt"/>
-                                    <segue destination="WzK-nU-r0X" kind="show" identifier="generateWishSegue" id="AtC-yO-xAF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wish to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulz-rA-biV">
@@ -956,16 +955,13 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Custom" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2WW-eG-LeS">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other receiver" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2WW-eG-LeS">
                                 <rect key="frame" x="20" y="210.33333333333334" width="150" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="TxJ-Tx-VTX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="editingWishToEnd:" destination="i0s-QZ-367" eventType="editingDidEnd" id="kJi-pS-x86"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other message style" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rk6-yq-wxu">
                                 <rect key="frame" x="20" y="334.66666666666669" width="161" height="34"/>
@@ -974,9 +970,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="editingMessageStyleEnd:" destination="i0s-QZ-367" eventType="editingDidEnd" id="VC6-Zb-Gvs"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCp-Yq-wyB">
                                 <rect key="frame" x="20" y="388.66666666666669" width="149" height="21"/>
@@ -1025,7 +1018,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="dDt-dj-vBi"/>
                     <connections>
+                        <outlet property="ageCelebrator" destination="pwE-XW-g3Z" id="4XX-7e-bQX"/>
                         <outlet property="messageStyle" destination="2TQ-wV-sm9" id="nG3-2r-GFq"/>
+                        <outlet property="messageStyleOpt" destination="Rk6-yq-wxu" id="H7D-JN-jZe"/>
+                        <outlet property="nameField" destination="bMP-QZ-GEe" id="Rso-Dj-bud"/>
+                        <outlet property="receiverOpt" destination="2WW-eG-LeS" id="6ER-KF-qN3"/>
                         <outlet property="titleLabel" destination="Yav-ju-wXD" id="rRb-jb-2Jx"/>
                         <outlet property="whoWish" destination="XMS-nE-rSi" id="1dz-py-EwC"/>
                     </connections>

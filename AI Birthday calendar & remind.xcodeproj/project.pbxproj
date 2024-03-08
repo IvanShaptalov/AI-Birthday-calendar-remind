@@ -25,12 +25,10 @@
 		8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */; };
 		8D1C29B62B98634200B34B6D /* RemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */; };
 		8D1C29B82B9863E100B34B6D /* MonetizationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */; };
-		8D1C29BE2B9868B800B34B6D /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29BD2B9868B800B34B6D /* Converter.swift */; };
-		8D1C29BF2B9868B800B34B6D /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29BD2B9868B800B34B6D /* Converter.swift */; };
 		8D1C29C12B9868B900B34B6D /* OpenAIApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */; };
 		8D1C29C22B9868B900B34B6D /* OpenAIApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */; };
-		8D1C29C72B9868C400B34B6D /* WordFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C62B9868C400B34B6D /* WordFiller.swift */; };
-		8D1C29C82B9868C400B34B6D /* WordFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C62B9868C400B34B6D /* WordFiller.swift */; };
+		8D1C29C72B9868C400B34B6D /* WishMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C62B9868C400B34B6D /* WishMaker.swift */; };
+		8D1C29C82B9868C400B34B6D /* WishMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C62B9868C400B34B6D /* WishMaker.swift */; };
 		8D1C29C92B986B9400B34B6D /* RemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */; };
 		8D1C29CA2B986BB200B34B6D /* MonetizationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */; };
 		8D2394DB2B99C50500D26C50 /* WishCreatorStep2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2394DA2B99C50500D26C50 /* WishCreatorStep2.swift */; };
@@ -40,7 +38,6 @@
 		8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */; };
 		8D3065E92B9A355200852391 /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3065E82B9A355200852391 /* UpdateChecker.swift */; };
 		8D3065EB2B9A3FC100852391 /* WishCreateFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3065EA2B9A3FC100852391 /* WishCreateFinishViewController.swift */; };
-		8D3065ED2B9A4A8B00852391 /* RawApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3065EC2B9A4A8B00852391 /* RawApi.swift */; };
 		8D4EC3B02B9632F6001DE189 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
 		8D4EC3B12B963300001DE189 /* NotificationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */; };
 		8D4EC3B22B96330D001DE189 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */; };
@@ -120,9 +117,8 @@
 		8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceProvider.swift; sourceTree = "<group>"; };
 		8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfiguration.swift; sourceTree = "<group>"; };
 		8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationConfiguration.swift; sourceTree = "<group>"; };
-		8D1C29BD2B9868B800B34B6D /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIApi.swift; sourceTree = "<group>"; };
-		8D1C29C62B9868C400B34B6D /* WordFiller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordFiller.swift; sourceTree = "<group>"; };
+		8D1C29C62B9868C400B34B6D /* WishMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishMaker.swift; sourceTree = "<group>"; };
 		8D2394DA2B99C50500D26C50 /* WishCreatorStep2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCreatorStep2.swift; sourceTree = "<group>"; };
 		8D28D7D82B873EA8006D14FA /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventCell.swift; sourceTree = "<group>"; };
@@ -130,7 +126,6 @@
 		8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventScreen.swift; sourceTree = "<group>"; };
 		8D3065E82B9A355200852391 /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChecker.swift; sourceTree = "<group>"; };
 		8D3065EA2B9A3FC100852391 /* WishCreateFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCreateFinishViewController.swift; sourceTree = "<group>"; };
-		8D3065EC2B9A4A8B00852391 /* RawApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawApi.swift; sourceTree = "<group>"; };
 		8D4EC3BB2B963C32001DE189 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8D57AF622B9764A7006790A6 /* Analytics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics Manager.swift"; sourceTree = "<group>"; };
 		8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "AI Birthday calendar & remind/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -310,10 +305,8 @@
 		8D1C29BC2B98689F00B34B6D /* API */ = {
 			isa = PBXGroup;
 			children = (
-				8D1C29BD2B9868B800B34B6D /* Converter.swift */,
-				8D3065EC2B9A4A8B00852391 /* RawApi.swift */,
 				8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */,
-				8D1C29C62B9868C400B34B6D /* WordFiller.swift */,
+				8D1C29C62B9868C400B34B6D /* WishMaker.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -609,7 +602,6 @@
 				8D1C29C12B9868B900B34B6D /* OpenAIApi.swift in Sources */,
 				8D3065E92B9A355200852391 /* UpdateChecker.swift in Sources */,
 				8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */,
-				8D1C29BE2B9868B800B34B6D /* Converter.swift in Sources */,
 				8D1C29B82B9863E100B34B6D /* MonetizationConfiguration.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */,
@@ -619,8 +611,7 @@
 				8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D78239F2B86280E00E63423 /* ContactImport.swift in Sources */,
 				8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */,
-				8D3065ED2B9A4A8B00852391 /* RawApi.swift in Sources */,
-				8D1C29C72B9868C400B34B6D /* WordFiller.swift in Sources */,
+				8D1C29C72B9868C400B34B6D /* WishMaker.swift in Sources */,
 				8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,
@@ -645,12 +636,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D78239D2B86280200E63423 /* CalendarImport.swift in Sources */,
-				8D1C29C82B9868C400B34B6D /* WordFiller.swift in Sources */,
+				8D1C29C82B9868C400B34B6D /* WishMaker.swift in Sources */,
 				8D7823872B84AC1500E63423 /* MainEvent.swift in Sources */,
 				8D1C29CA2B986BB200B34B6D /* MonetizationConfiguration.swift in Sources */,
 				8D4EC3B02B9632F6001DE189 /* MainEventRuleUpdater.swift in Sources */,
 				8D1242442B7D267D00ED016E /* AI_Birthday_calendar___remindTests.swift in Sources */,
-				8D1C29BF2B9868B800B34B6D /* Converter.swift in Sources */,
 				8D7823902B84B13A00E63423 /* JsonCoders.swift in Sources */,
 				8D7823B52B863C5100E63423 /* EventCell.swift in Sources */,
 				8D4EC3B22B96330D001DE189 /* PermissionProvider.swift in Sources */,

@@ -25,9 +25,13 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     
     var messageStyleEnum: MessageStyle = .casual
     
-    var prominentWhoWist: String?
+    @IBOutlet weak var messageStyleOpt: UITextField!
     
-    var prominentMessageStyle: String?
+    @IBOutlet weak var receiverOpt: UITextField!
+    
+    @IBOutlet weak var ageCelebrator: UITextField!
+    
+    @IBOutlet weak var nameField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,20 +41,8 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
       
     }
     
-    @IBAction func editingWishToEnd(_ sender: UITextField) {
-        if sender.text == ""{
-            self.prominentWhoWist = nil
-        } else {
-            self.prominentWhoWist = sender.text
-        }
-    }
-    @IBAction func editingMessageStyleEnd(_ sender: UITextField) {
-        if sender.text == ""{
-            self.prominentMessageStyle = nil
-        } else {
-            self.prominentMessageStyle = sender.text
-        }
-    }
+    
+    
     private func setUpMessageStyle(){
         MessageStylePulldownButton.setWhoWish(button: &self.messageStyle, menuClosure: {action in
             self.messageStyleEnum = MessageStyle(rawValue: action.title) ?? self.messageStyleEnum
@@ -65,6 +57,51 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     }
     
     @IBAction func generateWish(_ sender: UIButton) {
+        var prWho: String? = nil
+        var prMessageStyle: String? = nil
+        var prName: String? = nil
+        var prAge: String? = nil
         
+        if receiverOpt.text != nil && !receiverOpt.text!.isEmpty {
+            prWho = receiverOpt.text
+        }
+        
+        if messageStyleOpt.text != nil && !messageStyleOpt.text!.isEmpty{
+            prMessageStyle = messageStyleOpt.text
+        }
+        
+        if ageCelebrator.text != nil && !ageCelebrator.text!.isEmpty {
+            prAge = ageCelebrator.text
+        }
+        
+        if nameField.text != nil && !nameField.text!.isEmpty {
+            prName = nameField.text
+        }
+        
+        
+        
+        let wishMaker = WishMaker(wishType: self.wish!.rawValue, toWho: prWho ?? whoWishEnum.rawValue, messageStyle: prMessageStyle ?? messageStyleEnum.rawValue, ageOpt: prAge, mentionsOpt: prName)
+        sender.configuration?.showsActivityIndicator = true
+        sender.isEnabled = false
+
+        wishMaker.sendRequest(callback: {
+            responseText in
+                NSLog("⛑️: \(responseText)")
+            DispatchQueue.main.async {
+                sender.configuration?.showsActivityIndicator = false
+                var finish = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreateFinish") as! WishResultTransferProtocol
+                
+                finish.wishResult = responseText
+                sender.isEnabled = true
+                self.present(finish as! UIViewController, animated: true)
+            }
+        }, error: {
+            textError in
+                NSLog("🧨 error in response: \(textError)")
+            DispatchQueue.main.async {
+                sender.isEnabled = true
+                sender.configuration?.showsActivityIndicator = false
+            }
+        })
     }
 }

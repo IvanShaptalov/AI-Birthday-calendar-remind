@@ -6,12 +6,14 @@
 //
 
 import UIKit
-//
-//protocol WishRequestTransferProtocol {
-//    var wishRequest: Wish
-//}
 
-class WishCreateFinishViewController: UIViewController {
+protocol WishResultTransferProtocol {
+    var wishResult: String? { get set}
+}
+
+class WishCreateFinishViewController: UIViewController, WishResultTransferProtocol {
+    var wishResult: String?
+    
     @IBOutlet weak var gptTextViewField: UITextView!
     
     @IBOutlet weak var editButton: UIButton!
@@ -45,9 +47,11 @@ class WishCreateFinishViewController: UIViewController {
         RateProvider.rateAppImplicit(view: self.view)
 
     }
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.gptTextViewField.text = self.wishResult
     }
     
     

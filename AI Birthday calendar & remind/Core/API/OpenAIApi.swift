@@ -2,10 +2,11 @@ import Foundation
 
 
 
-class OpenAIApi: RawApi {
+class OpenAIApi{
     
-    static func request(_ request: String, rawCompletion: @escaping (String)->()) {
+    static func request(_ reqText: String, rawCompletion: @escaping (String)->Void, errorCompletion: @escaping(String)-> Void) {
         NSLog("enter RAW")
+        NSLog(reqText)
 
         let jsonData = [
             "model": AppConfiguration.gptModel,
@@ -13,24 +14,28 @@ class OpenAIApi: RawApi {
                 [
                     "role": "system",
                     "content": """
-You are helpful assistant that generate congratulations on birthdays and anniversaries
+        Pretend that you congratulate from my name, it's VERY IMPORTANT
 """
                 ],
                 [
                     "role": "user",
-                    "content": request.raw
+                    "content": reqText
                 ]
             ]
         ] as [String : Any]
         
         let data = try! JSONSerialization.data(withJSONObject: jsonData, options: [])
-        // let data = "{\n    \"model\": \"gpt-3.5-turbo\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"You are a helpful assistant designed to translate words and give output JSON., you have 3 fields: translation, pronunciation, meaning\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": \"cabbage перевод на русский. ответь в формате translation:_;meaning тут вставь значение слова cabbage до 10 слов; pronunciation: транскрипция слова cabbage\"\n      }\n    ]\n  }".data(using: .utf8)
         
         let url = URL(string: "https://api.openai.com/v1/chat/completions")!
         let headers = [
             "Content-Type": "application/json",
             "Authorization": "Bearer \(AppConfiguration.gptToken)"
         ]
+        
+        if AppConfiguration.gptToken.isEmpty {
+            errorCompletion(GptError.invalidApi.rawValue)
+            return
+        }
         
         var request = URLRequest(url: url, timeoutInterval: 5)
         request.httpMethod = "POST"
@@ -41,7 +46,8 @@ You are helpful assistant that generate congratulations on birthdays and anniver
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print(error)
-                return rawCompletion(RawResponse(response: error.localizedDescription, code: 400))
+                errorCompletion(error.localizedDescription)
+                return
             } else if let data = data {
                 print("url data received")
                 if let dict = convertToDictionary(data: data),
@@ -50,23 +56,23 @@ You are helpful assistant that generate congratulations on birthdays and anniver
                     let messageValue = message["message"] as? NSDictionary,
                     let str = messageValue["content"] as? String {
                     print(str)
-                    return str
+                    rawCompletion(str)
+                    return
                 } else {
                     AppConfiguration.switchGptModel()
-                    return rawCompletion(RawResponse(response: "limit reached", code: 400))
+                    errorCompletion(GptError.limitReached.rawValue)
+                    return
                 }
                 
             }
         }.resume()
-        
-        
         
         func convertToDictionary(data: Data) -> NSDictionary? {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                 return json
             } catch {
-                print("Something went wrong")
+                errorCompletion(GptError.invalidDictionary.rawValue)
             }
             return nil
         }
