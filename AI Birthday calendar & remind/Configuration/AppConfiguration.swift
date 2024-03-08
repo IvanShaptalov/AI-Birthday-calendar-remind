@@ -73,6 +73,10 @@ class AppConfiguration {
                                          "gpt-3.5-turbo-16k-0613",
                                          "gpt-3.5-turbo-0613"]
     
+    static var gptSystemPrompt = "Pretend that you congratulate from my name, it's VERY IMPORTANT"
+    
+    static var gptRequestSleepTime = 6
+    
     static func switchGptModel(){
         NSLog("now: \(gptModel)")
         if gptModelList.contains(gptModel){
@@ -106,6 +110,12 @@ class ConfigurationFetcher{
                     // MARK: - GPT Fetching
                     
                     AppConfiguration.gptToken = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "gptToken").stringValue ?? AppConfiguration.gptToken
+                    
+                    AppConfiguration.gptSystemPrompt = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "gptSystemPrompt").stringValue ?? AppConfiguration.gptSystemPrompt
+                    
+                    AppConfiguration.gptRequestSleepTime = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "gptRequestSleepTime").numberValue as? Int ?? AppConfiguration.gptRequestSleepTime
+                    
+                    NSLog("⚙️ gptSystemPrompt: \(AppConfiguration.gptSystemPrompt)")
                     
                   
                     AppConfiguration.gptOrganization = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "gptOrganization").stringValue ?? AppConfiguration.gptOrganization

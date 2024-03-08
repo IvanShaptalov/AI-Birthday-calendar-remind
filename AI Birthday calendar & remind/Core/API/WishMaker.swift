@@ -35,12 +35,12 @@ class WishMaker: WishMakerProtocol {
     func sendRequest(callback: @escaping (String) -> Void, error: @escaping (String) -> Void) {
         var ageText = ""
         if ageOpt != nil {
-            ageText = "consider years is \(ageOpt!) old"
+            ageText = "also consider years is \(ageOpt!) old"
         }
         var addInfoText = ""
         if addInfoOps != nil {
-            addInfoText = "and \(toWho) Name is \(addInfoOps!)"
+            addInfoText = "Named '\(addInfoOps!)'"
         }
-        OpenAIApi.request("Pretend that you congratulate from my name, also \(ageText) \(addInfoText). \(toWho) with \(wishType) in \(messageStyle) style", rawCompletion: callback, errorCompletion: error)
+        OpenAIApi.request("Pretend that you congratulate from my name \(ageText).This is wish to  \(toWho) \(addInfoText) with \(wishType) in \(messageStyle) message style", rawCompletion: callback, errorCompletion: error)
     }
 }

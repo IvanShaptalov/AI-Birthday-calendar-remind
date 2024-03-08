@@ -31,13 +31,13 @@
 		8D1C29C82B9868C400B34B6D /* WishMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C62B9868C400B34B6D /* WishMaker.swift */; };
 		8D1C29C92B986B9400B34B6D /* RemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */; };
 		8D1C29CA2B986BB200B34B6D /* MonetizationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */; };
-		8D2394DB2B99C50500D26C50 /* WishCreatorStep2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2394DA2B99C50500D26C50 /* WishCreatorStep2.swift */; };
+		8D2394DB2B99C50500D26C50 /* WishStep2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2394DA2B99C50500D26C50 /* WishStep2.swift */; };
 		8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7D82B873EA8006D14FA /* DateFormatter.swift */; };
 		8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */; };
 		8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */; };
 		8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */; };
 		8D3065E92B9A355200852391 /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3065E82B9A355200852391 /* UpdateChecker.swift */; };
-		8D3065EB2B9A3FC100852391 /* WishCreateFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3065EA2B9A3FC100852391 /* WishCreateFinishViewController.swift */; };
+		8D3065EB2B9A3FC100852391 /* WishStep3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3065EA2B9A3FC100852391 /* WishStep3.swift */; };
 		8D4EC3B02B9632F6001DE189 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
 		8D4EC3B12B963300001DE189 /* NotificationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D193E4D2B8E739200C4D397 /* NotificationServiceProvider.swift */; };
 		8D4EC3B22B96330D001DE189 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */; };
@@ -72,7 +72,7 @@
 		8D7823B52B863C5100E63423 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823B22B863C5100E63423 /* EventCell.swift */; };
 		8D7823B62B863C5100E63423 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7823B32B863C5100E63423 /* EventCell.xib */; };
 		8D7823B72B863C5100E63423 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7823B32B863C5100E63423 /* EventCell.xib */; };
-		8D79D36F2B99BD7E0074F238 /* WishCreatorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D79D36E2B99BD7E0074F238 /* WishCreatorTableViewController.swift */; };
+		8D79D36F2B99BD7E0074F238 /* WishStep1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D79D36E2B99BD7E0074F238 /* WishStep1.swift */; };
 		8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9397D52B88BF2C00040031 /* EditEventScreen.swift */; };
 		8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
 /* End PBXBuildFile section */
@@ -119,13 +119,13 @@
 		8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationConfiguration.swift; sourceTree = "<group>"; };
 		8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIApi.swift; sourceTree = "<group>"; };
 		8D1C29C62B9868C400B34B6D /* WishMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishMaker.swift; sourceTree = "<group>"; };
-		8D2394DA2B99C50500D26C50 /* WishCreatorStep2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCreatorStep2.swift; sourceTree = "<group>"; };
+		8D2394DA2B99C50500D26C50 /* WishStep2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep2.swift; sourceTree = "<group>"; };
 		8D28D7D82B873EA8006D14FA /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		8D28D7DB2B8768A2006D14FA /* AddEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventCell.swift; sourceTree = "<group>"; };
 		8D28D7DC2B8768A2006D14FA /* AddEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddEventCell.xib; sourceTree = "<group>"; };
 		8D28D7DF2B8768BD006D14FA /* AddEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventScreen.swift; sourceTree = "<group>"; };
 		8D3065E82B9A355200852391 /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChecker.swift; sourceTree = "<group>"; };
-		8D3065EA2B9A3FC100852391 /* WishCreateFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCreateFinishViewController.swift; sourceTree = "<group>"; };
+		8D3065EA2B9A3FC100852391 /* WishStep3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep3.swift; sourceTree = "<group>"; };
 		8D4EC3BB2B963C32001DE189 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8D57AF622B9764A7006790A6 /* Analytics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics Manager.swift"; sourceTree = "<group>"; };
 		8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "AI Birthday calendar & remind/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -141,7 +141,7 @@
 		8D7823AF2B863C3800E63423 /* EventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventScreen.swift; sourceTree = "<group>"; };
 		8D7823B22B863C5100E63423 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		8D7823B32B863C5100E63423 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
-		8D79D36E2B99BD7E0074F238 /* WishCreatorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCreatorTableViewController.swift; sourceTree = "<group>"; };
+		8D79D36E2B99BD7E0074F238 /* WishStep1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep1.swift; sourceTree = "<group>"; };
 		8D9397D52B88BF2C00040031 /* EditEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventScreen.swift; sourceTree = "<group>"; };
 		8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventRuleUpdater.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -433,9 +433,9 @@
 		8D79D36D2B99BD690074F238 /* WishCreator */ = {
 			isa = PBXGroup;
 			children = (
-				8D79D36E2B99BD7E0074F238 /* WishCreatorTableViewController.swift */,
-				8D2394DA2B99C50500D26C50 /* WishCreatorStep2.swift */,
-				8D3065EA2B9A3FC100852391 /* WishCreateFinishViewController.swift */,
+				8D79D36E2B99BD7E0074F238 /* WishStep1.swift */,
+				8D2394DA2B99C50500D26C50 /* WishStep2.swift */,
+				8D3065EA2B9A3FC100852391 /* WishStep3.swift */,
 			);
 			path = WishCreator;
 			sourceTree = "<group>";
@@ -597,7 +597,7 @@
 			files = (
 				8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */,
 				8D09EC922B8C720400A10437 /* SettingsScreen.swift in Sources */,
-				8D3065EB2B9A3FC100852391 /* WishCreateFinishViewController.swift in Sources */,
+				8D3065EB2B9A3FC100852391 /* WishStep3.swift in Sources */,
 				8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */,
 				8D1C29C12B9868B900B34B6D /* OpenAIApi.swift in Sources */,
 				8D3065E92B9A355200852391 /* UpdateChecker.swift in Sources */,
@@ -622,10 +622,10 @@
 				8D57AF632B9764A8006790A6 /* Analytics Manager.swift in Sources */,
 				8D7823832B8397D600E63423 /* Enumerations.swift in Sources */,
 				8D7823B02B863C3800E63423 /* EventScreen.swift in Sources */,
-				8D79D36F2B99BD7E0074F238 /* WishCreatorTableViewController.swift in Sources */,
+				8D79D36F2B99BD7E0074F238 /* WishStep1.swift in Sources */,
 				8D1C29B62B98634200B34B6D /* RemoteConfiguration.swift in Sources */,
 				8D09EC972B8E09AC00A10437 /* NotificationSettingsScreen.swift in Sources */,
-				8D2394DB2B99C50500D26C50 /* WishCreatorStep2.swift in Sources */,
+				8D2394DB2B99C50500D26C50 /* WishStep2.swift in Sources */,
 				8D09EC9A2B8E505400A10437 /* PulldownButtons.swift in Sources */,
 				8D7823992B86255B00E63423 /* Storage.swift in Sources */,
 			);
