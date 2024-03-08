@@ -88,6 +88,7 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
             responseText in
                 NSLog("⛑️: \(responseText)")
             DispatchQueue.main.async {
+                sleep(UInt32(AppConfiguration.gptRequestSleepTime))
                 sender.configuration?.showsActivityIndicator = false
                 var finish = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreateFinish") as! WishResultTransferProtocol
                 

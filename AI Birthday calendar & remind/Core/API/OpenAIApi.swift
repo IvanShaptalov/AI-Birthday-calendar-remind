@@ -13,9 +13,7 @@ class OpenAIApi{
             "messages": [
                 [
                     "role": "system",
-                    "content": """
-        Pretend that you congratulate from my name, it's VERY IMPORTANT
-"""
+                    "content": "\(AppConfiguration.gptSystemPrompt)"
                 ],
                 [
                     "role": "user",
