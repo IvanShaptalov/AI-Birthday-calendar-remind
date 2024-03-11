@@ -16,6 +16,11 @@ protocol MainEventBulkCreatingProtocol{
 class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     var bulkDelegate: (([MainEvent]) -> Void)?
     
+    // MARK: - viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableViewAddEvents.register(.init(nibName: "AddEventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierAddEventCell)
+    }
     
     
     @IBAction func bulkAdd(_ sender: UIBarButtonItem) {
@@ -37,15 +42,18 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
         self.dismiss(animated: true)
     }
     
+    func checkPremiumConstraint() -> Bool {
+        // if account not premium, restrict count of subscriptions
+        if MonetizationConfiguration.isPremiumAccount {
+            return true
+        } else if (MainEventStorage.load().count + events.count) < MonetizationConfiguration.freeEventRecords{
+            return true
+        }
+        return false
+    }
+    
     var events: [MainEvent] = [MainEvent(eventType: .birthday)] {
         didSet {
-            if events.last?.title != ""{
-                events.append(MainEvent(eventType: .birthday))
-                let indexPath = [IndexPath(row: events.count - 1, section: 0)]
-                
-                self.tableViewAddEvents.insertRows(at: indexPath, with: .fade)
-                self.tableViewAddEvents.scrollToRow(at: indexPath.first!, at: .bottom, animated: true)
-            }
             
             if events.count >= 2 && events[events.count-2].title == "" && events.last?.title == ""
             {
@@ -53,16 +61,29 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
                 events.removeLast()
                 self.tableViewAddEvents.deleteRows(at: indexPath, with: .fade)
             }
+            
+            if events.last?.title != "" && checkPremiumConstraint(){
+                events.append(MainEvent(eventType: .birthday))
+                let indexPath = [IndexPath(row: events.count - 1, section: 0)]
+                
+                self.tableViewAddEvents.insertRows(at: indexPath, with: .fade)
+                self.tableViewAddEvents.scrollToRow(at: indexPath.first!, at: .bottom, animated: true)
+            // check limit
+            } else if !checkPremiumConstraint(){
+                // send alert to buy sub
+                SubscriptionProposer.proposeProVersionRecordsLimited(viewController: self)
+            }
         }
     }
     
     
+    
+    
+    
+    
     @IBOutlet weak var tableViewAddEvents: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableViewAddEvents.register(.init(nibName: "AddEventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierAddEventCell)
-    }
+    
     
     
     // MARK: - Navigation

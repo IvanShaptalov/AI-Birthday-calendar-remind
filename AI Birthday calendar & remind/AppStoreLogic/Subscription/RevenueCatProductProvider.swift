@@ -47,7 +47,7 @@ class RevenueCatProductsProvider {
         let hasPremium = !customerInfo!.entitlements.active.isEmpty
         self.hasPremium = hasPremium
         MonetizationConfiguration.isPremiumAccount = hasPremium
-        NSLog("premium: \(MonetizationConfiguration.isPremiumAccount)")
+        NSLog("👑 premium: \(MonetizationConfiguration.isPremiumAccount)")
     }
     
     // MARK: - Check premium account

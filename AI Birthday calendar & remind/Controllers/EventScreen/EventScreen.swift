@@ -93,7 +93,25 @@ class BirthdaysScreen: UIViewController{
     // MARK: - Add button
     
     @IBAction func addEventPressed(_ sender: Any) {
+        NSLog("is premium account: \(MonetizationConfiguration.isPremiumAccount)")
+        NSLog("free account: events: \(self.mainEvents.count), limit  \(MonetizationConfiguration.freeEventRecords)")
         
+        if !MonetizationConfiguration.isPremiumAccount && self.mainEvents.count >= MonetizationConfiguration.freeEventRecords {
+           
+            SubscriptionProposer.proposeProVersionRecordsLimited( viewController: self)
+        } else {
+            var addEvScreen = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AddEventsScreen") as! MainEventBulkCreatingProtocol
+            
+            // MARK: - Word saving via delegate
+            addEvScreen.bulkDelegate = { [unowned self] eventList in
+                self.mainEvents.append(contentsOf: eventList)
+                self.tableEvents.reloadData()
+            }
+            
+            
+            
+            self.present(addEvScreen as! UIViewController, animated: true)
+        }
     }
     
 }
@@ -194,18 +212,5 @@ extension BirthdaysScreen {
         
         return [actionDelete]
         
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "bulkAddEvent" {
-            var destination = segue.destination as! MainEventBulkCreatingProtocol
-            
-            
-            // MARK: - Word saving via delegate
-            destination.bulkDelegate = { [unowned self] eventList in
-                self.mainEvents.append(contentsOf: eventList)
-                self.tableEvents.reloadData()
-            }
-        }
     }
 }

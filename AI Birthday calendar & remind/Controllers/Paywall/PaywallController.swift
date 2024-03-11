@@ -38,7 +38,7 @@ class PaywallController: UIViewController{
     
     @IBOutlet weak var subscriptionTableView: UITableView!
     
-    
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
