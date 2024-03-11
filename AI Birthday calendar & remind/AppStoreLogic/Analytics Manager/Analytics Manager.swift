@@ -32,5 +32,7 @@ enum EventType: String {
     rateAppImplicitA = "rate_app_implicit",
     rateAppDirect = "rate_app_direct",
     contactUsOpened = "contact_us",
-    setUpTimeNotifications = "set_up_time_notifications"
+    setUpTimeNotifications = "set_up_time_notifications",
+    subscriptionButtonTapped = "sub_button_tapped",
+    subContinueWithPlan = "sub_continue_with_plan"
 }

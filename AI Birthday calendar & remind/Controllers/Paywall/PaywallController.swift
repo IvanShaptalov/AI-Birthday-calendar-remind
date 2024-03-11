@@ -17,13 +17,15 @@ class PaywallController: UIViewController{
     var subs: [SubscriptionObj] = RevenueCatProductsProvider.subscriptionList
 
     @IBAction func buySubPressed(_ sender: UIButton) {
+        AnalyticsManager.shared.logEvent(eventType: .subscriptionButtonTapped)
         if selectedSub == nil {
             print("select sub plan")
             let alert = UIAlertController(title: "Select plan to continue", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true)
         } else {
-            
+            AnalyticsManager.shared.logEvent(eventType: .subContinueWithPlan, parameters: ["plan": selectedSub?.title ?? "nil"])
+
             RevenueCatProductsProvider.makePurchase(package: selectedSub!.package) { status in
                 NSLog("PaywallControllerViewController > buySubscriptionPressed > RevenueCatProductsProvider.makePurchase : \(status.rawValue)")
                 if status == .Processing {
