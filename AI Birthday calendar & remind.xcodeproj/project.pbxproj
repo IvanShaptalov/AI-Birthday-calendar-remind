@@ -48,6 +48,8 @@
 		8D4EC3BF2B964019001DE189 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3BE2B964019001DE189 /* RevenueCat */; };
 		8D4EC3C12B964019001DE189 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3C02B964019001DE189 /* RevenueCatUI */; };
 		8D57AF632B9764A8006790A6 /* Analytics Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57AF622B9764A7006790A6 /* Analytics Manager.swift */; };
+		8D5B176A2B9F037400D6B578 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B17692B9F037400D6B578 /* Configuration.storekit */; };
+		8D5B176B2B9F037400D6B578 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B17692B9F037400D6B578 /* Configuration.storekit */; };
 		8D7543272B976F8C00D53B65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */; };
 		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823842B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
@@ -128,6 +130,8 @@
 		8D3065EA2B9A3FC100852391 /* WishStep3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep3.swift; sourceTree = "<group>"; };
 		8D4EC3BB2B963C32001DE189 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8D57AF622B9764A7006790A6 /* Analytics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics Manager.swift"; sourceTree = "<group>"; };
+		8D5B17692B9F037400D6B578 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		8D5B176C2B9F041600D6B578 /* StoreKitTestCertificateAIBIRTHDAY.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificateAIBIRTHDAY.cer; path = "../../../../Desktop/Certificates/AI Birthday KEYS/StoreKitTestCertificateAIBIRTHDAY.cer"; sourceTree = "<group>"; };
 		8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "AI Birthday calendar & remind/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		8D7823852B84AC1500E63423 /* MainEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvent.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				8D1242642B7D28DD00ED016E /* Helpers */,
 				8D1242622B7D28C900ED016E /* Controllers */,
 				8D1242282B7D267B00ED016E /* AppDelegate.swift */,
+				8D5B17692B9F037400D6B578 /* Configuration.storekit */,
+				8D5B176C2B9F041600D6B578 /* StoreKitTestCertificateAIBIRTHDAY.cer */,
 				8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */,
 				8D12422A2B7D267B00ED016E /* SceneDelegate.swift */,
 				8D12422E2B7D267B00ED016E /* Main.storyboard */,
@@ -564,6 +570,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D12425D2B7D285500ED016E /* .gitignore in Resources */,
+				8D5B176A2B9F037400D6B578 /* Configuration.storekit in Resources */,
 				8D1242382B7D267D00ED016E /* LaunchScreen.storyboard in Resources */,
 				8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */,
 				8D1242352B7D267D00ED016E /* Assets.xcassets in Resources */,
@@ -578,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D7823B72B863C5100E63423 /* EventCell.xib in Resources */,
+				8D5B176B2B9F037400D6B578 /* Configuration.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

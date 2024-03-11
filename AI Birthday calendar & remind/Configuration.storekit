@@ -1,0 +1,158 @@
+{
+  "identifier" : "F81FA4B9",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6477883190",
+    "_developerTeamID" : "8HZT3TR2ZJ",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 731841400.763677,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21462685",
+      "localizations" : [
+
+      ],
+      "name" : "AI Birthday Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "22.0",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6479234984",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlimited records, export",
+              "displayName" : "Unlimited Access (1 year)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "bd_2200_1y",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "AI Birthday Annual",
+          "subscriptionGroupID" : "21462685",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : true,
+          "groupNumber" : 2,
+          "internalID" : "6479234962",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlimited records, export, family sharing",
+              "displayName" : "Unlimited Access (1 month)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "bd_499_1m",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "AI Birthday Month",
+          "subscriptionGroupID" : "21462685",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "11.99",
+          "familyShareable" : false,
+          "groupNumber" : 3,
+          "internalID" : "6479235045",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Unlimited records, export",
+              "displayName" : "Unlimited Access(3 month)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "bd_1200_3m",
+          "recurringSubscriptionPeriod" : "P3M",
+          "referenceName" : "AI Birthday Season",
+          "subscriptionGroupID" : "21462685",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "subscriptionOffersKeyPair" : {
+    "id" : "822D7A30",
+    "privateKey" : "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgA1A4Oqjfp/LSUTrrSJvRTqnE3NfJBi7Kls6IbpwestOgCgYIKoZIzj0DAQehRANCAASEZg6I3RtBBj+MSf0CBKvfQhlN0y36X2nMUC9y6a7J30+QT1sdUNHPmiMOFrgVbeQzwa5yS62TR7D9+lojxefN"
+  },
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
