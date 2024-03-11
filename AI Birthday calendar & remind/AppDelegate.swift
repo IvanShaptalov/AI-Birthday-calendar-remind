@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import FirebaseCore
+import RevenueCat
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,13 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        // MARK: - First Launch
-//        StorageConfiguration.storage!.removeObject(forKey: StorageConfiguration.mainEvent)
+        // check first launch
         fixFirstLaunch()
+        // set up notifications
         PermissionProvider.registerForRemoteNotification()
+        // set up analytics
         FirebaseApp.configure()
+        // set up configurations
         ConfigurationFetcher.fetch()
+        // set up subscription
+        Purchases.logLevel = .info
+        Purchases.configure(withAPIKey: AppConfiguration.revenuecat_project_apple_api_key)
+        // fetch subs, check premium
+        RevenueCatProductsProvider.setUp()
 
         return true
     }

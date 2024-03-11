@@ -15,6 +15,10 @@ class AppConfiguration {
     static var contactUsURL: String = "https://www.instagram.com/wellbeingvantage/"
     static var launchedEarlier = SettingsStorage.loadIsFirstLaunch()
     
+    // MARK: - RevenueCat
+    static var revenuecat_project_apple_api_key = "appl_CnRVSaHJYkxyqjjVOOYidaPfVaH"
+
+    
     // MARK: - NOTIFICATIONS
     static var notificationTime: Date = SettingsNotificationStorage.loadNotificationTime() {
         didSet {

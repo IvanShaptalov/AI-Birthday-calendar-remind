@@ -50,6 +50,10 @@
 		8D57AF632B9764A8006790A6 /* Analytics Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57AF622B9764A7006790A6 /* Analytics Manager.swift */; };
 		8D5B176A2B9F037400D6B578 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B17692B9F037400D6B578 /* Configuration.storekit */; };
 		8D5B176B2B9F037400D6B578 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B17692B9F037400D6B578 /* Configuration.storekit */; };
+		8D5B17702B9F099300D6B578 /* PaywallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B176F2B9F099200D6B578 /* PaywallController.swift */; };
+		8D5B17722B9F09F000D6B578 /* RevenueCatProductProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B17712B9F09F000D6B578 /* RevenueCatProductProvider.swift */; };
+		8D5B17752B9F0A3C00D6B578 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B17732B9F0A3C00D6B578 /* SubscriptionCell.swift */; };
+		8D5B17762B9F0A3C00D6B578 /* SubscriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B17742B9F0A3C00D6B578 /* SubscriptionCell.xib */; };
 		8D7543272B976F8C00D53B65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */; };
 		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823842B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
@@ -132,6 +136,10 @@
 		8D57AF622B9764A7006790A6 /* Analytics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics Manager.swift"; sourceTree = "<group>"; };
 		8D5B17692B9F037400D6B578 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		8D5B176C2B9F041600D6B578 /* StoreKitTestCertificateAIBIRTHDAY.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificateAIBIRTHDAY.cer; path = "../../../../Desktop/Certificates/AI Birthday KEYS/StoreKitTestCertificateAIBIRTHDAY.cer"; sourceTree = "<group>"; };
+		8D5B176F2B9F099200D6B578 /* PaywallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallController.swift; sourceTree = "<group>"; };
+		8D5B17712B9F09F000D6B578 /* RevenueCatProductProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCatProductProvider.swift; sourceTree = "<group>"; };
+		8D5B17732B9F0A3C00D6B578 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
+		8D5B17742B9F0A3C00D6B578 /* SubscriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionCell.xib; sourceTree = "<group>"; };
 		8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "AI Birthday calendar & remind/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		8D7823852B84AC1500E63423 /* MainEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvent.swift; sourceTree = "<group>"; };
@@ -281,6 +289,7 @@
 		8D1242622B7D28C900ED016E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D5B176E2B9F094A00D6B578 /* Paywall */,
 				8D79D36D2B99BD690074F238 /* WishCreator */,
 				8D09EC902B8C71DE00A10437 /* SettingsScreen */,
 				8D9397D42B88BEEC00040031 /* EditEventScreen */,
@@ -304,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */,
+				8D5B17712B9F09F000D6B578 /* RevenueCatProductProvider.swift */,
 			);
 			path = Subscription;
 			sourceTree = "<group>";
@@ -341,6 +351,16 @@
 				8D57AF622B9764A7006790A6 /* Analytics Manager.swift */,
 			);
 			path = "Analytics Manager";
+			sourceTree = "<group>";
+		};
+		8D5B176E2B9F094A00D6B578 /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B176F2B9F099200D6B578 /* PaywallController.swift */,
+				8D5B17732B9F0A3C00D6B578 /* SubscriptionCell.swift */,
+				8D5B17742B9F0A3C00D6B578 /* SubscriptionCell.xib */,
+			);
+			path = Paywall;
 			sourceTree = "<group>";
 		};
 		8D7823912B8623C700E63423 /* Configuration */ = {
@@ -573,6 +593,7 @@
 				8D5B176A2B9F037400D6B578 /* Configuration.storekit in Resources */,
 				8D1242382B7D267D00ED016E /* LaunchScreen.storyboard in Resources */,
 				8D28D7DE2B8768A2006D14FA /* AddEventCell.xib in Resources */,
+				8D5B17762B9F0A3C00D6B578 /* SubscriptionCell.xib in Resources */,
 				8D1242352B7D267D00ED016E /* Assets.xcassets in Resources */,
 				8D7823B62B863C5100E63423 /* EventCell.xib in Resources */,
 				8D1242302B7D267B00ED016E /* Main.storyboard in Resources */,
@@ -611,9 +632,11 @@
 				8D3065E92B9A355200852391 /* UpdateChecker.swift in Sources */,
 				8D28D7D92B873EA8006D14FA /* DateFormatter.swift in Sources */,
 				8D1C29B82B9863E100B34B6D /* MonetizationConfiguration.swift in Sources */,
+				8D5B17702B9F099300D6B578 /* PaywallController.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */,
 				8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */,
+				8D5B17722B9F09F000D6B578 /* RevenueCatProductProvider.swift in Sources */,
 				8D7823962B8623EB00E63423 /* AppConfiguration.swift in Sources */,
 				8D7823A22B86281F00E63423 /* TextImport.swift in Sources */,
 				8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */,
@@ -623,6 +646,7 @@
 				8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,
+				8D5B17752B9F0A3C00D6B578 /* SubscriptionCell.swift in Sources */,
 				8D09EC952B8DF8B800A10437 /* PermissionProvider.swift in Sources */,
 				8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */,
 				8D78238F2B84B13A00E63423 /* JsonCoders.swift in Sources */,
