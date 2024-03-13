@@ -34,6 +34,39 @@ extension SettingsScreen {
     }
     
     private func importFromCalendar(){
+        PermissionProvider.registerForEvents(completion: {denied, status in
+            if denied {
+                NSLog("📅🪓 event status: \(status)")
+                
+                let alertController = UIAlertController(title: "Provide 📆 Calendar Full Access", message: "Go to settings & privacy to re-enable AI Birthday Calendar Full Access", preferredStyle: .alert)
+                
+                alertController.addAction(.init(title: "OK", style: .default))
+                
+                self.present(alertController, animated: true)
+            } else {
+                NSLog("📆 events: ✅ \(status)")
+            }
+        })
+        
+        PermissionProvider.registerForReminders(completion: {denied, status in
+            if denied {
+                NSLog("⏰🪓 reminder status: \(status)")
+                
+                let alertController = UIAlertController(title: "Enable ⏰ Reminders", message: "Go to settings & privacy to re-enable AI Birthday Calendar Reminders", preferredStyle: .alert)
+                
+                alertController.addAction(.init(title: "OK", style: .default))
+                
+                self.present(alertController, animated: true)
+                
+            } else {
+                NSLog("⏰ reminders: ✅ \(status)")
+            }
+        })
+        
+        
+    }
+    
+    private func importFromContacts(){
         
     }
     
@@ -69,7 +102,7 @@ extension SettingsScreen {
         if indexPath.section == 2 {
             if indexPath.row == 0{
                 NSLog("Import From Contacts")
-                self.importFromCalendar()
+                self.importFromContacts()
                 return
             }
             if indexPath.row == 1{
