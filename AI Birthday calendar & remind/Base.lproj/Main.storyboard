@@ -14,7 +14,7 @@
         <!--Birthdays-->
         <scene sceneID="TPe-gE-8GD">
             <objects>
-                <viewController title="Birthdays" id="PkA-LZ-FwV" customClass="BirthdaysScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BirthdaysScreen" title="Birthdays" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PkA-LZ-FwV" customClass="BirthdaysScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nnU-9O-xI0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

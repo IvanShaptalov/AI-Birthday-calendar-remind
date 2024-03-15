@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8D0777222B9F805A0049AAFA /* SubscriptionProposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0777212B9F805A0049AAFA /* SubscriptionProposer.swift */; };
+		8D0777252BA1C7710049AAFA /* EventsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0777242BA1C7710049AAFA /* EventsProvider.swift */; };
+		8D0777272BA1C7830049AAFA /* RemindersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0777262BA1C7830049AAFA /* RemindersProvider.swift */; };
 		8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC8E2B8C604E00A10437 /* RateAppProvider.swift */; };
 		8D09EC922B8C720400A10437 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC912B8C720400A10437 /* SettingsScreen.swift */; };
 		8D09EC952B8DF8B800A10437 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */; };
@@ -82,6 +84,7 @@
 		8D79D36F2B99BD7E0074F238 /* WishStep1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D79D36E2B99BD7E0074F238 /* WishStep1.swift */; };
 		8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9397D52B88BF2C00040031 /* EditEventScreen.swift */; };
 		8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
+		8DCA6C7F2BA466B500EB1D8C /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCA6C7E2BA466B500EB1D8C /* Contacts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,8 @@
 
 /* Begin PBXFileReference section */
 		8D0777212B9F805A0049AAFA /* SubscriptionProposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionProposer.swift; sourceTree = "<group>"; };
+		8D0777242BA1C7710049AAFA /* EventsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsProvider.swift; sourceTree = "<group>"; };
+		8D0777262BA1C7830049AAFA /* RemindersProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersProvider.swift; sourceTree = "<group>"; };
 		8D09EC8E2B8C604E00A10437 /* RateAppProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppProvider.swift; sourceTree = "<group>"; };
 		8D09EC912B8C720400A10437 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		8D09EC942B8DF8B800A10437 /* PermissionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionProvider.swift; sourceTree = "<group>"; };
@@ -158,6 +163,7 @@
 		8D79D36E2B99BD7E0074F238 /* WishStep1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep1.swift; sourceTree = "<group>"; };
 		8D9397D52B88BF2C00040031 /* EditEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventScreen.swift; sourceTree = "<group>"; };
 		8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventRuleUpdater.swift; sourceTree = "<group>"; };
+		8DCA6C7E2BA466B500EB1D8C /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D0777232BA1C7640049AAFA /* Calendar Events */ = {
+			isa = PBXGroup;
+			children = (
+				8D0777242BA1C7710049AAFA /* EventsProvider.swift */,
+			);
+			path = "Calendar Events";
+			sourceTree = "<group>";
+		};
 		8D09EC902B8C71DE00A10437 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +410,8 @@
 		8D7823A62B86285800E63423 /* BLogic */ = {
 			isa = PBXGroup;
 			children = (
+				8DCA6C7D2BA466AB00EB1D8C /* Contacts */,
+				8D0777232BA1C7640049AAFA /* Calendar Events */,
 				8D7823AA2B8628A600E63423 /* Reminders */,
 				8D7823A92B86289600E63423 /* Notifications */,
 				8D7823A52B86283200E63423 /* Export */,
@@ -423,6 +439,7 @@
 		8D7823AA2B8628A600E63423 /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
+				8D0777262BA1C7830049AAFA /* RemindersProvider.swift */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -475,6 +492,14 @@
 				8D9397D52B88BF2C00040031 /* EditEventScreen.swift */,
 			);
 			path = EditEventScreen;
+			sourceTree = "<group>";
+		};
+		8DCA6C7D2BA466AB00EB1D8C /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				8DCA6C7E2BA466B500EB1D8C /* Contacts.swift */,
+			);
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -627,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D0777272BA1C7830049AAFA /* RemindersProvider.swift in Sources */,
 				8D28D7E02B8768BD006D14FA /* AddEventScreen.swift in Sources */,
 				8D09EC922B8C720400A10437 /* SettingsScreen.swift in Sources */,
 				8D3065EB2B9A3FC100852391 /* WishStep3.swift in Sources */,
@@ -650,6 +676,8 @@
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,
 				8D5B17752B9F0A3C00D6B578 /* SubscriptionCell.swift in Sources */,
+				8DCA6C7F2BA466B500EB1D8C /* Contacts.swift in Sources */,
+				8D0777252BA1C7710049AAFA /* EventsProvider.swift in Sources */,
 				8D09EC952B8DF8B800A10437 /* PermissionProvider.swift in Sources */,
 				8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */,
 				8D78238F2B84B13A00E63423 /* JsonCoders.swift in Sources */,

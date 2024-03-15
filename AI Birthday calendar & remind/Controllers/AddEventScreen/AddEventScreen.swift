@@ -13,6 +13,7 @@ protocol MainEventBulkCreatingProtocol{
     var bulkDelegate: (([MainEvent]) -> Void)? {get set}
 }
 
+
 class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     var bulkDelegate: (([MainEvent]) -> Void)?
     
@@ -22,24 +23,36 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
         self.tableViewAddEvents.register(.init(nibName: "AddEventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierAddEventCell)
     }
     
+    func updateEventsSafe(events: [MainEvent]){
+        let copy = self.events
+        self.events = copy + events
+        
+        self.tableViewAddEvents?.reloadData()
+    }
+    
     
     @IBAction func bulkAdd(_ sender: UIBarButtonItem) {
-        var evCopy = self.events
-        evCopy.removeAll(where: {$0.title == ""})
-        self.bulkDelegate?(evCopy)
-        evCopy.forEach({ev in
-            switch ev.eventType {
-                
-            case .birthday:
-                AnalyticsManager.shared.logEvent(eventType: .birthdayCreated)
-            case .anniversary:
-                AnalyticsManager.shared.logEvent(eventType: .anniversaryCreated)
-            case .simpleEvent:
-                AnalyticsManager.shared.logEvent(eventType: .eventCreated)
+        if !checkPremiumConstraint(){
+            // send alert to buy sub
+            SubscriptionProposer.proposeProVersionRecordsLimited(viewController: self)
+        } else {
+            var evCopy = self.events
+            evCopy.removeAll(where: {$0.title == ""})
+            self.bulkDelegate?(evCopy)
+            evCopy.forEach({ev in
+                switch ev.eventType {
+                    
+                case .birthday:
+                    AnalyticsManager.shared.logEvent(eventType: .birthdayCreated)
+                case .anniversary:
+                    AnalyticsManager.shared.logEvent(eventType: .anniversaryCreated)
+                case .simpleEvent:
+                    AnalyticsManager.shared.logEvent(eventType: .eventCreated)
+                }
             }
+            )
+            self.dismiss(animated: true)
         }
-        )
-        self.dismiss(animated: true)
     }
     
     func checkPremiumConstraint() -> Bool {
@@ -54,24 +67,20 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     
     var events: [MainEvent] = [MainEvent(eventType: .birthday)] {
         didSet {
-            
             if events.count >= 2 && events[events.count-2].title == "" && events.last?.title == ""
             {
                 let indexPath = [IndexPath(row: events.count - 1, section: 0)]
                 events.removeLast()
-                self.tableViewAddEvents.deleteRows(at: indexPath, with: .fade)
+                self.tableViewAddEvents?.deleteRows(at: indexPath, with: .fade)
             }
             
-            if events.last?.title != "" && checkPremiumConstraint(){
+            if events.last?.title != ""{
                 events.append(MainEvent(eventType: .birthday))
                 let indexPath = [IndexPath(row: events.count - 1, section: 0)]
                 
-                self.tableViewAddEvents.insertRows(at: indexPath, with: .fade)
-                self.tableViewAddEvents.scrollToRow(at: indexPath.first!, at: .bottom, animated: true)
+                self.tableViewAddEvents?.insertRows(at: indexPath, with: .fade)
+                self.tableViewAddEvents?.scrollToRow(at: indexPath.first!, at: .bottom, animated: true)
             // check limit
-            } else if !checkPremiumConstraint(){
-                // send alert to buy sub
-                SubscriptionProposer.proposeProVersionRecordsLimited(viewController: self)
             }
         }
     }

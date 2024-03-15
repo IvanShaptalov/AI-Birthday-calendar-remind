@@ -34,6 +34,7 @@ extension SettingsScreen {
     }
     
     private func importFromCalendar(){
+        
         PermissionProvider.registerForEvents(completion: {denied, status in
             if denied {
                 NSLog("📅🪓 event status: \(status)")
@@ -41,7 +42,7 @@ extension SettingsScreen {
                 let alertController = UIAlertController(title: "Provide 📆 Calendar Full Access", message: "Go to settings & privacy to re-enable AI Birthday Calendar Full Access", preferredStyle: .alert)
                 
                 alertController.addAction(.init(title: "OK", style: .default))
-                
+               
                 self.present(alertController, animated: true)
             } else {
                 NSLog("📆 events: ✅ \(status)")
@@ -61,8 +62,39 @@ extension SettingsScreen {
             } else {
                 NSLog("⏰ reminders: ✅ \(status)")
             }
+            
         })
         
+        // MARK: - Transfer & Save imported data
+        if PermissionProvider.checkCalendarAccess(forType: .event) && PermissionProvider.checkCalendarAccess(forType: .reminder){
+            let importedEvents: [MainEvent] = RemindersProvider.importData() + EventsProvider.importData()
+            print(importedEvents.count)
+            
+            let addEvScreen = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AddEventsScreen") as! AddEventScreen
+            
+            // add imported events
+            addEvScreen.updateEventsSafe(events: importedEvents)
+            
+            // save date
+            addEvScreen.bulkDelegate = {eventList in
+                // loaded events + new
+                
+                let loadedEvents = MainEventStorage.load()
+                var resultEvents : [MainEvent] = []
+                for ev in loadedEvents + eventList {
+                    if !resultEvents.contains(where: {$0.id == ev.id}) {
+                        resultEvents.append(ev)
+                    }
+                }
+                MainEventStorage.save(resultEvents)
+            }
+            
+            
+            
+            self.present(addEvScreen, animated: true)
+        }
+            
+           
         
     }
     

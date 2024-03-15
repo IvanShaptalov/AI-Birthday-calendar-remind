@@ -49,50 +49,27 @@ class PermissionProvider {
         )
     }
     
-    // MARK: - CALENDAR Events, Reminders
+    // MARK: - CALENDAR
     static var evStore = EKEventStore()
     
     static func registerForEvents(completion: ((Bool, String) -> Void)? = nil) {
         NSLog("get permission events 📆")
         
-        let authorizationStatus = EKEventStore.authorizationStatus(for: .event)
-                            switch authorizationStatus {
-                            case .notDetermined:
-                                // only one case to request permission
-                                break
-                            case .restricted:
-                                completion?(true, "restricted")
-                                return
-                            case .denied:
-                                completion?(true, "denied")
-                                return
-                            case .authorized:
-                                print("authorized")
-                                completion?(false, "success")
-                                return
-                            case .fullAccess:
-                                print("full access")
-                                completion?(false, "success")
-                                return
-                            case .writeOnly:
-                                completion?(true, "write only")
-                                return
-                            @unknown default:
-                                completion?(true, "unknown")
-                                return
-                            }
-        // MARK: - Check permission status
+        if !checkAuthorizationStatus(completion: completion, forType: .event){
+            return
+        }
+        
         if #available(iOS 17.0, *) {
             NSLog("🍏 IOS 17.0 + ")
             evStore.requestFullAccessToEvents(completion: { granted, error in
                 if error == nil{
                     NSLog("granted 📆✅ \(granted)")
                     completion?(false, "success")
-
+                    
                 } else {
                     NSLog("error while get event permission 🤖")
                     completion?(true, "error while get event permission")
-
+                    
                 }
             })
         } else {
@@ -102,60 +79,36 @@ class PermissionProvider {
                     
                     NSLog("granted 📆✅ \(granted)")
                     completion?(false, "success")
-
+                    
                 } else {
                     NSLog("error while get event permission 🤖")
                     completion?(true, "error while get event permission")
-
+                    
                 }
             })
         }
     }
     
+    // MARK: - REMINDERS
     static func registerForReminders(completion: ((Bool, String) -> Void)? = nil) {
         NSLog("get permission reminders ⏰")
         
-        let authorizationStatus = EKEventStore.authorizationStatus(for: .reminder)
-                            switch authorizationStatus {
-                            case .notDetermined:
-                                // only one case to request permission
-                                break
-                            case .restricted:
-                                completion?(true, "restricted")
-                                return
-                            case .denied:
-                                completion?(true, "denied")
-                                return
-                            case .authorized:
-                                print("authorized")
-                                completion?(false, "success")
-
-                                return
-                            case .fullAccess:
-                                print("full access")
-                                completion?(false, "success")
-
-                                return
-                            case .writeOnly:
-                                completion?(true, "write only")
-                                return
-                            @unknown default:
-                                completion?(true, "unknown")
-                                return
-                            }
-        // MARK: - Check permission status
+        if !checkAuthorizationStatus(completion: completion, forType: .reminder){
+            return
+        }
+        
         
         if #available(iOS 17.0, *) {
             evStore.requestFullAccessToReminders(completion: { granted, error in
                 if error == nil{
                     NSLog("granted ⏰✅ \(granted)")
                     completion?(false, "success")
-
+                    
                     
                 } else {
                     NSLog("error while get event permission 🤖")
                     completion?(true, "error while get event permission")
-
+                    
                 }
             })
         } else {
@@ -165,14 +118,75 @@ class PermissionProvider {
                     
                     NSLog("granted ⏰✅ \(granted)")
                     completion?(false, "success")
-
+                    
                 } else {
                     NSLog("error while get event permission 🤖")
                     completion?(true, "error while get event permission")
-
+                    
                 }
             })
         }
+    }
+    
+    
+    // if returns true, continue execution, else break outer functions
+    private static func checkAuthorizationStatus(completion: ((Bool, String) -> Void)?, forType: EKEntityType) -> Bool{
+        let authorizationStatus = EKEventStore.authorizationStatus(for: forType)
+        switch authorizationStatus {
+        case .notDetermined:
+            // only one case to request permission
+            return true
+        case .restricted, .denied, .writeOnly:
+            completion?(true, "authorization code: \(authorizationStatus.rawValue)")
+            return false
+        case .authorized, .fullAccess:
+            print("authorized")
+            completion?(false, "success")
+            return false
+            
+        @unknown default:
+            completion?(true, "unknown")
+            return false
+        }
+    }
+    
+    static func checkCalendarAccess(forType: EKEntityType) -> Bool {
+        let semaphore = DispatchSemaphore(value: 0)
+        var grantedAccess = false
+        
+        if #available(iOS 17.0, *) {
+            if forType == .reminder {
+                evStore.requestFullAccessToReminders(completion: { granted, error in
+                    grantedAccess = granted
+                    semaphore.signal()
+                    
+                })
+            } else {
+                evStore.requestFullAccessToEvents(completion: { granted, error in
+                    grantedAccess = granted
+                    semaphore.signal()
+                    
+                })
+            }
+            
+        } else {
+            NSLog("💽 IOS 17.0 <")
+            evStore.requestAccess(to: forType, completion: {granted, error in
+                if error == nil{
+                    grantedAccess = granted
+                    semaphore.signal()
+                    
+                } else {
+                    grantedAccess = granted
+                    semaphore.signal()
+                    
+                }
+            })
+        }
+
+        semaphore.wait()
+        NSLog("🧵 granted after semaphore: \(grantedAccess)")
+        return grantedAccess
     }
     
     

@@ -40,6 +40,8 @@ class BirthdaysScreen: UIViewController{
         }
     }
     
+    
+    
     @IBOutlet weak var tableEvents: UITableView!
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -63,13 +65,17 @@ class BirthdaysScreen: UIViewController{
                         }
                     }
                 })
-                DispatchQueue.main.async {
-                    // show alert
-                }
+               
             } catch {
                 print(error)
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.mainEvents = MainEventStorage.load()
+        self.tableEvents.reloadData()
+        NSLog("updated from viewDidAppear \(mainEvents.count)")
     }
     
     
