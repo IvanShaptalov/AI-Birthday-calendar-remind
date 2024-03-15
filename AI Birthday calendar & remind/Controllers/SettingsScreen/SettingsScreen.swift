@@ -42,7 +42,7 @@ extension SettingsScreen {
                 let alertController = UIAlertController(title: "Provide 📆 Calendar Full Access", message: "Go to settings & privacy to re-enable AI Birthday Calendar Full Access", preferredStyle: .alert)
                 
                 alertController.addAction(.init(title: "OK", style: .default))
-               
+                
                 self.present(alertController, animated: true)
             } else {
                 NSLog("📆 events: ✅ \(status)")
@@ -93,8 +93,8 @@ extension SettingsScreen {
             
             self.present(addEvScreen, animated: true)
         }
-            
-           
+        
+        
         
     }
     
@@ -124,6 +124,66 @@ extension SettingsScreen {
     }
     
     // MARK: - Action Selecting
+    //    func selectAction(indexPath: IndexPath){
+    //        // Notifications
+    //        if indexPath.section == 1{
+    //            NSLog("\(indexPath.section): Notifications")
+    //            return
+    //        }
+    //        // Import
+    //        if indexPath.section == 2 {
+    //            if indexPath.row == 0{
+    //                NSLog("Import From Contacts")
+    //                self.importFromContacts()
+    //                return
+    //            }
+    //            if indexPath.row == 1{
+    //                NSLog("Import From Calendar")
+    //                self.importFromCalendar()
+    //                return
+    //            }
+    //            if indexPath.row == 2 {
+    //                NSLog("Import from Text")
+    //                self.importFromText()
+    //                return
+    //            }
+    //        }
+    //        
+    //        // Export
+    //        if indexPath.section == 3 {
+    //            if indexPath.row == 0 {
+    //                NSLog("Export as text file")
+    //                self.exportAsText()
+    //                return
+    //            }
+    //            if indexPath.row == 1 {
+    //                NSLog("Export as table file")
+    //                self.exportAsTable()
+    //                return
+    //            }
+    //        }
+    //        // Promotion
+    //        if indexPath.section == 4 {
+    //            if indexPath.row == 0 {
+    //                NSLog("Rate App")
+    //                self.rateApp()
+    //                return
+    //            }
+    //            if indexPath.row == 1 {
+    //                NSLog("Contact Us")
+    //                self.contactUs()
+    //                return
+    //            }
+    //            if indexPath.row == 2 {
+    //                NSLog("Privacy Policy")
+    //                self.privacyPolicy()
+    //                return
+    //            }
+    //        }
+    //        
+    //        
+    //    }
+    
     func selectAction(indexPath: IndexPath){
         // Notifications
         if indexPath.section == 1{
@@ -132,38 +192,19 @@ extension SettingsScreen {
         }
         // Import
         if indexPath.section == 2 {
+            
             if indexPath.row == 0{
-                NSLog("Import From Contacts")
-                self.importFromContacts()
-                return
-            }
-            if indexPath.row == 1{
                 NSLog("Import From Calendar")
                 self.importFromCalendar()
                 return
             }
-            if indexPath.row == 2 {
-                NSLog("Import from Text")
-                self.importFromText()
-                return
-            }
+            
         }
         
-        // Export
-        if indexPath.section == 3 {
-            if indexPath.row == 0 {
-                NSLog("Export as text file")
-                self.exportAsText()
-                return
-            }
-            if indexPath.row == 1 {
-                NSLog("Export as table file")
-                self.exportAsTable()
-                return
-            }
-        }
+        
+        
         // Promotion
-        if indexPath.section == 4 {
+        if indexPath.section == 3 {
             if indexPath.row == 0 {
                 NSLog("Rate App")
                 self.rateApp()
@@ -180,8 +221,6 @@ extension SettingsScreen {
                 return
             }
         }
-        
-        
     }
 }
 
