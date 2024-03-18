@@ -121,7 +121,7 @@ class RevenueCatProductsProvider {
                 subOffer = "\(storeProduct.introductoryDiscount!.subscriptionPeriod.value) week free"
             }
             
-            subs.append(SubscriptionObj(title: storeProduct.localizedTitle, discount: 0, subOffer: subOffer, priceDuration: "\(storeProduct.pricePerMonth ?? 1)$ per month", package: pack))
+            subs.append(SubscriptionObj(title: storeProduct.localizedTitle, discount: 0, subOffer: subOffer, priceDuration: "\(storeProduct.pricePerMonth ?? 1)$ per month", package: pack, totalPrice: storeProduct.price.formatted()))
         }
         return subs
     }
@@ -141,12 +141,14 @@ class SubscriptionObj {
     var subOffer : String?
     var priceDuration: String
     var package: RevenueCat.Package
+    var totalPrice: String
     
-    init(title: String, discount: Int, subOffer: String?, priceDuration: String, package: RevenueCat.Package) {
+    init(title: String, discount: Int, subOffer: String?, priceDuration: String, package: RevenueCat.Package, totalPrice: String) {
         self.title = title
         self.discount = discount
         self.subOffer = subOffer
         self.priceDuration = priceDuration
         self.package = package
+        self.totalPrice = totalPrice
     }
 }

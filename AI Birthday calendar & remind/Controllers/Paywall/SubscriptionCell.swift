@@ -19,6 +19,8 @@ class SubscriptionCell: UITableViewCell {
         
     @IBOutlet weak var cellContent: UIView!
     
+    @IBOutlet weak var totalPrice: UILabel!
+    
     @IBOutlet weak var discountView: UIView!
     
     @IBOutlet weak var borderView: UIView!
@@ -50,6 +52,11 @@ class SubscriptionCell: UITableViewCell {
         } else {
             self.price_duration.text = "\(offerDurationText!), then \(priceDuration)"
         }
+    }
+    
+    func setTotalPrice(_ price: String){
+        self.totalPrice.text = "\(price)$ total"
+        
     }
     
     private func setUpBorder() {
