@@ -114,6 +114,22 @@ extension SettingsScreen {
         
     }
     
+    private func restorePurchase(){
+        RevenueCatProductsProvider.restorePurchase(callback: {isPremium in
+            var message = "No active subscriptions 💤"
+            if isPremium {
+                message = "Subscription restored ✅"
+            }
+            let alert = UIAlertController(title: "Restore Subscription", message: message, preferredStyle: .alert)
+            
+            alert.addAction(.init(title: "Done", style: .default))
+            
+            DispatchQueue.main.async{
+                self.present(alert, animated: true)
+            }
+        })
+    }
+    
     private func contactUs(){
         AnalyticsManager.shared.logEvent(eventType: .contactUsOpened)
         UIApplication.shared.open(URL(string: AppConfiguration.contactUsURL)!, options: [:], completionHandler: nil)
@@ -185,13 +201,18 @@ extension SettingsScreen {
     //    }
     
     func selectAction(indexPath: IndexPath){
-        // Notifications
         if indexPath.section == 1{
+            NSLog("restore purchase")
+            self.restorePurchase()
+            return
+        }
+        // Notifications
+        if indexPath.section == 2{
             NSLog("\(indexPath.section): Notifications")
             return
         }
         // Import
-        if indexPath.section == 2 {
+        if indexPath.section == 3 {
             
             if indexPath.row == 0{
                 NSLog("Import From Calendar")
@@ -204,7 +225,7 @@ extension SettingsScreen {
         
         
         // Promotion
-        if indexPath.section == 3 {
+        if indexPath.section == 4 {
             if indexPath.row == 0 {
                 NSLog("Rate App")
                 self.rateApp()

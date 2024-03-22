@@ -37,17 +37,30 @@ class RevenueCatProductsProvider {
         })
     }
     
+    static func restorePurchase(callback: @escaping (Bool) -> ()){
+    
+        Purchases.shared.restorePurchases { customerInfo, error in
+            // ... check customerInfo to see if entitlement is now active
+
+            let isPremium = self.updatePremiumStatus(customerInfo: customerInfo)
+            
+            callback(isPremium)
+        }
+    }
+    
     // MARK: - Update premium status
-    static private func updatePremiumStatus(customerInfo: CustomerInfo?){
+    /// returns true if customer had active subscription
+    static private func updatePremiumStatus(customerInfo: CustomerInfo?) -> Bool{
         guard customerInfo != nil else {
             self.hasPremium = false
             MonetizationConfiguration.isPremiumAccount = false
-            return
+            return false
         }
         let hasPremium = !customerInfo!.entitlements.active.isEmpty
         self.hasPremium = hasPremium
         MonetizationConfiguration.isPremiumAccount = hasPremium
         NSLog("👑 premium: \(MonetizationConfiguration.isPremiumAccount)")
+        return hasPremium
     }
     
     // MARK: - Check premium account
