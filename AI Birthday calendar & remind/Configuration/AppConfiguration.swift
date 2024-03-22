@@ -14,6 +14,7 @@ class AppConfiguration {
     static var privacyPolicyURL: String = "https://t.me/aibcrprivacyPolicy"
     static var contactUsURL: String = "https://www.instagram.com/wellbeingvantage/"
     static var launchedEarlier = SettingsStorage.loadIsFirstLaunch()
+    static var termsOfUseURL: String = "https://t.me/termsofuseAiBirthdayCalendar"
     
     // MARK: - RevenueCat
     static var revenuecat_project_apple_api_key = "appl_CnRVSaHJYkxyqjjVOOYidaPfVaH"

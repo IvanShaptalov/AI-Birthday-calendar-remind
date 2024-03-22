@@ -50,6 +50,7 @@
 		8D4EC3BC2B963C32001DE189 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D4EC3BB2B963C32001DE189 /* StoreKit.framework */; };
 		8D4EC3BF2B964019001DE189 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3BE2B964019001DE189 /* RevenueCat */; };
 		8D4EC3C12B964019001DE189 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8D4EC3C02B964019001DE189 /* RevenueCatUI */; };
+		8D56E7192BA5F8CA0001D8C3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8D56E7182BA5F8CA0001D8C3 /* PrivacyInfo.xcprivacy */; };
 		8D57AF632B9764A8006790A6 /* Analytics Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57AF622B9764A7006790A6 /* Analytics Manager.swift */; };
 		8D5B176A2B9F037400D6B578 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B17692B9F037400D6B578 /* Configuration.storekit */; };
 		8D5B176B2B9F037400D6B578 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B17692B9F037400D6B578 /* Configuration.storekit */; };
@@ -140,6 +141,7 @@
 		8D3065E82B9A355200852391 /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChecker.swift; sourceTree = "<group>"; };
 		8D3065EA2B9A3FC100852391 /* WishStep3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep3.swift; sourceTree = "<group>"; };
 		8D4EC3BB2B963C32001DE189 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8D56E7182BA5F8CA0001D8C3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		8D57AF622B9764A7006790A6 /* Analytics Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics Manager.swift"; sourceTree = "<group>"; };
 		8D5B17692B9F037400D6B578 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		8D5B176C2B9F041600D6B578 /* StoreKitTestCertificateAIBIRTHDAY.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificateAIBIRTHDAY.cer; path = "../../../../Desktop/Certificates/AI Birthday KEYS/StoreKitTestCertificateAIBIRTHDAY.cer"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				8D1242392B7D267D00ED016E /* AI_Birthday_calendar___remind.entitlements */,
 				8D12423A2B7D267D00ED016E /* Info.plist */,
 				8D12425C2B7D285500ED016E /* .gitignore */,
+				8D56E7182BA5F8CA0001D8C3 /* PrivacyInfo.xcprivacy */,
 			);
 			path = "AI Birthday calendar & remind";
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				8D1242352B7D267D00ED016E /* Assets.xcassets in Resources */,
 				8D7823B62B863C5100E63423 /* EventCell.xib in Resources */,
 				8D1242302B7D267B00ED016E /* Main.storyboard in Resources */,
+				8D56E7192BA5F8CA0001D8C3 /* PrivacyInfo.xcprivacy in Resources */,
 				8D7543272B976F8C00D53B65 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -891,7 +895,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AI Birthday calendar & remind/AI_Birthday_calendar___remind.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
@@ -906,7 +910,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -924,7 +928,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AI Birthday calendar & remind/AI_Birthday_calendar___remind.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
@@ -939,7 +943,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

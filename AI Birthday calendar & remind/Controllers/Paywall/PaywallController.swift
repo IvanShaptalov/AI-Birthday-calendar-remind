@@ -12,6 +12,9 @@ let subReuseIdentifier = "SubscriptionCell"
 class PaywallController: UIViewController{
     var selectedSub: SubscriptionObj?
     
+    @IBAction func termsOfUseClicked(_ sender: UIButton) {
+        UIApplication.shared.open(URL(string: AppConfiguration.termsOfUseURL)!, options: [:], completionHandler: nil)
+    }
     
     @IBOutlet weak var purchaseButton: UIButton!
     var subs: [SubscriptionObj] = RevenueCatProductsProvider.subscriptionList
@@ -87,6 +90,7 @@ extension PaywallController: UITableViewDelegate, UITableViewDataSource {
         cell.setDiscount(s.discount)
         cell.subTitle.text = s.title
         cell.selectionStyle = .none
+        cell.setTotalPrice(s.totalPrice)
         return cell
     }
     
