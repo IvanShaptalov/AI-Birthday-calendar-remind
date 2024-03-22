@@ -10,6 +10,8 @@ let reuseIdentifier = "EventCell"
 var dontShowNotificationDisabled = false
 class BirthdaysScreen: UIViewController{
     
+    
+    
     var mainEvents: [MainEvent] = MainEventStorage.load() {
         didSet {
             NSLog("mainEvents > save to storage")
@@ -76,9 +78,23 @@ class BirthdaysScreen: UIViewController{
         self.mainEvents = MainEventStorage.load()
         self.tableEvents.reloadData()
         NSLog("updated from viewDidAppear \(mainEvents.count)")
+        self.proposePremiumAtStart()
     }
     
-    
+    private func proposePremiumAtStart(){
+        NSLog("proposePremiumAtStart: isLaunchedEarlier: \(AppConfiguration.isLaunchedEarlier) is premium: \(MonetizationConfiguration.isPremiumAccount) 🪙")
+        if AppConfiguration.isLaunchedEarlier{
+            return
+        }
+        
+        if MonetizationConfiguration.isPremiumAccount {
+            return
+        }
+        
+        SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
+        
+        
+    }
     
     // MARK: - Edit button
     var isEditingEvents = false
@@ -102,9 +118,10 @@ class BirthdaysScreen: UIViewController{
         NSLog("is premium account: \(MonetizationConfiguration.isPremiumAccount)")
         NSLog("free account: events: \(self.mainEvents.count), limit  \(MonetizationConfiguration.freeEventRecords)")
         
-        if !MonetizationConfiguration.isPremiumAccount && self.mainEvents.count >= MonetizationConfiguration.freeEventRecords {
-           
+        if SubscriptionProposer.hasNoLimitInMainScreen(self.mainEvents) {
+            
             SubscriptionProposer.proposeProVersionRecordsLimited( viewController: self)
+            
         } else {
             var addEvScreen = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AddEventsScreen") as! MainEventBulkCreatingProtocol
             

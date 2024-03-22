@@ -15,10 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func fixFirstLaunch(){
         NSLog("fix launch...")
-        if !AppConfiguration.launchedEarlier {
-            AppConfiguration.launchedEarlier = true
+        if !AppConfiguration.isLaunchedEarlier {
             
-            SettingsStorage.saveIsFirstLaunch(true)
+            SettingsStorage.saveIsLaunchedEarlier(true)
             NSLog("first launch ✅")
         }
         else {

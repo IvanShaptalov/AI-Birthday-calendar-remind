@@ -11,7 +11,7 @@ import Foundation
 class MonetizationConfiguration {
     static var isPremiumAccount: Bool = false
     
-    static var freeEventRecords: Int = 10
+    static var freeEventRecords: Int = 5
     
     
     static func getRecordsForAccount() -> Int{

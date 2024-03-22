@@ -32,10 +32,7 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     
     
     @IBAction func bulkAdd(_ sender: UIBarButtonItem) {
-        if !checkPremiumConstraint(){
-            // send alert to buy sub
-            SubscriptionProposer.proposeProVersionRecordsLimited(viewController: self)
-        } else {
+        if SubscriptionProposer.hasNoLimitToRecords(eventsToAdd: self.events ){
             var evCopy = self.events
             evCopy.removeAll(where: {$0.title == ""})
             self.bulkDelegate?(evCopy)
@@ -52,17 +49,9 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
             }
             )
             self.dismiss(animated: true)
+        } else {
+            SubscriptionProposer.proposeProVersionRecordsLimited(viewController: self)
         }
-    }
-    
-    func checkPremiumConstraint() -> Bool {
-        // if account not premium, restrict count of subscriptions
-        if MonetizationConfiguration.isPremiumAccount {
-            return true
-        } else if (MainEventStorage.load().count + events.count) < MonetizationConfiguration.freeEventRecords{
-            return true
-        }
-        return false
     }
     
     var events: [MainEvent] = [MainEvent(eventType: .birthday)] {
@@ -80,7 +69,7 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
                 
                 self.tableViewAddEvents?.insertRows(at: indexPath, with: .fade)
                 self.tableViewAddEvents?.scrollToRow(at: indexPath.first!, at: .bottom, animated: true)
-            // check limit
+                // check limit
             }
         }
     }

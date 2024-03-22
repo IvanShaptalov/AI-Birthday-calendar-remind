@@ -12,9 +12,13 @@ let subReuseIdentifier = "SubscriptionCell"
 class PaywallController: UIViewController{
     var selectedSub: SubscriptionObj?
     
+    @IBOutlet weak var benefitLabel: UILabel!
+    
     @IBAction func termsOfUseClicked(_ sender: UIButton) {
         UIApplication.shared.open(URL(string: AppConfiguration.termsOfUseURL)!, options: [:], completionHandler: nil)
     }
+    
+    
     
     @IBOutlet weak var purchaseButton: UIButton!
     var subs: [SubscriptionObj] = RevenueCatProductsProvider.subscriptionList
@@ -46,7 +50,7 @@ class PaywallController: UIViewController{
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.benefitLabel.text = "Unlimited adding of birthdays instead of \(MonetizationConfiguration.freeEventRecords) records"
         // MARK: - Fetch subs if empty
         
         if self.subs.isEmpty {

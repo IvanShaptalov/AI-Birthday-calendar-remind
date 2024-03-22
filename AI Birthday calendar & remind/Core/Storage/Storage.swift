@@ -35,13 +35,14 @@ class SettingsStorage {
     //MARK: - First launch
     
     
-    static func saveIsFirstLaunch(_ isFLaunch: Bool) {
+    static func saveIsLaunchedEarlier(_ isFLaunch: Bool) {
         StorageConfiguration.storage!.set(isFLaunch, forKey: StorageConfiguration.launchedBefore)
     }
     
-    static func loadIsFirstLaunch() -> Bool {
+    /// return
+    static func loadIsLaunchedEarlier() -> Bool {
         let isFirstLaunch = StorageConfiguration.storage!.bool(forKey: StorageConfiguration.launchedBefore)
-        
+        NSLog("is launched earlier ⏰ : \(isFirstLaunch)")
         return isFirstLaunch
     }
     
