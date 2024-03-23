@@ -111,6 +111,28 @@ final class AI_Birthday_calendar___remind: XCTestCase {
         XCTAssert(AppConfiguration.gptModel == "gpt-3.5-turbo-0613")
     }
     
+    func testSeason(){
+        for i in 3 ... 5{
+            var date = Calendar.current.date(bySetting: .month, value: i, of: .now)
+            XCTAssertEqual(EventColorController.generateColor(date!), .SpringSeason)
+        }
+        for i in 6 ... 8{
+            var date = Calendar.current.date(bySetting: .month, value: i, of: .now)
+            XCTAssertEqual(EventColorController.generateColor(date!), .Summer)
+        }
+        for i in 9 ... 11{
+            var date = Calendar.current.date(bySetting: .month, value: i, of: .now)
+            XCTAssertEqual(EventColorController.generateColor(date!), .Autumn)
+        }
+        for i in 1 ... 2{
+            var date = Calendar.current.date(bySetting: .month, value: i, of: .now)
+            XCTAssertEqual(EventColorController.generateColor(date!), .Winter)
+        }
+        var date = Calendar.current.date(bySetting: .month, value: 12, of: .now)
+        XCTAssertEqual(EventColorController.generateColor(date!), .Winter)
+        
+    }
+    
 //    func testKeys() throws {
 //        XCTAssertGreaterThan(LearnUpConfiguration.gptToken.count, 10)
 //        XCTAssertGreaterThan(LearnUpConfiguration.gptOrganization.count, 0)

@@ -41,6 +41,29 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
         // Initialization code
     }
     
+    func setBackgroundBySeason(season: Season){
+        NSLog("season: \(season)")
+        let autumnC = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 0.33)
+        let winterC = #colorLiteral(red: 0.476841867, green: 0.5048075914, blue: 1, alpha: 0.33)
+        let springC = #colorLiteral(red: 0.4508578777, green: 0.9882974029, blue: 0.8376303315, alpha: 0.33)
+        let summerC = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 0.4)
+        
+
+        switch season {
+            
+        case .Winter:
+            self.pseudoContent.backgroundColor = winterC
+            
+        case .SpringSeason:
+            self.pseudoContent.backgroundColor = springC
+
+        case .Summer:
+            self.pseudoContent.backgroundColor = summerC
+
+        case .Autumn:
+            self.pseudoContent.backgroundColor = autumnC
+        }
+    }
     
     // MARK: - set Up Dates
     private func setUpDates(){

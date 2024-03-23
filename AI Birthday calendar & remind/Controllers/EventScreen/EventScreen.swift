@@ -151,6 +151,9 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
         let mEvent = self.mainEvents[i]
         
         cell.event = mEvent
+        
+        cell.setBackgroundBySeason(season: EventColorController.generateColor(mEvent.eventDate))
+        
 //        cell.title.text = mEvent.title
 //        let df = DatePrinter(date: mEvent.eventDate)
 //        
