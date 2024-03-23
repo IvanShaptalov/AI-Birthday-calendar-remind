@@ -88,6 +88,8 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
             responseText in
                 NSLog("⛑️: \(responseText)")
             DispatchQueue.main.async {
+                AnalyticsManager.shared.logEvent(eventType: .wishStartGenerating)
+
                 sleep(UInt32(AppConfiguration.gptRequestSleepTime))
                 sender.configuration?.showsActivityIndicator = false
                 var finish = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreateFinish") as! WishResultTransferProtocol
@@ -97,11 +99,14 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
                 self.present(finish as! UIViewController, animated: true)
             }
         }, error: {
+
             textError in
                 NSLog("🧨 error in response: \(textError)")
             DispatchQueue.main.async {
                 sender.isEnabled = true
                 sender.configuration?.showsActivityIndicator = false
+                AnalyticsManager.shared.logEvent(eventType: .wishNotGenerated)
+
             }
         })
     }

@@ -34,5 +34,8 @@ enum EventType: String {
     contactUsOpened = "contact_us",
     setUpTimeNotifications = "set_up_time_notifications",
     subscriptionButtonTapped = "sub_button_tapped",
-    subContinueWithPlan = "sub_continue_with_plan"
+    subContinueWithPlan = "sub_continue_with_plan",
+    wishStartGenerating = "wish_start_generating",
+    wishGenerated = "wish_generated",
+    wishNotGenerated = "wish_not_generated"
 }
