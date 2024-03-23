@@ -105,20 +105,17 @@ class AddEventCell: UITableViewCell {
             
         case .birthday:
             
-            self.eventImage.image = UIImage(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [.systemBlue]))
+            self.eventImage.image = UIImage(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)]))
             
             
         case .anniversary:
             
-            self.eventImage.image = .init(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)]))
+            self.eventImage.image = .init(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 0.9)]))
             
         case .simpleEvent:
-            self.eventImage.image = .init(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 1, green: 0.5212053061, blue: 1, alpha: 1)]))
+            self.eventImage.image = .init(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 1, green: 0.5212053061, blue: 1, alpha: 0.9)]))
             
         }
-        
-        
-        
     }
     
     @IBAction func anniversaryTypeChanged(_ sender: UISegmentedControl) {
