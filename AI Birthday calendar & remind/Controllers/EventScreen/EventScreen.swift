@@ -255,18 +255,28 @@ extension BirthdaysScreen {
         return [done, deleteButton,flex, selectAll]
     }
     
-    
+    // MARK: - Remove selected items
     @objc func removeSelectedItems(){
-        let alertController = UIAlertController(title: "You can't undo this action", message: "Remove these words?", preferredStyle: .alert)
-        alertController.addAction(.init(title: "Cancel", style: .cancel))
+        let selectedIndexes = self.tableEvents.indexPathsForSelectedRows
         
-        alertController.addAction(.init(title: "Remove", style: .destructive, handler: {action in
-            let selectedIndexes = self.tableEvents.indexPathsForSelectedRows
-                        
-            self.removeSelectedWords(selectedWords: selectedIndexes?.map({$0.item}) ?? [])
-        }))
-        
-        self.present(alertController, animated: true)
+        if (selectedIndexes == nil || selectedIndexes!.isEmpty)  {
+            let alertController = UIAlertController(title: "No selection", message: "Select some events to delete", preferredStyle: .alert)
+            
+            alertController.addAction(.init(title: "Ok", style: .cancel))
+            self.present(alertController, animated: true)
+
+        } else {
+            let alertController = UIAlertController(title: "You can't undo this action", message: "Remove these words?", preferredStyle: .alert)
+            alertController.addAction(.init(title: "Cancel", style: .cancel))
+            
+            alertController.addAction(.init(title: "Remove", style: .destructive, handler: {action in
+                let selectedIndexes = self.tableEvents.indexPathsForSelectedRows
+                            
+                self.removeSelectedWords(selectedWords: selectedIndexes?.map({$0.item}) ?? [])
+            }))
+            
+            self.present(alertController, animated: true)
+        }
     }
     
     private func removeSelectedWords(selectedWords: [Int]) {
