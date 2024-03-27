@@ -43,6 +43,18 @@ class BirthdaysScreen: UIViewController{
     }
     
     
+    @IBOutlet weak var upToolbar: UIToolbar!
+    
+    var toolbarItemsDefault: [UIBarButtonItem]?
+    
+    var isEditingEvents = false
+    
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        self.setUpButtonsToEditing()
+        
+        self.tableEvents.setEditing(true, animated: true)
+    }
+    
     
     @IBOutlet weak var tableEvents: UITableView!
     // MARK: - viewDidLoad
@@ -61,13 +73,13 @@ class BirthdaysScreen: UIViewController{
                         DispatchQueue.main.async {
                             let alertController = UIAlertController(title: "Time for an update", message: "You are using a version that is no longer supported.Please update to the newest version to keep using the app.", preferredStyle: .alert)
                             alertController.addAction(.init(title: "OK", style: .default))
-
-                                                    
+                            
+                            
                             self.present(alertController, animated: true)
                         }
                     }
                 })
-               
+                
             } catch {
                 print(error)
             }
@@ -94,22 +106,6 @@ class BirthdaysScreen: UIViewController{
         SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
         
         
-    }
-    
-    // MARK: - Edit button
-    var isEditingEvents = false
-    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
-        isEditingEvents = !isEditingEvents
-        if isEditingEvents {
-            
-            sender.image = .init(systemName: "checkmark.circle")
-            
-        } else {
-            
-            sender.image = .init(systemName: "pencil")
-            
-        }
-        self.tableEvents.setEditing(isEditingEvents, animated: true)
     }
     
     // MARK: - Add button
@@ -154,12 +150,12 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
         
         cell.setBackgroundBySeason(season: EventSeasonController.getSeason(mEvent.eventDate))
         
-//        cell.title.text = mEvent.title
-//        let df = DatePrinter(date: mEvent.eventDate)
-//        
-//        cell.dayAndMonth.text = df.monthAndDay()
-//        cell.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
-//        cell.timeLeft.text = df.timeLeftInDays()
+        //        cell.title.text = mEvent.title
+        //        let df = DatePrinter(date: mEvent.eventDate)
+        //
+        //        cell.dayAndMonth.text = df.monthAndDay()
+        //        cell.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
+        //        cell.timeLeft.text = df.timeLeftInDays()
         
         return cell
     }
@@ -170,6 +166,14 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
 // MARK: - event selected
 extension BirthdaysScreen {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        _ = tableView.cellForRow(at: indexPath)
+        
+        
+        if tableView.isEditing {
+            return
+        }
+        
         let editPage = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditEventScreen") as! EditEventScreen
         // MARK: - EDITING
         editPage.bulkDelegate = {eventList in
@@ -239,4 +243,73 @@ extension BirthdaysScreen {
         return [actionDelete]
         
     }
+    
+    // MARK: - Multiple selection
+    func setUpToolbarItemsWhileEditing() -> [UIBarButtonItem]{
+        let flex = UIBarButtonItem.flexibleSpace()
+        let selectAll = UIBarButtonItem(image: UIImage(systemName: "checklist")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(selectAllItems))
+        
+        let deleteButton = UIBarButtonItem(image: .init(systemName: "trash")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(removeSelectedItems))
+        
+        let done = UIBarButtonItem(image: UIImage(systemName: "checkmark.circle")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(setUpEditingDone))
+        return [done, deleteButton,flex, selectAll]
+    }
+    
+    
+    @objc func removeSelectedItems(){
+        let alertController = UIAlertController(title: "You can't undo this action", message: "Remove these words?", preferredStyle: .alert)
+        alertController.addAction(.init(title: "Cancel", style: .cancel))
+        
+        alertController.addAction(.init(title: "Remove", style: .destructive, handler: {action in
+            let selectedIndexes = self.tableEvents.indexPathsForSelectedRows
+                        
+            self.removeSelectedWords(selectedWords: selectedIndexes?.map({$0.item}) ?? [])
+        }))
+        
+        self.present(alertController, animated: true)
+    }
+    
+    private func removeSelectedWords(selectedWords: [Int]) {
+        self.mainEvents = self.mainEvents
+            .enumerated()
+            .filter { !selectedWords.contains($0.offset) }
+            .map { $0.element }
+        self.tableEvents.reloadData()
+
+    }
+    
+    /// in view did load i have this
+    
+    
+    private func setUpButtonsToEditing(){
+        self.toolbarItemsDefault = self.upToolbar.items
+        self.upToolbar.setItems(setUpToolbarItemsWhileEditing(), animated: true)
+    }
+    
+    @objc func selectAllItems(){
+        
+        let selected = self.tableEvents.indexPathsForSelectedRows
+        
+        let totalRows = self.tableEvents.numberOfRows(inSection: 0)
+        
+        if selected?.count == totalRows {
+            for row in 0..<totalRows {
+                self.tableEvents.deselectRow(at: .init(item: row, section: 0), animated: false)
+            }
+            
+        } else {
+            for row in 0..<totalRows {
+                self.tableEvents.selectRow(at: .init(item: row, section: 0), animated: false, scrollPosition: .none)
+            }
+        }
+    }
+    
+    
+    
+    @objc func setUpEditingDone() {
+        self.upToolbar.setItems(toolbarItemsDefault, animated: true)
+        self.tableEvents.setEditing(false, animated: true)
+    }
+    
+    
 }
