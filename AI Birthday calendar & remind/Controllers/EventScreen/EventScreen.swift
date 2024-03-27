@@ -10,8 +10,7 @@ let reuseIdentifier = "EventCell"
 var dontShowNotificationDisabled = false
 class BirthdaysScreen: UIViewController{
     
-    
-    
+    // MARK: - Main Events Field 🌾
     var mainEvents: [MainEvent] = MainEventStorage.load() {
         didSet {
             NSLog("mainEvents > save to storage")
@@ -42,22 +41,17 @@ class BirthdaysScreen: UIViewController{
         }
     }
     
+    // MARK: - Fields for Multiple Selection 🌾
     
     @IBOutlet weak var upToolbar: UIToolbar!
     
     var toolbarItemsDefault: [UIBarButtonItem]?
-    
-    var isEditingEvents = false
-    
-    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
-        self.setUpButtonsToEditing()
         
-        self.tableEvents.setEditing(true, animated: true)
-    }
     
     
+    // MARK: - Talbe 📜
     @IBOutlet weak var tableEvents: UITableView!
-    // MARK: - viewDidLoad
+    // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
         mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
@@ -108,8 +102,7 @@ class BirthdaysScreen: UIViewController{
         
     }
     
-    // MARK: - Add button
-    
+    // MARK: - Add Events Button ➕
     @IBAction func addEventPressed(_ sender: Any) {
         NSLog("is premium account: \(MonetizationConfiguration.isPremiumAccount)")
         NSLog("free account: events: \(self.mainEvents.count), limit  \(MonetizationConfiguration.freeEventRecords)")
@@ -132,43 +125,36 @@ class BirthdaysScreen: UIViewController{
             self.present(addEvScreen as! UIViewController, animated: true)
         }
     }
-    
 }
 
+// MARK: - Cell configuring **EXT ✨
 extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         mainEvents.count
     }
     
-    // MARK: - Configure cell
+    // MARK: - Configure cell ⚙️
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! EventCell
         let i = indexPath.row
         let mEvent = self.mainEvents[i]
         
+        cell.selectionStyle = .blue
+        cell.backgroundColor = .clear
+        
+       
         cell.event = mEvent
         
         cell.setBackgroundBySeason(season: EventSeasonController.getSeason(mEvent.eventDate))
-        
-        //        cell.title.text = mEvent.title
-        //        let df = DatePrinter(date: mEvent.eventDate)
-        //
-        //        cell.dayAndMonth.text = df.monthAndDay()
-        //        cell.dayOfWeekCalendarFormat.text = df.dayOfWeekCalendarFormat()
-        //        cell.timeLeft.text = df.timeLeftInDays()
-        
         return cell
     }
     
     
 }
 
-// MARK: - event selected
+// MARK: - Event Selection **EXT ✨
 extension BirthdaysScreen {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        _ = tableView.cellForRow(at: indexPath)
-        
         
         if tableView.isEditing {
             return
@@ -189,62 +175,12 @@ extension BirthdaysScreen {
         self.present(editPage, animated: true)
         
     }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return tableView.isEditing
-    }
-    
-    
-    // MARK: - trailing swipe
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let actions = UISwipeActionsConfiguration(actions:getActions(indexPath: indexPath))
-        return actions
-        
-    }
-    
-    // MARK: - leading swipe
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let actions = UISwipeActionsConfiguration(actions:getActions(indexPath: indexPath))
-        return actions
-    }
-    
-    // MARK: - DELETE EVENT
-    private func getActions(indexPath: IndexPath) -> [UIContextualAction]{
-        let actionDelete = UIContextualAction(style: .destructive, title: "Delete") { _,_,_ in
-            // remove notifications firstly
-            NotificationServiceProvider.cancelNotifications(ids: self.mainEvents[indexPath.row].getNotificationIds())
-            
-            switch self.mainEvents[indexPath.row].eventType {
-                
-            case .birthday:
-                AnalyticsManager.shared.logEvent(eventType: .birthdayDeleted)
-            case .anniversary:
-                AnalyticsManager.shared.logEvent(eventType: .anniversaryDeleted)
-            case .simpleEvent:
-                AnalyticsManager.shared.logEvent(eventType: .eventDeleted)
-            }
-            
-            self.mainEvents.remove(at: indexPath.row)
-            self.tableEvents.deleteRows(at: [indexPath], with: .automatic)
-        }
-        
-        actionDelete.backgroundColor = .systemBackground
-        var img: UIImage = UIImage(systemName: "trash")!.withRenderingMode(.alwaysOriginal)
-        
-        img = img.withTintColor(.red)
-        
-        actionDelete.image = img
-        
-        return [actionDelete]
-        
-    }
-    
-    // MARK: - Multiple selection
+}
+
+// MARK: - Multiple Selection **EXT ✨
+/// select and delete some or all birthdays
+extension BirthdaysScreen {
+    // MARK: - SetUp
     func setUpToolbarItemsWhileEditing() -> [UIBarButtonItem]{
         let flex = UIBarButtonItem.flexibleSpace()
         let selectAll = UIBarButtonItem(image: UIImage(systemName: "checklist")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(selectAllItems))
@@ -255,7 +191,17 @@ extension BirthdaysScreen {
         return [done, deleteButton,flex, selectAll]
     }
     
-    // MARK: - Remove selected items
+    @objc func setUpEditingDone() {
+        self.upToolbar.setItems(toolbarItemsDefault, animated: true)
+        self.tableEvents.setEditing(false, animated: true)
+    }
+    
+    private func setUpButtonsToEditing(){
+        self.toolbarItemsDefault = self.upToolbar.items
+        self.upToolbar.setItems(setUpToolbarItemsWhileEditing(), animated: true)
+    }
+    
+    // MARK: - Buttons of multiple selection 
     @objc func removeSelectedItems(){
         let selectedIndexes = self.tableEvents.indexPathsForSelectedRows
         
@@ -279,21 +225,10 @@ extension BirthdaysScreen {
         }
     }
     
-    private func removeSelectedWords(selectedWords: [Int]) {
-        self.mainEvents = self.mainEvents
-            .enumerated()
-            .filter { !selectedWords.contains($0.offset) }
-            .map { $0.element }
-        self.tableEvents.reloadData()
-
-    }
-    
-    /// in view did load i have this
-    
-    
-    private func setUpButtonsToEditing(){
-        self.toolbarItemsDefault = self.upToolbar.items
-        self.upToolbar.setItems(setUpToolbarItemsWhileEditing(), animated: true)
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        self.setUpButtonsToEditing()
+        
+        self.tableEvents.setEditing(true, animated: true)
     }
     
     @objc func selectAllItems(){
@@ -314,12 +249,13 @@ extension BirthdaysScreen {
         }
     }
     
-    
-    
-    @objc func setUpEditingDone() {
-        self.upToolbar.setItems(toolbarItemsDefault, animated: true)
-        self.tableEvents.setEditing(false, animated: true)
+    // MARK: - Function
+    private func removeSelectedWords(selectedWords: [Int]) {
+        self.mainEvents = self.mainEvents
+            .enumerated()
+            .filter { !selectedWords.contains($0.offset) }
+            .map { $0.element }
+        self.tableEvents.reloadData()
+
     }
-    
-    
 }

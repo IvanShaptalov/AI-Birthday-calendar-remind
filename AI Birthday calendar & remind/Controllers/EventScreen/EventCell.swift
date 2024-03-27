@@ -35,8 +35,6 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
     // MARK: - Awake from nib
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.selectionStyle = .blue
-        self.backgroundColor = .clear
         self.pseudoContent.layer.cornerRadius = 15
         self.setUpCell()
         // Initialization code
