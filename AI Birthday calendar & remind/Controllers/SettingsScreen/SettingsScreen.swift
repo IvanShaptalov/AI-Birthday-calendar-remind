@@ -87,6 +87,7 @@ extension SettingsScreen {
                     }
                 }
                 MainEventStorage.save(resultEvents)
+                AnalyticsManager.shared.logEvent(eventType: .eventsImportedCalendarReminders)
             }
             
             

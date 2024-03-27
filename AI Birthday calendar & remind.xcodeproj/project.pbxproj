@@ -85,7 +85,6 @@
 		8D79D36F2B99BD7E0074F238 /* WishStep1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D79D36E2B99BD7E0074F238 /* WishStep1.swift */; };
 		8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9397D52B88BF2C00040031 /* EditEventScreen.swift */; };
 		8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
-		8DCA6C7F2BA466B500EB1D8C /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCA6C7E2BA466B500EB1D8C /* Contacts.swift */; };
 		8DDCB8042BAF76530091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
 		8DDCB8052BAF78B80091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
 /* End PBXBuildFile section */
@@ -167,7 +166,6 @@
 		8D79D36E2B99BD7E0074F238 /* WishStep1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep1.swift; sourceTree = "<group>"; };
 		8D9397D52B88BF2C00040031 /* EditEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventScreen.swift; sourceTree = "<group>"; };
 		8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventRuleUpdater.swift; sourceTree = "<group>"; };
-		8DCA6C7E2BA466B500EB1D8C /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSeasonController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -417,7 +415,6 @@
 		8D7823A62B86285800E63423 /* BLogic */ = {
 			isa = PBXGroup;
 			children = (
-				8DCA6C7D2BA466AB00EB1D8C /* Contacts */,
 				8D0777232BA1C7640049AAFA /* Calendar Events */,
 				8D7823AA2B8628A600E63423 /* Reminders */,
 				8D7823A92B86289600E63423 /* Notifications */,
@@ -499,14 +496,6 @@
 				8D9397D52B88BF2C00040031 /* EditEventScreen.swift */,
 			);
 			path = EditEventScreen;
-			sourceTree = "<group>";
-		};
-		8DCA6C7D2BA466AB00EB1D8C /* Contacts */ = {
-			isa = PBXGroup;
-			children = (
-				8DCA6C7E2BA466B500EB1D8C /* Contacts.swift */,
-			);
-			path = Contacts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -685,7 +674,6 @@
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,
 				8D5B17752B9F0A3C00D6B578 /* SubscriptionCell.swift in Sources */,
-				8DCA6C7F2BA466B500EB1D8C /* Contacts.swift in Sources */,
 				8D0777252BA1C7710049AAFA /* EventsProvider.swift in Sources */,
 				8D09EC952B8DF8B800A10437 /* PermissionProvider.swift in Sources */,
 				8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */,
