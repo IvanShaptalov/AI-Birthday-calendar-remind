@@ -15,8 +15,8 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     var wish: WishType?
     
     @IBOutlet weak var titleLabel: UILabel!
-
-  
+    
+    
     @IBOutlet weak var whoWish: UIButton!
     
     @IBOutlet weak var messageStyle: UIButton!
@@ -38,7 +38,7 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
         titleLabel.text = wish?.rawValue ?? "Create Wish"
         self.setUpWhoCelebrating()
         self.setUpMessageStyle()
-      
+        
     }
     
     
@@ -56,7 +56,13 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
         })
     }
     
+    var buttonDisabled = false
+    
     @IBAction func generateWish(_ sender: UIButton) {
+        if buttonDisabled {
+            NSLog("loading wish 💤")
+            return
+        }
         var prWho: String? = nil
         var prMessageStyle: String? = nil
         var prName: String? = nil
@@ -80,33 +86,42 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
         
         
         
+        
         let wishMaker = WishMaker(wishType: self.wish!.rawValue, toWho: prWho ?? whoWishEnum.rawValue, messageStyle: prMessageStyle ?? messageStyleEnum.rawValue, ageOpt: prAge, mentionsOpt: prName)
         sender.configuration?.showsActivityIndicator = true
-        sender.isEnabled = false
-
+        buttonDisabled = true
+        
         wishMaker.sendRequest(callback: {
             responseText in
-                NSLog("⛑️: \(responseText)")
+            
             DispatchQueue.main.async {
-                AnalyticsManager.shared.logEvent(eventType: .wishStartGenerating)
-
-                sleep(UInt32(AppConfiguration.gptRequestSleepTime))
-                sender.configuration?.showsActivityIndicator = false
-                var finish = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreateFinish") as! WishResultTransferProtocol
+                if self.viewIfLoaded?.window != nil {
+                        NSLog("⛑️: \(responseText)")
+                        AnalyticsManager.shared.logEvent(eventType: .wishStartGenerating)
+                        
+                        sleep(UInt32(AppConfiguration.gptRequestSleepTime))
+                        sender.configuration?.showsActivityIndicator = false
+                        var finish = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreateFinish") as! WishResultTransferProtocol
+                        
+                        finish.wishResult = responseText
+                        self.buttonDisabled = false
+                        self.present(finish as! UIViewController, animated: true)
+                    
+                } else {
+                    NSLog("view not loaded 🔥")
+                }
                 
-                finish.wishResult = responseText
-                sender.isEnabled = true
-                self.present(finish as! UIViewController, animated: true)
             }
+            
         }, error: {
-
+            
             textError in
-                NSLog("🧨 error in response: \(textError)")
+            NSLog("🧨 error in response: \(textError)")
             DispatchQueue.main.async {
-                sender.isEnabled = true
+                self.buttonDisabled = false
                 sender.configuration?.showsActivityIndicator = false
                 AnalyticsManager.shared.logEvent(eventType: .wishNotGenerated)
-
+                
             }
         })
     }

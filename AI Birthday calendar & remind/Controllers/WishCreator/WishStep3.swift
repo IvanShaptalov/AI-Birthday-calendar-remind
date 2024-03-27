@@ -52,7 +52,11 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         self.gptTextViewField.text = self.wishResult
-        AnalyticsManager.shared.logEvent(eventType: .wishGenerated)
+        DispatchQueue.main.async {
+            AnalyticsManager.shared.logEvent(eventType: .wishGenerated)
+        }
     }
+    
+    
 
 }

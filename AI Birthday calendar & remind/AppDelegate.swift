@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PermissionProvider.registerForRemoteNotification()
         // set up analytics
         FirebaseApp.configure()
+        
         // set up configurations
         ConfigurationFetcher.fetch()
         // set up subscription
