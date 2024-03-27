@@ -8,11 +8,8 @@
 import Foundation
 import UserNotifications
 
-// MARK: - THEN TEST ALL FUNCTIONS, maybe edit main event creating
-
 class NotificationServiceProvider {
-    
-    // MARK: - Scheduling Notification
+    // MARK: - Scheduling Notification 📆
     static func scheduleEvent(event: MainEvent, notifDisabled ndc: (()-> Void)?){
         switch event.eventType{
             
@@ -55,7 +52,7 @@ class NotificationServiceProvider {
         }
     }
     
-    // MARK: - RAW REQUEST
+    // MARK: - RAW REQUEST 🥦
     
     
     private static func schedule(request: UNNotificationRequest,_ notificationDisabledCallback: (()-> Void)?){
@@ -76,7 +73,7 @@ class NotificationServiceProvider {
         )
     }
     
-    // MARK: - SAME DAY EVENT
+    // MARK: - SAME DAY EVENT ☀️
     
     private static func prepareDaySameDate(event: MainEvent) -> DateComponents {
         NSLog("🌞 same day")
@@ -108,8 +105,7 @@ class NotificationServiceProvider {
         return request
     }
     
-    // MARK: - DAYS BEFORE EVENT
-    
+    // MARK: - DAYS BEFORE EVENT 🌆
     private static func prepareDaysBeforeDate(event: MainEvent) -> DateComponents? {
         NSLog("🌞 days before: \(AppConfiguration.notificateBeforeInDays?.rawValue ?? "none")")
         let currentComps = prepareDaySameDate(event: event)
@@ -146,7 +142,7 @@ class NotificationServiceProvider {
         return request
     }
     
-    // MARK: - EVENT TIME
+    // MARK: - EVENT TIME ⌛️
     
     private static func prepareEventTime(event: MainEvent) -> DateComponents{
         let comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: event.eventDate)
@@ -170,7 +166,7 @@ class NotificationServiceProvider {
         return request
     }
     
-    // MARK: - GENERAL
+    // MARK: - GENERAL 🍖
     private static func prepareTrigger(event: MainEvent, dateComponents: DateComponents) -> UNCalendarNotificationTrigger{
         // don't repeat simple event
         if event.eventType == .simpleEvent {
@@ -233,7 +229,7 @@ class NotificationServiceProvider {
         
     }
     
-    // MARK: - DELETING NOTIFICATION
+    // MARK: - DELETING NOTIFICATION ⏰🧨
     static func cancelAllNotifications(){
         let notificationCenter = UNUserNotificationCenter.current()
         NSLog("🧼 clear all pending notifications")
