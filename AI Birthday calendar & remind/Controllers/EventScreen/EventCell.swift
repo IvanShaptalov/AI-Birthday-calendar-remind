@@ -103,7 +103,7 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
             
         case .birthday:
             
-            self.eventImage.image = UIImage(systemName: self.event!.getImageSystemName(eventType: self.event!.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)]))
+            self.eventImage.image = UIImage(systemName: self.event!.getImageSystemName(eventType: self.event!.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 0.9089921358)]))
             
             
         case .anniversary:

@@ -16,9 +16,9 @@ enum Season{
     Autumn
 }
 
-class EventColorController {
+class EventSeasonController {
     /// generates season color
-    static func generateColor(_ date: Date) -> Season{
+    static func getSeason(_ date: Date) -> Season{
         let dateComponent = Calendar.current.dateComponents([.month], from: date)
         
         guard let month = dateComponent.month else {

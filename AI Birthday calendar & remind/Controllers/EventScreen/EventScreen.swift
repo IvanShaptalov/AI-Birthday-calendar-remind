@@ -152,7 +152,7 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
         
         cell.event = mEvent
         
-        cell.setBackgroundBySeason(season: EventColorController.generateColor(mEvent.eventDate))
+        cell.setBackgroundBySeason(season: EventSeasonController.getSeason(mEvent.eventDate))
         
 //        cell.title.text = mEvent.title
 //        let df = DatePrinter(date: mEvent.eventDate)

@@ -86,8 +86,8 @@
 		8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9397D52B88BF2C00040031 /* EditEventScreen.swift */; };
 		8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
 		8DCA6C7F2BA466B500EB1D8C /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCA6C7E2BA466B500EB1D8C /* Contacts.swift */; };
-		8DDCB8042BAF76530091C6BA /* EventColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventColorController.swift */; };
-		8DDCB8052BAF78B80091C6BA /* EventColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventColorController.swift */; };
+		8DDCB8042BAF76530091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
+		8DDCB8052BAF78B80091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,7 +168,7 @@
 		8D9397D52B88BF2C00040031 /* EditEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventScreen.swift; sourceTree = "<group>"; };
 		8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventRuleUpdater.swift; sourceTree = "<group>"; };
 		8DCA6C7E2BA466B500EB1D8C /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
-		8DDCB8032BAF76530091C6BA /* EventColorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventColorController.swift; sourceTree = "<group>"; };
+		8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSeasonController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,7 +317,7 @@
 				8D9397D42B88BEEC00040031 /* EditEventScreen */,
 				8D28D7DA2B87687B006D14FA /* AddEventScreen */,
 				8D7823AE2B863C0800E63423 /* EventScreen */,
-				8DDCB8032BAF76530091C6BA /* EventColorController.swift */,
+				8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -676,7 +676,7 @@
 				8D5B17722B9F09F000D6B578 /* RevenueCatProductProvider.swift in Sources */,
 				8D7823962B8623EB00E63423 /* AppConfiguration.swift in Sources */,
 				8D7823A22B86281F00E63423 /* TextImport.swift in Sources */,
-				8DDCB8042BAF76530091C6BA /* EventColorController.swift in Sources */,
+				8DDCB8042BAF76530091C6BA /* EventSeasonController.swift in Sources */,
 				8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D78239F2B86280E00E63423 /* ContactImport.swift in Sources */,
 				8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */,
@@ -726,7 +726,7 @@
 				8D09EC982B8E305F00A10437 /* DateFormatter.swift in Sources */,
 				8D7823972B8623EB00E63423 /* AppConfiguration.swift in Sources */,
 				8D7823842B8397D600E63423 /* Enumerations.swift in Sources */,
-				8DDCB8052BAF78B80091C6BA /* EventColorController.swift in Sources */,
+				8DDCB8052BAF78B80091C6BA /* EventSeasonController.swift in Sources */,
 				8D7823A32B86281F00E63423 /* TextImport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
