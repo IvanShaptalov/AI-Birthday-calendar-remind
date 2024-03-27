@@ -10,44 +10,18 @@ import UIKit
 let subReuseIdentifier = "SubscriptionCell"
 
 class PaywallController: UIViewController{
+    // MARK: - Fields 🌾
     var selectedSub: SubscriptionObj?
     
     @IBOutlet weak var benefitLabel: UILabel!
     
-    @IBAction func termsOfUseClicked(_ sender: UIButton) {
-        UIApplication.shared.open(URL(string: AppConfiguration.termsOfUseURL)!, options: [:], completionHandler: nil)
-    }
-    
-    
-    
     @IBOutlet weak var purchaseButton: UIButton!
-    var subs: [SubscriptionObj] = RevenueCatProductsProvider.subscriptionList
-
-    @IBAction func buySubPressed(_ sender: UIButton) {
-        AnalyticsManager.shared.logEvent(eventType: .subscriptionButtonTapped)
-        if selectedSub == nil {
-            print("select sub plan")
-            let alert = UIAlertController(title: "Select plan to continue", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true)
-        } else {
-            AnalyticsManager.shared.logEvent(eventType: .subContinueWithPlan, parameters: ["plan": selectedSub?.title ?? "nil"])
-
-            RevenueCatProductsProvider.makePurchase(package: selectedSub!.package) { status in
-                NSLog("PaywallControllerViewController > buySubscriptionPressed > RevenueCatProductsProvider.makePurchase : \(status.rawValue)")
-                if status == .Processing {
-                    self.purchaseButton.configuration?.showsActivityIndicator = true
-                } else {
-                    self.purchaseButton.configuration?.showsActivityIndicator = false
-                }
-            }
-        }
-    }
-    
     
     @IBOutlet weak var subscriptionTableView: UITableView!
     
-    // MARK: - ViewDidLoad
+    var subs: [SubscriptionObj] = RevenueCatProductsProvider.subscriptionList
+
+    // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
         self.benefitLabel.text = "Unlimited adding of birthdays instead of \(MonetizationConfiguration.freeEventRecords) records"
@@ -71,11 +45,36 @@ class PaywallController: UIViewController{
             subscriptionTableView.selectRow(at: indexPath, animated: true, scrollPosition: .bottom)
             selectedSub = self.subs[indexPath.row]
         }
-//         Do any additional setup after loading the view.
+    }
+    
+    // MARK: - Functions 🤖
+    @IBAction func termsOfUseClicked(_ sender: UIButton) {
+        UIApplication.shared.open(URL(string: AppConfiguration.termsOfUseURL)!, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func buySubPressed(_ sender: UIButton) {
+        AnalyticsManager.shared.logEvent(eventType: .subscriptionButtonTapped)
+        if selectedSub == nil {
+            print("select sub plan")
+            let alert = UIAlertController(title: "Select plan to continue", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
+        } else {
+            AnalyticsManager.shared.logEvent(eventType: .subContinueWithPlan, parameters: ["plan": selectedSub?.title ?? "nil"])
+
+            RevenueCatProductsProvider.makePurchase(package: selectedSub!.package) { status in
+                NSLog("PaywallControllerViewController > buySubscriptionPressed > RevenueCatProductsProvider.makePurchase : \(status.rawValue)")
+                if status == .Processing {
+                    self.purchaseButton.configuration?.showsActivityIndicator = true
+                } else {
+                    self.purchaseButton.configuration?.showsActivityIndicator = false
+                }
+            }
+        }
     }
 }
 
-// MARK: - Table settings
+// MARK: - PayWall DATASOURCE **EXT ✨
 extension PaywallController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return 1
@@ -85,7 +84,7 @@ extension PaywallController: UITableViewDelegate, UITableViewDataSource {
         return subs.count
     }
     
-    // MARK: configure cell
+    // MARK: configure cell ⚙️
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: subReuseIdentifier, for: indexPath) as! SubscriptionCell
         let s = subs[indexPath.row]
@@ -98,7 +97,7 @@ extension PaywallController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // MARK: - Row select
+    // MARK: - Row select ⚙️
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
         let cell = subs[indexPath.row]

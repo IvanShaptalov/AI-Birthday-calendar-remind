@@ -8,7 +8,7 @@
 import UIKit
 
 class SubscriptionCell: UITableViewCell {
-    
+    // MARK: - Fields 🌾
     @IBOutlet weak var subTitle: UILabel!
     
     @IBOutlet weak var discount: UILabel!
@@ -25,6 +25,15 @@ class SubscriptionCell: UITableViewCell {
     
     @IBOutlet weak var borderView: UIView!
     
+    // MARK: - awakeFromNib ⚙️
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setUpBorder()
+        self.roundDiscount()
+    }
+
+    
+    // MARK: - SetUp Functions ⚙️
     private func roundDiscount() {
         self.discountView.layer.cornerRadius = 10
     }
@@ -65,12 +74,7 @@ class SubscriptionCell: UITableViewCell {
         self.borderView.layer.borderWidth = 1
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.setUpBorder()
-        self.roundDiscount()
-    }
-
+   
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if selected {

@@ -8,7 +8,7 @@
 import UIKit
 
 class NotificationSettingsScreen: UITableViewController {
-    
+    // MARK: - Fields 🌾
     @IBOutlet weak var notificationTime: UIDatePicker!
     
     // MARK: - Time for birthday and anniversary
@@ -22,7 +22,7 @@ class NotificationSettingsScreen: UITableViewController {
     
     @IBOutlet weak var daysBeforeBirthdayAndAnniversary: UIButton!
     
-    // MARK: - ViewDidLoad
+    // MARK: - ViewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
         self.requestNotificationPermissionIfNeeded()
@@ -32,6 +32,8 @@ class NotificationSettingsScreen: UITableViewController {
         
     }
     
+    
+    // MARK: - Set Up ⚙️
     private func setUpNotificationSwithAndDate(){
         self.notificationTime.setDate(AppConfiguration.notificationTime, animated: false)
         self.notificationOnBirthdayAndAnniversary.setOn(AppConfiguration.isNotificateSameDay, animated: false)
@@ -46,6 +48,8 @@ class NotificationSettingsScreen: UITableViewController {
         })
     }
     
+    // MARK: - Functions 🤖
+
     private func requestNotificationPermissionIfNeeded(){
         PermissionProvider.registerForRemoteNotification(userDeniedNotification: {userDeniedNotifications in
             if userDeniedNotifications {
@@ -71,13 +75,5 @@ class NotificationSettingsScreen: UITableViewController {
     
     @IBAction func notificateOnSameDayChanged(_ sender: UISwitch) {
         AppConfiguration.isNotificateSameDay = sender.isOn
-    }
-    
-    
-    // MARK: - Table view data source
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
-        NSLog(cell?.description ?? "ss")
     }
 }

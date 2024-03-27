@@ -12,6 +12,7 @@ protocol WishResultTransferProtocol {
 }
 
 class WishCreateFinishViewController: UIViewController, WishResultTransferProtocol {
+    // MARK: - Fields 🌾
     var wishResult: String?
     
     @IBOutlet weak var gptTextViewField: UITextView!
@@ -19,6 +20,8 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var copyButton: UIButton!
+    
+    // MARK: - Functions 🤖
     @IBAction func editButtonPressed(_ sender: Any) {
         if !self.gptTextViewField.isFocused  {
             self.gptTextViewField.becomeFirstResponder()
@@ -48,7 +51,7 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
 
     }
     
-    // MARK: - viewDidLoad
+    // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
         self.gptTextViewField.text = self.wishResult

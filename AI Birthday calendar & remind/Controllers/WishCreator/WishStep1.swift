@@ -9,31 +9,26 @@ import UIKit
 
 class WishCreatorTableViewController: UITableViewController {
 
+    // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
-
+    // MARK: - Table view data source ⚙️
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
+    // MARK: - Rows in section ⚙️
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return WishType.allValuesRaw().count
 
     }
     
-    // MARK: - CONFIGURE CELL
-    
+    // MARK: - CONFIGURE CELL ⚙️
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "wishCell", for: indexPath)
         
@@ -52,7 +47,7 @@ class WishCreatorTableViewController: UITableViewController {
         return cell
     }
     
-
+    // MARK: - Selection row ⚙️
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var step2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "WishCreatorStep2") as! WishTransferProtocol
         

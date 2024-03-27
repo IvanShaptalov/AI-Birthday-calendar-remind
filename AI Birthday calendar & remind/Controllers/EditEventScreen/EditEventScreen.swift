@@ -15,8 +15,16 @@ protocol MainEventEditProtocol{
 
 
 class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEventEditProtocol {
-    
+    // MARK: - Delegates 🐪
     var bulkDelegate: (([MainEvent]) -> Void)?
+    
+    
+    // MARK: - Fields 🌾
+    var events: [MainEvent] = []
+    @IBOutlet weak var tableViewAddEvents: UITableView!
+
+    
+    // MARK: - Functinos 🤖
     
     @IBAction func bulkEdit(_ sender: UIBarButtonItem) {
         var evCopy = self.events
@@ -41,23 +49,16 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
         
     }
     
-    
-    var events: [MainEvent] = []
-    
-    
-    @IBOutlet weak var tableViewAddEvents: UITableView!
-    
+    // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableViewAddEvents?.register(.init(nibName: "AddEventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierAddEventCell)
         self.tableViewAddEvents?.reloadData()
 
     }
-    
-    
-    
 }
 
+// MARK: - Datasource **EXT ✨
 extension EditEventScreen: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("Edit screen: events count \(events.count)")

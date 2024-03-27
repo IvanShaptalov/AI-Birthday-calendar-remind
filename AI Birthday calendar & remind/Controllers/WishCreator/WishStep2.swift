@@ -12,6 +12,7 @@ protocol WishTransferProtocol{
 }
 
 class WishCreatorStep2: UIViewController, WishTransferProtocol{
+    // MARK: - Fields 🌾
     var wish: WishType?
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,6 +34,10 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     
     @IBOutlet weak var nameField: UITextField!
     
+    var buttonDisabled = false
+
+    
+    // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = wish?.rawValue ?? "Create Wish"
@@ -42,7 +47,7 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     }
     
     
-    
+    // MARK: - Set Up ⚙️
     private func setUpMessageStyle(){
         MessageStylePulldownButton.setWhoWish(button: &self.messageStyle, menuClosure: {action in
             self.messageStyleEnum = MessageStyle(rawValue: action.title) ?? self.messageStyleEnum
@@ -56,8 +61,7 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
         })
     }
     
-    var buttonDisabled = false
-    
+    // MARK: - Generate Wish 😘
     @IBAction func generateWish(_ sender: UIButton) {
         if buttonDisabled {
             NSLog("loading wish 💤")

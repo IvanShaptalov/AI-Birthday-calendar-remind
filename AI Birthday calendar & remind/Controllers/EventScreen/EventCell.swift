@@ -13,6 +13,7 @@ protocol EventObjToCellProtocol{
 
 class EventCell: UITableViewCell, EventObjToCellProtocol {
     
+    // MARK: - Fields 🌾
     @IBOutlet weak var eventImage: UIImageView!
     
     @IBOutlet weak var pseudoContent: UIView!
@@ -32,7 +33,7 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
     }
     
     
-    // MARK: - Awake from nib
+    // MARK: - Awake from nib ⚙️
     override func awakeFromNib() {
         super.awakeFromNib()
         self.pseudoContent.layer.cornerRadius = 15
@@ -40,6 +41,7 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
         // Initialization code
     }
     
+    // MARK: - Set season ☀️❄️
     func setBackgroundBySeason(season: Season){
         NSLog("season: \(season)")
         let autumnC = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 0.33)
@@ -64,7 +66,7 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
         }
     }
     
-    // MARK: - set Up Dates
+    // MARK: - set Up Dates ⚙️
     private func setUpDates(){
         guard event != nil else {
             return
@@ -92,7 +94,7 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
         setUpDates()
     }
     
-    // MARK: - Update Image
+    // MARK: - Update Image 🌅
     private func updateImage(){
         guard event != nil else {
             return
@@ -113,20 +115,5 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
             self.eventImage.image = .init(systemName: self.event!.getImageSystemName(eventType: self.event!.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 1, green: 0.5212053061, blue: 1, alpha: 0.9)]))
             
         }
-        
-        
-        
     }
-    
-    // MARK: - Selecting
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
-//    // MARK: - Editing
-//    override func setEditing(_ editing: Bool, animated: Bool) {
-//        super.setEditing(editing, animated: animated)
-//    }
 }

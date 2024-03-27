@@ -8,6 +8,7 @@
 import UIKit
 
 class AddEventCell: UITableViewCell {
+    // MARK: - FIELDS 🌾
     
     @IBOutlet weak var eventImage: UIImageView!
     
@@ -19,8 +20,16 @@ class AddEventCell: UITableViewCell {
     
     var eventDelegate: ((MainEvent) -> Void)?
     
+    var mainEvent = MainEvent(eventType: .birthday) {
+        didSet {
+            setUpCell()
+            NSLog("Cell set up")
+        }
+    }
+    
     @IBOutlet weak var pseudoView: UIView!
     
+    // MARK: - awakeFromNib ⚙️
     override func awakeFromNib() {
         super.awakeFromNib()
         pseudoView.layer.cornerRadius = 15
@@ -30,13 +39,7 @@ class AddEventCell: UITableViewCell {
         // Initialization code
     }
     
-    var mainEvent = MainEvent(eventType: .birthday) {
-        didSet {
-            setUpCell()
-            NSLog("Cell set up")
-        }
-    }
-    
+    // MARK: - SetUp Functions ⚙️
     func setUpCell(){
         self.titleTextField.text = self.mainEvent.title
         self.updateImage()
@@ -60,6 +63,25 @@ class AddEventCell: UITableViewCell {
         mainEvent.eventType = eventType
         updateImage()
     }
+    
+    private func updateImage(){
+        switch self.mainEvent.eventType {
+            
+        case .birthday:
+            
+            self.eventImage.image = UIImage(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)]))
+            
+            
+        case .anniversary:
+            
+            self.eventImage.image = .init(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 0.9)]))
+            
+        case .simpleEvent:
+            self.eventImage.image = .init(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 1, green: 0.5212053061, blue: 1, alpha: 0.9)]))
+            
+        }
+    }
+    // MARK: - Editing Functions 🤖
     
     private func editEvent() {
         var eventType: EventTypeEnum?
@@ -86,7 +108,7 @@ class AddEventCell: UITableViewCell {
         NSLog("Editing changed")
         eventDelegate?(self.mainEvent)
     }
-    // MARK: ============================EDITING
+    
     
     func setUpDateFormat() {
         switch self.mainEvent.eventType {
@@ -97,24 +119,6 @@ class AddEventCell: UITableViewCell {
             self.eventDate.datePickerMode = .date
         case .simpleEvent:
             self.eventDate.datePickerMode = .dateAndTime
-        }
-    }
-    
-    private func updateImage(){
-        switch self.mainEvent.eventType {
-            
-        case .birthday:
-            
-            self.eventImage.image = UIImage(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1)]))
-            
-            
-        case .anniversary:
-            
-            self.eventImage.image = .init(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 0.9)]))
-            
-        case .simpleEvent:
-            self.eventImage.image = .init(systemName: self.mainEvent.getImageSystemName(eventType: self.mainEvent.eventType))?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 1, green: 0.5212053061, blue: 1, alpha: 0.9)]))
-            
         }
     }
     

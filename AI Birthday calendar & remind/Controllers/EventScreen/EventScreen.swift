@@ -201,7 +201,7 @@ extension BirthdaysScreen {
         self.upToolbar.setItems(setUpToolbarItemsWhileEditing(), animated: true)
     }
     
-    // MARK: - Buttons of multiple selection 
+    // MARK: - Buttons of multiple selection
     @objc func removeSelectedItems(){
         let selectedIndexes = self.tableEvents.indexPathsForSelectedRows
         
@@ -249,7 +249,7 @@ extension BirthdaysScreen {
         }
     }
     
-    // MARK: - Function
+    // MARK: - Function 🤖
     private func removeSelectedWords(selectedWords: [Int]) {
         self.mainEvents = self.mainEvents
             .enumerated()
