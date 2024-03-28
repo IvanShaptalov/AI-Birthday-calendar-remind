@@ -55,7 +55,7 @@ class NotificationSettingsScreen: UITableViewController {
             if userDeniedNotifications {
                 let alertController = UIAlertController(title: "Enable notifications", message: "Go to settings & privacy to re-enable AI Birthday notifications", preferredStyle: .alert)
                 
-                alertController.addAction(.init(title: "OK", style: .default))
+                alertController.addAction(.init(title: "Done", style: .default))
                 
                 self.present(alertController, animated: true)
             }

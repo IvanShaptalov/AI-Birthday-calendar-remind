@@ -58,6 +58,7 @@
 		8D5B17722B9F09F000D6B578 /* RevenueCatProductProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B17712B9F09F000D6B578 /* RevenueCatProductProvider.swift */; };
 		8D5B17752B9F0A3C00D6B578 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B17732B9F0A3C00D6B578 /* SubscriptionCell.swift */; };
 		8D5B17762B9F0A3C00D6B578 /* SubscriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B17742B9F0A3C00D6B578 /* SubscriptionCell.xib */; };
+		8D6527122BB5DD4100A68C3E /* TutorialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6527112BB5DD4100A68C3E /* TutorialProvider.swift */; };
 		8D7543272B976F8C00D53B65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */; };
 		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
 		8D7823842B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
@@ -150,6 +151,7 @@
 		8D5B17712B9F09F000D6B578 /* RevenueCatProductProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCatProductProvider.swift; sourceTree = "<group>"; };
 		8D5B17732B9F0A3C00D6B578 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		8D5B17742B9F0A3C00D6B578 /* SubscriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionCell.xib; sourceTree = "<group>"; };
+		8D6527112BB5DD4100A68C3E /* TutorialProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialProvider.swift; sourceTree = "<group>"; };
 		8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "AI Birthday calendar & remind/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		8D7823852B84AC1500E63423 /* MainEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvent.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				8D28D7D82B873EA8006D14FA /* DateFormatter.swift */,
 				8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */,
 				8D0777212B9F805A0049AAFA /* SubscriptionProposer.swift */,
+				8D6527112BB5DD4100A68C3E /* TutorialProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -685,6 +688,7 @@
 				8D7823B02B863C3800E63423 /* EventScreen.swift in Sources */,
 				8D79D36F2B99BD7E0074F238 /* WishStep1.swift in Sources */,
 				8D1C29B62B98634200B34B6D /* RemoteConfiguration.swift in Sources */,
+				8D6527122BB5DD4100A68C3E /* TutorialProvider.swift in Sources */,
 				8D09EC972B8E09AC00A10437 /* NotificationSettingsScreen.swift in Sources */,
 				8D2394DB2B99C50500D26C50 /* WishStep2.swift in Sources */,
 				8D09EC9A2B8E505400A10437 /* PulldownButtons.swift in Sources */,

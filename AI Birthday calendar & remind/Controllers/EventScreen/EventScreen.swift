@@ -26,7 +26,7 @@ class BirthdaysScreen: UIViewController{
                     NSLog("🔕, send info that notification disabled")
                     let alertController = UIAlertController(title: "Enable notifications", message: "Go to settings & privacy to re-enable AI Birthday notifications", preferredStyle: .alert)
                     
-                    alertController.addAction(.init(title: "OK", style: .default))
+                    alertController.addAction(.init(title: "Done", style: .default))
                     alertController.addAction(.init(title: "Don't show again for this time", style: .default, handler: {action in
                         dontShowNotificationDisabled = true
                     }))
@@ -51,9 +51,14 @@ class BirthdaysScreen: UIViewController{
     
     // MARK: - Talbe 📜
     @IBOutlet weak var tableEvents: UITableView!
+    
+    
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
+        if TutorialProvider.isAwailableToAddCards(){
+            mainEvents += TutorialProvider.getCards()
+        }
         mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         DispatchQueue.global().async {
@@ -80,11 +85,12 @@ class BirthdaysScreen: UIViewController{
         }
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         self.mainEvents = MainEventStorage.load()
         self.tableEvents.reloadData()
         NSLog("updated from viewDidAppear \(mainEvents.count)")
-        self.proposePremiumAtStart()
+//        self.proposePremiumAtStart()
     }
     
     private func proposePremiumAtStart(){
