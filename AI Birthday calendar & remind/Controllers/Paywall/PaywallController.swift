@@ -24,7 +24,7 @@ class PaywallController: UIViewController{
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.benefitLabel.text = "Unlimited adding of birthdays instead of \(MonetizationConfiguration.freeEventRecords) records"
+//        self.benefitLabel.text = "Unlimited adding of birthdays instead of \(MonetizationConfiguration.freeEventRecords) records"
         // MARK: - Fetch subs if empty
         
         if self.subs.isEmpty {
