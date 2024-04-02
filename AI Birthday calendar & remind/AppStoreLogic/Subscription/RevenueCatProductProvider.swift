@@ -66,7 +66,7 @@ class RevenueCatProductsProvider {
     // MARK: - Check premium account
     static func getCustomerInfo(){
         Purchases.shared.getCustomerInfo { (customerInfo, error) in
-            updatePremiumStatus(customerInfo: customerInfo)
+            _ = updatePremiumStatus(customerInfo: customerInfo)
         }
     }
     
@@ -95,7 +95,7 @@ class RevenueCatProductsProvider {
               }
             
             }
-            updatePremiumStatus(customerInfo: customerInfo)
+            _ = updatePremiumStatus(customerInfo: customerInfo)
             errorCatcher(.Success)
         }
         errorCatcher(.Processing)

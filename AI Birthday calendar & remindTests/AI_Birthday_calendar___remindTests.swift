@@ -113,58 +113,51 @@ final class AI_Birthday_calendar___remind: XCTestCase {
     
     func testSeason(){
         for i in 3 ... 5{
-            var date = Calendar.current.date(bySetting: .month, value: i, of: .now)
-            XCTAssertEqual(EventColorController.generateColor(date!), .SpringSeason)
+            let date = Calendar.current.date(bySetting: .month, value: i, of: .now)
+            XCTAssertEqual(EventSeasonController.getSeason(date!), .SpringSeason)
         }
         for i in 6 ... 8{
-            var date = Calendar.current.date(bySetting: .month, value: i, of: .now)
-            XCTAssertEqual(EventColorController.generateColor(date!), .Summer)
+            let date = Calendar.current.date(bySetting: .month, value: i, of: .now)
+            XCTAssertEqual(EventSeasonController.getSeason(date!), .Summer)
         }
         for i in 9 ... 11{
-            var date = Calendar.current.date(bySetting: .month, value: i, of: .now)
-            XCTAssertEqual(EventColorController.generateColor(date!), .Autumn)
+            let date = Calendar.current.date(bySetting: .month, value: i, of: .now)
+            XCTAssertEqual(EventSeasonController.getSeason(date!), .Autumn)
         }
         for i in 1 ... 2{
-            var date = Calendar.current.date(bySetting: .month, value: i, of: .now)
-            XCTAssertEqual(EventColorController.generateColor(date!), .Winter)
+            let date = Calendar.current.date(bySetting: .month, value: i, of: .now)
+            XCTAssertEqual(EventSeasonController.getSeason(date!), .Winter)
         }
-        var date = Calendar.current.date(bySetting: .month, value: 12, of: .now)
-        XCTAssertEqual(EventColorController.generateColor(date!), .Winter)
+        let date = Calendar.current.date(bySetting: .month, value: 12, of: .now)
+        XCTAssertEqual(EventSeasonController.getSeason(date!), .Winter)
         
     }
     
-//    func testKeys() throws {
-//        XCTAssertGreaterThan(LearnUpConfiguration.gptToken.count, 10)
-//        XCTAssertGreaterThan(LearnUpConfiguration.gptOrganization.count, 0)
-//    }
-//    
-//    func testRequest() throws {
-//        
-//        var myResponse = RawResponse(response: "", code: 404)
-//        
-//        OpenAIApi.request(RawRequest(raw: "translate sakartvelo from English to Russian. give answer in this format: translation: word translation| meaning: meaning in English"), rawCompletion: {response in
-//            XCTAssertEqual(response.code, 200)
-//            myResponse = response as! RawResponse
-//            print(response.response)
-//        })
-//                
-//        sleep(10)
-//        
-//        XCTAssertEqual(myResponse.code, 200)
-//        NSLog(myResponse.response)
-//    }
-//    
-//    func testFillWord() throws {
-//        var myResponse = WordFillerResponse()
-//
-//        WordFillerWord(WordFillerRequest(word: "hello", toLang: .Ukrainian, fromLang: .English), fillerCompletion: {response in
-//            NSLog("enter fillWord completion")
-//            NSLog(response.translation)
-//            
-//            XCTAssertTrue(response.translation.contains("привіт") || response.translation.contains("топор"))
-//            myResponse = response as! WordFillerResponse
-//        })
-//        sleep(10)
-//        XCTAssertNotEqual(myResponse.meaning, "default")
-//    }
+    
+    func testRemovePunctuationAndSpaces() {
+            let input = "Hello, World!"
+            let expectedOutput = "Hello, World"
+            
+        let result = BaseRuleConverter.removePunctuationAndSpaces(from: input)
+            
+            XCTAssertEqual(result, expectedOutput)
+        }
+        
+        func testRemovePunctuationAndSpacesWithSpaces() {
+            let input = "  Hello, World!  "
+            let expectedOutput = "Hello, World"
+            
+            let result = BaseRuleConverter.removePunctuationAndSpaces(from: input)
+            
+            XCTAssertEqual(result, expectedOutput)
+        }
+        
+        func testRemovePunctuationAndSpacesWithMixedCharacters() {
+            let input = "He*llo, W#orld!"
+            let expectedOutput = "He*llo, W#orld"
+            
+            let result = BaseRuleConverter.removePunctuationAndSpaces(from: input)
+            
+            XCTAssertEqual(result, expectedOutput)
+        }
 }
