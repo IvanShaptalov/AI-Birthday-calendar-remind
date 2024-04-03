@@ -26,7 +26,7 @@ class BaseRuleConverter{
         self.raw = raw
     }
     
-    func convert(statusCallback: @escaping(Status) -> Void){
+    func convert(line: Int, statusCallback: @escaping(Status, Int) -> Void){
         
     }
     
@@ -65,9 +65,10 @@ enum SeparatorList: String {
     }
 }
 
+// MARK: - Converter to use
 class RuleConverterV1: BaseRuleConverter{
     
-    override func convert(statusCallback: @escaping(Status) -> Void) {
+    override func convert(line: Int, statusCallback: @escaping(Status, Int) -> Void) {
         var components: [String] = []
         
         // split using all separator list
@@ -80,7 +81,7 @@ class RuleConverterV1: BaseRuleConverter{
         
         // split not give any results
         if components.count < 2 {
-            statusCallback(.missedElement)
+            statusCallback(.missedElement, line)
             return
         }
         
@@ -102,20 +103,20 @@ class RuleConverterV1: BaseRuleConverter{
         }
         // date not found
         if date == nil {
-            statusCallback(.dateNotConverted)
+            statusCallback(.dateNotConverted, line)
             return
         }
         
         // name not found
         if rawForName == nil {
-            statusCallback(.nameNotConverted)
+            statusCallback(.nameNotConverted, line)
             return
         }
         
         // add name
         rawForName = RuleConverterV1.removePunctuationAndSpaces(from: rawForName!)
         self.event.title = rawForName!
-        statusCallback(.eventConverted)
+        statusCallback(.eventConverted, line)
         
     }
     

@@ -584,7 +584,7 @@
         <!--Import-->
         <scene sceneID="4Qi-qJ-e4N">
             <objects>
-                <viewController storyboardIdentifier="ImportFromText" title="Import" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K88-5U-1pI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImportFromText" title="Import" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K88-5U-1pI" customClass="ManualImportScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bsn-YY-WJJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -630,12 +630,15 @@
                                     <constraint firstItem="Q15-an-06f" firstAttribute="leading" secondItem="vvL-06-BgX" secondAttribute="leadingMargin" constant="8" id="zSa-24-VcF"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1 aboba" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-NZ-NXX">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="17.04.2002 - Sakura" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-NZ-NXX">
                                 <rect key="frame" x="0.0" y="190" width="393" height="608"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="K88-5U-1pI" id="Gkw-xT-YMj"/>
+                                </connections>
                             </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pfn-QZ-0tw">
                                 <rect key="frame" x="0.0" y="798" width="393" height="44"/>
@@ -667,6 +670,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Mib-Fl-Tz6"/>
+                    <connections>
+                        <outlet property="ErrorImportLabel" destination="k3T-db-aPS" id="R7T-Ob-Wx8"/>
+                        <outlet property="editingTextView" destination="ckb-NZ-NXX" id="JdN-kP-CmU"/>
+                        <outlet property="readyToImportLabel" destination="Q15-an-06f" id="kOc-66-oQG"/>
+                        <outlet property="warningImportLabel" destination="0rN-KH-5ah" id="sgN-7c-rym"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijc-Nr-8Wc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -680,51 +689,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CuF-eH-aSS">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuF-eH-aSS">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="798"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">ℹ️ SEPARATORS . , ! ? ; : - _  ⚠️ Make sure that separator is only one symbol of separator type in record line  17.04.2002 - Sakura ✅ 17.04.2002 . Sakura ❌  ℹ AVAILABLE FORMATS  1. "17.04.2002 - Sakura"
-2. "2002-04-17 , Aarav"
-3. "04/17/2002 ! Luna"
-4. "17/04/2002 ? Mateo"
-5. "04-17-2002 ; Aisha"
-6. "2002/04/17 : Javier"
-7. "17 Apr 2002 - Hikari"
-8. "Apr 17, 2002 _ Mohammed"
-9. "2002/Apr/17 - Leila"
-10. "17-04-2002 , Nikolai"
-11. "2002.04.17 ! Sofia"
-12. "17 Apr 2002 ? Elijah"
-13. "Apr-17-2002 ; Zara"
-14. "2002 Apr 17 : Rafael"
-15. "17/04/2002 00:00:00 - Ayumi"
-16. "04/17/2002 00:00:00 _ Kai"
-17. "2002-04-17 00:00:00 - Nina"
-18. "17.04.2002 00:00:00 _ Luca"
-19. "Apr 17, 2002 00:00:00 - Isabella"
-20. "2002/Apr/17 00:00:00 _ Akira"</mutableString>
+                                <mutableString key="text">ℹ️ SEPARATORS . , ! ? ; : - _  ⚠️ Make sure that separator is only one symbol of separator type in record line  17.04.2002 - Sakura ✅ 17.04.2002 . Sakura ❌  ℹ AVAILABLE FORMATS  17.04.2002 - Sakura
+2002-04-17 , Aarav
+04/17/2002 ! Luna
+17/04/2002 ? Mateo
+04-17-2002 ; Aisha
+2002/04/17 : Javier
+17 Apr 2002 - Hikari
+Apr 17, 2002 _ Mohammed
+2002/Apr/17 - Leila
+17-04-2002 , Nikolai
+2002.04.17 ! Sofia
+17 Apr 2002 ? Elijah
+Apr-17-2002 ; Zara
+2002 Apr 17 : Rafael
+17/04/2002 00:00:00 - Ayumi
+04/17/2002 00:00:00 _ Kai
+17.04.2002 00:00:00 _ Luca
+Apr 17, 2002 00:00:00 - Isabella
+2002/Apr/17 00:00:00 _ Akira</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkU-0k-ME1">
+                                <rect key="frame" x="0.0" y="798" width="393" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="AxB-gF-PZe"/>
+                                    <barButtonItem title="Item" image="doc.on.doc" catalog="system" id="50I-aN-JP7">
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3gk-PB-bVs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="CuF-eH-aSS" firstAttribute="leading" secondItem="3gk-PB-bVs" secondAttribute="leading" id="BLS-P2-gxF"/>
+                            <constraint firstItem="wkU-0k-ME1" firstAttribute="top" secondItem="CuF-eH-aSS" secondAttribute="bottom" id="9g8-dF-ahM"/>
                             <constraint firstItem="3gk-PB-bVs" firstAttribute="trailing" secondItem="CuF-eH-aSS" secondAttribute="trailing" id="MnK-WE-Inp"/>
-                            <constraint firstItem="3gk-PB-bVs" firstAttribute="bottom" secondItem="CuF-eH-aSS" secondAttribute="bottom" id="aaw-Tr-EXV"/>
                             <constraint firstItem="CuF-eH-aSS" firstAttribute="leading" secondItem="3gk-PB-bVs" secondAttribute="leading" id="e9D-nY-Pa5"/>
-                            <constraint firstItem="CuF-eH-aSS" firstAttribute="top" secondItem="3gk-PB-bVs" secondAttribute="top" id="f9H-n1-MUW"/>
-                            <constraint firstItem="3gk-PB-bVs" firstAttribute="trailing" secondItem="CuF-eH-aSS" secondAttribute="trailing" id="mwS-p5-k8h"/>
-                            <constraint firstItem="3gk-PB-bVs" firstAttribute="bottom" secondItem="CuF-eH-aSS" secondAttribute="bottom" id="qRm-UY-WfY"/>
+                            <constraint firstItem="3gk-PB-bVs" firstAttribute="trailing" secondItem="wkU-0k-ME1" secondAttribute="trailing" id="eOK-eq-mvk"/>
+                            <constraint firstItem="wkU-0k-ME1" firstAttribute="leading" secondItem="3gk-PB-bVs" secondAttribute="leading" id="hqM-jW-bdY"/>
+                            <constraint firstItem="3gk-PB-bVs" firstAttribute="bottom" secondItem="wkU-0k-ME1" secondAttribute="bottom" id="iVT-a2-dnv"/>
                             <constraint firstItem="CuF-eH-aSS" firstAttribute="top" secondItem="3gk-PB-bVs" secondAttribute="top" id="up3-WP-VML"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Gf-cw-p7r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="650" y="2427"/>
+            <point key="canvasLocation" x="649.61832061068696" y="2426.7605633802818"/>
         </scene>
         <!--Unlimited Access-->
         <scene sceneID="6g4-Hj-SE0">

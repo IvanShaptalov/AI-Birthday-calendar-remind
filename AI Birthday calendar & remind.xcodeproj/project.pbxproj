@@ -86,6 +86,7 @@
 		8D7823B72B863C5100E63423 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7823B32B863C5100E63423 /* EventCell.xib */; };
 		8D79D36F2B99BD7E0074F238 /* WishStep1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D79D36E2B99BD7E0074F238 /* WishStep1.swift */; };
 		8D7E1C182BBC3551005BBA78 /* ManualTextImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5589052BB716E5001A6BA1 /* ManualTextImport.swift */; };
+		8D7E1C1B2BBDDE14005BBA78 /* ManualImportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */; };
 		8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9397D52B88BF2C00040031 /* EditEventScreen.swift */; };
 		8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
 		8DDCB8042BAF76530091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
@@ -169,6 +170,7 @@
 		8D7823B22B863C5100E63423 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		8D7823B32B863C5100E63423 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		8D79D36E2B99BD7E0074F238 /* WishStep1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep1.swift; sourceTree = "<group>"; };
+		8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualImportScreen.swift; sourceTree = "<group>"; };
 		8D9397D52B88BF2C00040031 /* EditEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventScreen.swift; sourceTree = "<group>"; };
 		8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventRuleUpdater.swift; sourceTree = "<group>"; };
 		8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSeasonController.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		8D1242622B7D28C900ED016E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D7E1C192BBDDDEE005BBA78 /* ManualImport */,
 				8D5B176E2B9F094A00D6B578 /* Paywall */,
 				8D79D36D2B99BD690074F238 /* WishCreator */,
 				8D09EC902B8C71DE00A10437 /* SettingsScreen */,
@@ -497,6 +500,14 @@
 			path = WishCreator;
 			sourceTree = "<group>";
 		};
+		8D7E1C192BBDDDEE005BBA78 /* ManualImport */ = {
+			isa = PBXGroup;
+			children = (
+				8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */,
+			);
+			path = ManualImport;
+			sourceTree = "<group>";
+		};
 		8D9397D42B88BEEC00040031 /* EditEventScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +680,7 @@
 				8D5B17702B9F099300D6B578 /* PaywallController.swift in Sources */,
 				8D1242292B7D267B00ED016E /* AppDelegate.swift in Sources */,
 				8D78239C2B86280200E63423 /* CalendarImport.swift in Sources */,
+				8D7E1C1B2BBDDE14005BBA78 /* ManualImportScreen.swift in Sources */,
 				8D7823862B84AC1500E63423 /* MainEvent.swift in Sources */,
 				8D5B17722B9F09F000D6B578 /* RevenueCatProductProvider.swift in Sources */,
 				8D7823962B8623EB00E63423 /* AppConfiguration.swift in Sources */,
