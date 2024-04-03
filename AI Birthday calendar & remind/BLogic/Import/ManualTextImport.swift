@@ -13,7 +13,7 @@ enum Status: String {
     eventUnknownError = "unknown",
     dateNotConverted = "date not converted",
     nameNotConverted = "name not converted",
-    missedElement = "missed element"
+    missedElement = "missed element or separator used more than once"
 }
 
 // MARK: - Converters
@@ -38,7 +38,7 @@ class BaseRuleConverter{
     
     static func removeSubstring(originalString: String, substringToRemove: String) -> String{
 
-        if let range = originalString.range(of: substringToRemove) {
+        if originalString.range(of: substringToRemove) != nil {
             let result = originalString.replacingOccurrences(of: substringToRemove, with: "")
             return result
         } else {
@@ -48,6 +48,7 @@ class BaseRuleConverter{
     }
 }
 
+// MARK: - Separator List
 enum SeparatorList: String {
     case
     dot = ".",
@@ -57,22 +58,21 @@ enum SeparatorList: String {
     semicolon = ";",
     colon = ":",
     hyphen = "-",
-    underscore = "_",
-    space = " "
+    underscore = "_"
     
     static func allValues() -> [SeparatorList]{
-        return [dot, comma, exclamation, questionMark, semicolon, colon, hyphen, underscore, space]
+        return [dot, comma, exclamation, questionMark, semicolon, colon, hyphen, underscore]
     }
 }
 
-class EnglishRuleConverter: BaseRuleConverter{
+class RuleConverterV1: BaseRuleConverter{
     
     override func convert(statusCallback: @escaping(Status) -> Void) {
         var components: [String] = []
         
         // split using all separator list
         for separator in SeparatorList.allValues() {
-            var newComponents = self.raw.components(separatedBy: separator.rawValue)
+            let newComponents = self.raw.components(separatedBy: separator.rawValue)
             if newComponents.count == 2 {
                 components += newComponents
             }
@@ -93,7 +93,7 @@ class EnglishRuleConverter: BaseRuleConverter{
             if date != nil {
                 self.event.eventDate = date!
                 // remove date component to get name
-                rawForName = EnglishRuleConverter.removeSubstring(originalString: self.raw, substringToRemove: component)
+                rawForName = RuleConverterV1.removeSubstring(originalString: self.raw, substringToRemove: component)
                 
                 
                 
@@ -113,25 +113,25 @@ class EnglishRuleConverter: BaseRuleConverter{
         }
         
         // add name
-        rawForName = EnglishRuleConverter.removePunctuationAndSpaces(from: rawForName!)
+        rawForName = RuleConverterV1.removePunctuationAndSpaces(from: rawForName!)
         self.event.title = rawForName!
         statusCallback(.eventConverted)
         
     }
     
     func retrieveDate(rawPart: String) -> Date? {
-        let cleanedString = EnglishRuleConverter.removePunctuationAndSpaces(from: rawPart)
-        return BaseDateRetriever().retrieveDate(from: rawPart)
+        let cleanedString = RuleConverterV1.removePunctuationAndSpaces(from: rawPart)
+        return RawDateAggregator.tryRetrieveDate(from: cleanedString)
     }
     
     func retrieveName(rawPart: String) -> String {
-        return EnglishRuleConverter.removePunctuationAndSpaces(from: rawPart)
+        return RuleConverterV1.removePunctuationAndSpaces(from: rawPart)
     }
 }
 
 // MARK: - DateAggregator
 class RawDateAggregator {
-    static var retrieverList = [AvailableFormatDateRetriever()]
+    static var retrieverList = [BaseDateRetriever()]
     
     static func tryRetrieveDate(from rawDate: String) -> Date? {
         var date: Date?
@@ -145,19 +145,72 @@ class RawDateAggregator {
     }
 }
 
+
+
 // MARK: - Date retrievers
 class BaseDateRetriever {
     func retrieveDate(from rawDate: String) -> Date? {
-        return .now
+        let formatter = DateFormatter()
+        var date: Date?
+        
+        for format in formats {
+            formatter.dateFormat = format
+            date = formatter.date(from: rawDate)
+            
+            if date != nil {
+                return date
+            }
+        }
+        
+        return nil
     }
 }
 
+// MARK: - Format List
 
-class AvailableFormatDateRetriever: BaseDateRetriever {
-    override func retrieveDate(from rawDate: String) -> Date? {
-        
-        var date = DateFormatter().date(from: rawDate)
-        
-        return date
-    }
-}
+let formats = [
+    "dd.MM.yyyy",           // Example: 17.04.2002
+    "yyyy-MM-dd",           // Example: 2002-04-17
+    "MM/dd/yyyy",           // Example: 04/17/2002
+    "dd/MM/yyyy",           // Example: 17/04/2002
+    "MM-dd-yyyy",           // Example: 04-17-2002
+    "yyyy/MM/dd",           // Example: 2002/04/17
+    "dd MMM yyyy",          // Example: 17 Apr 2002
+    "MMM dd, yyyy",         // Example: Apr 17, 2002
+    "yyyy/MMM/dd",          // Example: 2002/Apr/17
+    "dd-MM-yyyy",           // Example: 17-04-2002
+    "yyyy.MM.dd",           // Example: 2002.04.17
+    "dd/MMM/yyyy",          // Example: 17 Apr 2002
+    "MMM-dd-yyyy",          // Example: Apr-17-2002
+    "yyyy MMM dd",          // Example: 2002 Apr 17
+    "dd/MM/yyyy HH:mm:ss",  // Example: 17/04/2002 00:00:00
+    "MM/dd/yyyy HH:mm:ss",  // Example: 04/17/2002 00:00:00
+    "yyyy-MM-dd HH:mm:ss",  // Example: 2002-04-17 00:00:00
+    "dd.MM.yyyy HH:mm:ss",  // Example: 17.04.2002 00:00:00
+    "MMM dd, yyyy HH:mm:ss",// Example: Apr 17, 2002 00:00:00
+    "yyyy/MMM/dd HH:mm:ss"  // Example: 2002/Apr/17 00:00:00
+]
+
+
+
+//
+//"17.04.2002"
+//"2002-04-17"
+//"04/17/2002"
+//"17/04/2002"
+//"04-17-2002"
+//"2002/04/17"
+//"17 Apr 2002"
+//"Apr 17, 2002"
+//"2002/Apr/17"
+//"17-04-2002"
+//"2002.04.17"
+//"17 Apr 2002"
+//"Apr-17-2002"
+//"2002 Apr 17"
+//"17/04/2002 00:00:00"
+//"04/17/2002 00:00:00"
+//"2002-04-17 00:00:00"
+//"17.04.2002 00:00:00"
+//"Apr 17, 2002 00:00:00"
+//"2002/Apr/17 00:00:00"
