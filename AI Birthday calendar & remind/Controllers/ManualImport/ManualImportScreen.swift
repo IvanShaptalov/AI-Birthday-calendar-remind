@@ -64,29 +64,29 @@ class ManualImportScreen: UIViewController, UITextViewDelegate {
                     switch status {
                         
                     case .eventConverted:
-                        self.editingTextView.setTextColorForLine(line: line, color: .green)
-                        NSLog("index \(line) color green")
+                        self.editingTextView.setTextColorForLine(line: line, color: .label)
+                        NSLog("index \(line) color label")
                         self.successes += 1
                     case .eventUnknownError:
-                        self.editingTextView.setTextColorForLine(line: line, color: .red)
+                        self.editingTextView.setTextColorForLine(line: line, color: .systemRed)
                         self.errors += 1
                         NSLog("index \(line) color red")
                         
                         
                     case .dateNotConverted:
-                        self.editingTextView.setTextColorForLine(line: line, color: .red)
+                        self.editingTextView.setTextColorForLine(line: line, color: .systemRed)
                         self.errors += 1
                         NSLog("index \(line) color red")
                         
                         
                     case .nameNotConverted:
-                        self.editingTextView.setTextColorForLine(line: line, color: .orange)
+                        self.editingTextView.setTextColorForLine(line: line, color: .systemOrange)
                         self.warnings += 1
                         NSLog("index \(line) color orange")
                         
                         
                     case .missedElement:
-                        self.editingTextView.setTextColorForLine(line: line, color: .orange)
+                        self.editingTextView.setTextColorForLine(line: line, color: .systemOrange)
                         self.warnings += 1
                         NSLog("index \(line) color orange")
                         
@@ -96,6 +96,10 @@ class ManualImportScreen: UIViewController, UITextViewDelegate {
             })
         }
         NSLog("detected")
+        if textView.text.count == 0 {
+            self.resetCounters()
+            self.updateTextCounters()
+        }
         
     }
     
@@ -119,7 +123,6 @@ extension UITextView {
                 // adding \n of every line
                 if lines.count > 1{
                     location += 1
-                    
                 }
             } else {
                 break
