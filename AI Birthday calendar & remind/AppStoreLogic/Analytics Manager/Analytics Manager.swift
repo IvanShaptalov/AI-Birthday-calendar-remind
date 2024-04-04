@@ -38,5 +38,6 @@ enum EventType: String {
     wishStartGenerating = "wish_start_generating",
     wishGenerated = "wish_generated",
     wishNotGenerated = "wish_not_generated",
-    eventsImportedCalendarReminders = "import_from_calendar_reminders"
+    eventsImportedCalendarReminders = "import_from_calendar_reminders",
+    manualImport = "manual_import"
 }

@@ -648,7 +648,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bQl-21-7lu"/>
-                                    <barButtonItem title="Preview" id="fTt-P7-Nsd"/>
+                                    <barButtonItem title="Preview" id="fTt-P7-Nsd">
+                                        <connections>
+                                            <action selector="previewPressed:" destination="K88-5U-1pI" id="2ng-Vg-FMd"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" systemColor="systemIndigoColor"/>
                             </toolbar>
@@ -680,10 +684,10 @@
             </objects>
             <point key="canvasLocation" x="948.85496183206101" y="1695.7746478873241"/>
         </scene>
-        <!--View Controller-->
+        <!--Help Page-->
         <scene sceneID="qF6-1b-Bgn">
             <objects>
-                <viewController id="Fvh-WA-JWY" sceneMemberID="viewController">
+                <viewController id="Fvh-WA-JWY" customClass="HelpPage" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yyl-bp-4pA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -691,7 +695,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuF-eH-aSS">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="798"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">ℹ️ SEPARATORS . , ! ? ; : - _  ⚠️ Make sure that separator is only one symbol of separator type in record line  17.04.2002 - Sakura ✅ 17.04.2002 . Sakura ❌  ℹ AVAILABLE FORMATS  17.04.2002 - Sakura
+                                <string key="text">ℹ️ SEPARATORS . , ! ? ; : - _  ⚠️ Make sure that separator is only one symbol of separator type in record line  17.04.2002 - Sakura ✅ 17.04.2002 . Sakura ❌  ℹ AVAILABLE FORMATS  17.04.2002 - Sakura
 2002-04-17 , Aarav
 04/17/2002 ! Luna
 17/04/2002 ? Mateo
@@ -709,7 +713,7 @@ Apr-17-2002 ; Zara
 04/17/2002 00:00:00 _ Kai
 17.04.2002 00:00:00 _ Luca
 Apr 17, 2002 00:00:00 - Isabella
-2002/Apr/17 00:00:00 _ Akira</mutableString>
+2002/Apr/17 00:00:00 _ Akira</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -720,6 +724,9 @@ Apr 17, 2002 00:00:00 - Isabella
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AxB-gF-PZe"/>
                                     <barButtonItem title="Item" image="doc.on.doc" catalog="system" id="50I-aN-JP7">
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <connections>
+                                            <action selector="copyButtonPressed:" destination="Fvh-WA-JWY" id="SvF-dr-NhP"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -1114,28 +1121,28 @@ Apr 17, 2002 00:00:00 - Isabella
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tableBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

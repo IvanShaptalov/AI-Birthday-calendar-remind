@@ -91,6 +91,7 @@
 		8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
 		8DDCB8042BAF76530091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
 		8DDCB8052BAF78B80091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
+		8DEC77832BBE880F006190B2 /* HelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC77822BBE880F006190B2 /* HelpPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,7 @@
 		8D9397D52B88BF2C00040031 /* EditEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventScreen.swift; sourceTree = "<group>"; };
 		8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventRuleUpdater.swift; sourceTree = "<group>"; };
 		8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSeasonController.swift; sourceTree = "<group>"; };
+		8DEC77822BBE880F006190B2 /* HelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */,
+				8DEC77822BBE880F006190B2 /* HelpPage.swift */,
 			);
 			path = ManualImport;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				8D78239F2B86280E00E63423 /* ContactImport.swift in Sources */,
 				8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */,
 				8D1C29C72B9868C400B34B6D /* WishMaker.swift in Sources */,
+				8DEC77832BBE880F006190B2 /* HelpPage.swift in Sources */,
 				8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,

@@ -19,6 +19,12 @@ class ManualImportScreen: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var editingTextView: UITextView!
     
+    var warnings = 0
+    var errors = 0
+    var successes = 0
+    
+    var eventsForPreview: [MainEvent] = []
+    
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +34,46 @@ class ManualImportScreen: UIViewController, UITextViewDelegate {
         updateTextCounters()
     }
     
+    
+    @IBAction func previewPressed(_ sender: UIBarButtonItem) {
+        let addEvScreen = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AddEventsScreen") as! AddEventScreen
+        
+        // add imported events
+        addEvScreen.updateEventsSafe(events: self.eventsForPreview)
+        
+        // save date
+        addEvScreen.bulkDelegate = {eventList in
+            // loaded events + new
+            
+            let loadedEvents = MainEventStorage.load()
+            var resultEvents : [MainEvent] = []
+            for ev in loadedEvents + eventList {
+                if !resultEvents.contains(where: {$0.id == ev.id}) {
+                    resultEvents.append(ev)
+                }
+            }
+            MainEventStorage.save(resultEvents)
+            AnalyticsManager.shared.logEvent(eventType: .manualImport)
+        }
+        
+        
+        
+        self.present(addEvScreen, animated: true)
+    }
+    
     func textViewDidChange(_ textView: UITextView) {
         paintText(textView)
     }
     
-    var warnings = 0
-    var errors = 0
-    var successes = 0
+    private func resetEventsForPreview(){
+        self.eventsForPreview = []
+    }
     
     private func resetCounters(){
         warnings = 0
         errors = 0
         successes = 0
+        self.resetEventsForPreview()
     }
     
     private func updateTextCounters(){
@@ -92,6 +126,9 @@ class ManualImportScreen: UIViewController, UITextViewDelegate {
                         
                     }
                     self.updateTextCounters()
+                    if !self.eventsForPreview.contains(converter.event){
+                        self.eventsForPreview.append(converter.event)
+                    }
                 }
             })
         }

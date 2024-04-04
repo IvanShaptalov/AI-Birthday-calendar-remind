@@ -97,12 +97,6 @@ extension SettingsScreen {
         
     }
     
-    
-    // MARK: - Import from text 🚛📜
-    private func importFromText(){
-        
-    }
-    
     // MARK: - Export As Text 🛳️📜
     private func exportAsText(){
         
