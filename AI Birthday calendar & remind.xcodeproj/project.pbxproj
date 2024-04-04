@@ -915,7 +915,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AI Birthday calendar & remind/AI_Birthday_calendar___remind.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
@@ -948,7 +948,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "AI Birthday calendar & remind/AI_Birthday_calendar___remind.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
