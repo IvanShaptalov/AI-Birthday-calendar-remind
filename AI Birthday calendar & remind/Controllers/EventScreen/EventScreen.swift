@@ -148,6 +148,10 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .blue
         cell.backgroundColor = .clear
         
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.systemBackground
+        cell.selectedBackgroundView = bgColorView
+        
        
         cell.event = mEvent
         
