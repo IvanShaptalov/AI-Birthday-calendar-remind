@@ -36,5 +36,20 @@ Apr-17-2002 ; Zara
 Apr 17, 2002 00:00:00 - Isabella
 2002/Apr/17 00:00:00 _ Akira
 """
+        sender.customView?.blink()
+    }
+}
+
+
+extension UIView {
+    func blink(duration: TimeInterval = 0.5, repeatCount: Float = .greatestFiniteMagnitude) {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 1
+        animation.toValue = 0
+        animation.duration = duration
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.autoreverses = true
+        animation.repeatCount = repeatCount
+        layer.add(animation, forKey: "blink")
     }
 }

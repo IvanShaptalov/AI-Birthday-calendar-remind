@@ -43,7 +43,13 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
         titleLabel.text = wish?.rawValue ?? "Create Wish"
         self.setUpWhoCelebrating()
         self.setUpMessageStyle()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
+    }
+    
+    @objc private func dismissKeyboard(){
+        view.endEditing(true)
     }
     
     
