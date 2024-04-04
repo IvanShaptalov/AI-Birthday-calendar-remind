@@ -590,7 +590,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvL-06-BgX">
-                                <rect key="frame" x="5" y="20" width="383" height="150"/>
+                                <rect key="frame" x="0.0" y="20" width="393" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1  ready to import " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q15-an-06f">
                                         <rect key="frame" x="16" y="16" width="156.66666666666666" height="24"/>
@@ -631,7 +631,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="17.04.2002 - Sakura" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-NZ-NXX">
-                                <rect key="frame" x="0.0" y="190" width="393" height="608"/>
+                                <rect key="frame" x="8" y="190" width="385" height="608"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -662,11 +662,11 @@
                         <constraints>
                             <constraint firstItem="iTn-vP-vH5" firstAttribute="trailing" secondItem="ckb-NZ-NXX" secondAttribute="trailing" id="73y-lO-P01"/>
                             <constraint firstItem="iTn-vP-vH5" firstAttribute="bottom" secondItem="Pfn-QZ-0tw" secondAttribute="bottom" id="8ub-o6-jOX"/>
-                            <constraint firstItem="ckb-NZ-NXX" firstAttribute="leading" secondItem="iTn-vP-vH5" secondAttribute="leading" id="Hw0-Rj-cgS"/>
+                            <constraint firstItem="ckb-NZ-NXX" firstAttribute="leading" secondItem="iTn-vP-vH5" secondAttribute="leading" constant="8" id="Hw0-Rj-cgS"/>
                             <constraint firstItem="ckb-NZ-NXX" firstAttribute="top" secondItem="vvL-06-BgX" secondAttribute="bottom" constant="20" id="I9U-PO-xc0"/>
                             <constraint firstItem="Pfn-QZ-0tw" firstAttribute="trailing" secondItem="iTn-vP-vH5" secondAttribute="trailing" id="Nzc-ff-gya"/>
-                            <constraint firstItem="vvL-06-BgX" firstAttribute="leading" secondItem="iTn-vP-vH5" secondAttribute="leading" constant="5" id="PS7-3Q-WKC"/>
-                            <constraint firstItem="iTn-vP-vH5" firstAttribute="trailing" secondItem="vvL-06-BgX" secondAttribute="trailing" constant="5" id="guE-G0-kIy"/>
+                            <constraint firstItem="vvL-06-BgX" firstAttribute="leading" secondItem="iTn-vP-vH5" secondAttribute="leading" id="PS7-3Q-WKC"/>
+                            <constraint firstItem="iTn-vP-vH5" firstAttribute="trailing" secondItem="vvL-06-BgX" secondAttribute="trailing" id="guE-G0-kIy"/>
                             <constraint firstItem="Pfn-QZ-0tw" firstAttribute="leading" secondItem="iTn-vP-vH5" secondAttribute="leading" id="kfv-Op-YE2"/>
                             <constraint firstItem="vvL-06-BgX" firstAttribute="top" secondItem="iTn-vP-vH5" secondAttribute="top" constant="20" id="r7D-hQ-Gvx"/>
                             <constraint firstItem="Pfn-QZ-0tw" firstAttribute="top" secondItem="ckb-NZ-NXX" secondAttribute="bottom" id="xR2-mM-Ts6"/>
