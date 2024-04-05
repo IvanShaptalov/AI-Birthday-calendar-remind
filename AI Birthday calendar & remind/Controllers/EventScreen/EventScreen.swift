@@ -43,10 +43,12 @@ class BirthdaysScreen: UIViewController{
     
     // MARK: - Fields for Multiple Selection 🌾
     
+    @IBOutlet weak var premiumBadge: UIBarButtonItem!
+    
     @IBOutlet weak var upToolbar: UIToolbar!
     
     var toolbarItemsDefault: [UIBarButtonItem]?
-        
+    
     
     
     // MARK: - Talbe 📜
@@ -59,6 +61,9 @@ class BirthdaysScreen: UIViewController{
         if TutorialProvider.isAwailableToAddCards(){
             mainEvents += TutorialProvider.getCards()
         }
+        
+        self.setUpPremiumBadge()
+
         mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         DispatchQueue.global().async {
@@ -85,12 +90,13 @@ class BirthdaysScreen: UIViewController{
         }
     }
     
-    
+    // MARK: - viewDidAppear ⚙️
     override func viewDidAppear(_ animated: Bool) {
         self.mainEvents = MainEventStorage.load()
         self.tableEvents.reloadData()
+        self.setUpPremiumBadge()
         NSLog("updated from viewDidAppear \(mainEvents.count)")
-//        self.proposePremiumAtStart()
+        //        self.proposePremiumAtStart()
     }
     
     private func proposePremiumAtStart(){
@@ -106,6 +112,18 @@ class BirthdaysScreen: UIViewController{
         SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
         
         
+    }
+    
+    // MARK: - Premium badge
+    private func setUpPremiumBadge(){
+        if #available(iOS 16.0, *) {
+            premiumBadge.isHidden = !MonetizationConfiguration.isPremiumAccount
+        } else {
+            if !MonetizationConfiguration.isPremiumAccount {
+                self.toolbarItems?.removeAll(where: {$0 == premiumBadge})
+                self.toolbarItemsDefault?.removeAll(where: {$0 == premiumBadge})
+            }
+        }
     }
     
     // MARK: - Add Events Button ➕
@@ -152,7 +170,7 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
         bgColorView.backgroundColor = UIColor.systemBackground
         cell.selectedBackgroundView = bgColorView
         
-       
+        
         cell.event = mEvent
         
         cell.setBackgroundBySeason(season: EventSeasonController.getSeason(mEvent.eventDate))
@@ -220,14 +238,14 @@ extension BirthdaysScreen {
             
             alertController.addAction(.init(title: "Ok", style: .cancel))
             self.present(alertController, animated: true)
-
+            
         } else {
             let alertController = UIAlertController(title: "You can't undo this action", message: "Remove these words?", preferredStyle: .alert)
             alertController.addAction(.init(title: "Cancel", style: .cancel))
             
             alertController.addAction(.init(title: "Remove", style: .destructive, handler: {action in
                 let selectedIndexes = self.tableEvents.indexPathsForSelectedRows
-                            
+                
                 self.removeSelectedWords(selectedWords: selectedIndexes?.map({$0.item}) ?? [])
             }))
             
@@ -266,6 +284,6 @@ extension BirthdaysScreen {
             .filter { !selectedWords.contains($0.offset) }
             .map { $0.element }
         self.tableEvents.reloadData()
-
+        
     }
 }

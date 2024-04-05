@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="FNv-od-9sf">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <rect key="frame" x="0.0" y="69" width="393" height="44"/>
                                 <items>
                                     <barButtonItem id="Rb0-eI-F1N">
                                         <imageReference key="image" image="pencil" catalog="system" symbolScale="large"/>
@@ -28,6 +28,10 @@
                                         <connections>
                                             <action selector="editButtonPressed:" destination="PkA-LZ-FwV" id="0LR-T0-31I"/>
                                         </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9bW-u6-aYj"/>
+                                    <barButtonItem title="🎷 Premium" style="done" id="BZz-l9-roc">
+                                        <color key="tintColor" systemColor="labelColor"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5fA-YM-ZdH"/>
                                     <barButtonItem title="add bday" id="lWw-Y4-4HZ">
@@ -41,7 +45,7 @@
                                 <toolbarAppearance key="standardAppearance"/>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aGy-cg-BLh">
-                                <rect key="frame" x="5" y="103" width="383" height="666"/>
+                                <rect key="frame" x="5" y="113" width="383" height="656"/>
                                 <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="PkA-LZ-FwV" id="BaD-Co-NyR"/>
@@ -56,13 +60,14 @@
                             <constraint firstItem="FNv-od-9sf" firstAttribute="leading" secondItem="qnH-9K-qrr" secondAttribute="leading" id="Srf-sI-xAo"/>
                             <constraint firstItem="FNv-od-9sf" firstAttribute="trailing" secondItem="qnH-9K-qrr" secondAttribute="trailing" id="Y9C-HU-Sq8"/>
                             <constraint firstItem="aGy-cg-BLh" firstAttribute="leading" secondItem="qnH-9K-qrr" secondAttribute="leading" constant="5" id="cGp-Wy-ekp"/>
-                            <constraint firstItem="FNv-od-9sf" firstAttribute="top" secondItem="qnH-9K-qrr" secondAttribute="top" id="cKT-iH-bv9"/>
+                            <constraint firstItem="FNv-od-9sf" firstAttribute="top" secondItem="qnH-9K-qrr" secondAttribute="top" constant="10" id="cKT-iH-bv9"/>
                             <constraint firstAttribute="trailing" secondItem="aGy-cg-BLh" secondAttribute="trailing" constant="5" id="jWd-zK-CuN"/>
                             <constraint firstItem="aGy-cg-BLh" firstAttribute="top" secondItem="FNv-od-9sf" secondAttribute="bottom" id="pry-Ky-0zS"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Events" image="gift" catalog="system" id="8fG-JE-Pdl"/>
                     <connections>
+                        <outlet property="premiumBadge" destination="BZz-l9-roc" id="u1F-v2-NG6"/>
                         <outlet property="tableEvents" destination="aGy-cg-BLh" id="tQZ-ku-C4o"/>
                         <outlet property="upToolbar" destination="FNv-od-9sf" id="Jqr-0J-3Fp"/>
                     </connections>
@@ -693,7 +698,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuF-eH-aSS">
-                                <rect key="frame" x="0.0" y="113" width="393" height="798"/>
+                                <rect key="frame" x="0.0" y="44" width="393" height="798"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">ℹ️ SEPARATORS . , ! ? ; : - _  ⚠️ Make sure that separator is only one symbol of separator type in record line  17.04.2002 - Sakura ✅ 17.04.2002 . Sakura ❌  ℹ AVAILABLE FORMATS  17.04.2002 - Sakura
 2002-04-17 , Aarav
@@ -719,7 +724,7 @@ Apr 17, 2002 00:00:00 - Isabella
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkU-0k-ME1">
-                                <rect key="frame" x="0.0" y="30" width="393" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AxB-gF-PZe"/>
                                     <barButtonItem title="Item" image="doc.on.doc" catalog="system" id="50I-aN-JP7">
