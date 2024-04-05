@@ -11,8 +11,6 @@ class SubscriptionCell: UITableViewCell {
     // MARK: - Fields 🌾
     @IBOutlet weak var subTitle: UILabel!
     
-    @IBOutlet weak var discount: UILabel!
-    
     @IBOutlet weak var checkMarkBadge: UIImageView!
     
     @IBOutlet weak var price_duration: UILabel!
@@ -21,33 +19,23 @@ class SubscriptionCell: UITableViewCell {
     
     @IBOutlet weak var totalPrice: UILabel!
     
-    @IBOutlet weak var discountView: UIView!
-    
     @IBOutlet weak var borderView: UIView!
     
     @IBOutlet weak var familySharingImage: UIImageView!
     
     @IBOutlet weak var familySharingLabel: UILabel!
-    
-    @IBOutlet weak var freeTrialImage: UIImageView!
-    
+        
     @IBOutlet weak var freeTrialLabel: UILabel!
     // MARK: - awakeFromNib ⚙️
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setUpBorder()
-        self.roundDiscount()
     }
 
     
     // MARK: - SetUp Functions ⚙️
-    private func roundDiscount() {
-        self.discountView.layer.cornerRadius = 10
-    }
-    
     func setUpFreeTrial(isHidden: Bool) {
         self.freeTrialLabel.isHidden = isHidden
-        self.freeTrialImage.isHidden = isHidden
     }
     
     func setUpFamilySharing(isHidden: Bool) {
@@ -62,14 +50,6 @@ class SubscriptionCell: UITableViewCell {
         }
     }
     
-    func setDiscount(_ discount: Int){
-        if discount == 0 {
-            discountView.isHidden = true
-        } else {
-            discountView.isHidden = false
-            self.discount.text = "\(discount)% OFF"
-        }
-    }
     
     func setSubDuration(priceDuration: String){
         self.price_duration.text = priceDuration

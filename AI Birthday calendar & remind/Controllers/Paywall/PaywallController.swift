@@ -91,9 +91,7 @@ extension PaywallController: UITableViewDelegate, UITableViewDataSource {
         let familyShareable = !s.isFamilyShareable
         let isFreeTrial = !s.isFreeTrial
         cell.setSubDuration(priceDuration: s.priceDuration)
-        
-        cell.setDiscount(s.discount)
-        
+                
         cell.setUpFreeTrial(isHidden: isFreeTrial)
         
         cell.setUpFamilySharing(isHidden: familyShareable)
