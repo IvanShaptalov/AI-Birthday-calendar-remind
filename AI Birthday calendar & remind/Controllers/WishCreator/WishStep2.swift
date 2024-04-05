@@ -105,22 +105,15 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
             responseText in
             
             DispatchQueue.main.async {
-                if self.viewIfLoaded?.window != nil {
                         NSLog("⛑️: \(responseText)")
                         AnalyticsManager.shared.logEvent(eventType: .wishStartGenerating)
                         
-                        sleep(UInt32(AppConfiguration.gptRequestSleepTime))
                         sender.configuration?.showsActivityIndicator = false
                         var finish = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreateFinish") as! WishResultTransferProtocol
                         
                         finish.wishResult = responseText
                         self.buttonDisabled = false
                         self.present(finish as! UIViewController, animated: true)
-                    
-                } else {
-                    NSLog("view not loaded 🔥")
-                }
-                
             }
             
         }, error: {

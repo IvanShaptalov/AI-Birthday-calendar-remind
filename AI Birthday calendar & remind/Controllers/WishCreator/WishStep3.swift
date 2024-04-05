@@ -57,8 +57,9 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
+        sleep(UInt32(AppConfiguration.gptRequestSleepTime))
         self.gptTextViewField.delegate = self
-        self.gptTextViewField.text = self.wishResult
+        self.gptTextViewField.setTextWithTypeAnimation(typedText: self.wishResult ?? "", characterDelay: Double(7), viewController: self)
         DispatchQueue.main.async {
             AnalyticsManager.shared.logEvent(eventType: .wishGenerated)
         }
@@ -71,6 +72,34 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
         }
         return true
     }
-    
+}
 
+extension UITextView {
+    func setTextWithTypeAnimation(typedText: String, characterDelay: TimeInterval = 5.0, viewController: UIViewController) {
+        self.isEditable = false
+        viewController.isModalInPresentation = true
+
+        text = ""
+        var writingTask: DispatchWorkItem?
+        writingTask = DispatchWorkItem { [weak weakSelf = self] in
+            for character in typedText {
+                DispatchQueue.main.async {
+                    weakSelf?.text!.append(character)
+                }
+                Thread.sleep(forTimeInterval: characterDelay/100)
+                
+            }
+            DispatchQueue.main.async {
+                self.isEditable = true
+                viewController.isModalInPresentation = false
+
+            }
+        }
+        
+        if let task = writingTask {
+            let queue = DispatchQueue(label: "typespeed", qos: DispatchQoS.userInteractive)
+            queue.asyncAfter(deadline: .now() + 0.05, execute: task)
+        }
+    }
+    
 }
