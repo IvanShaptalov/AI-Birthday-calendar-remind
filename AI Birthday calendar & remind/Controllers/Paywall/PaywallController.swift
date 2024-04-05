@@ -88,9 +88,15 @@ extension PaywallController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: subReuseIdentifier, for: indexPath) as! SubscriptionCell
         let s = subs[indexPath.row]
-
-        cell.setSubDuration(offerDurationText: s.subOffer, priceDuration: s.priceDuration)
+        let familyShareable = !s.isFamilyShareable
+        let isFreeTrial = !s.isFreeTrial
+        cell.setSubDuration(priceDuration: s.priceDuration)
+        
         cell.setDiscount(s.discount)
+        
+        cell.setUpFreeTrial(isHidden: isFreeTrial)
+        
+        cell.setUpFamilySharing(isHidden: familyShareable)
         cell.subTitle.text = s.title
         cell.selectionStyle = .none
         cell.setTotalPrice(s.totalPrice)

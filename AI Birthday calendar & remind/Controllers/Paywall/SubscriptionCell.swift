@@ -25,6 +25,13 @@ class SubscriptionCell: UITableViewCell {
     
     @IBOutlet weak var borderView: UIView!
     
+    @IBOutlet weak var familySharingImage: UIImageView!
+    
+    @IBOutlet weak var familySharingLabel: UILabel!
+    
+    @IBOutlet weak var freeTrialImage: UIImageView!
+    
+    @IBOutlet weak var freeTrialLabel: UILabel!
     // MARK: - awakeFromNib ⚙️
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +45,15 @@ class SubscriptionCell: UITableViewCell {
         self.discountView.layer.cornerRadius = 10
     }
     
+    func setUpFreeTrial(isHidden: Bool) {
+        self.freeTrialLabel.isHidden = isHidden
+        self.freeTrialImage.isHidden = isHidden
+    }
+    
+    func setUpFamilySharing(isHidden: Bool) {
+        self.familySharingImage.isHidden = isHidden
+        self.familySharingLabel.isHidden = isHidden
+    }
     private func setBadge(fill: Bool) {
         if fill {
             checkMarkBadge.image = UIImage(systemName: "checkmark.circle.fill")
@@ -55,12 +71,8 @@ class SubscriptionCell: UITableViewCell {
         }
     }
     
-    func setSubDuration(offerDurationText: String?, priceDuration: String){
-        if offerDurationText == nil {
-            self.price_duration.text = priceDuration
-        } else {
-            self.price_duration.text = "\(offerDurationText!), then \(priceDuration)"
-        }
+    func setSubDuration(priceDuration: String){
+        self.price_duration.text = priceDuration
     }
     
     func setTotalPrice(_ price: String){

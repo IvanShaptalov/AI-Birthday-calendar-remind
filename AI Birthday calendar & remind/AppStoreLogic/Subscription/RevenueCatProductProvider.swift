@@ -101,6 +101,7 @@ class RevenueCatProductsProvider {
         errorCatcher(.Processing)
     }
     
+    // MARK: - get offerings 🕊️
     static func getOffering(subCallback: @escaping([SubscriptionObj]) -> (),
                             catchError: @escaping (RevenueCatError) -> Void){
         NSLog("subs fetch received")
@@ -137,19 +138,14 @@ class RevenueCatProductsProvider {
             
         }
     }
+    // MARK: - Convert packages 📦
     static private func convertPackages(_ packages: [RevenueCat.Package]) -> [SubscriptionObj] {
         var subs: [SubscriptionObj] = []
         for pack in packages {
             
             let storeProduct = pack.storeProduct
-            
-            var subOffer: String? = nil
-            
-            if storeProduct.introductoryDiscount?.subscriptionPeriod.value != nil {
-                subOffer = "\(storeProduct.introductoryDiscount!.subscriptionPeriod.value) week free"
-            }
-            
-            subs.append(SubscriptionObj(title: storeProduct.localizedTitle, discount: 0, subOffer: subOffer, priceDuration: "\(storeProduct.pricePerMonth ?? 1)$ per month", package: pack, totalPrice: storeProduct.price.formatted()))
+                     
+            subs.append(SubscriptionObj(title: storeProduct.localizedTitle, discount: 0,  priceDuration: "\(storeProduct.pricePerMonth ?? 1)$ per month", package: pack, totalPrice: storeProduct.price.formatted(), isFamilyShareable: storeProduct.isFamilyShareable, isFreeTrial: storeProduct.introductoryDiscount?.subscriptionPeriod.value != nil))
         }
         return subs
     }
@@ -166,17 +162,19 @@ enum RevenueCatError: Error {
 class SubscriptionObj {
     var title: String
     var discount: Int
-    var subOffer : String?
     var priceDuration: String
     var package: RevenueCat.Package
     var totalPrice: String
+    var isFamilyShareable: Bool
+    var isFreeTrial: Bool
     
-    init(title: String, discount: Int, subOffer: String?, priceDuration: String, package: RevenueCat.Package, totalPrice: String) {
+    init(title: String, discount: Int, priceDuration: String, package: RevenueCat.Package, totalPrice: String, isFamilyShareable: Bool, isFreeTrial: Bool) {
         self.title = title
         self.discount = discount
-        self.subOffer = subOffer
         self.priceDuration = priceDuration
         self.package = package
         self.totalPrice = totalPrice
+        self.isFamilyShareable = isFamilyShareable
+        self.isFreeTrial = isFreeTrial
     }
 }
