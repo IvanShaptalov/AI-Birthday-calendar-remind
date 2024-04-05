@@ -11,7 +11,7 @@ protocol WishResultTransferProtocol {
     var wishResult: String? { get set}
 }
 
-class WishCreateFinishViewController: UIViewController, WishResultTransferProtocol {
+class WishCreateFinishViewController: UIViewController, WishResultTransferProtocol, UITextViewDelegate {
     // MARK: - Fields 🌾
     var wishResult: String?
     
@@ -28,6 +28,9 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
             self.gptTextViewField.setNeedsFocusUpdate()
         }
     }
+    
+    
+    
     @IBAction func sharePressed(_ sender: Any) {
         let text = gptTextViewField.text
                 
@@ -54,12 +57,20 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.gptTextViewField.delegate = self
         self.gptTextViewField.text = self.wishResult
         DispatchQueue.main.async {
             AnalyticsManager.shared.logEvent(eventType: .wishGenerated)
         }
     }
     
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+        }
+        return true
+    }
     
 
 }
