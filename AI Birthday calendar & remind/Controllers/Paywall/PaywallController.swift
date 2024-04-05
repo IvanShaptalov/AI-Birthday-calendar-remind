@@ -19,14 +19,22 @@ class PaywallController: UIViewController{
     
     @IBOutlet weak var subscriptionTableView: UITableView!
     
+    var updateDelegate: (() -> Void)?
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(true)
+        self.updateDelegate?()
+        
+    }
+    
     var subs: [SubscriptionObj] = RevenueCatProductsProvider.subscriptionList
 
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.benefitLabel.text = "Unlimited adding of birthdays instead of \(MonetizationConfiguration.freeEventRecords) records"
+
         // MARK: - Fetch subs if empty
-        
         if self.subs.isEmpty {
             NSLog("subs is empty, start load")
             RevenueCatProductsProvider.getOffering(subCallback: {subs in

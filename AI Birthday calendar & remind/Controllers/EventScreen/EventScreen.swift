@@ -36,8 +36,24 @@ class BirthdaysScreen: UIViewController{
                 })
             }
             NotificationServiceProvider.cancelAllNotifications()
-            mainEvents.forEach({NotificationServiceProvider.scheduleEvent(event: $0, notifDisabled: nil)})
+            for (index, event) in mainEvents.enumerated() {
+                NSLog("✨ event to notify: \(event.title)")
+                if isNeedToNotify(index: index){
+                    NotificationServiceProvider.scheduleEvent(event: event, notifDisabled: nil)
+                }
+            }
             MainEventStorage.save(mainEvents)
+        }
+    }
+    
+    /// set notification to first free events if is not premium account
+    private func isNeedToNotify(index i: Int) -> Bool {
+        if MonetizationConfiguration.isPremiumAccount {
+            NSLog("⏰ is premium account - need to notify")
+            return true
+        } else {
+            NSLog("⏰ is not premium, i = \(i), free events: \(MonetizationConfiguration.freeEventRecords) notify next? : \(i < MonetizationConfiguration.freeEventRecords)")
+            return i < MonetizationConfiguration.freeEventRecords
         }
     }
     
@@ -48,8 +64,6 @@ class BirthdaysScreen: UIViewController{
     @IBOutlet weak var upToolbar: UIToolbar!
     
     var toolbarItemsDefault: [UIBarButtonItem]?
-    
-    
     
     // MARK: - Talbe 📜
     @IBOutlet weak var tableEvents: UITableView!
@@ -99,23 +113,8 @@ class BirthdaysScreen: UIViewController{
         //        self.proposePremiumAtStart()
     }
     
-    private func proposePremiumAtStart(){
-        NSLog("proposePremiumAtStart: isLaunchedEarlier: \(AppConfiguration.isLaunchedEarlier) is premium: \(MonetizationConfiguration.isPremiumAccount) 🪙")
-        if AppConfiguration.isLaunchedEarlier{
-            return
-        }
-        
-        if MonetizationConfiguration.isPremiumAccount {
-            return
-        }
-        
-        SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
-        
-        
-    }
-    
     // MARK: - Premium badge
-    private func setUpPremiumBadge(){
+    func setUpPremiumBadge(){
         if #available(iOS 16.0, *) {
             premiumBadge.isHidden = !MonetizationConfiguration.isPremiumAccount
         } else {
@@ -128,14 +127,7 @@ class BirthdaysScreen: UIViewController{
     
     // MARK: - Add Events Button ➕
     @IBAction func addEventPressed(_ sender: Any) {
-        NSLog("is premium account: \(MonetizationConfiguration.isPremiumAccount)")
-        NSLog("free account: events: \(self.mainEvents.count), limit  \(MonetizationConfiguration.freeEventRecords)")
-        
-        if SubscriptionProposer.hasNoLimitInMainScreen(self.mainEvents) {
-            
-            SubscriptionProposer.proposeProVersionRecordsLimited( viewController: self)
-            
-        } else {
+       
             var addEvScreen = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AddEventsScreen") as! MainEventBulkCreatingProtocol
             
             // MARK: - Word saving via delegate
@@ -147,7 +139,7 @@ class BirthdaysScreen: UIViewController{
             
             
             self.present(addEvScreen as! UIViewController, animated: true)
-        }
+        
     }
 }
 
@@ -173,11 +165,18 @@ extension BirthdaysScreen: UITableViewDelegate, UITableViewDataSource {
         
         cell.event = mEvent
         
-        cell.setBackgroundBySeason(season: EventSeasonController.getSeason(mEvent.eventDate))
+        
+        
+        cell.setBackgroundBySeason(season: EventSeasonController.getSeason(mEvent.eventDate), isBlocked: isCellBlocked(index: i))
+        cell.updateImage(isBlocked: isCellBlocked(index: i))
         return cell
     }
     
-    
+    private func isCellBlocked(index i: Int) -> Bool{
+        // blocked if run off free events and account not premium
+        let isBlocked = i >= MonetizationConfiguration.freeEventRecords && !MonetizationConfiguration.isPremiumAccount
+        return isBlocked
+    }
 }
 
 // MARK: - Event Selection **EXT ✨
@@ -185,6 +184,11 @@ extension BirthdaysScreen {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if tableView.isEditing {
+            return
+        }
+        
+        if isCellBlocked(index: indexPath.row){
+            SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
             return
         }
         

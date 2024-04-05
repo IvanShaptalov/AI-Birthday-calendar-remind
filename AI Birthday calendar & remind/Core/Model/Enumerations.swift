@@ -142,7 +142,10 @@ enum WishType: String {
         case .independenceDay:
             return "flag.fill"
         case .toasts:
-            return "wineglass.fill"
+            if #available(iOS 16.0, *) {
+                return "wineglass.fill"
+            }
+            return "hands.sparkles.fill"
         }
     }
 }

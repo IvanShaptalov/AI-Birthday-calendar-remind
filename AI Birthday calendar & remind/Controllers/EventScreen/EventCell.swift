@@ -41,14 +41,20 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
         // Initialization code
     }
     
+    
     // MARK: - Set season ☀️❄️
-    func setBackgroundBySeason(season: Season){
+    func setBackgroundBySeason(season: Season, isBlocked: Bool){
         NSLog("season: \(season)")
         let autumnC = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 0.33)
         let winterC = #colorLiteral(red: 0.476841867, green: 0.5048075914, blue: 1, alpha: 0.33)
         let springC = #colorLiteral(red: 0.4508578777, green: 0.9882974029, blue: 0.8376303315, alpha: 0.33)
         let summerC = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 0.4)
+        let blockC = #colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 0.5)
         
+        if isBlocked {
+            self.pseudoContent.backgroundColor = blockC
+            return
+        }
 
         switch season {
             
@@ -90,13 +96,17 @@ class EventCell: UITableViewCell, EventObjToCellProtocol {
             return
         }
         self.title.text = event?.title
-        updateImage()
         setUpDates()
     }
     
     // MARK: - Update Image 🌅
-    private func updateImage(){
+    func updateImage(isBlocked: Bool){
         guard event != nil else {
+            return
+        }
+        
+        if isBlocked {
+            self.eventImage.image = UIImage(systemName: "lock.circle")?.withRenderingMode(.alwaysTemplate).applyingSymbolConfiguration(.init(paletteColors: [#colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 0.9019557119)]))
             return
         }
         

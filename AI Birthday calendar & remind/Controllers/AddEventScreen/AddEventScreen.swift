@@ -58,7 +58,6 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     
     // ➕ add button
     @IBAction func bulkAdd(_ sender: UIBarButtonItem) {
-        if SubscriptionProposer.hasNoLimitToRecords(eventsToAdd: self.events ){
             var evCopy = self.events
             evCopy.removeAll(where: {$0.title == ""})
             self.bulkDelegate?(evCopy)
@@ -75,9 +74,6 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
             }
             )
             self.dismiss(animated: true)
-        } else {
-            SubscriptionProposer.proposeProVersionRecordsLimited(viewController: self)
-        }
     }
 }
 
