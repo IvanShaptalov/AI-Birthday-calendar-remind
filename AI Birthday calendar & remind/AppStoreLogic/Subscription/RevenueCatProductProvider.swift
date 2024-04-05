@@ -108,14 +108,29 @@ class RevenueCatProductsProvider {
         Purchases.shared.getOfferings { (offerings, error) in
             
             do {
-                if let rawPackages = offerings?.current?.availablePackages {
+                if let rawPackages = offerings?.offering(identifier: AppConfiguration.revenueCatOfferingId)?.availablePackages {
+                    NSLog("✅📦 fetch packages from identifier: \(AppConfiguration.revenueCatOfferingId) ")
                     let packages = convertPackages(rawPackages)
                     subCallback(packages)
                     return
                 } else {
-                    throw RevenueCatError.OffersNotFound
+                    NSLog("error ❌📦 while fetching packages from identifier: \(AppConfiguration.revenueCatOfferingId) ")
                     
+                    NSLog("🎰 try get current package")
+                    if let rawPackages = offerings?.current?.availablePackages {
+                        NSLog("✅📦 fetch packages from current ")
+                        let packages = convertPackages(rawPackages)
+                        subCallback(packages)
+                        return
+                    } else {
+                        NSLog("error ❌📦 while fetching packages from current package")
+                        throw RevenueCatError.OffersNotFound
+                        
+                    }
+
                 }
+                
+                
             } catch {
                 catchError(RevenueCatError.OffersNotFound)
             }

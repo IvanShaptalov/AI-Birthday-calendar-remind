@@ -18,6 +18,8 @@ class AppConfiguration {
     
     // MARK: - RevenueCat
     static var revenuecat_project_apple_api_key = "appl_CnRVSaHJYkxyqjjVOOYidaPfVaH"
+    
+    static var revenueCatOfferingId = "default"
 
     
     // MARK: - NOTIFICATIONS
@@ -105,9 +107,11 @@ class ConfigurationFetcher{
             if status == .success {
                 NSLog("Config fetched!")
                 RemoteConfigWrapper.shared.remoteConfig.activate { changed, error in
-                    //                        // MARK: - GPT fetching
                     NSLog("⚙️ Remote Config changed: \(changed)")
                     
+                    // MARK: - 😻 RevenueCat offering
+                    AppConfiguration.revenueCatOfferingId = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "revenueCatOfferingId").stringValue ?? AppConfiguration.revenueCatOfferingId
+                    NSLog("😻 offering id: \(AppConfiguration.revenueCatOfferingId)")
                     
                     
                     AppConfiguration.contactUsURL = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "contactUsURL").stringValue ?? AppConfiguration.contactUsURL
