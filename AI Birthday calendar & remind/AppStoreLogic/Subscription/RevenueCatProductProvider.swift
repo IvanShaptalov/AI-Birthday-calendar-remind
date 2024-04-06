@@ -144,8 +144,9 @@ class RevenueCatProductsProvider {
         for pack in packages {
             
             let storeProduct = pack.storeProduct
-                     
-            subs.append(SubscriptionObj(title: storeProduct.localizedTitle, discount: 0,  priceDuration: "\(storeProduct.pricePerMonth ?? 1)$ per month", package: pack, totalPrice: storeProduct.price.formatted(), isFamilyShareable: storeProduct.isFamilyShareable, isFreeTrial: storeProduct.introductoryDiscount?.subscriptionPeriod.value != nil))
+            let offering = storeProduct.introductoryDiscount?.subscriptionPeriod.value
+            let isFreeTrial = offering != nil
+            subs.append(SubscriptionObj(title: storeProduct.localizedTitle, discount: 0,  priceDuration: "\(storeProduct.pricePerMonth ?? 1)$ per month", package: pack, totalPrice: storeProduct.price.formatted(), isFamilyShareable: storeProduct.isFamilyShareable, isFreeTrial: isFreeTrial))
         }
         return subs
     }

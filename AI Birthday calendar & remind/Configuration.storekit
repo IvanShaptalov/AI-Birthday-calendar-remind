@@ -10,7 +10,7 @@
     "_applicationInternalID" : "6477883190",
     "_developerTeamID" : "8HZT3TR2ZJ",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 731841400.763677,
+    "_lastSynchronizedDate" : 734075918.03460205,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
@@ -78,12 +78,12 @@
           ],
           "displayPrice" : "22.0",
           "familyShareable" : false,
-          "groupNumber" : 1,
+          "groupNumber" : 2,
           "internalID" : "6479234984",
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Unlimited records, export",
+              "description" : "Unlimited records of birthdays, anniversaries",
               "displayName" : "Unlimited Access (1 year)",
               "locale" : "en_US"
             }
@@ -101,14 +101,44 @@
           "codeOffers" : [
 
           ],
+          "displayPrice" : "19.0",
+          "familyShareable" : true,
+          "groupNumber" : 1,
+          "internalID" : "6482294106",
+          "introductoryOffer" : {
+            "internalID" : "60F55497",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "Free trial,Unlimited birthdays,family sharing",
+              "displayName" : "Unlimited Access (1 year)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "bd_2200_1y_3d0",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "AI Birthday Annual 3day free trial",
+          "subscriptionGroupID" : "21462685",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
           "displayPrice" : "4.99",
           "familyShareable" : true,
-          "groupNumber" : 2,
+          "groupNumber" : 4,
           "internalID" : "6479234962",
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Unlimited records, export, family sharing",
+              "description" : "Unlimited records of birthdays, anniversaries",
               "displayName" : "Unlimited Access (1 month)",
               "locale" : "en_US"
             }
@@ -133,7 +163,7 @@
           "introductoryOffer" : null,
           "localizations" : [
             {
-              "description" : "Unlimited records, export",
+              "description" : "Unlimited records of birthdays, anniversaries",
               "displayName" : "Unlimited Access(3 month)",
               "locale" : "en_US"
             }
