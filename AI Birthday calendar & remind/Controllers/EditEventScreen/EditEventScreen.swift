@@ -18,14 +18,50 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
     // MARK: - Delegates 🐪
     var bulkDelegate: (([MainEvent]) -> Void)?
     
-    
     // MARK: - Fields 🌾
     var events: [MainEvent] = []
     @IBOutlet weak var tableViewAddEvents: UITableView!
 
     
-    // MARK: - Functinos 🤖
     
+    
+    // MARK: - Make wish 🪄
+    @IBAction func makeWishTapped(_ sender: UIBarButtonItem) {
+        
+        
+        
+        
+        var wishType = WishType.bday
+        
+        guard let event = events.first else {
+            return
+        }
+    
+        switch event.eventType {
+            
+        case .birthday:
+            wishType = WishType.bday
+        case .anniversary:
+            wishType = .anniversary
+        case .simpleEvent:
+            let generatorStep1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreatorStep1") as! WishCreatorTableViewController
+            self.present(generatorStep1, animated:  true)
+        }
+        
+        let generatorStep2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreatorStep2") as! WishCreatorStep2
+        
+        generatorStep2.wish = wishType
+        generatorStep2.celebratorTitle = event.title
+        
+        let yearTurns = DatePrinter(date: event.eventDate).yearsTurns()
+       
+        generatorStep2.yearTurns = "\(yearTurns) years old"
+       
+        
+        self.present(generatorStep2, animated: true)
+    }
+    
+    // MARK: - Bulk edit
     @IBAction func bulkEdit(_ sender: UIBarButtonItem) {
         var evCopy = self.events
         evCopy.removeAll(where: {$0.title == ""})
@@ -54,7 +90,12 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
         super.viewDidLoad()
         self.tableViewAddEvents?.register(.init(nibName: "AddEventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierAddEventCell)
         self.tableViewAddEvents?.reloadData()
-
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboard(){
+        view.endEditing(true)
     }
 }
 

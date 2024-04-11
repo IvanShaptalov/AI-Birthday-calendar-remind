@@ -15,6 +15,10 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     // MARK: - Fields 🌾
     var wish: WishType?
     
+    var celebratorTitle: String?
+    
+    var yearTurns: String?
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     
@@ -65,6 +69,14 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
             self.whoWishEnum = WhoWish(rawValue: action.title) ?? self.whoWishEnum
             
         })
+        
+        if celebratorTitle != nil {
+            self.nameField.text = celebratorTitle
+        }
+        
+        if yearTurns != nil {
+            self.ageCelebrator.text = yearTurns
+        }
     }
     
     // MARK: - Generate Wish 😘
@@ -120,6 +132,15 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
             
             textError in
             NSLog("🧨 error in response: \(textError)")
+            if textError.lowercased().contains("limit") {
+                let alertController = UIAlertController(title: "Day limit reached", message: "", preferredStyle: .alert)
+                
+                alertController.addAction(.init(title: "OK", style: .default))
+                DispatchQueue.main.async {
+                    self.present(alertController, animated: true)
+
+                }
+            }
             DispatchQueue.main.async {
                 self.buttonDisabled = false
                 sender.configuration?.showsActivityIndicator = false

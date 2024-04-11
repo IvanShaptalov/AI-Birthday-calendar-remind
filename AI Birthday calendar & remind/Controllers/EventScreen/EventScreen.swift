@@ -188,6 +188,7 @@ extension BirthdaysScreen {
         }
         
         if isCellBlocked(index: indexPath.row){
+            AnalyticsManager.shared.logEvent(eventType: .blockCellSelected)
             SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
             return
         }

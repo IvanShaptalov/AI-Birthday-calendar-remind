@@ -46,6 +46,34 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableViewAddEvents.register(.init(nibName: "AddEventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierAddEventCell)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+    }
+    
+    // MARK: - Keyboard handling 🎹
+    
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            self.tableViewAddEvents.contentInset.bottom = keyboardHeight
+            self.tableViewAddEvents.verticalScrollIndicatorInsets.bottom = keyboardHeight
+        } else {
+            self.tableViewAddEvents.contentInset.bottom = 0
+            self.tableViewAddEvents.verticalScrollIndicatorInsets.bottom = 0
+        }
+    }
+
+    
+    @objc private func dismissKeyboard(){
+        view.endEditing(true)
     }
     
     /// update events without many reacts in didSet funciton in events

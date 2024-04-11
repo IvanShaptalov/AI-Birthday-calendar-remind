@@ -109,10 +109,6 @@ class ConfigurationFetcher{
                 RemoteConfigWrapper.shared.remoteConfig.activate { changed, error in
                     NSLog("⚙️ Remote Config changed: \(changed)")
                     
-                    // MARK: - 😻 RevenueCat offering
-                    AppConfiguration.revenueCatOfferingId = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "revenueCatOfferingId").stringValue ?? AppConfiguration.revenueCatOfferingId
-                    NSLog("😻 offering id: \(AppConfiguration.revenueCatOfferingId)")
-                    
                     
                     AppConfiguration.contactUsURL = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "contactUsURL").stringValue ?? AppConfiguration.contactUsURL
                     
@@ -145,6 +141,12 @@ class ConfigurationFetcher{
                     }
                     
                     MonetizationConfiguration.fetchFirebase()
+                    
+                    // MARK: - 😻 RevenueCat offering
+                    AppConfiguration.revenueCatOfferingId = RemoteConfigWrapper.shared.remoteConfig.configValue(forKey: "revenueCatOfferingId").stringValue ?? AppConfiguration.revenueCatOfferingId
+                    NSLog("😻 offering id: \(AppConfiguration.revenueCatOfferingId)")
+                    
+                    RevenueCatProductsProvider.setUp()
                 }
                 
             } else {
