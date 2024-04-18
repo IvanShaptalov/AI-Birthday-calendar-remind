@@ -102,10 +102,17 @@ extension SettingsScreen {
         
     }
     
-    // MARK: - Export as Table 🛳️📜
-    private func exportAsTable(){
+    // MARK: - Export to Calendar
+    private func exportToCalendar(){
         
     }
+    
+    private func exportToReminders(){
+        
+    }
+    
+    
+    // MARK: - Export to Reminders
     
     // MARK: - Restore purchases 💰
     private func restorePurchase(){
@@ -159,10 +166,28 @@ extension SettingsScreen {
             
         }
         
+        // Export
+        if indexPath.section == 4 {
+            if indexPath.row == 0 {
+                NSLog("Export to Calendar")
+                self.exportToCalendar()
+                return
+            }
+            if indexPath.row == 1 {
+                NSLog("Export to Reminders")
+                self.exportToReminders()
+                return
+            }
+            if indexPath.row == 2 {
+                NSLog("Export as Text")
+                self.exportAsText()
+                return
+            }
+        }
         
         
         // Promotion
-        if indexPath.section == 4 {
+        if indexPath.section == 5 {
             if indexPath.row == 0 {
                 NSLog("Rate App")
                 self.rateApp()
