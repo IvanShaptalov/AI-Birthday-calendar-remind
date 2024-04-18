@@ -93,7 +93,7 @@ class DatePrinter {
         let calendar = Calendar.current
         let currentDate = calendar.startOfDay(for: Date())
         let thisYearBirthdayDate = calendar.startOfDay(for: DatePrinter.updateYear(self.date))
-        let components = DatePrinter.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
+        _ = DatePrinter.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
         
         let yearTurns = Calendar.current.component(.year, from: thisYearBirthdayDate)-Calendar.current.component(.year, from: self.date)
         return yearTurns

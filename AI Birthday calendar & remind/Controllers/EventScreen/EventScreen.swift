@@ -13,6 +13,7 @@ class BirthdaysScreen: UIViewController{
     // MARK: - Main Events Field 🌾
     var mainEvents: [MainEvent] = MainEventStorage.load() {
         didSet {
+//            oldValue
             NSLog("mainEvents > save to storage")
             mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
             // reschedule notifications
