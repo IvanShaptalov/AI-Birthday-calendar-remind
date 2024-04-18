@@ -241,3 +241,17 @@ enum WhoWish: String {
     }
 }
 
+
+// MARK: - ExportTo
+enum ExportTo: String {
+    case
+    toReminder = "to Reminder",
+    toCalendar = "to Calendar",
+    asText = "as Text",
+    asTable = "as Table",
+    copyToClipboard = "to Clipboard"
+    
+    static func all() -> [ExportTo] {
+        return [.copyToClipboard, .toCalendar, .toReminder, .asText, .asTable]
+    }
+}

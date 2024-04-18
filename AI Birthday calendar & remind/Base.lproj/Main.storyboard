@@ -76,6 +76,104 @@
             </objects>
             <point key="canvasLocation" x="-1373" y="184"/>
         </scene>
+        <!--Share Screen-->
+        <scene sceneID="CGH-jL-LWq">
+            <objects>
+                <viewController storyboardIdentifier="WordsToShareScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zmp-Ad-NB5" customClass="ShareScreen" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="emI-Ma-q58">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iv0-sB-eEk">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" changesSelectionAsPrimaryAction="YES" id="5zl-lg-Vlv">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="L5t-vj-hRa">
+                                            <rect key="frame" x="16" y="7" width="85" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <menu key="menu" id="wtd-lC-NvM">
+                                                <children>
+                                                    <command title="Item 1" id="VOj-Xh-3CN"/>
+                                                    <command title="Item 2" id="YIS-aY-mdU"/>
+                                                </children>
+                                            </menu>
+                                            <state key="normal" title="Date Format"/>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WW0-as-Wbs"/>
+                                    <barButtonItem title="Item" image="arrow.triangle.2.circlepath.circle" catalog="system" id="ab9-CP-NQO">
+                                        <connections>
+                                            <action selector="switchButtonTapped:" destination="zmp-Ad-NB5" id="QGB-2n-yhx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Wj0-RS-wxe"/>
+                                    <barButtonItem style="plain" changesSelectionAsPrimaryAction="YES" id="0lG-6r-0oh">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="IH6-Eh-uWR">
+                                            <rect key="frame" x="331" y="7" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <menu key="menu" id="jnW-pA-j70">
+                                                <menuOptions key="menuOptions" displayInline="YES" singleSelection="YES"/>
+                                                <children>
+                                                    <command title="to Reminders" id="XFU-7P-GKx"/>
+                                                    <command title="to Calendar" id="Gbw-oT-FPU"/>
+                                                    <command title="as Text File" id="ee6-sB-ZKw"/>
+                                                    <command title="as Table" id="Gi8-qx-rgh"/>
+                                                </children>
+                                            </menu>
+                                            <state key="normal" title="Export"/>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luf-qj-hvb">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gg0-Yp-eMY">
+                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <items>
+                                    <barButtonItem style="plain" id="aJl-Yz-o82">
+                                        <textField key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter divider" textAlignment="natural" minimumFontSize="17" id="sdE-LM-T1g">
+                                            <rect key="frame" x="16" y="10" width="361" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dgb-B4-vci"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gg0-Yp-eMY" firstAttribute="leading" secondItem="Dgb-B4-vci" secondAttribute="leading" id="4Vd-cD-7Pj"/>
+                            <constraint firstItem="Gg0-Yp-eMY" firstAttribute="top" secondItem="luf-qj-hvb" secondAttribute="bottom" id="6Ks-84-u3G"/>
+                            <constraint firstItem="iv0-sB-eEk" firstAttribute="leading" secondItem="Dgb-B4-vci" secondAttribute="leading" id="GxD-oj-dYv"/>
+                            <constraint firstItem="luf-qj-hvb" firstAttribute="top" secondItem="iv0-sB-eEk" secondAttribute="bottom" id="K2B-wo-fb0"/>
+                            <constraint firstItem="iv0-sB-eEk" firstAttribute="top" secondItem="Dgb-B4-vci" secondAttribute="top" id="Tk0-xW-CpN"/>
+                            <constraint firstItem="luf-qj-hvb" firstAttribute="leading" secondItem="Dgb-B4-vci" secondAttribute="leading" id="fRR-sA-g8c"/>
+                            <constraint firstItem="Gg0-Yp-eMY" firstAttribute="bottom" secondItem="Dgb-B4-vci" secondAttribute="bottom" id="itl-dv-057"/>
+                            <constraint firstItem="Dgb-B4-vci" firstAttribute="trailing" secondItem="luf-qj-hvb" secondAttribute="trailing" id="qte-xQ-MUB"/>
+                            <constraint firstAttribute="trailing" secondItem="Gg0-Yp-eMY" secondAttribute="trailing" id="s88-8L-dpu"/>
+                            <constraint firstItem="iv0-sB-eEk" firstAttribute="trailing" secondItem="Dgb-B4-vci" secondAttribute="trailing" id="unS-Dc-izM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dropdownButtonExport" destination="IH6-Eh-uWR" id="THt-bf-IGH"/>
+                        <outlet property="dropdownButtonFormat" destination="L5t-vj-hRa" id="zkU-o4-p7M"/>
+                        <outlet property="formattedEventsView" destination="luf-qj-hvb" id="ovt-fa-uwJ"/>
+                        <outlet property="switchButton" destination="ab9-CP-NQO" id="Sk0-P7-jIP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HMw-ro-m5g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2057.2519083969464" y="926.76056338028172"/>
+        </scene>
         <!--Add events-->
         <scene sceneID="Vxm-ZD-WN3">
             <objects>
@@ -253,49 +351,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Export" id="NGm-YD-9hI">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="cOH-sM-nql">
-                                        <rect key="frame" x="0.0" y="458" width="393" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cOH-sM-nql" id="pOG-FJ-mRe">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
-                                        <listContentConfiguration key="contentConfiguration" text="to Calendar" secondaryText="" imageToTextPadding="5">
-                                            <imageReference key="image" image="calendar.circle.fill" catalog="system" symbolScale="large"/>
-                                        </listContentConfiguration>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="OQX-As-4Zy">
-                                        <rect key="frame" x="0.0" y="502" width="393" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OQX-As-4Zy" id="yLf-Jt-D76">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
-                                        <listContentConfiguration key="contentConfiguration" text="to Reminders" secondaryText="" image="list.bullet.circle.fill" catalog="system" imageToTextPadding="5"/>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="zWp-kM-Lcp">
-                                        <rect key="frame" x="0.0" y="546" width="393" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zWp-kM-Lcp" id="gXm-qb-9ij">
-                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="tableBackgroundColor"/>
-                                        <listContentConfiguration key="contentConfiguration" text="as Text" secondaryText="" image="square.and.arrow.up.circle.fill" catalog="system" imageToTextPadding="5"/>
-                                        <connections>
-                                            <segue destination="42c-y6-cDz" kind="presentation" id="FnK-6O-uqK"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Promotion" id="2q3-gk-nJz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="LA8-yR-eH0">
-                                        <rect key="frame" x="0.0" y="646" width="393" height="44"/>
+                                        <rect key="frame" x="0.0" y="458" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LA8-yR-eH0" id="mUI-yH-hss">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
@@ -307,7 +366,7 @@
                                         </listContentConfiguration>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="6vp-Ua-req">
-                                        <rect key="frame" x="0.0" y="690" width="393" height="44"/>
+                                        <rect key="frame" x="0.0" y="502" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6vp-Ua-req" id="v4C-zs-kfm">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
@@ -317,7 +376,7 @@
                                         <listContentConfiguration key="contentConfiguration" text="Contact Us" secondaryText="" image="message.circle.fill" catalog="system" imageToTextPadding="5"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="Kjl-BQ-9eT">
-                                        <rect key="frame" x="0.0" y="734" width="393" height="44"/>
+                                        <rect key="frame" x="0.0" y="546" width="393" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kjl-BQ-9eT" id="85P-Yn-Zi0">
                                             <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="44"/>
@@ -727,21 +786,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijc-Nr-8Wc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="948.85496183206101" y="1695.7746478873241"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="11c-Yr-8pB">
-            <objects>
-                <viewController id="42c-y6-cDz" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hV3-OB-lq9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="pzM-IO-1gT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KQQ-uq-Kz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1850" y="1696"/>
         </scene>
         <!--Help Page-->
         <scene sceneID="qF6-1b-Bgn">
@@ -1163,6 +1207,7 @@ Apr 17, 2002 00:00:00 - Isabella
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.triangle.2.circlepath.circle" catalog="system" width="128" height="123"/>
         <image name="bell.badge.circle.fill" catalog="system" width="128" height="123"/>
         <image name="bolt.circle.fill" catalog="system" width="128" height="123"/>
         <image name="calendar.circle.fill" catalog="system" width="128" height="123"/>
@@ -1173,7 +1218,6 @@ Apr 17, 2002 00:00:00 - Isabella
         <image name="gift" catalog="system" width="128" height="125"/>
         <image name="hand.raised.circle.fill" catalog="system" width="128" height="123"/>
         <image name="link.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="list.bullet.circle.fill" catalog="system" width="128" height="123"/>
         <image name="message.circle.fill" catalog="system" width="128" height="123"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="pencil.circle" catalog="system" width="128" height="123"/>
@@ -1181,7 +1225,6 @@ Apr 17, 2002 00:00:00 - Isabella
         <image name="questionmark.circle" catalog="system" width="128" height="123"/>
         <image name="sparkles" catalog="system" width="115" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
-        <image name="square.and.arrow.up.circle.fill" catalog="system" width="128" height="123"/>
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
         <image name="wand.and.rays" catalog="system" width="128" height="123"/>
         <image name="wand.and.rays.inverse" catalog="system" width="128" height="123"/>

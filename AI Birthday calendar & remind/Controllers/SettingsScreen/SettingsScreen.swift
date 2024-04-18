@@ -165,26 +165,7 @@ extension SettingsScreen {
             }
             
         }
-        
-        // Export
-        if indexPath.section == 4 {
-            if indexPath.row == 0 {
-                NSLog("Export to Calendar")
-                self.exportToCalendar()
-                return
-            }
-            if indexPath.row == 1 {
-                NSLog("Export to Reminders")
-                self.exportToReminders()
-                return
-            }
-            if indexPath.row == 2 {
-                NSLog("Export as Text")
-                self.exportAsText()
-                return
-            }
-        }
-        
+               
         
         // Promotion
         if indexPath.section == 5 {

@@ -59,6 +59,7 @@
 		8D5B17722B9F09F000D6B578 /* RevenueCatProductProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B17712B9F09F000D6B578 /* RevenueCatProductProvider.swift */; };
 		8D5B17752B9F0A3C00D6B578 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B17732B9F0A3C00D6B578 /* SubscriptionCell.swift */; };
 		8D5B17762B9F0A3C00D6B578 /* SubscriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B17742B9F0A3C00D6B578 /* SubscriptionCell.xib */; };
+		8D5E5F452BD1422D001C1351 /* ShareScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E5F442BD1422D001C1351 /* ShareScreen.swift */; };
 		8D6527122BB5DD4100A68C3E /* TutorialProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6527112BB5DD4100A68C3E /* TutorialProvider.swift */; };
 		8D7543272B976F8C00D53B65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */; };
 		8D7823832B8397D600E63423 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823822B8397D600E63423 /* Enumerations.swift */; };
@@ -89,6 +90,7 @@
 		8D7E1C1B2BBDDE14005BBA78 /* ManualImportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */; };
 		8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9397D52B88BF2C00040031 /* EditEventScreen.swift */; };
 		8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
+		8DC12C552BD1651D00FEAF76 /* DropdownButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC12C542BD1651D00FEAF76 /* DropdownButtons.swift */; };
 		8DDCB8042BAF76530091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
 		8DDCB8052BAF78B80091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
 		8DEC77832BBE880F006190B2 /* HelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC77822BBE880F006190B2 /* HelpPage.swift */; };
@@ -156,6 +158,7 @@
 		8D5B17712B9F09F000D6B578 /* RevenueCatProductProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevenueCatProductProvider.swift; sourceTree = "<group>"; };
 		8D5B17732B9F0A3C00D6B578 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		8D5B17742B9F0A3C00D6B578 /* SubscriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscriptionCell.xib; sourceTree = "<group>"; };
+		8D5E5F442BD1422D001C1351 /* ShareScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareScreen.swift; sourceTree = "<group>"; };
 		8D6527112BB5DD4100A68C3E /* TutorialProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialProvider.swift; sourceTree = "<group>"; };
 		8D7543262B976F8C00D53B65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "AI Birthday calendar & remind/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8D7823822B8397D600E63423 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
@@ -174,6 +177,7 @@
 		8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualImportScreen.swift; sourceTree = "<group>"; };
 		8D9397D52B88BF2C00040031 /* EditEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventScreen.swift; sourceTree = "<group>"; };
 		8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventRuleUpdater.swift; sourceTree = "<group>"; };
+		8DC12C542BD1651D00FEAF76 /* DropdownButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButtons.swift; sourceTree = "<group>"; };
 		8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSeasonController.swift; sourceTree = "<group>"; };
 		8DEC77822BBE880F006190B2 /* HelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -318,6 +322,7 @@
 		8D1242622B7D28C900ED016E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D5E5F432BD1421D001C1351 /* ShareScreen */,
 				8D7E1C192BBDDDEE005BBA78 /* ManualImport */,
 				8D5B176E2B9F094A00D6B578 /* Paywall */,
 				8D79D36D2B99BD690074F238 /* WishCreator */,
@@ -338,6 +343,7 @@
 				8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */,
 				8D0777212B9F805A0049AAFA /* SubscriptionProposer.swift */,
 				8D6527112BB5DD4100A68C3E /* TutorialProvider.swift */,
+				8DC12C542BD1651D00FEAF76 /* DropdownButtons.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -393,6 +399,14 @@
 				8D5B17742B9F0A3C00D6B578 /* SubscriptionCell.xib */,
 			);
 			path = Paywall;
+			sourceTree = "<group>";
+		};
+		8D5E5F432BD1421D001C1351 /* ShareScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8D5E5F442BD1422D001C1351 /* ShareScreen.swift */,
+			);
+			path = ShareScreen;
 			sourceTree = "<group>";
 		};
 		8D7823912B8623C700E63423 /* Configuration */ = {
@@ -688,6 +702,7 @@
 				8D5B17722B9F09F000D6B578 /* RevenueCatProductProvider.swift in Sources */,
 				8D7823962B8623EB00E63423 /* AppConfiguration.swift in Sources */,
 				8D7823A22B86281F00E63423 /* TextFileImport.swift in Sources */,
+				8DC12C552BD1651D00FEAF76 /* DropdownButtons.swift in Sources */,
 				8DDCB8042BAF76530091C6BA /* EventSeasonController.swift in Sources */,
 				8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D78239F2B86280E00E63423 /* ContactImport.swift in Sources */,
@@ -698,6 +713,7 @@
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,
 				8D5B17752B9F0A3C00D6B578 /* SubscriptionCell.swift in Sources */,
+				8D5E5F452BD1422D001C1351 /* ShareScreen.swift in Sources */,
 				8D0777252BA1C7710049AAFA /* EventsProvider.swift in Sources */,
 				8D09EC952B8DF8B800A10437 /* PermissionProvider.swift in Sources */,
 				8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */,

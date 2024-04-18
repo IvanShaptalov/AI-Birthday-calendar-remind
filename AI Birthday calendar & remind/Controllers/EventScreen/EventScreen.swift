@@ -217,17 +217,34 @@ extension BirthdaysScreen {
     // MARK: - SetUp
     func setUpToolbarItemsWhileEditing() -> [UIBarButtonItem]{
         let flex = UIBarButtonItem.flexibleSpace()
+        let fixedFlex = UIBarButtonItem.fixedSpace(10)
         let selectAll = UIBarButtonItem(image: UIImage(systemName: "checklist")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(selectAllItems))
         
         let deleteButton = UIBarButtonItem(image: .init(systemName: "trash")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(removeSelectedItems))
         
+        let shareButton = UIBarButtonItem(image: .init(systemName: "square.and.arrow.up")?.withTintColor(.systemIndigo,renderingMode: .alwaysOriginal), style: .plain, target: self, action: #selector(shareSelected))
+        
         let done = UIBarButtonItem(image: UIImage(systemName: "checkmark.circle")?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(setUpEditingDone))
-        return [done, deleteButton,flex, selectAll]
+        return [done,fixedFlex, deleteButton,flex, shareButton, fixedFlex, selectAll]
     }
     
     @objc func setUpEditingDone() {
         self.upToolbar.setItems(toolbarItemsDefault, animated: true)
         self.tableEvents.setEditing(false, animated: true)
+    }
+    
+    @objc func shareSelected() {
+        let selectedIndexes = self.tableEvents.indexPathsForSelectedRows
+        
+        if (selectedIndexes == nil || selectedIndexes!.isEmpty)  {
+            let alertController = UIAlertController(title: "No selection", message: "Select some events to delete", preferredStyle: .alert)
+            
+            alertController.addAction(.init(title: "Ok", style: .cancel))
+            self.present(alertController, animated: true)
+            
+        } else {
+            self.shareSelectedWords(selectedWordsIndexes: selectedIndexes?.map({$0.item}) ?? [])
+        }
     }
     
     private func setUpButtonsToEditing(){
@@ -283,13 +300,25 @@ extension BirthdaysScreen {
         }
     }
     
-    // MARK: - Function 🤖
+    // MARK: - Function for bulk actions 🤖
     private func removeSelectedWords(selectedWords: [Int]) {
         self.mainEvents = self.mainEvents
             .enumerated()
             .filter { !selectedWords.contains($0.offset) }
             .map { $0.element }
         self.tableEvents.reloadData()
+        
+    }
+    
+    private func shareSelectedWords(selectedWordsIndexes: [Int]) {
+        
+        let wordsToShare = self.mainEvents.enumerated().filter {selectedWordsIndexes.contains($0.offset)}.map{$0.element}
+        
+        let shareScreen = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "WordsToShareScreen") as! ShareScreen
+        
+        shareScreen.events = wordsToShare
+        
+        self.present(shareScreen, animated: true)
         
     }
 }
