@@ -168,12 +168,50 @@ class ShareScreen: UIViewController {
         }
     }
     
+    // MARK: - export to reminders 🚛⏰
     private func toReminders(){
+        PermissionProvider.registerForReminders(completion: {denied, status in
+            if denied {
+                NSLog("⏰🪓 reminder status: \(status)")
+                
+                let alertController = UIAlertController(title: "Enable ⏰ Reminders", message: "Go to settings & privacy to re-enable AI Birthday Calendar Reminders", preferredStyle: .alert)
+                
+                alertController.addAction(.init(title: "OK", style: .default))
+                
+                self.present(alertController, animated: true)
+                
+            } else {
+                NSLog("⏰ reminders: ✅ \(status)")
+            }
+            
+        })
         
+        if PermissionProvider.checkCalendarAccess(forType: .reminder) {
+            ReminderEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export()
+        }
     }
     
+    // MARK: - export to calendar 🚛📅
     private func toCalendar(){
+        PermissionProvider.registerForEvents(completion: {denied, status in
+            if denied {
+                NSLog("📅🪓 event status: \(status)")
+                
+                let alertController = UIAlertController(title: "Provide 📆 Calendar Full Access", message: "Go to settings & privacy to re-enable AI Birthday Calendar Full Access", preferredStyle: .alert)
+                
+                alertController.addAction(.init(title: "OK", style: .default))
+                
+                self.present(alertController, animated: true)
+            } else {
+                NSLog("📆 events: ✅ \(status)")
+            }
+        })
+        
+        if PermissionProvider.checkCalendarAccess(forType: .event) {
+            CalendarEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export()
+        }
         
     }
   
 }
+

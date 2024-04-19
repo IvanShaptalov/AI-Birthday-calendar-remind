@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-
+// MARK: - Base Exporter
 class EventExporter {
     var formattedText: String
     var events: [MainEvent]
@@ -20,6 +20,7 @@ class EventExporter {
     }
 }
 
+// MARK: - Table
 class TableEventExporter: EventExporter {
     func export(isTitleFirst: Bool, formatter: DateFormatter) -> URL? {
         // Define your data
@@ -62,12 +63,14 @@ class TableEventExporter: EventExporter {
     }
 }
 
+// MARK: - ClipBoard
 class ClipBoardEventExporter: EventExporter {
     func export() {
         UIPasteboard.general.string = self.formattedText
     }
 }
 
+// MARK: - Text
 class TextFileEventExporter: EventExporter {
     func export() -> URL? {
         let data = Data(self.formattedText.utf8)
@@ -86,12 +89,18 @@ class TextFileEventExporter: EventExporter {
     }
 }
 
+// MARK: - Calendar
 class CalendarEventExporter: EventExporter {
-    
+    func export(){
+        
+    }
 }
 
-class ReminderExporter: EventExporter {
-    
+// MARK: - Reminder
+class ReminderEventExporter: EventExporter {
+    func export(){
+        
+    }
 }
 
 
