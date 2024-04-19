@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class DaysBeforePulldownButton {
+class DaysBeforePopupButton {
     static public func setUpDaysBefore(button: inout UIButton, menuClosure: @escaping (UIAction) -> () = {(action: UIAction) in }) {
         
         var children: [UIAction] = []
@@ -34,7 +34,7 @@ class DaysBeforePulldownButton {
 }
 
 
-class WhoWishPulldownButton {
+class WhoWishPopupButton {
     static public func setWhoWish(button: inout UIButton, values: [WhoWish], menuClosure: @escaping (UIAction) -> () = {(action: UIAction) in }) {
         
         var children: [UIAction] = []
@@ -49,7 +49,7 @@ class WhoWishPulldownButton {
 }
 
 
-class MessageStylePulldownButton {
+class MessageStylePopupButton {
     static public func setWhoWish(button: inout UIButton, menuClosure: @escaping (UIAction) -> () = {(action: UIAction) in }) {
         
         var children: [UIAction] = []

@@ -154,7 +154,7 @@ class BaseDateRetriever {
         let formatter = DateFormatter()
         var date: Date?
         
-        for format in formats {
+        for format in DATE_FORMATS {
             formatter.dateFormat = format
             date = formatter.date(from: rawDate)
             
@@ -167,51 +167,3 @@ class BaseDateRetriever {
     }
 }
 
-// MARK: - Format List
-
-let formats = [
-    "dd.MM.yyyy",           // Example: 17.04.2002
-    "yyyy-MM-dd",           // Example: 2002-04-17
-    "MM/dd/yyyy",           // Example: 04/17/2002
-    "dd/MM/yyyy",           // Example: 17/04/2002
-    "MM-dd-yyyy",           // Example: 04-17-2002
-    "yyyy/MM/dd",           // Example: 2002/04/17
-    "dd MMM yyyy",          // Example: 17 Apr 2002
-    "MMM dd, yyyy",         // Example: Apr 17, 2002
-    "yyyy/MMM/dd",          // Example: 2002/Apr/17
-    "dd-MM-yyyy",           // Example: 17-04-2002
-    "yyyy.MM.dd",           // Example: 2002.04.17
-    "dd/MMM/yyyy",          // Example: 17 Apr 2002
-    "MMM-dd-yyyy",          // Example: Apr-17-2002
-    "yyyy MMM dd",          // Example: 2002 Apr 17
-    "dd/MM/yyyy HH:mm:ss",  // Example: 17/04/2002 00:00:00
-    "MM/dd/yyyy HH:mm:ss",  // Example: 04/17/2002 00:00:00
-    "yyyy-MM-dd HH:mm:ss",  // Example: 2002-04-17 00:00:00
-    "dd.MM.yyyy HH:mm:ss",  // Example: 17.04.2002 00:00:00
-    "MMM dd, yyyy HH:mm:ss",// Example: Apr 17, 2002 00:00:00
-    "yyyy/MMM/dd HH:mm:ss"  // Example: 2002/Apr/17 00:00:00
-]
-
-
-
-//
-//"17.04.2002"
-//"2002-04-17"
-//"04/17/2002"
-//"17/04/2002"
-//"04-17-2002"
-//"2002/04/17"
-//"17 Apr 2002"
-//"Apr 17, 2002"
-//"2002/Apr/17"
-//"17-04-2002"
-//"2002.04.17"
-//"17 Apr 2002"
-//"Apr-17-2002"
-//"2002 Apr 17"
-//"17/04/2002 00:00:00"
-//"04/17/2002 00:00:00"
-//"2002-04-17 00:00:00"
-//"17.04.2002 00:00:00"
-//"Apr 17, 2002 00:00:00"
-//"2002/Apr/17 00:00:00"

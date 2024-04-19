@@ -41,7 +41,7 @@ class NotificationSettingsScreen: UITableViewController {
     }
     
     private func setUpPulldownNotificateBefore(){
-        DaysBeforePulldownButton.setUpDaysBefore(button: &daysBeforeBirthdayAndAnniversary, menuClosure: {action in
+        DaysBeforePopupButton.setUpDaysBefore(button: &daysBeforeBirthdayAndAnniversary, menuClosure: {action in
             NSLog("birthday: selected \(action.title)")
             AppConfiguration.notificateBeforeInDays = NotificateBeforeEnum(rawValue: action.title.lowercased()) ?? .none
             
