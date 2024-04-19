@@ -26,7 +26,7 @@ class ShareScreen: UIViewController {
     
     var selectedFormat = "dd/MM/yyyy"
 
-    var switcher = false
+    var switcherIsTitleFirst = false
 
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class ShareScreen: UIViewController {
     
     // MARK: - switch Button clicked
     @IBAction func switchButtonTapped(_ sender: UIBarButtonItem) {
-        switcher = !switcher
+        switcherIsTitleFirst = !switcherIsTitleFirst
         self.convertEvents()
     }
     
@@ -123,7 +123,7 @@ class ShareScreen: UIViewController {
         // initially set the format based on your datepicker date / server String
         formatter.dateFormat = selectedFormat
         
-        if switcher {
+        if switcherIsTitleFirst {
             formattedEvents = events.map { "\($0.title) \(separator) \(formatter.string(from: $0.eventDate))" }
         } else {
             formattedEvents = events.map {
@@ -158,10 +158,14 @@ class ShareScreen: UIViewController {
     }
     
     private func toTable(){
-//        if let tableURL = TableEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export() {
-//            FileSharing.share(viewController: self, fileURL: fileURL)
-//
-//        }
+        let formatter = DateFormatter()
+        // initially set the format based on your datepicker date / server String
+        formatter.dateFormat = selectedFormat
+        
+        if let tableURL = TableEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(isTitleFirst: self.switcherIsTitleFirst, formatter: formatter) {
+            FileSharing.share(viewController: self, fileURL: tableURL)
+
+        }
     }
     
     private func toReminders(){

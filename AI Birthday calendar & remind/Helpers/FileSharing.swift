@@ -27,4 +27,19 @@ class FileSharing {
         // Show the share-view
         viewController.present(activityViewController, animated: true, completion: nil)
     }
+    
+    static func getDocumentsDirectory(fileName: String) -> URL? {
+        var url: URL?
+        if #available(iOS 16.0, *) {
+            url = URL.documentsDirectory.appending(path: fileName)
+            
+            
+        } else {
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            url = paths.first
+            
+            url = url?.appendingPathComponent(fileName, isDirectory: false)
+        }
+        return url
+    }
 }
