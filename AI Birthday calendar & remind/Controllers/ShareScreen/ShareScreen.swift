@@ -73,7 +73,7 @@ class ShareScreen: UIViewController {
         })
     }
     
-    private func setUpExportMenu(){
+    func setUpExportMenu(){
         let optionsClosure = {(action: UIAction) in
             guard let actEnum = ExportTo(rawValue: action.title) else {
                 return
@@ -97,16 +97,12 @@ class ShareScreen: UIViewController {
         }
         var children : [UIAction] = []
         
-        for exportEnum in ExportTo.all() {
-            children.append(UIAction(title: exportEnum.rawValue, handler: optionsClosure))
+        for (index, exportEnum) in ExportTo.all().enumerated() {
+            children.append(UIAction(title: exportEnum.rawValue, image: !MonetizationConfiguration.isPremiumAccount && index != 0 ? UIImage(systemName: "lock") : nil, handler: optionsClosure))
         }
                 
         self.dropdownButtonExport.menu = UIMenu(children: children)
     }
-    
-    
-    
-    
     
     // MARK: - setup formatted event as text
     private func convertEvents(){
@@ -151,66 +147,91 @@ class ShareScreen: UIViewController {
     }
     
     private func toText(){
-        if let fileURL = TextFileEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export() {
-             
-            FileSharing.share(viewController: self, fileURL: fileURL)
+        if MonetizationConfiguration.isPremiumAccount {
+            if let fileURL = TextFileEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export() {
+                 
+                FileSharing.share(viewController: self, fileURL: fileURL)
+            }
+        } else {
+            SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
         }
+        
     }
     
     private func toTable(){
-        let formatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
-        formatter.dateFormat = selectedFormat
-        
-        if let tableURL = TableEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(isTitleFirst: self.switcherIsTitleFirst, formatter: formatter) {
-            FileSharing.share(viewController: self, fileURL: tableURL)
+        if MonetizationConfiguration.isPremiumAccount {
+            let formatter = DateFormatter()
+            // initially set the format based on your datepicker date / server String
+            formatter.dateFormat = selectedFormat
+            
+            if let tableURL = TableEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(isTitleFirst: self.switcherIsTitleFirst, formatter: formatter) {
+                FileSharing.share(viewController: self, fileURL: tableURL)
 
+            }
+        } else {
+            SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
         }
     }
     
     // MARK: - export to reminders 🚛⏰
     private func toReminders(){
-        PermissionProvider.registerForReminders(completion: {denied, status in
-            if denied {
-                NSLog("⏰🪓 reminder status: \(status)")
+        if MonetizationConfiguration.isPremiumAccount {
+            PermissionProvider.registerForReminders(completion: {denied, status in
+                if denied {
+                    NSLog("⏰🪓 reminder status: \(status)")
+                    
+                    let alertController = UIAlertController(title: "Enable ⏰ Reminders", message: "Go to settings & privacy to re-enable AI Birthday Calendar Reminders", preferredStyle: .alert)
+                    
+                    alertController.addAction(.init(title: "OK", style: .default))
+                    
+                    self.present(alertController, animated: true)
+                    
+                } else {
+                    NSLog("⏰ reminders: ✅ \(status)")
+                }
                 
-                let alertController = UIAlertController(title: "Enable ⏰ Reminders", message: "Go to settings & privacy to re-enable AI Birthday Calendar Reminders", preferredStyle: .alert)
-                
-                alertController.addAction(.init(title: "OK", style: .default))
-                
-                self.present(alertController, animated: true)
-                
-            } else {
-                NSLog("⏰ reminders: ✅ \(status)")
-            }
+            })
             
-        })
-        
-        if PermissionProvider.checkCalendarAccess(forType: .reminder) {
-            ReminderEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export()
+            if PermissionProvider.checkCalendarAccess(forType: .reminder) {
+                ReminderEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(statusCallback: {status, isOk in
+                    let title = isOk ? "✅" : "❌"
+                    let alertC = UIAlertController(title: title, message: status, preferredStyle: .alert)
+                    
+                    alertC.addAction(.init(title: "OK", style: .default))
+                    
+                    DispatchQueue.main.async{
+                        self.present(alertC, animated: true)
+                    }
+                })
+            }
+        } else {
+            SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
         }
     }
     
     // MARK: - export to calendar 🚛📅
     private func toCalendar(){
-        PermissionProvider.registerForEvents(completion: {denied, status in
-            if denied {
-                NSLog("📅🪓 event status: \(status)")
-                
-                let alertController = UIAlertController(title: "Provide 📆 Calendar Full Access", message: "Go to settings & privacy to re-enable AI Birthday Calendar Full Access", preferredStyle: .alert)
-                
-                alertController.addAction(.init(title: "OK", style: .default))
-                
-                self.present(alertController, animated: true)
-            } else {
-                NSLog("📆 events: ✅ \(status)")
+        if !MonetizationConfiguration.isPremiumAccount {
+            PermissionProvider.registerForEvents(completion: {denied, status in
+                if denied {
+                    NSLog("📅🪓 event status: \(status)")
+                    
+                    let alertController = UIAlertController(title: "Provide 📆 Calendar Full Access", message: "Go to settings & privacy to re-enable AI Birthday Calendar Full Access", preferredStyle: .alert)
+                    
+                    alertController.addAction(.init(title: "OK", style: .default))
+                    
+                    self.present(alertController, animated: true)
+                } else {
+                    NSLog("📆 events: ✅ \(status)")
+                }
+            })
+            
+            if PermissionProvider.checkCalendarAccess(forType: .event) {
+                CalendarEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export()
             }
-        })
-        
-        if PermissionProvider.checkCalendarAccess(forType: .event) {
-            CalendarEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export()
+        } else {
+            SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)
         }
-        
     }
   
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import EventKit
 
 // MARK: - Base Exporter
 class EventExporter {
@@ -42,16 +43,16 @@ class TableEventExporter: EventExporter {
             }
         }
         
-
+        
         // Prepare CSV content
         var csvString = headers.joined(separator: ",") + "\n"
         for row in rows {
             let rowString = row.map { $0.replacingOccurrences(of: ",", with: "") }.joined(separator: ",")
             csvString.append(rowString + "\n")
         }
-
-        let url = FileSharing.getDocumentsDirectory(fileName: "birthdays.csv")
-                
+        
+        let url = FileSharing.getDocumentsDirectory(fileName: "birthdays in table.csv")
+        
         do {
             try csvString.write(to: url!, atomically: true, encoding: .utf8)
             print("CSV file created successfully.")
@@ -75,8 +76,8 @@ class TextFileEventExporter: EventExporter {
     func export() -> URL? {
         let data = Data(self.formattedText.utf8)
         
-        let url = FileSharing.getDocumentsDirectory(fileName: "birthdays.txt")
-                
+        let url = FileSharing.getDocumentsDirectory(fileName: "birthdays in text.txt")
+        
         do {
             try data.write(to: url!, options: [.atomic, .completeFileProtection])
             let input = try String(contentsOf: url!)
@@ -91,14 +92,48 @@ class TextFileEventExporter: EventExporter {
 
 // MARK: - Calendar
 class CalendarEventExporter: EventExporter {
-    func export(){
+    func export(){      
         
     }
 }
 
 // MARK: - Reminder
 class ReminderEventExporter: EventExporter {
-    func export(){
+    func export(statusCallback: @escaping(String, Bool) -> Void){
+        NSLog("⏰ 📆 export reminders")
+        
+        let eventStore = EKEventStore()
+        
+        eventStore.requestAccess(to: EKEntityType.reminder, completion: {
+            granted, error in
+            if (granted) && (error == nil) {
+                print("granted \(granted)")
+            var reminders: [EKReminder] = []
+                for event in self.events {
+                    let reminder:EKReminder = EKReminder(eventStore: eventStore)
+                    reminder.title = event.title
+                    reminder.priority = 2
+                    
+                    let alarmTime = event.eventDate
+                    let alarm = EKAlarm(absoluteDate: alarmTime)
+                    reminder.addAlarm(alarm)
+                    
+                    reminder.calendar = eventStore.defaultCalendarForNewReminders()
+                    
+                    reminders.append(reminder)
+                    
+                }
+                                
+                do {
+                    try reminders.forEach({try eventStore.save($0, commit: true)})
+                } catch {
+                    statusCallback("Cannot export", false)
+                    return
+                }
+                statusCallback("Reminders exported", true)
+            }
+        })
+        
         
     }
 }

@@ -20,6 +20,10 @@ class SubscriptionProposer {
                 (viewController as! BirthdaysScreen).setUpPremiumBadge()
             }}
             
+            paywall.updateDelegate = { if viewController is ShareScreen {
+                (viewController as! ShareScreen).setUpExportMenu()
+            }}
+            
             viewController.present(paywall, animated: true)
            
             // to show this page only one time

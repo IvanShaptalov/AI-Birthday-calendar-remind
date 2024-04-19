@@ -21,11 +21,9 @@ class PaywallController: UIViewController{
     
     var updateDelegate: (() -> Void)?
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        super.viewWillDisappear(true)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         self.updateDelegate?()
-        
     }
     
     var subs: [SubscriptionObj] = RevenueCatProductsProvider.subscriptionList
