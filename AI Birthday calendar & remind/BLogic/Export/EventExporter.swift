@@ -31,6 +31,8 @@ class TableEventExporter: EventExporter {
         
         var rows: [[String]] = []
         
+        events.sort(by: {$0.eventDate > $1.eventDate})
+        
         for event in self.events {
             if isTitleFirst {
                 rows.append([event.title, formatter.string(from: event.eventDate)])
