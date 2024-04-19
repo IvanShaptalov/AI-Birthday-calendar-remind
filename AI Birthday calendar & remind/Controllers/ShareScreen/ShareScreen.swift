@@ -158,7 +158,10 @@ class ShareScreen: UIViewController {
     }
     
     private func toTable(){
-        
+//        if let tableURL = TableEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export() {
+//            FileSharing.share(viewController: self, fileURL: fileURL)
+//
+//        }
     }
     
     private func toReminders(){

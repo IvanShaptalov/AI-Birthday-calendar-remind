@@ -21,7 +21,9 @@ class EventExporter {
 }
 
 class TableEventExporter: EventExporter {
-    
+    func export() {
+        
+    }
 }
 
 class ClipBoardEventExporter: EventExporter {
@@ -33,23 +35,29 @@ class ClipBoardEventExporter: EventExporter {
 class TextFileEventExporter: EventExporter {
     func export() -> URL? {
         let data = Data(self.formattedText.utf8)
+        
+        var url: URL?
+        
         if #available(iOS 16.0, *) {
-            let url = URL.documentsDirectory.appending(path: "\(Date.now.timeIntervalSince1970)events.txt")
+            url = URL.documentsDirectory.appending(path: "\(Date.now.timeIntervalSince1970)events.txt")
             
-            do {
-                try data.write(to: url, options: [.atomic, .completeFileProtection])
-                let input = try String(contentsOf: url)
-                print(input)
-            } catch {
-                print(error.localizedDescription)
-            }
             
-            return url
         } else {
-            // Fallback on earlier versions
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            url = paths.first
+            
+            url = url?.appendingPathComponent("\(Date.now.timeIntervalSince1970)events.txt", isDirectory: false)
         }
         
-        return nil
+        do {
+            try data.write(to: url!, options: [.atomic, .completeFileProtection])
+            let input = try String(contentsOf: url!)
+            print(input)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return url
     }
 }
 
