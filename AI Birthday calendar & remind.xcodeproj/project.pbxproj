@@ -90,6 +90,7 @@
 		8D7E1C1B2BBDDE14005BBA78 /* ManualImportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */; };
 		8D85CD5E2BD271C3001C0C05 /* PulldownButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85CD5D2BD271C3001C0C05 /* PulldownButtons.swift */; };
 		8D85CD612BD27E49001C0C05 /* EventExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85CD602BD27E49001C0C05 /* EventExporter.swift */; };
+		8D85CD632BD28EDF001C0C05 /* FileSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85CD622BD28EDF001C0C05 /* FileSharing.swift */; };
 		8D9397D62B88BF2C00040031 /* EditEventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9397D52B88BF2C00040031 /* EditEventScreen.swift */; };
 		8DBEB6AC2B8F713600480462 /* MainEventRuleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */; };
 		8DC12C552BD1651D00FEAF76 /* DropdownButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC12C542BD1651D00FEAF76 /* DropdownButtons.swift */; };
@@ -179,6 +180,7 @@
 		8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualImportScreen.swift; sourceTree = "<group>"; };
 		8D85CD5D2BD271C3001C0C05 /* PulldownButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulldownButtons.swift; sourceTree = "<group>"; };
 		8D85CD602BD27E49001C0C05 /* EventExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExporter.swift; sourceTree = "<group>"; };
+		8D85CD622BD28EDF001C0C05 /* FileSharing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSharing.swift; sourceTree = "<group>"; };
 		8D9397D52B88BF2C00040031 /* EditEventScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventScreen.swift; sourceTree = "<group>"; };
 		8DBEB6AB2B8F713600480462 /* MainEventRuleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventRuleUpdater.swift; sourceTree = "<group>"; };
 		8DC12C542BD1651D00FEAF76 /* DropdownButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButtons.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				8D0777212B9F805A0049AAFA /* SubscriptionProposer.swift */,
 				8D6527112BB5DD4100A68C3E /* TutorialProvider.swift */,
 				8DC12C542BD1651D00FEAF76 /* DropdownButtons.swift */,
+				8D85CD622BD28EDF001C0C05 /* FileSharing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 				8D78238F2B84B13A00E63423 /* JsonCoders.swift in Sources */,
 				8D7823B42B863C5100E63423 /* EventCell.swift in Sources */,
 				8D57AF632B9764A8006790A6 /* Analytics Manager.swift in Sources */,
+				8D85CD632BD28EDF001C0C05 /* FileSharing.swift in Sources */,
 				8D0777222B9F805A0049AAFA /* SubscriptionProposer.swift in Sources */,
 				8D7823832B8397D600E63423 /* Enumerations.swift in Sources */,
 				8D7823B02B863C3800E63423 /* EventScreen.swift in Sources */,

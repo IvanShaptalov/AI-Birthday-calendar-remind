@@ -151,7 +151,10 @@ class ShareScreen: UIViewController {
     }
     
     private func toText(){
-        
+        if let fileURL = TextFileEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export() {
+             
+            FileSharing.share(viewController: self, fileURL: fileURL)
+        }
     }
     
     private func toTable(){

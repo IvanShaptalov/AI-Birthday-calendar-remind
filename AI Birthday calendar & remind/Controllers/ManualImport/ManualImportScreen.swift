@@ -159,9 +159,6 @@ extension UITextView {
         let lines = text.components(separatedBy: "\n")
         let line = lines[lineIndex]
         
-        
-        
-        
         var location = 0
         
         for l in lines {

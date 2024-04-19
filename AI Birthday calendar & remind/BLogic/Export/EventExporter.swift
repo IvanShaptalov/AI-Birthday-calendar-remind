@@ -13,9 +13,6 @@ class EventExporter {
     var formattedText: String
     var events: [MainEvent]
     
-    func export(){
-        
-    }
     
     init(formattedText: String, events: [MainEvent]) {
         self.formattedText = formattedText
@@ -28,13 +25,32 @@ class TableEventExporter: EventExporter {
 }
 
 class ClipBoardEventExporter: EventExporter {
-    override func export() {
+    func export() {
         UIPasteboard.general.string = self.formattedText
     }
 }
 
 class TextFileEventExporter: EventExporter {
-    
+    func export() -> URL? {
+        let data = Data(self.formattedText.utf8)
+        if #available(iOS 16.0, *) {
+            let url = URL.documentsDirectory.appending(path: "\(Date.now.timeIntervalSince1970)events.txt")
+            
+            do {
+                try data.write(to: url, options: [.atomic, .completeFileProtection])
+                let input = try String(contentsOf: url)
+                print(input)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            return url
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        return nil
+    }
 }
 
 class CalendarEventExporter: EventExporter {
