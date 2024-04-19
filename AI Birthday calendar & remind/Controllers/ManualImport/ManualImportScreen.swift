@@ -32,7 +32,17 @@ class ManualImportScreen: UIViewController, UITextViewDelegate {
         // Do any additional setup after loading the view.
         paintText(self.editingTextView)
         updateTextCounters()
+        // MARK: - Keyboard dismissing
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
+    
+    @objc private func dismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+    
+    
     
     
     @IBAction func previewPressed(_ sender: UIBarButtonItem) {
@@ -169,7 +179,7 @@ extension UITextView {
         
         var lineRange = (line as NSString).localizedStandardRange(of: line)
         lineRange.location = location
-
+        
         textStorage.addAttribute(.foregroundColor, value: color, range: NSRange(location: lineRange.location, length: line.count))
     }
 }
