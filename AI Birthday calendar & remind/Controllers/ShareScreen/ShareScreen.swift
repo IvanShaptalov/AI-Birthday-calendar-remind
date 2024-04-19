@@ -211,7 +211,7 @@ class ShareScreen: UIViewController {
     
     // MARK: - export to calendar 🚛📅
     private func toCalendar(){
-        if !MonetizationConfiguration.isPremiumAccount {
+        if MonetizationConfiguration.isPremiumAccount {
             PermissionProvider.registerForEvents(completion: {denied, status in
                 if denied {
                     NSLog("📅🪓 event status: \(status)")
