@@ -112,8 +112,8 @@ class CalendarEventExporter: EventExporter {
                     calendarEvent.title = event.title
                     
                     // to AppConfiguration.notificationTime
-                    let startDateWithoutDateRule = DatePrinter.yearToCurrentInEvent(event)
-                    guard let startDate = DatePrinter.notificateTimeToRules(eventDate: startDateWithoutDateRule) else {
+                    let startDateWithoutDateRule = DateEventFormatter.yearToCurrentInEvent(event)
+                    guard let startDate = DateEventFormatter.notificateTimeToRules(eventDate: startDateWithoutDateRule) else {
                         continue
                     }
                     
@@ -162,8 +162,8 @@ class ReminderEventExporter: EventExporter {
                     
                     // update year to current in birthdays and anniversary
                     // to AppConfiguration.notificationTime
-                    let alarmTimeWithoutTimeRule = DatePrinter.yearToCurrentInEvent(event)
-                    guard let alarmTime = DatePrinter.notificateTimeToRules(eventDate: alarmTimeWithoutTimeRule) else {
+                    let alarmTimeWithoutTimeRule = DateEventFormatter.yearToCurrentInEvent(event)
+                    guard let alarmTime = DateEventFormatter.notificateTimeToRules(eventDate: alarmTimeWithoutTimeRule) else {
                         continue
                     }
                     

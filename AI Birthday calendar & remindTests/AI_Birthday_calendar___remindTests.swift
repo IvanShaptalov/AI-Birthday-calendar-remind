@@ -58,22 +58,23 @@ final class AI_Birthday_calendar___remind: XCTestCase {
         }
     }
     
+    // MARK: - Date tests
     func testEventDateDistance() throws {
         let mainEvent1 = MainEvent(eventDate: .now.addingTimeInterval(-(24*60*60)), eventType: .anniversary, title: "title", id: UUID().uuidString)
         
-        XCTAssertEqual(DatePrinter.dateDistance(from: mainEvent1.eventDate, to: .now, components: [.day]).day, 1)
+        XCTAssertEqual(DateEventFormatter.dateDistance(from: mainEvent1.eventDate, to: .now, components: [.day]).day, 1)
     }
     
     func testDayOfWeek() throws {
         let mainEvent1 = MainEvent(eventDate: Date(timeIntervalSince1970: 0), eventType: .anniversary, title: "title", id: UUID().uuidString)
         
-        XCTAssertEqual(DatePrinter(date: mainEvent1.eventDate).dayOfWeekCalendarFormat(), "Thu")
+        XCTAssertEqual(DateEventFormatter(date: mainEvent1.eventDate).dayOfWeekCalendarFormat(), "Thu")
     }
     
     func testYearsTurnsNewDate() throws {
         let mainEvent1 = MainEvent(eventDate: .now.addingTimeInterval(+(24*60*60)), eventType: .anniversary, title: "title", id: UUID().uuidString)
         
-        XCTAssertEqual(DatePrinter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 0 in 1 day")
+        XCTAssertEqual(DateEventFormatter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 0 in 1 day")
         
         var comps = Calendar.current.dateComponents([.year, .month,.day,.hour,.minute,.second], from: mainEvent1.eventDate)
         
@@ -81,25 +82,27 @@ final class AI_Birthday_calendar___remind: XCTestCase {
             comps.hour = i
             mainEvent1.eventDate = Calendar.current.date(from: comps)!
             NSLog("hour: \(i)")
-            XCTAssertEqual(DatePrinter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 0 in 1 day")
+            XCTAssertEqual(DateEventFormatter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 0 in 1 day")
         }
     }
     
     func testYearsTurnsOldDate() throws {
         let mainEvent1 = MainEvent(eventDate: .now.addingTimeInterval(-(24*60*60)), eventType: .anniversary, title: "title", id: UUID().uuidString)
         
-        XCTAssertEqual(DatePrinter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 1 in 364 days")
+        XCTAssertEqual(DateEventFormatter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 1 in 364 days")
         
         var comps = Calendar.current.dateComponents([.year, .month,.day,.hour,.minute,.second], from: mainEvent1.eventDate)
         for i in 1...23 {
             comps.hour = i
             mainEvent1.eventDate = Calendar.current.date(from: comps)!
             NSLog("hour: \(i)")
-            XCTAssertEqual(DatePrinter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 1 in 364 days")
+            XCTAssertEqual(DateEventFormatter(date: mainEvent1.eventDate).yearsTurnsInDays(), "turns 1 in 364 days")
 
         }
     }
     
+    
+    // MARK: - GPT switch
     func testGptSwitch(){
         XCTAssert(AppConfiguration.gptModel == "gpt-3.5-turbo-1106")
         AppConfiguration.switchGptModel()
@@ -110,6 +113,8 @@ final class AI_Birthday_calendar___remind: XCTestCase {
         AppConfiguration.switchGptModel()
         XCTAssert(AppConfiguration.gptModel == "gpt-3.5-turbo-0613")
     }
+    
+    
     
     func testSeason(){
         for i in 3 ... 5{
@@ -161,73 +166,73 @@ final class AI_Birthday_calendar___remind: XCTestCase {
             XCTAssertEqual(result, expectedOutput)
         }
     
-//    func testManualTextImportAllSeparators() {
-//        let raws = ["17.04.2002",
-//        "2002-04-17",
-//        "04/17/2002",
-//        "17/04/2002",
-//        "04-17-2002",
-//        "2002/04/17",
-//        "17 Apr 2002",
-//        "Apr 17, 2002",
-//        "2002/Apr/17",
-//        "17-04-2002",
-//        "2002.04.17",
-//        "17 Apr 2002",
-//        "Apr-17-2002",
-//        "2002 Apr 17",
-//        "17/04/2002 00:00:00",
-//        "04/17/2002 00:00:00",
-//        "2002-04-17 00:00:00",
-//        "17.04.2002 00:00:00",
-//        "Apr 17, 2002 00:00:00",
-//        "2002/Apr/17 00:00:00"]
-//        
-//        for raw in raws {
-//            let ready = "helena ! " + raw
-//            
-//            let dateString = "17.04.2002"
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "dd.MM.yyyy"
-//
-//            let date = dateFormatter.date(from: dateString)
-//
-//            let converter = RuleConverterV1(raw: ready)
-//            
-//            converter.convert(statusCallback: {status in
-//                XCTAssertEqual(status, .eventConverted)
-//                XCTAssertEqual(converter.event.eventDate, date)
-//                XCTAssertEqual(converter.event.title, "helena")
-//            })
-//            NSLog("🥦 raw format : \(ready)")
-//            NSLog("🐨 event name: \(converter.event.title)")
-//            NSLog("📅 event date: \(converter.event.eventDate)")
-//        }
-//        
-//        sleep(10)
-//        
-//        for raw in raws {
-//            let ready = raw +  "! helena"
-//            
-//            let dateString = "17.04.2002"
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "dd.MM.yyyy"
-//
-//            let date = dateFormatter.date(from: dateString)
-//
-//            let converter = RuleConverterV1(raw: ready)
-//            
-//            converter.convert(line: <#Int#>, statusCallback: {status,<#arg#>  in
-//                XCTAssertEqual(status, .eventConverted)
-//                XCTAssertEqual(converter.event.eventDate, date)
-//                XCTAssertEqual(converter.event.title, "helena")
-//            })
-//            NSLog("🥦 raw format : \(ready)")
-//            NSLog("🐨 event name: \(converter.event.title)")
-//            NSLog("📅 event date: \(converter.event.eventDate)")
-//        }
-//        sleep(10)
-//    }
+    func testManualTextImportAllSeparators() {
+        let raws = ["17.04.2002",
+        "2002-04-17",
+        "04/17/2002",
+        "17/04/2002",
+        "04-17-2002",
+        "2002/04/17",
+        "17 Apr 2002",
+        "Apr 17, 2002",
+        "2002/Apr/17",
+        "17-04-2002",
+        "2002.04.17",
+        "17 Apr 2002",
+        "Apr-17-2002",
+        "2002 Apr 17",
+        "17/04/2002 00:00:00",
+        "04/17/2002 00:00:00",
+        "2002-04-17 00:00:00",
+        "17.04.2002 00:00:00",
+        "Apr 17, 2002 00:00:00",
+        "2002/Apr/17 00:00:00"]
+        
+        for (index, raw) in raws.enumerated() {
+            let ready = "helena ! " + raw
+            
+            let dateString = "17.04.2002"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+
+            let date = dateFormatter.date(from: dateString)
+
+            let converter = RuleConverterV1(raw: ready)
+            
+            converter.convert(line: index, statusCallback: {status,isOk  in
+                XCTAssertEqual(status, .eventConverted)
+                XCTAssertEqual(converter.event.eventDate, date)
+                XCTAssertEqual(converter.event.title, "helena")
+            })
+            NSLog("🥦 raw format : \(ready)")
+            NSLog("🐨 event name: \(converter.event.title)")
+            NSLog("📅 event date: \(converter.event.eventDate)")
+        }
+        
+        sleep(10)
+        
+        for (index,raw) in raws.enumerated() {
+            let ready = raw +  "! helena"
+            
+            let dateString = "17.04.2002"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+
+            let date = dateFormatter.date(from: dateString)
+
+            let converter = RuleConverterV1(raw: ready)
+            
+            converter.convert(line: index, statusCallback: {status,isOk  in
+                XCTAssertEqual(status, .eventConverted)
+                XCTAssertEqual(converter.event.eventDate, date)
+                XCTAssertEqual(converter.event.title, "helena")
+            })
+            NSLog("🥦 raw format : \(ready)")
+            NSLog("🐨 event name: \(converter.event.title)")
+            NSLog("📅 event date: \(converter.event.eventDate)")
+        }
+        sleep(10)
+    }
     
     
 }

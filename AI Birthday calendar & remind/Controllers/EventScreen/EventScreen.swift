@@ -17,7 +17,7 @@ class BirthdaysScreen: UIViewController{
 
 //            oldValue
             NSLog("mainEvents > save to storage")
-            mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
+            mainEvents.sort{DateEventFormatter.yearToCurrentInEvent($0)  < DateEventFormatter.yearToCurrentInEvent($1)}
             // reschedule notifications
             mainEvents.forEach({$0.setUpNotificationIds()})
             NSLog("😎 check notification possibility")
@@ -80,7 +80,7 @@ class BirthdaysScreen: UIViewController{
         
         self.setUpPremiumBadge()
 
-        mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
+        mainEvents.sort{DateEventFormatter.yearToCurrentInEvent($0)  < DateEventFormatter.yearToCurrentInEvent($1)}
         self.tableEvents.register(.init(nibName: "EventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifier)
         DispatchQueue.global().async {
             do {

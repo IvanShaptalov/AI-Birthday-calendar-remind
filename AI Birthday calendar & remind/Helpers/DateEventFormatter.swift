@@ -8,12 +8,14 @@
 import Foundation
 
 
-class DatePrinter {
+class DateEventFormatter {
     var date: Date
     
     init(date: Date) {
         self.date = date
     }
+    
+    
         
     static func dateDistance(from: Date, to: Date, components: Set<Calendar.Component>) -> DateComponents{
         let calendar = Calendar.current
@@ -51,7 +53,7 @@ class DatePrinter {
             return date
         }
         // check that date is not expired else add year
-        let components = DatePrinter.dateDistance(from: .now, to: updatedDate, components: [.day])
+        let components = DateEventFormatter.dateDistance(from: .now, to: updatedDate, components: [.day])
         
         guard let days = components.day else {
             return date
@@ -74,13 +76,12 @@ class DatePrinter {
     }
     
     // MARK: - TEXT DATES
-    
     func timeLeftInDaysForEvent() -> String {
         let calendar = Calendar.current
 
         let currentDate = calendar.startOfDay(for: Date())
         let startOfDay = calendar.startOfDay(for: self.date)
-        let components = DatePrinter.dateDistance(from: currentDate, to: startOfDay, components: [.day])
+        let components = DateEventFormatter.dateDistance(from: currentDate, to: startOfDay, components: [.day])
         
         guard let days = components.day else {
             return "Date has passed"
@@ -102,8 +103,8 @@ class DatePrinter {
     func yearsTurns() -> Int {
         let calendar = Calendar.current
         let currentDate = calendar.startOfDay(for: Date())
-        let thisYearBirthdayDate = calendar.startOfDay(for: DatePrinter.updateYear(self.date))
-        _ = DatePrinter.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
+        let thisYearBirthdayDate = calendar.startOfDay(for: DateEventFormatter.updateYear(self.date))
+        _ = DateEventFormatter.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
         
         let yearTurns = Calendar.current.component(.year, from: thisYearBirthdayDate)-Calendar.current.component(.year, from: self.date)
         return yearTurns
@@ -112,8 +113,8 @@ class DatePrinter {
     func yearsTurnsInDays() -> String {
         let calendar = Calendar.current
         let currentDate = calendar.startOfDay(for: Date())
-        let thisYearBirthdayDate = calendar.startOfDay(for: DatePrinter.updateYear(self.date))
-        let components = DatePrinter.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
+        let thisYearBirthdayDate = calendar.startOfDay(for: DateEventFormatter.updateYear(self.date))
+        let components = DateEventFormatter.dateDistance(from: currentDate, to: thisYearBirthdayDate, components: [.day])
         
         let yearTurns = Calendar.current.component(.year, from: thisYearBirthdayDate)-Calendar.current.component(.year, from: self.date)
 
@@ -151,4 +152,19 @@ class DatePrinter {
         return dateFormatter.string(from: date)
     }
     
+}
+
+
+class DateHoursPreparer{
+    static func prepareDaySameDate(eventDate: Date) -> DateComponents {
+        var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: DateEventFormatter.updateYear(eventDate))
+        
+        let timeComps = Calendar.current.dateComponents([.hour, .minute, .second], from: AppConfiguration.notificationTime)
+        
+        comps.hour = timeComps.hour
+        comps.minute = timeComps.minute
+        comps.second = timeComps.second
+        
+        return comps
+    }
 }

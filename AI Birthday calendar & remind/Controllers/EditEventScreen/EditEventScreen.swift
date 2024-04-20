@@ -53,7 +53,7 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
         generatorStep2.wish = wishType
         generatorStep2.celebratorTitle = event.title
         
-        let yearTurns = DatePrinter(date: event.eventDate).yearsTurns()
+        let yearTurns = DateEventFormatter(date: event.eventDate).yearsTurns()
        
         generatorStep2.yearTurns = "\(yearTurns) years old"
        

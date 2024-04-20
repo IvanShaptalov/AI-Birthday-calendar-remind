@@ -77,7 +77,7 @@ class NotificationServiceProvider {
     
     private static func prepareDaySameDate(event: MainEvent) -> DateComponents {
         NSLog("🌞 same day")
-        var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: DatePrinter.updateYear(event.eventDate))
+        var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: DateEventFormatter.updateYear(event.eventDate))
         
         let timeComps = Calendar.current.dateComponents([.hour, .minute, .second], from: AppConfiguration.notificationTime)
         
@@ -178,7 +178,7 @@ class NotificationServiceProvider {
     }
     
     private static func prepareContent(event: MainEvent) -> UNMutableNotificationContent{
-        let df = DatePrinter(date: event.eventDate)
+        let df = DateEventFormatter(date: event.eventDate)
         
         switch event.eventType {
         case .birthday:
@@ -203,7 +203,7 @@ class NotificationServiceProvider {
     }
     
     private static func prepareContentDaysBefore(event: MainEvent) -> UNMutableNotificationContent{
-        let df = DatePrinter(date: event.eventDate)
+        let df = DateEventFormatter(date: event.eventDate)
         let inTime = df.yearsTurnsInDays()
         NSLog("⌚️ notify in time: \(inTime)")
         
@@ -255,16 +255,4 @@ class NotificationServiceProvider {
 }
 
 
-class DateHoursPreparer{
-    static func prepareDaySameDate(eventDate: Date) -> DateComponents {
-        var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: DatePrinter.updateYear(eventDate))
-        
-        let timeComps = Calendar.current.dateComponents([.hour, .minute, .second], from: AppConfiguration.notificationTime)
-        
-        comps.hour = timeComps.hour
-        comps.minute = timeComps.minute
-        comps.second = timeComps.second
-        
-        return comps
-    }
-}
+
