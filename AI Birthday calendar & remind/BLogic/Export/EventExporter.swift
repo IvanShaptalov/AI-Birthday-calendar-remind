@@ -92,30 +92,83 @@ class TextFileEventExporter: EventExporter {
 
 // MARK: - Calendar
 class CalendarEventExporter: EventExporter {
-    func export(){      
+    func prepareDate(date: Date) -> Date {
+        return .now
+    }
+    
+    func export(statusCallback: @escaping(String, Bool) -> Void){
+        NSLog("📆 export calendars")
         
+        let eventStore = EKEventStore()
+        // check access to reminders
+        eventStore.requestAccess(to: EKEntityType.event, completion: {
+            granted, error in
+            if (granted) && (error == nil) {
+                print("granted \(granted)")
+            var cEvents: [EKEvent] = []
+                // event saving to reminder
+                for event in self.events {
+                    let calendarEvent:EKEvent = EKEvent(eventStore: eventStore)
+                    calendarEvent.title = event.title
+                    
+                    // to AppConfiguration.notificationTime
+                    let startDateWithoutDateRule = DatePrinter.yearToCurrentInEvent(event)
+                    guard let startDate = DatePrinter.notificateTimeToRules(eventDate: startDateWithoutDateRule) else {
+                        continue
+                    }
+                    
+                    calendarEvent.startDate = event.eventType == .simpleEvent ? event.eventDate : startDate
+                    
+                    calendarEvent.endDate = calendarEvent.startDate.addingTimeInterval(60*60)  // 1 hour
+                    
+                    
+                    calendarEvent.calendar = eventStore.defaultCalendarForNewEvents
+                    
+                    cEvents.append(calendarEvent)
+                    
+                }
+                                
+                do {
+                    try cEvents.forEach({try eventStore.save($0, span: EKSpan.futureEvents)})
+                } catch let error as NSError{
+                    NSLog("error while export to calendars: \(error.localizedDescription)")
+                    statusCallback("Cannot export birthdays to calendar", false)
+                    return
+                }
+                statusCallback("Birthdays exported", true)
+            }
+        })
     }
 }
 
 // MARK: - Reminder
 class ReminderEventExporter: EventExporter {
+        
     func export(statusCallback: @escaping(String, Bool) -> Void){
-        NSLog("⏰ 📆 export reminders")
+        NSLog("⏰ export reminders")
         
         let eventStore = EKEventStore()
-        
+        // check access to reminders
         eventStore.requestAccess(to: EKEntityType.reminder, completion: {
             granted, error in
             if (granted) && (error == nil) {
                 print("granted \(granted)")
             var reminders: [EKReminder] = []
+                // event saving to reminder
                 for event in self.events {
                     let reminder:EKReminder = EKReminder(eventStore: eventStore)
                     reminder.title = event.title
                     reminder.priority = 2
                     
-                    let alarmTime = event.eventDate
-                    let alarm = EKAlarm(absoluteDate: alarmTime)
+                    // update year to current in birthdays and anniversary
+                    // to AppConfiguration.notificationTime
+                    let alarmTimeWithoutTimeRule = DatePrinter.yearToCurrentInEvent(event)
+                    guard let alarmTime = DatePrinter.notificateTimeToRules(eventDate: alarmTimeWithoutTimeRule) else {
+                        continue
+                    }
+                    
+                    // if simple event, keep default date
+                    let alarm = EKAlarm(absoluteDate: event.eventType == .simpleEvent ? event.eventDate : alarmTime)
                     reminder.addAlarm(alarm)
                     
                     reminder.calendar = eventStore.defaultCalendarForNewReminders()
@@ -127,7 +180,7 @@ class ReminderEventExporter: EventExporter {
                 do {
                     try reminders.forEach({try eventStore.save($0, commit: true)})
                 } catch {
-                    statusCallback("Cannot export", false)
+                    statusCallback("Cannot export events to reminders", false)
                     return
                 }
                 statusCallback("Reminders exported", true)

@@ -79,6 +79,7 @@
 		8D7823B52B863C5100E63423 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7823B22B863C5100E63423 /* EventCell.swift */; };
 		8D7823B62B863C5100E63423 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7823B32B863C5100E63423 /* EventCell.xib */; };
 		8D7823B72B863C5100E63423 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D7823B32B863C5100E63423 /* EventCell.xib */; };
+		8D79BF672BD3B40D00A34171 /* RevenueCatProductProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5B17712B9F09F000D6B578 /* RevenueCatProductProvider.swift */; };
 		8D79D36F2B99BD7E0074F238 /* WishStep1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D79D36E2B99BD7E0074F238 /* WishStep1.swift */; };
 		8D7E1C182BBC3551005BBA78 /* ManualTextImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5589052BB716E5001A6BA1 /* ManualTextImport.swift */; };
 		8D7E1C1B2BBDDE14005BBA78 /* ManualImportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */; };
@@ -752,6 +753,7 @@
 				8D4EC3B22B96330D001DE189 /* PermissionProvider.swift in Sources */,
 				8D7E1C182BBC3551005BBA78 /* ManualTextImport.swift in Sources */,
 				8D1C29C92B986B9400B34B6D /* RemoteConfiguration.swift in Sources */,
+				8D79BF672BD3B40D00A34171 /* RevenueCatProductProvider.swift in Sources */,
 				8D4EC3B12B963300001DE189 /* NotificationServiceProvider.swift in Sources */,
 				8D7823942B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D1C29C22B9868B900B34B6D /* OpenAIApi.swift in Sources */,
@@ -948,7 +950,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -981,7 +983,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "Wellbeing-Vantage.AI-Birthday-calendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

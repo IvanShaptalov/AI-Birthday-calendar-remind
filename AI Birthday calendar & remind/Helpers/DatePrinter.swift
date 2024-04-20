@@ -20,8 +20,18 @@ class DatePrinter {
         let components = calendar.dateComponents(components, from: from, to: to)
         return components
     }
+    
+    /// set date hours to AppConfiguration.notificationTime
+    static func notificateTimeToRules(eventDate: Date) -> Date?{
+        let currentComps = DateHoursPreparer.prepareDaySameDate(eventDate: eventDate)
+    
+        let date = Calendar.current.date(from: currentComps)
+        
+        return date
+    }
    
     
+    /// update year to current in birthdays and anniversary
     static func yearToCurrentInEvent(_ event: MainEvent) -> Date {
         if event.eventType == .simpleEvent {
             return event.eventDate

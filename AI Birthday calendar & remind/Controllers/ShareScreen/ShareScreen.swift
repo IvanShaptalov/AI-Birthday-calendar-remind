@@ -173,7 +173,6 @@ class ShareScreen: UIViewController {
         }
     }
     
-    // MARK: - export to reminders 🚛⏰
     private func toReminders(){
         if MonetizationConfiguration.isPremiumAccount {
             PermissionProvider.registerForReminders(completion: {denied, status in
@@ -192,9 +191,10 @@ class ShareScreen: UIViewController {
                 
             })
             
+            // MARK: - export to reminders 🚛⏰
             if PermissionProvider.checkCalendarAccess(forType: .reminder) {
                 ReminderEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(statusCallback: {status, isOk in
-                    let title = isOk ? "✅" : "❌"
+                    let title = isOk ? "Export succesfull" : "Export has some issues"
                     let alertC = UIAlertController(title: title, message: status, preferredStyle: .alert)
                     
                     alertC.addAction(.init(title: "OK", style: .default))
@@ -209,7 +209,6 @@ class ShareScreen: UIViewController {
         }
     }
     
-    // MARK: - export to calendar 🚛📅
     private func toCalendar(){
         if MonetizationConfiguration.isPremiumAccount {
             PermissionProvider.registerForEvents(completion: {denied, status in
@@ -218,7 +217,7 @@ class ShareScreen: UIViewController {
                     
                     let alertController = UIAlertController(title: "Provide 📆 Calendar Full Access", message: "Go to settings & privacy to re-enable AI Birthday Calendar Full Access", preferredStyle: .alert)
                     
-                    alertController.addAction(.init(title: "OK", style: .default))
+                    alertController.addAction(.init(title: "Done", style: .default))
                     
                     self.present(alertController, animated: true)
                 } else {
@@ -227,7 +226,17 @@ class ShareScreen: UIViewController {
             })
             
             if PermissionProvider.checkCalendarAccess(forType: .event) {
-                CalendarEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export()
+                // MARK: - export to calendar 🚛📅
+                CalendarEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(statusCallback: {status, isOk in
+                    let title = isOk ? "Export succesfull" : "Export has some issues"
+                    let alertC = UIAlertController(title: title, message: status, preferredStyle: .alert)
+                    
+                    alertC.addAction(.init(title: "Done", style: .default))
+                    
+                    DispatchQueue.main.async{
+                        self.present(alertC, animated: true)
+                    }
+                })
             }
         } else {
             SubscriptionProposer.forceProVersionRecordsLimited(viewController: self)

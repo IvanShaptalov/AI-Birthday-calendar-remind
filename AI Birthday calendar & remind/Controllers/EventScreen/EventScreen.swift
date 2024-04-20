@@ -13,6 +13,8 @@ class BirthdaysScreen: UIViewController{
     // MARK: - Main Events Field 🌾
     var mainEvents: [MainEvent] = MainEventStorage.load() {
         didSet {
+            NotificationServiceProvider.cancelAllNotifications()
+
 //            oldValue
             NSLog("mainEvents > save to storage")
             mainEvents.sort{DatePrinter.yearToCurrentInEvent($0)  < DatePrinter.yearToCurrentInEvent($1)}
@@ -36,7 +38,6 @@ class BirthdaysScreen: UIViewController{
                     
                 })
             }
-            NotificationServiceProvider.cancelAllNotifications()
             for (index, event) in mainEvents.enumerated() {
                 NSLog("✨ event to notify: \(event.title)")
                 if isNeedToNotify(index: index){

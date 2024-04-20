@@ -242,6 +242,7 @@ class NotificationServiceProvider {
                 NSLog("notifications: \(ids)")
                 notificationCenter.removePendingNotificationRequests(withIdentifiers: ids)
             })
+            notificationCenter.removeAllPendingNotificationRequests()
         }
     }
     
@@ -250,5 +251,20 @@ class NotificationServiceProvider {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeDeliveredNotifications(withIdentifiers: ids)
         notificationCenter.removePendingNotificationRequests(withIdentifiers: ids)
+    }
+}
+
+
+class DateHoursPreparer{
+    static func prepareDaySameDate(eventDate: Date) -> DateComponents {
+        var comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: DatePrinter.updateYear(eventDate))
+        
+        let timeComps = Calendar.current.dateComponents([.hour, .minute, .second], from: AppConfiguration.notificationTime)
+        
+        comps.hour = timeComps.hour
+        comps.minute = timeComps.minute
+        comps.second = timeComps.second
+        
+        return comps
     }
 }
