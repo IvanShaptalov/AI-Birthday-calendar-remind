@@ -40,5 +40,10 @@ enum EventType: String {
     wishNotGenerated = "wish_not_generated",
     eventsImportedCalendarReminders = "import_from_calendar_reminders",
     manualImport = "manual_import",
-    blockCellSelected = "blocked_cell_selected"
+    blockCellSelected = "blocked_cell_selected",
+    exportText = "exportText",
+    exportClipboard = "exportClipboard",
+    exportTable = "exportTable",
+    exportCalendar = "exportCalendar",
+    exportReminders = "exportReminders"
 }

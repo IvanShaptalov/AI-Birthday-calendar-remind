@@ -27,14 +27,18 @@ class BirthdaysScreen: UIViewController{
                         return
                     }
                     NSLog("🔕, send info that notification disabled")
-                    let alertController = UIAlertController(title: "Are You enabled notifications 😏?", message: "Go to settings & privacy to re-enable AI Birthday notifications", preferredStyle: .alert)
-                    
-                    alertController.addAction(.init(title: "Done", style: .default))
-                    alertController.addAction(.init(title: "Don't show again for this time", style: .default, handler: {action in
-                        dontShowNotificationDisabled = true
-                    }))
-                    
-                    self.present(alertController, animated: true)
+                    if AppConfiguration.isLaunchedEarlier {
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Are You enabled notifications 😏?", message: "Go to settings & privacy to re-enable AI Birthday notifications", preferredStyle: .alert)
+                            
+                            alertController.addAction(.init(title: "Done", style: .default))
+                            alertController.addAction(.init(title: "Don't show again for this time", style: .default, handler: {action in
+                                dontShowNotificationDisabled = true
+                            }))
+                            
+                            self.present(alertController, animated: true)
+                        }
+                    }
                     
                 })
             }

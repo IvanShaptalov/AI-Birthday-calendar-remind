@@ -52,7 +52,7 @@ class NotificationSettingsScreen: UITableViewController {
 
     private func requestNotificationPermissionIfNeeded(){
         PermissionProvider.registerForRemoteNotification(userDeniedNotification: {userDeniedNotifications in
-            if userDeniedNotifications {
+            if userDeniedNotifications && AppConfiguration.isLaunchedEarlier {
                 let alertController = UIAlertController(title: "Are You enabled notifications 😏?", message: "Go to settings & privacy to re-enable AI Birthday notifications", preferredStyle: .alert)
                 
                 alertController.addAction(.init(title: "Done", style: .default))

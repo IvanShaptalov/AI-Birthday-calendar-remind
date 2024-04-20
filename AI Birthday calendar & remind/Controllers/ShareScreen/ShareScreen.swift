@@ -82,14 +82,23 @@ class ShareScreen: UIViewController {
             switch actEnum {
                 
             case .toReminder:
+                AnalyticsManager.shared.logEvent(eventType: .exportReminders)
                 self.toReminders()
             case .toCalendar:
+                AnalyticsManager.shared.logEvent(eventType: .exportCalendar)
+
                 self.toCalendar()
             case .asText:
+                AnalyticsManager.shared.logEvent(eventType: .exportText)
+
                 self.toText()
             case .asTable:
+                AnalyticsManager.shared.logEvent(eventType: .exportTable)
+
                 self.toTable()
             case .copyToClipboard:
+                AnalyticsManager.shared.logEvent(eventType: .exportClipboard)
+
                 self.toClipboard()
             }
             
