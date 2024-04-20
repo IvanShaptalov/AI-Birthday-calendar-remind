@@ -136,6 +136,8 @@ class CalendarEventExporter: EventExporter {
                     return
                 }
                 statusCallback("Birthdays exported", true)
+            } else {
+                statusCallback("Enable calendar permission", false)
             }
         })
     }
@@ -184,6 +186,8 @@ class ReminderEventExporter: EventExporter {
                     return
                 }
                 statusCallback("Reminders exported", true)
+            } else {
+                statusCallback("Enable reminder permissions", false)
             }
         })
         
