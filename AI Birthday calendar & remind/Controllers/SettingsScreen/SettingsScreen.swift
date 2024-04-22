@@ -168,7 +168,7 @@ extension SettingsScreen {
                
         
         // Promotion
-        if indexPath.section == 5 {
+        if indexPath.section == 4 {
             if indexPath.row == 0 {
                 NSLog("Rate App")
                 self.rateApp()
