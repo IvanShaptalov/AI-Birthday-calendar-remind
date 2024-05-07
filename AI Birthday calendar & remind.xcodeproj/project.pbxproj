@@ -939,6 +939,7 @@
 				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Birthdays AI";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -972,6 +973,7 @@
 				DEVELOPMENT_TEAM = 8HZT3TR2ZJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "AI Birthday calendar & remind/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Birthdays AI";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
