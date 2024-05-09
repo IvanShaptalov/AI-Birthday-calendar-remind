@@ -45,5 +45,8 @@ enum EventType: String {
     exportClipboard = "exportClipboard",
     exportTable = "exportTable",
     exportCalendar = "exportCalendar",
-    exportReminders = "exportReminders"
+    exportReminders = "exportReminders",
+    iconChanged = "iconChanged",
+    tryIconChange = "tryIconChange",
+    premiumEndedIconRestored = "premiumEndedIconRestored"
 }

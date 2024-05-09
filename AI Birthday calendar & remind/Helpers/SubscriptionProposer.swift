@@ -10,6 +10,12 @@ import UIKit
 
 
 class SubscriptionProposer {
+    static func forceProVersionPaywall(viewController: UIViewController){
+        let paywall = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "PaywallScreen") as! PaywallController
+        
+        viewController.present(paywall, animated: true)
+    }
+    
     static func forceProVersionRecordsLimited(viewController: UIViewController){
         if !RevenueCatProductsProvider.subscriptionList.isEmpty{
             let paywall = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "PaywallScreen") as! PaywallController

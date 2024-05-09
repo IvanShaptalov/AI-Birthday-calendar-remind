@@ -68,7 +68,24 @@ class AppConfiguration {
         }
     }
     
+    // MARK: - App icons names
     
+    static var appIconsNames: [String] = ["AppIcon-1",
+                                          "AppIcon-2",
+                                          "AppIcon-3",
+                                          "AppIcon-4",
+                                          "AppIcon-5",
+                                          "AppIcon-6",
+                                          "AppIcon-7",
+                                          "AppIcon-8",
+                                          "AppIcon-9",
+                                          "AppIcon-10",
+                                          "AppIcon-11",
+                                          "AppIcon-12",
+                                          "AppIcon-13",
+                                          "AppIcon-14",
+                                          "AppIcon-15",
+                                          ]
     // MARK: - Gpt keys
     
     static var gptToken = "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"

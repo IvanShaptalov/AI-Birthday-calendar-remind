@@ -142,12 +142,20 @@ extension SettingsScreen {
         UIApplication.shared.open(URL(string: AppConfiguration.privacyPolicyURL)!, options: [:], completionHandler: nil)
     }
     
-    
     // MARK: - Select action ⚙️
     func selectAction(indexPath: IndexPath){
         if indexPath.section == 1{
-            NSLog("restore purchase")
-            self.restorePurchase()
+            switch indexPath.row {
+            case 1 :
+                NSLog("restore purchase")
+                self.restorePurchase()
+            case 2 :
+                NSLog("modify App icon")
+                
+            default:
+                NSLog("restore purchase")
+                self.restorePurchase()
+            }
             return
         }
         // Notifications

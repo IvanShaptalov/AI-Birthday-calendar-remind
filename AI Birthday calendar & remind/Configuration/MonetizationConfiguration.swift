@@ -9,7 +9,13 @@ import Foundation
 
 
 class MonetizationConfiguration {
-    static var isPremiumAccount: Bool = false
+    static var isPremiumAccount: Bool = false {
+        didSet {
+            if !isPremiumAccount {
+                AppIconChanger.resetIcon()
+            }
+        }
+    }
     
     static var freeEventRecords: Int = 5
     
