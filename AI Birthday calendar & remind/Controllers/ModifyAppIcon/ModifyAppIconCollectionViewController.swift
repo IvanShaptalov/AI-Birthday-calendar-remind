@@ -35,15 +35,22 @@ class ModifyAppIconCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellReuseIdentifier, for: indexPath)
     
         // Create an image view
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 110, height: 110)) // Adjust the frame as per your requirement
-        imageView.image = UIImage(named: AppConfiguration.appIconsNames[indexPath.row]) // Replace "yourImageName" with the name of your image asset
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 110, height: 110))
         
-        // Add the image view as a subview to the cell
+        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 100, height: 100))
         
-        cell.addSubview(imageView)
+        imageView.image = UIImage(named: AppConfiguration.appIconsNames[indexPath.row])
+                
+        view.backgroundColor = .white
+
         
-        cell.layer.cornerRadius = 12
-    
+        view.addSubview(imageView)
+        
+        
+        view.layer.cornerRadius = 12
+        
+        cell.addSubview(view)
+            
         return cell
     }
 

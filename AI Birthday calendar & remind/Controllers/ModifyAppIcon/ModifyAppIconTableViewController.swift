@@ -39,6 +39,7 @@ class ModifyAppIconTableViewController: UITableViewController {
         
         cell.backgroundColor = indexPath.row % 2 == 0 ? .white : .iconsBackground
         
+        
         return cell
     }
     
