@@ -94,10 +94,12 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ADI-sP-Tcd"/>
                                     <barButtonItem style="plain" changesSelectionAsPrimaryAction="YES" id="5zl-lg-Vlv">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="L5t-vj-hRa">
-                                            <rect key="frame" x="101.33333333333331" y="7" width="85" height="30"/>
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="L5t-vj-hRa">
+                                            <rect key="frame" x="78.666666666666686" y="0.0" width="149" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <menu key="menu" id="wtd-lC-NvM">
+                                                <menuOptions key="menuOptions" displayInline="YES" singleSelection="YES"/>
                                                 <children>
                                                     <command title="Item 1" id="VOj-Xh-3CN"/>
                                                     <command title="Item 2" id="YIS-aY-mdU"/>
@@ -114,9 +116,10 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Wj0-RS-wxe"/>
                                     <barButtonItem style="plain" changesSelectionAsPrimaryAction="YES" id="0lG-6r-0oh">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="IH6-Eh-uWR">
-                                            <rect key="frame" x="331" y="7" width="46" height="30"/>
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="IH6-Eh-uWR">
+                                            <rect key="frame" x="327" y="5.6666666666666679" width="50" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <menu key="menu" id="jnW-pA-j70">
                                                 <menuOptions key="menuOptions" displayInline="YES" singleSelection="YES"/>
                                                 <children>

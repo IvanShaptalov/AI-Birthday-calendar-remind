@@ -76,6 +76,9 @@ class ShareScreen: UIViewController {
                 self.convertEvents()
             }
         })
+        
+        self.dropdownButtonFormat.titleLabel?.adjustsFontForContentSizeCategory = true
+        self.dropdownButtonFormat.titleLabel?.maximumContentSizeCategory = .accessibilityExtraExtraExtraLarge
     }
     
     func setUpExportMenu(){
@@ -116,6 +119,8 @@ class ShareScreen: UIViewController {
         }
                 
         self.dropdownButtonExport.menu = UIMenu(children: children)
+        self.dropdownButtonExport.titleLabel?.adjustsFontForContentSizeCategory = true
+        self.dropdownButtonExport.titleLabel?.maximumContentSizeCategory = .accessibilityExtraExtraExtraLarge
     }
     
     // MARK: - setup formatted event as text
