@@ -44,5 +44,9 @@ Apr 07, 2002 00:00:00 - Isabella
             self.present(alert, animated: true)
         }
     }
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 

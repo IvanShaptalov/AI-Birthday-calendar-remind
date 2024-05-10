@@ -94,6 +94,9 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
         view.addGestureRecognizer(tap)
     }
     
+    @IBAction func dismissModalScreen(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     @objc private func dismissKeyboard(){
         view.endEditing(true)
     }

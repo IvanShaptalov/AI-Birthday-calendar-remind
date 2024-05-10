@@ -42,6 +42,9 @@ class ManualImportScreen: UIViewController, UITextViewDelegate {
     }
     
     
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
     
     

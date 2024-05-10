@@ -34,7 +34,6 @@
 		8D1C29C82B9868C400B34B6D /* WishMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29C62B9868C400B34B6D /* WishMaker.swift */; };
 		8D1C29C92B986B9400B34B6D /* RemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B52B98634200B34B6D /* RemoteConfiguration.swift */; };
 		8D1C29CA2B986BB200B34B6D /* MonetizationConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */; };
-		8D1DC38B2BECC0D100E8E871 /* ModifyAppIconTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DC38A2BECC0D100E8E871 /* ModifyAppIconTableViewController.swift */; };
 		8D1DC3CE2BECDB4000E8E871 /* AppIconChanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DC3CD2BECDB4000E8E871 /* AppIconChanger.swift */; };
 		8D1DC3D02BECE5C600E8E871 /* ModifyAppIconCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DC3CF2BECE5C600E8E871 /* ModifyAppIconCollectionViewController.swift */; };
 		8D1DC3E12BECEABA00E8E871 /* AppIcon-7.@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D1DC3D22BECEABA00E8E871 /* AppIcon-7.@3x.png */; };
@@ -131,6 +130,7 @@
 		8D79D36F2B99BD7E0074F238 /* WishStep1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D79D36E2B99BD7E0074F238 /* WishStep1.swift */; };
 		8D7E1C182BBC3551005BBA78 /* ManualTextImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5589052BB716E5001A6BA1 /* ManualTextImport.swift */; };
 		8D7E1C1B2BBDDE14005BBA78 /* ManualImportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */; };
+		8D7ED2CE2BEDF67300C25185 /* XdismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7ED2CD2BEDF67300C25185 /* XdismissButton.swift */; };
 		8D85CD5E2BD271C3001C0C05 /* PulldownButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85CD5D2BD271C3001C0C05 /* PulldownButtons.swift */; };
 		8D85CD612BD27E49001C0C05 /* EventExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85CD602BD27E49001C0C05 /* EventExporter.swift */; };
 		8D85CD632BD28EDF001C0C05 /* FileSharing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D85CD622BD28EDF001C0C05 /* FileSharing.swift */; };
@@ -187,7 +187,6 @@
 		8D1C29B72B9863E100B34B6D /* MonetizationConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationConfiguration.swift; sourceTree = "<group>"; };
 		8D1C29C02B9868B900B34B6D /* OpenAIApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIApi.swift; sourceTree = "<group>"; };
 		8D1C29C62B9868C400B34B6D /* WishMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishMaker.swift; sourceTree = "<group>"; };
-		8D1DC38A2BECC0D100E8E871 /* ModifyAppIconTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAppIconTableViewController.swift; sourceTree = "<group>"; };
 		8D1DC3CD2BECDB4000E8E871 /* AppIconChanger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconChanger.swift; sourceTree = "<group>"; };
 		8D1DC3CF2BECE5C600E8E871 /* ModifyAppIconCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyAppIconCollectionViewController.swift; sourceTree = "<group>"; };
 		8D1DC3D22BECEABA00E8E871 /* AppIcon-7.@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-7.@3x.png"; sourceTree = "<group>"; };
@@ -266,6 +265,7 @@
 		8D7823B32B863C5100E63423 /* EventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		8D79D36E2B99BD7E0074F238 /* WishStep1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep1.swift; sourceTree = "<group>"; };
 		8D7E1C1A2BBDDE14005BBA78 /* ManualImportScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualImportScreen.swift; sourceTree = "<group>"; };
+		8D7ED2CD2BEDF67300C25185 /* XdismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XdismissButton.swift; sourceTree = "<group>"; };
 		8D85CD5D2BD271C3001C0C05 /* PulldownButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulldownButtons.swift; sourceTree = "<group>"; };
 		8D85CD602BD27E49001C0C05 /* EventExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExporter.swift; sourceTree = "<group>"; };
 		8D85CD622BD28EDF001C0C05 /* FileSharing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSharing.swift; sourceTree = "<group>"; };
@@ -356,6 +356,7 @@
 		8D1242272B7D267B00ED016E /* AI Birthday calendar & remind */ = {
 			isa = PBXGroup;
 			children = (
+				8D7ED2CC2BEDF66400C25185 /* Views */,
 				8D1DC3D12BECEAB000E8E871 /* AppIcons */,
 				8D79D36C2B998EE40074F238 /* Core */,
 				8D79D36A2B998E8B0074F238 /* AppStoreLogic */,
@@ -465,7 +466,6 @@
 		8D1DC3892BECC0B900E8E871 /* ModifyAppIcon */ = {
 			isa = PBXGroup;
 			children = (
-				8D1DC38A2BECC0D100E8E871 /* ModifyAppIconTableViewController.swift */,
 				8D1DC3CF2BECE5C600E8E871 /* ModifyAppIconCollectionViewController.swift */,
 			);
 			path = ModifyAppIcon;
@@ -680,6 +680,14 @@
 				8DEC77822BBE880F006190B2 /* HelpPage.swift */,
 			);
 			path = ManualImport;
+			sourceTree = "<group>";
+		};
+		8D7ED2CC2BEDF66400C25185 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8D7ED2CD2BEDF67300C25185 /* XdismissButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8D85CD5F2BD271CB001C0C05 /* Buttons */ = {
@@ -914,7 +922,6 @@
 				8D7823962B8623EB00E63423 /* AppConfiguration.swift in Sources */,
 				8D1DC3CE2BECDB4000E8E871 /* AppIconChanger.swift in Sources */,
 				8DC12C552BD1651D00FEAF76 /* DropdownButtons.swift in Sources */,
-				8D1DC38B2BECC0D100E8E871 /* ModifyAppIconTableViewController.swift in Sources */,
 				8DDCB8042BAF76530091C6BA /* EventSeasonController.swift in Sources */,
 				8D7823932B8623E300E63423 /* StorageConfiguration.swift in Sources */,
 				8D193E4E2B8E739200C4D397 /* NotificationServiceProvider.swift in Sources */,
@@ -934,6 +941,7 @@
 				8D7823B42B863C5100E63423 /* EventCell.swift in Sources */,
 				8D57AF632B9764A8006790A6 /* Analytics Manager.swift in Sources */,
 				8D85CD632BD28EDF001C0C05 /* FileSharing.swift in Sources */,
+				8D7ED2CE2BEDF67300C25185 /* XdismissButton.swift in Sources */,
 				8D0777222B9F805A0049AAFA /* SubscriptionProposer.swift in Sources */,
 				8D7823832B8397D600E63423 /* Enumerations.swift in Sources */,
 				8D7823B02B863C3800E63423 /* EventScreen.swift in Sources */,

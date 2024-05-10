@@ -40,6 +40,9 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     
     var buttonDisabled = false
 
+    @IBAction func dismissButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
@@ -50,6 +53,7 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+        // MARK: - Dismiss button
     }
     
     @objc private func dismissKeyboard(){

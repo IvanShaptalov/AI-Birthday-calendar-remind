@@ -57,6 +57,11 @@ class ShareScreen: UIViewController {
         self.convertEvents()
     }
     
+    @IBAction func dismissModal(_ sender: Any) {
+        
+            self.dismiss(animated: true)
+    
+    }
     // MARK: - Separator field
     @IBAction func separatorValueChanged(_ sender: Any) {
         self.convertEvents()

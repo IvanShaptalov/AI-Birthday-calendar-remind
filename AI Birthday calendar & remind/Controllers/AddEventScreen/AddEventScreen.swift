@@ -84,6 +84,9 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
         self.tableViewAddEvents?.reloadData()
     }
     
+    @IBAction func dismissModalScreen(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     // ➕ add button
     @IBAction func bulkAdd(_ sender: UIBarButtonItem) {
             var evCopy = self.events

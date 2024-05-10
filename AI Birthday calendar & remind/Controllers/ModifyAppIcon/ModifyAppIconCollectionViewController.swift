@@ -11,11 +11,24 @@ private let collectionViewCellReuseIdentifier = "collectionViewCellReuseIdentifi
 
 class ModifyAppIconCollectionViewController: UICollectionViewController {
 
+    // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellReuseIdentifier)
 
+        
+        // MARK: - Dismiss button 
+        var button = XdismissButton.get()
+        
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
+        XdismissButton.layoutToRightCorner(button: &button, parentView: &self.view)
+    }
+ 
+
+    @objc func buttonAction(sender: UIButton!) {
+        self.dismiss(animated: true)
     }
 
    

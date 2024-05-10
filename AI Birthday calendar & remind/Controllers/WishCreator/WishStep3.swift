@@ -15,6 +15,8 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
     // MARK: - Fields 🌾
     var wishResult: String?
     
+    @IBOutlet weak var dismiss: UIButton!
+    
     @IBOutlet weak var gptTextViewField: UITextView!
     
     @IBOutlet weak var editButton: UIButton!
@@ -64,7 +66,12 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
             AnalyticsManager.shared.logEvent(eventType: .wishGenerated)
         }
     }
-    
+ 
+    @IBAction func dismissModal(_ sender: Any) {
+        if self.isModalInPresentation == false {
+            self.dismiss(animated: true)
+        }
+    }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n") {

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class SettingsScreen: UITableViewController {
+class SettingsScreen: UITableViewController, MFMailComposeViewControllerDelegate {
 
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
@@ -134,10 +135,20 @@ extension SettingsScreen {
     // MARK: - Contact us 🤙
     private func contactUs(){
         AnalyticsManager.shared.logEvent(eventType: .contactUsOpened)
-        UIApplication.shared.open(URL(string: AppConfiguration.contactUsURL)!, options: [:], completionHandler: nil)
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["you@yoursite.com"])
+            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+
+            present(mail, animated: true)
+        } else {
+            UIApplication.shared.open(URL(string: AppConfiguration.contactUsURL)!, options: [:], completionHandler: nil)
+
+        }
     }
-    
-    // MARK: - Privacy policy 👮
+
+        // MARK: - Privacy policy 👮
     private func privacyPolicy(){
         UIApplication.shared.open(URL(string: AppConfiguration.privacyPolicyURL)!, options: [:], completionHandler: nil)
     }
@@ -149,12 +160,12 @@ extension SettingsScreen {
             case 1 :
                 NSLog("restore purchase")
                 self.restorePurchase()
+                return
             case 2 :
                 NSLog("modify App icon")
-                
+                return
             default:
-                NSLog("restore purchase")
-                self.restorePurchase()
+                NSLog("do nothing")
             }
             return
         }

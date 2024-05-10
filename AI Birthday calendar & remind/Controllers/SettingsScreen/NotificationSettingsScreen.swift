@@ -31,6 +31,11 @@ class NotificationSettingsScreen: UITableViewController {
         AnalyticsManager.shared.logEvent(eventType: .setUpTimeNotifications)
         
     }
+ 
+
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
     
     // MARK: - Set Up ⚙️

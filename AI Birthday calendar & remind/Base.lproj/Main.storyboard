@@ -87,9 +87,15 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iv0-sB-eEk">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <items>
+                                    <barButtonItem image="xmark.circle" catalog="system" id="4hr-nb-0uS">
+                                        <connections>
+                                            <action selector="dismissModal:" destination="zmp-Ad-NB5" id="Hny-I7-yhU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ADI-sP-Tcd"/>
                                     <barButtonItem style="plain" changesSelectionAsPrimaryAction="YES" id="5zl-lg-Vlv">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="L5t-vj-hRa">
-                                            <rect key="frame" x="16" y="7" width="85" height="30"/>
+                                            <rect key="frame" x="101.33333333333331" y="7" width="85" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <menu key="menu" id="wtd-lC-NvM">
                                                 <children>
@@ -197,6 +203,12 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNl-0M-G68">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <items>
+                                    <barButtonItem image="xmark.circle" catalog="system" id="Or6-aY-h0O">
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <connections>
+                                            <action selector="dismissModalScreen:" destination="EN7-CC-AyB" id="7Hr-XQ-Pzs"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="m52-hI-aYJ"/>
                                     <barButtonItem id="UIu-s5-Zrb">
                                         <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
@@ -425,10 +437,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Time" id="bXs-qS-iTA">
+                            <tableViewSection id="bXs-qS-iTA">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="5rd-Pu-OIc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="rST-hJ-e4v">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rST-hJ-e4v" id="s8T-VX-pD4">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVj-sj-Va5">
+                                                    <rect key="frame" x="14.999999999999996" y="4.6666666666666679" width="49.666666666666657" height="34.333333333333329"/>
+                                                    <color key="tintColor" systemColor="systemIndigoColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="xmark.circle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="dismiss:" destination="e0C-Hf-8Yj" eventType="touchUpInside" id="rQF-3w-Jrd"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nVj-sj-Va5" secondAttribute="trailing" constant="20" symbolic="YES" id="7rf-ve-r3I"/>
+                                                <constraint firstItem="nVj-sj-Va5" firstAttribute="centerY" secondItem="s8T-VX-pD4" secondAttribute="centerY" id="GzD-Tc-MK0"/>
+                                                <constraint firstItem="nVj-sj-Va5" firstAttribute="leading" secondItem="s8T-VX-pD4" secondAttribute="leading" constant="15" id="wzV-FH-HgX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="5rd-Pu-OIc">
+                                        <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5rd-Pu-OIc" id="d4M-Gx-VuL">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -462,7 +498,7 @@
                             <tableViewSection headerTitle="Birthday &amp; Anniversaries" id="ghB-3U-IYw">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="jx5-Ss-U71">
-                                        <rect key="frame" x="0.0" y="171.66666793823242" width="393" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="215.33333587646484" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jx5-Ss-U71" id="hxc-nd-i2g">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -491,7 +527,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="gGL-nO-oKD">
-                                        <rect key="frame" x="0.0" y="215.33333587646484" width="393" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="259.00000381469727" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGL-nO-oKD" id="BWh-Gp-6UT">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
@@ -622,7 +658,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RIB-tT-kzT">
-                                <rect key="frame" x="10" y="99" width="373" height="604"/>
+                                <rect key="frame" x="10" y="119" width="373" height="584"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -671,16 +707,28 @@
                                     <action selector="editButtonPressed:" destination="WzK-nU-r0X" eventType="touchUpInside" id="ROH-ff-FMa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fm-fA-vtQ">
+                                <rect key="frame" x="15.999999999999996" y="16" width="49.666666666666657" height="35"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="dismissModal:" destination="WzK-nU-r0X" eventType="touchUpInside" id="Pj6-qh-QrE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EBt-J5-KkY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RIB-tT-kzT" firstAttribute="leading" secondItem="EBt-J5-KkY" secondAttribute="leading" constant="10" id="3Fu-MU-RL0"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Fm-fA-vtQ" secondAttribute="trailing" constant="20" symbolic="YES" id="9Gd-XZ-wHZ"/>
                             <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="ed1-so-jc7" secondAttribute="bottom" constant="20" id="A1T-M9-Oor"/>
+                            <constraint firstItem="5Fm-fA-vtQ" firstAttribute="leading" secondItem="EBt-J5-KkY" secondAttribute="leading" constant="16" id="AdH-wu-L7S"/>
                             <constraint firstItem="EBt-J5-KkY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fzd-nr-trx" secondAttribute="trailing" symbolic="YES" id="RY4-EQ-ALQ"/>
                             <constraint firstItem="EBt-J5-KkY" firstAttribute="trailing" secondItem="RIB-tT-kzT" secondAttribute="trailing" constant="10" id="X8z-x8-i8D"/>
                             <constraint firstItem="Fzd-nr-trx" firstAttribute="top" secondItem="RIB-tT-kzT" secondAttribute="bottom" constant="60" id="cFz-bv-jl6"/>
-                            <constraint firstItem="RIB-tT-kzT" firstAttribute="top" secondItem="EBt-J5-KkY" secondAttribute="top" constant="40" id="i8H-qN-d49"/>
+                            <constraint firstItem="5Fm-fA-vtQ" firstAttribute="top" secondItem="0R3-dd-j5x" secondAttribute="top" constant="16" id="dYy-DC-5PK"/>
+                            <constraint firstItem="RIB-tT-kzT" firstAttribute="top" secondItem="EBt-J5-KkY" secondAttribute="top" constant="60" id="i8H-qN-d49"/>
                             <constraint firstItem="jDE-6M-Z8q" firstAttribute="centerX" secondItem="0R3-dd-j5x" secondAttribute="centerX" id="k1C-uj-O1C"/>
                             <constraint firstItem="Fzd-nr-trx" firstAttribute="leading" secondItem="jDE-6M-Z8q" secondAttribute="trailing" constant="45" id="oZr-oB-ctt"/>
                             <constraint firstItem="EBt-J5-KkY" firstAttribute="bottom" secondItem="jDE-6M-Z8q" secondAttribute="bottom" constant="20" id="ppC-od-swJ"/>
@@ -692,6 +740,7 @@
                     <navigationItem key="navigationItem" id="V57-MD-n1N"/>
                     <connections>
                         <outlet property="copyButton" destination="Fzd-nr-trx" id="P98-9A-UQR"/>
+                        <outlet property="dismiss" destination="5Fm-fA-vtQ" id="DX1-Ax-NiR"/>
                         <outlet property="editButton" destination="ed1-so-jc7" id="dIp-xd-ASG"/>
                         <outlet property="gptTextViewField" destination="RIB-tT-kzT" id="3Mf-oQ-jyV"/>
                         <outlet property="shareButton" destination="jDE-6M-Z8q" id="fxV-n8-L08"/>
@@ -721,6 +770,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pfn-QZ-0tw">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                 <items>
+                                    <barButtonItem title="Item" image="xmark.circle" catalog="system" id="uXc-HR-qni">
+                                        <connections>
+                                            <action selector="dismiss:" destination="K88-5U-1pI" id="Rae-1n-fDV"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Item" image="questionmark.circle" catalog="system" id="78X-Uo-A6j">
                                         <connections>
                                             <segue destination="Fvh-WA-JWY" kind="presentation" id="wAj-8J-H9Z"/>
@@ -804,36 +858,6 @@
             </objects>
             <point key="canvasLocation" x="948.85496183206101" y="1695.7746478873241"/>
         </scene>
-        <!--Modify App Icon Table View Controller-->
-        <scene sceneID="XOi-OT-6Ko">
-            <objects>
-                <tableViewController id="diY-fY-hw9" customClass="ModifyAppIconTableViewController" customModule="AI_Birthday_calendar___remind" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="100" estimatedRowHeight="100" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="bXC-8k-wnd">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="modifyAppIcon" rowHeight="100" id="OjR-Gj-ctj">
-                                <rect key="frame" x="20" y="55.333332061767578" width="353" height="100"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OjR-Gj-ctj" id="8BE-2E-nbN">
-                                    <rect key="frame" x="0.0" y="0.0" width="353" height="100"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="diY-fY-hw9" id="kLz-7g-qdD"/>
-                            <outlet property="delegate" destination="diY-fY-hw9" id="P7X-NW-FNU"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <outlet property="iconsTable" destination="bXC-8k-wnd" id="VWh-f8-aja"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7KO-et-tT2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1650" y="1696"/>
-        </scene>
         <!--Modify App Icon Collection View Controller-->
         <scene sceneID="h7D-sA-MUZ">
             <objects>
@@ -897,6 +921,12 @@ Apr 17, 2002 00:00:00 - Isabella
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wkU-0k-ME1">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                 <items>
+                                    <barButtonItem image="xmark.circle" catalog="system" id="0cJ-SL-LUF">
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="Fvh-WA-JWY" id="oWw-ME-uXj"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AxB-gF-PZe"/>
                                     <barButtonItem title="Item" image="doc.on.doc" catalog="system" id="50I-aN-JP7">
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
@@ -1074,13 +1104,19 @@ Apr 17, 2002 00:00:00 - Isabella
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcH-nD-xjT">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <items>
+                                    <barButtonItem image="xmark.circle" catalog="system" id="hBg-dn-NDW">
+                                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                                        <connections>
+                                            <action selector="dismissModalScreen:" destination="fbt-j8-CEz" id="IMk-64-hCr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="e0u-kM-ImM"/>
                                     <barButtonItem title="make wish" image="wand.and.rays" catalog="system" id="jOp-YN-xXE">
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
                                         <connections>
                                             <action selector="makeWishTapped:" destination="fbt-j8-CEz" id="xpI-Uv-Br7"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="e0u-kM-ImM"/>
                                     <barButtonItem id="p22-Qd-mpP">
                                         <imageReference key="image" image="pencil.circle" catalog="system" symbolScale="large"/>
                                         <color key="tintColor" systemColor="systemIndigoColor"/>
@@ -1123,13 +1159,13 @@ Apr 17, 2002 00:00:00 - Isabella
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yav-ju-wXD">
-                                <rect key="frame" x="156.66666666666666" y="79" width="80" height="41"/>
+                                <rect key="frame" x="156.66666666666666" y="99" width="80" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Celebrator's Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pwE-XW-g3Z">
-                                <rect key="frame" x="20" y="414.66666666666669" width="200" height="34"/>
+                                <rect key="frame" x="20" y="434.66666666666669" width="200" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="1X8-ls-zRJ"/>
                                 </constraints>
@@ -1137,7 +1173,7 @@ Apr 17, 2002 00:00:00 - Isabella
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bMP-QZ-GEe">
-                                <rect key="frame" x="20" y="468.66666666666669" width="200" height="34"/>
+                                <rect key="frame" x="20" y="488.66666666666669" width="200" height="34.000000000000057"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="hQC-qQ-Wi5"/>
                                 </constraints>
@@ -1160,19 +1196,19 @@ Apr 17, 2002 00:00:00 - Isabella
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wish to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulz-rA-biV">
-                                <rect key="frame" x="20" y="140" width="60" height="21"/>
+                                <rect key="frame" x="20" y="160" width="60" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Style" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lew-1L-PVI">
-                                <rect key="frame" x="20" y="264.33333333333331" width="116" height="21"/>
+                                <rect key="frame" x="20" y="284.33333333333331" width="116" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XMS-nE-rSi">
-                                <rect key="frame" x="20" y="171" width="150" height="34.333333333333343"/>
+                                <rect key="frame" x="20" y="191" width="150" height="34.333333333333343"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="G4k-oU-WDU"/>
                                 </constraints>
@@ -1187,7 +1223,7 @@ Apr 17, 2002 00:00:00 - Isabella
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2TQ-wV-sm9">
-                                <rect key="frame" x="20" y="295.33333333333331" width="150" height="34.333333333333314"/>
+                                <rect key="frame" x="20" y="315.33333333333331" width="150" height="34.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="lxa-6g-Sux"/>
                                 </constraints>
@@ -1203,7 +1239,7 @@ Apr 17, 2002 00:00:00 - Isabella
                                 </buttonConfiguration>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other receiver" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2WW-eG-LeS">
-                                <rect key="frame" x="20" y="210.33333333333334" width="150" height="34"/>
+                                <rect key="frame" x="20" y="230.33333333333334" width="150" height="34.000000000000028"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="TxJ-Tx-VTX"/>
                                 </constraints>
@@ -1211,7 +1247,7 @@ Apr 17, 2002 00:00:00 - Isabella
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Other message style" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rk6-yq-wxu">
-                                <rect key="frame" x="20" y="334.66666666666669" width="161" height="34"/>
+                                <rect key="frame" x="20" y="354.66666666666669" width="161" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="4La-tI-9qw"/>
                                 </constraints>
@@ -1219,11 +1255,20 @@ Apr 17, 2002 00:00:00 - Isabella
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCp-Yq-wyB">
-                                <rect key="frame" x="20" y="388.66666666666669" width="149" height="21"/>
+                                <rect key="frame" x="20" y="408.66666666666669" width="149" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rK8-kr-xgt">
+                                <rect key="frame" x="15.999999999999996" y="16" width="49.666666666666657" height="35"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="dismissButton:" destination="i0s-QZ-367" eventType="touchUpInside" id="ZDe-5u-cjJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VZp-Kn-qBU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1234,11 +1279,14 @@ Apr 17, 2002 00:00:00 - Isabella
                             <constraint firstItem="pwE-XW-g3Z" firstAttribute="leading" secondItem="VZp-Kn-qBU" secondAttribute="leading" constant="20" id="3Br-Z8-CYk"/>
                             <constraint firstItem="pwE-XW-g3Z" firstAttribute="top" secondItem="JCp-Yq-wyB" secondAttribute="bottom" constant="5" id="3c4-JX-fcP"/>
                             <constraint firstItem="VZp-Kn-qBU" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2TQ-wV-sm9" secondAttribute="trailing" symbolic="YES" id="4a4-Wk-crJ"/>
+                            <constraint firstItem="rK8-kr-xgt" firstAttribute="top" secondItem="1Vc-R2-P7g" secondAttribute="top" constant="16" id="4nT-1q-7a4"/>
                             <constraint firstItem="ulz-rA-biV" firstAttribute="leading" secondItem="VZp-Kn-qBU" secondAttribute="leading" constant="20" id="8jI-QY-S9L"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rK8-kr-xgt" secondAttribute="trailing" constant="20" symbolic="YES" id="8oc-s5-lVA"/>
                             <constraint firstItem="VZp-Kn-qBU" firstAttribute="trailing" secondItem="0aj-5V-mb5" secondAttribute="trailing" constant="10" id="AHv-6S-xua"/>
+                            <constraint firstItem="rK8-kr-xgt" firstAttribute="leading" secondItem="VZp-Kn-qBU" secondAttribute="leading" constant="16" id="CQP-ss-rPY"/>
                             <constraint firstItem="JCp-Yq-wyB" firstAttribute="leading" secondItem="VZp-Kn-qBU" secondAttribute="leading" constant="20" id="EPL-GR-cLq"/>
                             <constraint firstItem="Rk6-yq-wxu" firstAttribute="top" secondItem="2TQ-wV-sm9" secondAttribute="bottom" constant="5" id="Eaw-5H-ufd"/>
-                            <constraint firstItem="Yav-ju-wXD" firstAttribute="top" secondItem="VZp-Kn-qBU" secondAttribute="top" constant="20" id="Fnj-wn-fJa"/>
+                            <constraint firstItem="Yav-ju-wXD" firstAttribute="top" secondItem="VZp-Kn-qBU" secondAttribute="top" constant="40" id="Fnj-wn-fJa"/>
                             <constraint firstItem="2WW-eG-LeS" firstAttribute="leading" secondItem="VZp-Kn-qBU" secondAttribute="leading" constant="20" id="FrB-4D-qV4"/>
                             <constraint firstItem="ulz-rA-biV" firstAttribute="top" secondItem="Yav-ju-wXD" secondAttribute="bottom" constant="20" id="Fvp-OU-AgC"/>
                             <constraint firstItem="bMP-QZ-GEe" firstAttribute="top" secondItem="pwE-XW-g3Z" secondAttribute="bottom" constant="20" id="GHu-I0-nW8"/>
@@ -1302,6 +1350,7 @@ Apr 17, 2002 00:00:00 - Isabella
         <image name="star.circle.fill" catalog="system" width="128" height="123"/>
         <image name="wand.and.rays" catalog="system" width="128" height="123"/>
         <image name="wand.and.rays.inverse" catalog="system" width="128" height="123"/>
+        <image name="xmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
