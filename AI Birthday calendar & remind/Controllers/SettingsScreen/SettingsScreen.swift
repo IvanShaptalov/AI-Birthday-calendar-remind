@@ -138,14 +138,18 @@ extension SettingsScreen {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["you@yoursite.com"])
-            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+            mail.setToRecipients(["wellbeing.vantage@icloud.com"])
+            mail.setMessageBody("<p>Birthday Reminder feedback</p>", isHTML: true)
 
             present(mail, animated: true)
         } else {
             UIApplication.shared.open(URL(string: AppConfiguration.contactUsURL)!, options: [:], completionHandler: nil)
 
         }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 
         // MARK: - Privacy policy 👮
@@ -157,11 +161,11 @@ extension SettingsScreen {
     func selectAction(indexPath: IndexPath){
         if indexPath.section == 1{
             switch indexPath.row {
-            case 1 :
+            case 0 :
                 NSLog("restore purchase")
                 self.restorePurchase()
                 return
-            case 2 :
+            case 1 :
                 NSLog("modify App icon")
                 return
             default:

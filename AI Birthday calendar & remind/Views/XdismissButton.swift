@@ -10,19 +10,12 @@ import UIKit
 
 class XdismissButton {
     static func get() -> UIButton {
-        let button = UIButton()
-        
-        button.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
-        
+        let button = UIButton.systemButton(with: UIImage(systemName: "xmark.circle")!, target: nil, action: nil)
+                
         button.tintColor = .systemIndigo
                 
         button.translatesAutoresizingMaskIntoConstraints = false
-        
-        button.titleLabel?.adjustsFontForContentSizeCategory = true
-
-        
-        button.imageView?.adjustsImageSizeForAccessibilityContentSizeCategory = true
-        
+                
         return button
     }
     
@@ -30,14 +23,11 @@ class XdismissButton {
         parentView.addSubview(button)
         
         NSLayoutConstraint.activate([
+            
             // Top constraint
             button.topAnchor.constraint(equalTo: parentView.safeAreaLayoutGuide.topAnchor, constant: 16), // Adjust the constant as needed
             // Leading constraint
             button.trailingAnchor.constraint(equalTo: parentView.safeAreaLayoutGuide.trailingAnchor, constant: -16), // Adjust the constant as needed
-            // Set width
-            button.widthAnchor.constraint(equalToConstant: 44),
-            // Set height
-            button.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
     
