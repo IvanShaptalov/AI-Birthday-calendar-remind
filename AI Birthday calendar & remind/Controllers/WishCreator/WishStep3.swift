@@ -31,6 +31,9 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
         }
     }
     
+    deinit {
+        NSLog("Free WishStep3 🥦")
+    }
     
     
     @IBAction func sharePressed(_ sender: Any) {
@@ -47,6 +50,7 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
                 // present the view controller
                 self.present(activityViewController, animated: true, completion: nil)
     }
+    
     @IBAction func copyPressed(_ sender: Any) {
         let text = gptTextViewField.text
         
@@ -59,12 +63,17 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
-        sleep(UInt32(AppConfiguration.gptRequestSleepTime))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startGPTFieldAnimation()
+    }
+    
+    private func startGPTFieldAnimation() {
         self.gptTextViewField.delegate = self
         self.gptTextViewField.setTextWithTypeAnimation(typedText: self.wishResult ?? "", characterDelay: Double(7), viewController: self)
-        DispatchQueue.main.async {
-            AnalyticsManager.shared.logEvent(eventType: .wishGenerated)
-        }
+        AnalyticsManager.shared.logEvent(eventType: .wishGenerated)
     }
  
     @IBAction func dismissModal(_ sender: Any) {
@@ -97,7 +106,7 @@ extension UITextView {
                 
             }
             DispatchQueue.main.async {
-                self.isEditable = true
+                weakSelf?.isEditable = true
                 viewController.isModalInPresentation = false
 
             }
