@@ -32,13 +32,16 @@ class NotificationSettingsScreen: UITableViewController {
         
     }
  
+    deinit {
+        NSLog("notification deinited🥦 🥦")
+    }
 
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
     
-    // MARK: - Set Up ⚙️
+    // MARK: -  Set Up ⚙️
     private func setUpNotificationSwithAndDate(){
         self.notificationTime.setDate(AppConfiguration.notificationTime, animated: false)
         self.notificationOnBirthdayAndAnniversary.setOn(AppConfiguration.isNotificateSameDay, animated: false)

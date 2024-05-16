@@ -45,6 +45,9 @@ class ShareScreen: UIViewController {
         view.endEditing(true)
     }
     
+    deinit {
+        NSLog("Share Screen deinited 🥦")
+    }
     
     // MARK: - Text editing
     @IBAction func editingChangedTextField(_ sender: UITextField) {
@@ -58,7 +61,6 @@ class ShareScreen: UIViewController {
     }
     
     @IBAction func dismissModal(_ sender: Any) {
-        
             self.dismiss(animated: true)
     
     }
@@ -69,7 +71,7 @@ class ShareScreen: UIViewController {
     
     // MARK: - setUp Button Menus 🤖
     private func setupDateFormatMenu(){
-        DateFormatterPulldownButton.setup(button: &self.dropdownButtonFormat, menuClosure: {action in
+        DateFormatterPulldownButton.setup(button: &self.dropdownButtonFormat, menuClosure: { [unowned self] action in
             
             DispatchQueue.main.async {
                 self.selectedFormat = action.title
@@ -82,7 +84,7 @@ class ShareScreen: UIViewController {
     }
     
     func setUpExportMenu(){
-        let optionsClosure = {(action: UIAction) in
+        let optionsClosure = { [ unowned self ] (action: UIAction) in
             guard let actEnum = ExportTo(rawValue: action.title) else {
                 return
             }
@@ -160,9 +162,11 @@ class ShareScreen: UIViewController {
         
         alert.addAction(.init(title: "OK", style: .default))
         
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             self.present(alert, animated: true)
         }
+
     }
     
     private func toText(){
@@ -212,7 +216,7 @@ class ShareScreen: UIViewController {
             
             // MARK: - export to reminders 🚛⏰
             if PermissionProvider.checkCalendarAccess(forType: .reminder) {
-                ReminderEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(statusCallback: {status, isOk in
+                ReminderEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(statusCallback: { [unowned self] status, isOk in
                     let title = isOk ? "Export succesfull" : "Export has some issues"
                     let alertC = UIAlertController(title: title, message: status, preferredStyle: .alert)
                     
@@ -230,7 +234,7 @@ class ShareScreen: UIViewController {
     
     private func toCalendar(){
         if MonetizationConfiguration.isPremiumAccount {
-            PermissionProvider.registerForEvents(completion: {denied, status in
+            PermissionProvider.registerForEvents(completion: { [unowned self] denied, status in
                 if denied {
                     NSLog("📅🪓 event status: \(status)")
                     
@@ -246,7 +250,7 @@ class ShareScreen: UIViewController {
             
             if PermissionProvider.checkCalendarAccess(forType: .event) {
                 // MARK: - export to calendar 🚛📅
-                CalendarEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(statusCallback: {status, isOk in
+                CalendarEventExporter(formattedText: self.formattedEventsView.text, events: self.events).export(statusCallback: { [unowned self] status, isOk in
                     let title = isOk ? "Export succesfull" : "Export has some issues"
                     let alertC = UIAlertController(title: title, message: status, preferredStyle: .alert)
                     
