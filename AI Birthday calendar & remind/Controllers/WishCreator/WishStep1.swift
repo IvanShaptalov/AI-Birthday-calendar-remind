@@ -4,7 +4,6 @@
 //
 //  Created by PowerMac on 07.03.2024.
 //
-
 import UIKit
 
 class WishCreatorTableViewController: UITableViewController {
@@ -37,13 +36,9 @@ class WishCreatorTableViewController: UITableViewController {
         conf.image = UIImage(systemName: WishType.allValues()[indexPath.row].getImageSystemName())?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
         
         conf.text = WishType.allValuesRaw()[indexPath.row]
-        
-        
-        
+                
         cell.contentConfiguration = conf
         
-        
-
         return cell
     }
     

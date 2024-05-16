@@ -42,12 +42,15 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     @IBOutlet weak var tableViewAddEvents: UITableView!
 
     
+    deinit {
+        NSLog("add events screen deinited 🥦")
+    }
+    
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableViewAddEvents.register(.init(nibName: "AddEventCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierAddEventCell)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        addKeyBoardTap()
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow),
@@ -56,8 +59,13 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
         )
     }
     
-    // MARK: - Keyboard handling 🎹
     
+    
+    // MARK: - Keyboard handling 🎹
+    private func addKeyBoardTap(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
     
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
@@ -92,7 +100,7 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
             var evCopy = self.events
             evCopy.removeAll(where: {$0.title == ""})
             self.bulkDelegate?(evCopy)
-            evCopy.forEach({ev in
+            evCopy.forEach({ [weak self] ev in
                 switch ev.eventType {
                     
                 case .birthday:
@@ -122,8 +130,8 @@ extension AddEventScreen: UITableViewDataSource, UITableViewDelegate{
         cell.setUpCell()
         NSLog("\(indexPath)")
         // update event via delegate in cell
-        cell.eventDelegate = {eve in
-            self.events[indexPath.row] = eve
+        cell.eventDelegate = { [weak weakSelf = self] eve in
+            weakSelf?.events[indexPath.row] = eve
         }
         
         return cell

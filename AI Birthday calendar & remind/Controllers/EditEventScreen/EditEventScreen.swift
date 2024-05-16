@@ -23,7 +23,9 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
     @IBOutlet weak var tableViewAddEvents: UITableView!
 
     
-    
+    deinit {
+        NSLog("🥦 Edit Event deinited")
+    }
     
     // MARK: - Make wish 🪄
     @IBAction func makeWishTapped(_ sender: UIBarButtonItem) {
@@ -122,8 +124,8 @@ extension EditEventScreen: UITableViewDataSource, UITableViewDelegate{
         cell.setUpDateFormat()
         NSLog("\(indexPath)")
         // update event via delegate in cell
-        cell.eventDelegate = {eve in
-            self.events[indexPath.row] = eve
+        cell.eventDelegate = { [weak self] eve in
+            self?.events[indexPath.row] = eve
         }
         
         return cell

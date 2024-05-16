@@ -35,7 +35,7 @@ class PaywallController: UIViewController{
         // MARK: - Fetch subs if empty
         if self.subs.isEmpty {
             NSLog("subs is empty, start load")
-            RevenueCatProductsProvider.getOffering(subCallback: {subs in
+            RevenueCatProductsProvider.getOffering(subCallback: { [unowned self] subs in
                 self.subs = subs
                 self.subscriptionTableView.reloadData()
             }, catchError: {error in
@@ -68,7 +68,7 @@ class PaywallController: UIViewController{
         } else {
             AnalyticsManager.shared.logEvent(eventType: .subContinueWithPlan, parameters: ["plan": selectedSub?.title ?? "nil"])
 
-            RevenueCatProductsProvider.makePurchase(package: selectedSub!.package) { status in
+            RevenueCatProductsProvider.makePurchase(package: selectedSub!.package) { [unowned self] status in
                 NSLog("PaywallControllerViewController > buySubscriptionPressed > RevenueCatProductsProvider.makePurchase : \(status.rawValue)")
                 if status == .Processing {
                     self.purchaseButton.configuration?.showsActivityIndicator = true
