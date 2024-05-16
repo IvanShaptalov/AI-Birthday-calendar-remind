@@ -67,14 +67,14 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     
     // MARK: - Set Up ⚙️
     private func setUpMessageStyle(){
-        MessageStylePopupButton.setWhoWish(button: &self.messageStyle, menuClosure: {action in
+        MessageStylePopupButton.setWhoWish(button: &self.messageStyle, menuClosure: { [unowned self] action in
             self.messageStyleEnum = MessageStyle(rawValue: action.title) ?? self.messageStyleEnum
         })
     }
     
     private func setUpWhoCelebrating(){
-        WhoWishPopupButton.setWhoWish(button: &whoWish, values: WhoWish.allValuesCorrespondingTo(wish: self.wish!), menuClosure: {action in
-            self.whoWishEnum = WhoWish(rawValue: action.title) ?? self.whoWishEnum
+        WhoWishPopupButton.setWhoWish(button: &whoWish, values: WhoWish.allValuesCorrespondingTo(wish: self.wish!), menuClosure: { [unowned self] action in
+            self.whoWishEnum = WhoWish(rawValue: action.title) ?? WhoWish.friend
             
         })
         
