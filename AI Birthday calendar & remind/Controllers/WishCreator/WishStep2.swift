@@ -39,6 +39,10 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
     @IBOutlet weak var nameField: UITextField!
     
     var buttonDisabled = false
+    
+    deinit {
+         NSLog("Free WishStep 2 🥦")
+    }
 
     @IBAction func dismissButton(_ sender: Any) {
         self.dismiss(animated: true)
@@ -117,7 +121,7 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
         sender.configuration?.showsActivityIndicator = true
         buttonDisabled = true
         
-        wishMaker.sendRequest(callback: {
+        wishMaker.sendRequest(callback: { [weak self]
             responseText in
             
             DispatchQueue.main.async {
@@ -128,8 +132,8 @@ class WishCreatorStep2: UIViewController, WishTransferProtocol{
                         var finish = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreateFinish") as! WishResultTransferProtocol
                         
                         finish.wishResult = responseText
-                        self.buttonDisabled = false
-                        self.present(finish as! UIViewController, animated: true)
+                        self?.buttonDisabled = false
+                        self?.present(finish as! UIViewController, animated: true)
             }
             
         }, error: {
