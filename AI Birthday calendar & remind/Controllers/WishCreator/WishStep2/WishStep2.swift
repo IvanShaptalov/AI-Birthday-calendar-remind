@@ -38,7 +38,7 @@ class WishCreatorStep2: UIViewController {
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let viewModel else {
+        guard viewModel != nil else {
             fatalError("view model not initialized")
         }
         self.setupTitleText()

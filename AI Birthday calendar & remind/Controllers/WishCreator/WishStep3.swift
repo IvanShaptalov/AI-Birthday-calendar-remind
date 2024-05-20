@@ -23,43 +23,6 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var copyButton: UIButton!
     
-    // MARK: - Functions 🤖
-    @IBAction func editButtonPressed(_ sender: Any) {
-        if !self.gptTextViewField.isFocused  {
-            self.gptTextViewField.becomeFirstResponder()
-            self.gptTextViewField.setNeedsFocusUpdate()
-        }
-    }
-    
-    deinit {
-        NSLog("Free WishStep3 🥦")
-    }
-    
-    
-    @IBAction func sharePressed(_ sender: Any) {
-        let text = gptTextViewField.text
-                
-                // set up activity view controller
-                let textToShare = [ text! ]
-                let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-                
-                // exclude some activity types from the list (optional)
-                activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
-                
-                // present the view controller
-                self.present(activityViewController, animated: true, completion: nil)
-    }
-    
-    @IBAction func copyPressed(_ sender: Any) {
-        let text = gptTextViewField.text
-        
-        UIPasteboard.general.string = text
-        
-        RateProvider.rateAppImplicit(view: self.view)
-
-    }
-    
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,18 +33,60 @@ class WishCreateFinishViewController: UIViewController, WishResultTransferProtoc
         startGPTFieldAnimation()
     }
     
-    private func startGPTFieldAnimation() {
-        self.gptTextViewField.delegate = self
-        self.gptTextViewField.setTextWithTypeAnimation(typedText: self.wishResult ?? "", characterDelay: Double(7), viewController: self)
-        AnalyticsManager.shared.logEvent(eventType: .wishGenerated)
-    }
- 
     @IBAction func dismissModal(_ sender: Any) {
         if self.isModalInPresentation == false {
             self.dismiss(animated: true)
         }
     }
     
+    deinit {
+        NSLog("Free WishStep3 🥦")
+    }
+}
+
+// MARK: - Edit, Share, Copy
+extension WishCreateFinishViewController {
+    @IBAction func editButtonPressed(_ sender: Any) {
+        if !self.gptTextViewField.isFocused  {
+            self.gptTextViewField.becomeFirstResponder()
+            self.gptTextViewField.setNeedsFocusUpdate()
+        }
+    }
+    
+    @IBAction func sharePressed(_ sender: Any) {
+        let text = gptTextViewField.text
+        
+        // set up activity view controller
+        let textToShare = [ text! ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @IBAction func copyPressed(_ sender: Any) {
+        let text = gptTextViewField.text
+        
+        UIPasteboard.general.string = text
+        
+        RateProvider.rateAppImplicit(view: self.view)
+        
+    }
+}
+
+// MARK: - Functions
+extension WishCreateFinishViewController {
+    private func startGPTFieldAnimation() {
+        self.gptTextViewField.delegate = self
+        self.gptTextViewField.setTextWithTypeAnimation(typedText: self.wishResult ?? "", characterDelay: Double(7), viewController: self)
+        AnalyticsManager.shared.logEvent(eventType: .wishGenerated)
+    }
+    
+    // dismiss keyboard pressing 'done'
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n") {
             textView.resignFirstResponder()
@@ -94,7 +99,7 @@ extension UITextView {
     func setTextWithTypeAnimation(typedText: String, characterDelay: TimeInterval = 5.0, viewController: UIViewController) {
         self.isEditable = false
         viewController.isModalInPresentation = true
-
+        
         text = ""
         var writingTask: DispatchWorkItem?
         writingTask = DispatchWorkItem { [weak weakSelf = self] in
@@ -108,7 +113,7 @@ extension UITextView {
             DispatchQueue.main.async {
                 weakSelf?.isEditable = true
                 viewController.isModalInPresentation = false
-
+                
             }
         }
         
