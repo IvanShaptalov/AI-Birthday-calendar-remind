@@ -140,6 +140,7 @@
 		8DDCB8042BAF76530091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
 		8DDCB8052BAF78B80091C6BA /* EventSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */; };
 		8DEC77832BBE880F006190B2 /* HelpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEC77822BBE880F006190B2 /* HelpPage.swift */; };
+		8DF5C2602BFB3BB10032D2E4 /* WishStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF5C25F2BFB3BB10032D2E4 /* WishStep2ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +275,7 @@
 		8DC12C542BD1651D00FEAF76 /* DropdownButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButtons.swift; sourceTree = "<group>"; };
 		8DDCB8032BAF76530091C6BA /* EventSeasonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSeasonController.swift; sourceTree = "<group>"; };
 		8DEC77822BBE880F006190B2 /* HelpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPage.swift; sourceTree = "<group>"; };
+		8DF5C25F2BFB3BB10032D2E4 /* WishStep2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStep2ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -666,8 +668,8 @@
 		8D79D36D2B99BD690074F238 /* WishCreator */ = {
 			isa = PBXGroup;
 			children = (
+				8DF5C25E2BFB3B9F0032D2E4 /* WishStep2 */,
 				8D79D36E2B99BD7E0074F238 /* WishStep1.swift */,
-				8D2394DA2B99C50500D26C50 /* WishStep2.swift */,
 				8D3065EA2B9A3FC100852391 /* WishStep3.swift */,
 			);
 			path = WishCreator;
@@ -705,6 +707,15 @@
 				8D9397D52B88BF2C00040031 /* EditEventScreen.swift */,
 			);
 			path = EditEventScreen;
+			sourceTree = "<group>";
+		};
+		8DF5C25E2BFB3B9F0032D2E4 /* WishStep2 */ = {
+			isa = PBXGroup;
+			children = (
+				8D2394DA2B99C50500D26C50 /* WishStep2.swift */,
+				8DF5C25F2BFB3BB10032D2E4 /* WishStep2ViewModel.swift */,
+			);
+			path = WishStep2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -929,6 +940,7 @@
 				8D1DC3D02BECE5C600E8E871 /* ModifyAppIconCollectionViewController.swift in Sources */,
 				8D85CD612BD27E49001C0C05 /* EventExporter.swift in Sources */,
 				8DEC77832BBE880F006190B2 /* HelpPage.swift in Sources */,
+				8DF5C2602BFB3BB10032D2E4 /* WishStep2ViewModel.swift in Sources */,
 				8D28D7DD2B8768A2006D14FA /* AddEventCell.swift in Sources */,
 				8D12422B2B7D267B00ED016E /* SceneDelegate.swift in Sources */,
 				8D09EC8F2B8C604E00A10437 /* RateAppProvider.swift in Sources */,

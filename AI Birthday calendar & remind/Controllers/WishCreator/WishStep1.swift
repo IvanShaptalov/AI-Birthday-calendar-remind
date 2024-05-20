@@ -7,47 +7,61 @@
 import UIKit
 
 class WishCreatorTableViewController: UITableViewController {
-
+    
     // MARK: - viewDidLoad ⚙️
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-
+    
     // MARK: - Table view data source ⚙️
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     // MARK: - Rows in section ⚙️
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return WishType.allValuesRaw().count
-
+        
     }
-    
+}
+
+// MARK: - EXT Table Methods
+extension WishCreatorTableViewController {
     // MARK: - CONFIGURE CELL ⚙️
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "wishCell", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "wishCell", for: indexPath)
         
-        var conf = cell.defaultContentConfiguration()
-        
-        conf.image = UIImage(systemName: WishType.allValues()[indexPath.row].getImageSystemName())?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
-        
-        conf.text = WishType.allValuesRaw()[indexPath.row]
-                
-        cell.contentConfiguration = conf
+        setupCell(cell: &cell, index: indexPath.row)
         
         return cell
     }
     
+    private func setupCell(cell: inout UITableViewCell, index: Int) {
+        var conf = cell.defaultContentConfiguration()
+        
+        conf.image = UIImage(systemName: WishType.allValues()[index].getImageSystemName())?.withTintColor(.systemIndigo, renderingMode: .alwaysOriginal)
+        
+        conf.text = WishType.allValuesRaw()[index]
+        
+        cell.contentConfiguration = conf
+    }
+    
     // MARK: - Selection row ⚙️
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var step2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "WishCreatorStep2") as! WishTransferProtocol
+        self.selectCell(index: indexPath.row)
         
-        step2.wish = WishType.allValues()[indexPath.row]
-        self.present(step2 as! UIViewController, animated: true)
+    }
+    
+    private func selectCell(index: Int) {
+        let step2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "WishCreatorStep2") as! WishCreatorStep2
         
+        let viewModel = WishStep2ViewModel(wish: WishType.allValues()[index])
+        
+        step2.viewModel = viewModel
+        
+        self.present(step2, animated: true)
     }
 }

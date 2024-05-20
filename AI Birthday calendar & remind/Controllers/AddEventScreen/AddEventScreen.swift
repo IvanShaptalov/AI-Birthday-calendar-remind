@@ -100,7 +100,7 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
             var evCopy = self.events
             evCopy.removeAll(where: {$0.title == ""})
             self.bulkDelegate?(evCopy)
-            evCopy.forEach({ [weak self] ev in
+            evCopy.forEach({ /*[weak self]*/ ev in
                 switch ev.eventType {
                     
                 case .birthday:

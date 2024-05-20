@@ -21,7 +21,7 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
     // MARK: - Fields 🌾
     var events: [MainEvent] = []
     @IBOutlet weak var tableViewAddEvents: UITableView!
-
+    
     
     deinit {
         NSLog("🥦 Edit Event deinited")
@@ -38,7 +38,7 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
         guard let event = events.first else {
             return
         }
-    
+        
         switch event.eventType {
             
         case .birthday:
@@ -52,13 +52,13 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
         
         let generatorStep2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WishCreatorStep2") as! WishCreatorStep2
         
-        generatorStep2.wish = wishType
-        generatorStep2.celebratorTitle = event.title
-        
         let yearTurns = DateEventFormatter(date: event.eventDate).yearsTurns()
-       
-        generatorStep2.yearTurns = "\(yearTurns) years old"
-       
+        
+        let viewModel = WishStep2ViewModel(wish: wishType,
+                                           celebratorTitle: event.title,
+                                           yearTurns: "\(yearTurns) years old")
+        
+        generatorStep2.viewModel = viewModel
         
         self.present(generatorStep2, animated: true)
     }
