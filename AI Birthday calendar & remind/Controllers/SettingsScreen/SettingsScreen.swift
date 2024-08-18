@@ -93,25 +93,7 @@ extension SettingsScreen {
             
             self.present(addEvScreen, animated: true)
         }
-        
-        
-        
     }
-    
-    // MARK: - Export As Text 🛳️📜
-    private func exportAsText(){
-        
-    }
-    
-    // MARK: - Export to Calendar
-    private func exportToCalendar(){
-        
-    }
-    
-    private func exportToReminders(){
-        
-    }
-    
     
     // MARK: - Export to Reminders
     

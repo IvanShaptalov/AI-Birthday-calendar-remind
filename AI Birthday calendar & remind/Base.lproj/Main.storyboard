@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lpV-Qq-8zT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lpV-Qq-8zT">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -783,6 +783,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bQl-21-7lu"/>
+                                    <barButtonItem title="Item" image="doc.circle" catalog="system" hidden="YES" id="atT-e6-Lzb">
+                                        <connections>
+                                            <action selector="ImportFromFileClicked:" destination="K88-5U-1pI" id="3Jq-Pl-kFd"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Preview" id="fTt-P7-Nsd">
                                         <connections>
                                             <action selector="previewPressed:" destination="K88-5U-1pI" id="2ng-Vg-FMd"/>
@@ -1337,6 +1342,7 @@ Apr 17, 2002 00:00:00 - Isabella
         <image name="calendar.circle.fill" catalog="system" width="128" height="123"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="crown.fill" catalog="system" width="128" height="92"/>
+        <image name="doc.circle" catalog="system" width="128" height="123"/>
         <image name="doc.on.doc" catalog="system" width="116" height="128"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="gift" catalog="system" width="128" height="125"/>

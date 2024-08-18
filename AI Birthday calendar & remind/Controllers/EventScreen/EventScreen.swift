@@ -82,6 +82,9 @@ class BirthdaysScreen: UIViewController{
             mainEvents += TutorialProvider.getCards()
         }
         
+        
+
+        
         self.setUpPremiumBadge()
 
         mainEvents.sort{DateEventFormatter.yearToCurrentInEvent($0)  < DateEventFormatter.yearToCurrentInEvent($1)}
@@ -117,6 +120,9 @@ class BirthdaysScreen: UIViewController{
         self.setUpPremiumBadge()
         NSLog("updated from viewDidAppear \(mainEvents.count)")
         //        self.proposePremiumAtStart()
+        if !MonetizationConfiguration.isPremiumAccount {
+            SubscriptionProposer.forceProVersionPaywall(viewController: self)
+        }
     }
     
     // MARK: - Premium badge
@@ -140,6 +146,7 @@ class BirthdaysScreen: UIViewController{
             addEvScreen.bulkDelegate = { [unowned self] eventList in
                 self.mainEvents.append(contentsOf: eventList)
                 self.tableEvents.reloadData()
+                RateProvider.rateAppImplicit(view: self.view)
             }
             
             

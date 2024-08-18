@@ -57,17 +57,12 @@ class RateProvider {
     
     /// rate app if version not same, or app not rated earlier
     static func rateAppImplicit(view: UIView) {
-        NSLog("try rate 🤞")
-        if isNeedToRate() {
-            NSLog("rate ⭐️")
+        NSLog("rate ⭐️")
             if let windowScene = view.window?.windowScene {
                 SKStoreReviewController.requestReview(in: windowScene)
                 saveRating(version: self.appVersion, isRatedBefore: true)
                 AnalyticsManager.shared.logEvent(eventType: .rateAppImplicitA)
             }
-        } else {
-            NSLog("no need rate 🚫")
-        }
     }
     
     static private var appVersion: String? {

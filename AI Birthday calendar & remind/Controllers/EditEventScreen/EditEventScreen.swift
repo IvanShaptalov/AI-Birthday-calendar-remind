@@ -30,9 +30,6 @@ class EditEventScreen: UIViewController, MainEventBulkCreatingProtocol, MainEven
     // MARK: - Make wish 🪄
     @IBAction func makeWishTapped(_ sender: UIBarButtonItem) {
         
-        
-        
-        
         var wishType = WishType.bday
         
         guard let event = events.first else {
@@ -114,20 +111,26 @@ extension EditEventScreen: UITableViewDataSource, UITableViewDelegate{
     
     // MARK: - Configure cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierAddEventCell, for: indexPath) as! AddEventCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierAddEventCell,
+                                                 for: indexPath) as! AddEventCell
         // reset reused cell
         let mEvent = events[indexPath.row]
-        cell.mainEvent = mEvent
-        cell.titleTextField.text = mEvent.title
-        cell.eventDate.date = mEvent.eventDate
-        cell.setEventType(eventType: mEvent.eventType)
-        cell.setUpDateFormat()
-        NSLog("\(indexPath)")
-        // update event via delegate in cell
-        cell.eventDelegate = { [weak self] eve in
-            self?.events[indexPath.row] = eve
-        }
+        
+        self.configureCell(&cell, event: mEvent, index: indexPath.row)
         
         return cell
+    }
+    
+    private func configureCell(_ cell: inout AddEventCell, event: MainEvent, index: Int) {
+        cell.mainEvent = event
+        cell.titleTextField.text = event.title
+        cell.eventDate.date = event.eventDate
+        cell.setEventType(eventType: event.eventType)
+        cell.setUpDateFormat()
+        NSLog("\(index)")
+        // update event via delegate in cell
+        cell.eventDelegate = { [weak self] eve in
+            self?.events[index] = eve
+        }
     }
 }

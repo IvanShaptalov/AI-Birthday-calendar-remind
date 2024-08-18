@@ -4,8 +4,8 @@
 //
 //  Created by PowerMac on 29.03.2024.
 //
-
 import Foundation
+import UIKit
 
 enum Status: String {
     case 
@@ -167,3 +167,16 @@ class BaseDateRetriever {
     }
 }
 
+//
+//class FromFileImporter {
+//    static func openFileDialog() -> String? {
+//        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.])
+//            documentPicker.delegate = self
+//            documentPicker.allowsMultipleSelection = false
+//            present(documentPicker, animated: true, completion: nil)
+//    }
+//    
+//    static func parseFile(path: String) -> String? {
+//        
+//    }
+//}

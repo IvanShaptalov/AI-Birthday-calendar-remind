@@ -21,10 +21,6 @@ class AppIconChanger {
         }
     }
     static func changeIcon(name: String, completion:  @escaping (Error?) -> Void) {
-        guard MonetizationConfiguration.isPremiumAccount else {
-            resetIcon()
-            return
-        }
         
         UIApplication.shared.setAlternateIconName(name) { error in
             NSLog("📱 🏋️‍♀️ \(error?.localizedDescription ?? "nil error")")

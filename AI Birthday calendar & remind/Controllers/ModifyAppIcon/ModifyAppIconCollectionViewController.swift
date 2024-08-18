@@ -68,12 +68,10 @@ class ModifyAppIconCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if !MonetizationConfiguration.isPremiumAccount {
-            AnalyticsManager.shared.logEvent(eventType: .tryIconChange)
-            SubscriptionProposer.forceProVersionPaywall(viewController: self)
-        } else {
+       
             AppIconChanger.changeIcon(name: AppConfiguration.appIconsNames[indexPath.row])
             { error  in
+                print(error?.localizedDescription)
                 if error != nil {
                     let alert = UIAlertController(title: "Icon Modifying", message: error!.localizedDescription, preferredStyle: .alert)
                     
@@ -82,5 +80,5 @@ class ModifyAppIconCollectionViewController: UICollectionViewController {
                 }
             }
         }
-    }
+    
 }

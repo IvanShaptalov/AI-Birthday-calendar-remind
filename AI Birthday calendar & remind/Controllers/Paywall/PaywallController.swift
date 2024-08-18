@@ -114,7 +114,6 @@ extension PaywallController: UITableViewDelegate, UITableViewDataSource {
         print(cell.title)
         self.selectedSub = cell
     }
-    
-    
+
 }
 

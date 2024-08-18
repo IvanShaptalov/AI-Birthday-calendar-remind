@@ -40,7 +40,7 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     }
     
     @IBOutlet weak var tableViewAddEvents: UITableView!
-
+    
     
     deinit {
         NSLog("add events screen deinited 🥦")
@@ -78,7 +78,7 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
             self.tableViewAddEvents.verticalScrollIndicatorInsets.bottom = 0
         }
     }
-
+    
     
     @objc private func dismissKeyboard(){
         view.endEditing(true)
@@ -97,22 +97,23 @@ class AddEventScreen: UIViewController, MainEventBulkCreatingProtocol {
     }
     // ➕ add button
     @IBAction func bulkAdd(_ sender: UIBarButtonItem) {
-            var evCopy = self.events
-            evCopy.removeAll(where: {$0.title == ""})
-            self.bulkDelegate?(evCopy)
-            evCopy.forEach({ /*[weak self]*/ ev in
-                switch ev.eventType {
-                    
-                case .birthday:
-                    AnalyticsManager.shared.logEvent(eventType: .birthdayCreated)
-                case .anniversary:
-                    AnalyticsManager.shared.logEvent(eventType: .anniversaryCreated)
-                case .simpleEvent:
-                    AnalyticsManager.shared.logEvent(eventType: .eventCreated)
-                }
+        var evCopy = self.events
+        evCopy.removeAll(where: {$0.title == ""})
+        self.bulkDelegate?(evCopy)
+        evCopy.forEach({ ev in
+            switch ev.eventType {
+                
+            case .birthday:
+                AnalyticsManager.shared.logEvent(eventType: .birthdayCreated)
+            case .anniversary:
+                AnalyticsManager.shared.logEvent(eventType: .anniversaryCreated)
+            case .simpleEvent:
+                AnalyticsManager.shared.logEvent(eventType: .eventCreated)
             }
-            )
-            self.dismiss(animated: true)
+        }
+        )
+        self.dismiss(animated: true)
+        
     }
 }
 

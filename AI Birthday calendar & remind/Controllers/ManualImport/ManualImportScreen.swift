@@ -7,11 +7,15 @@
 
 import UIKit
 
-class ManualImportScreen: UIViewController, UITextViewDelegate {
+class ManualImportScreen: UIViewController, UITextViewDelegate, UIDocumentPickerDelegate {
     
     // MARK: - Fields 🌾
     
     @IBOutlet weak var readyToImportLabel: UILabel!
+    
+    @IBAction func ImportFromFileClicked(_ sender: Any) {
+        NSLog("from file logic here")
+    }
     
     @IBOutlet weak var warningImportLabel: UILabel!
     
